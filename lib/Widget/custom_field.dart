@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 class CustomField extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
+  final String iconData;
+
 
   CustomField({
     this.text,
     this.onTap,
+    this.iconData
   });
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class CustomField extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Image.asset(
-              'assets/appIcons/icon_search.png',
+              iconData,
               height: 16,
               width: 22,
               color: Colors.black,

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
+import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
@@ -141,6 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                     buttonTextStyle: TextStyles.buttonFontText,
                     widthPercent: 0.8,
                   ),
+                 
                   Center(child: Text("OR"),),
                    Button(
                     buttonText: 'Signup',
@@ -159,6 +161,20 @@ class _LoginPageState extends State<LoginPage> {
                       //               MaterialPageRoute(
                       //                   builder: (c) => LoginPage()));
                       //     });
+                    },
+                    buttonTextStyle: TextStyles.buttonFontText,
+                    widthPercent: 0.8,
+                  ),
+                  Button(
+                    buttonText: 'Saller Homepage',
+                    buttonColor: AppColors.primarycolor,
+                    onTap: () {
+
+                      Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (c) =>  SallerHomePage()));
+                  
                     },
                     buttonTextStyle: TextStyles.buttonFontText,
                     widthPercent: 0.8,

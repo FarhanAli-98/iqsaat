@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
+import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 
@@ -482,51 +483,60 @@ class DrawerFull extends PreferredSize {
                                 ),
                                
                               CustomField(
+                                iconData: AppIcons.world,
                                   text: 'Profile',
                                   onTap: () {                              
                                   },
                                 ),
                                 CustomField(
+                                  iconData: AppIcons.world,
                                   text: 'Settings',
                                   onTap: () {                              
                                   },
                                 ),
                                 CustomField(
+                                  iconData: AppIcons.world,
                                   text: 'Search',
                                   onTap: () {                              
                                   },
                                 ),
                                 CustomField(
+                                  iconData: AppIcons.world,
                                   text: 'My reviews',
                                   //Image.asset('assets/appIcons/icon_reviews.png'),
                                   onTap: () {                              
                                   },
                                 ),
                                 CustomField(
+                                  iconData: AppIcons.world,
                                   text: 'Language',
                                   onTap: () {  
                                     //Image.asset( 'assets/appIcons/world.png'),                            
                                   },
                                 ),
                                 CustomField(
+                                  iconData: AppIcons.world,
                                   text: 'Consumer Term of Use',
                                   onTap: () {    
                                     //Image.asset('assets/appIcons/icon_Terms of Use.png'),                          
                                   },
                                 ),
                                 CustomField(
+                                  iconData: AppIcons.world,
                                   text: 'Help',
                                   onTap: () {    
                                     //Image.asset('assets/appIcons/icon_help services.png'),                          
                                   },
                                 ),
                                 CustomField(
+                                  iconData: AppIcons.world,
                                   text: 'Search',
                                   onTap: () {                              
                                   },
                                 ),
                                 Spacer(),
                                 CustomField(
+                                  iconData: AppIcons.world,
                                   text: 'Logout User',
                                   onTap: () {    
                                     //Image.asset('assets/appIcons/icon_logout.png'),                          
