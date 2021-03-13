@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/ui/splashScreen.dart';
-String role="1";
 void main() {
   runApp(MyApp());
 }

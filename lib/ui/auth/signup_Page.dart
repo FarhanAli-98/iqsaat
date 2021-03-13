@@ -1,8 +1,6 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -11,9 +9,6 @@ import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
-import 'package:provider/provider.dart';
-import 'package:http/http.dart' as http;
-import 'package:async/async.dart';
 
 class SignUpPage extends StatefulWidget {
   @override

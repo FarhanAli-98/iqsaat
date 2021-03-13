@@ -7,8 +7,7 @@ import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
-import 'package:provider/provider.dart';
-import 'package:http/http.dart' as http;
+
 
 class LoginPage extends StatefulWidget {
   @override

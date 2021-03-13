@@ -1,9 +1,10 @@
-import 'package:bezier_chart/bezier_chart.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iqsaat/Widget/drawer.dart';
-import 'package:iqsaat/utils/app_colors.dart';
+
+
+import '../dashboard.dart';
 
 class SallerHomePage extends StatefulWidget {
   @override
@@ -13,17 +14,14 @@ class SallerHomePage extends StatefulWidget {
 double width, height;
 
 class _SallerHomePageState extends State<SallerHomePage> {
-  Set<Marker> _markers = {};
-  String _mapStyle;
+ 
   bool isChatSelected = false;
   bool isChat = false;
   bool isNotification = false;
   bool isNotificationCancelClicked = false;
   bool isDashBoard = false;
   bool isRadioScreen = false;
-  int _radioValue1 = -1;
   String selectedUid;
-  GoogleMapController _controller;
   PageController pageController;
   int page = 0;
 
@@ -117,14 +115,8 @@ class _SallerHomePageState extends State<SallerHomePage> {
           ],
         ),
       ),
-      body: PageView(
-        children: <Widget>[
-          Container(
-            child: Text("Saller Home Side")  ),
-        ],
-       
-      ),
-     
+      body:  Dashboard()
     );
   }
+  
 }

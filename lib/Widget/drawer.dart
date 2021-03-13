@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
+import 'package:iqsaat/ui/saller/home/profile/profile_screen.dart';
+import 'package:iqsaat/ui/user/home/home_screen.dart';
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
@@ -72,11 +74,11 @@ class _AppDrawerState extends State<AppDrawer> {
                         ),
                         InkWell(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (BuildContext context) =>
-                            //             CompanyProfile()));
+                           Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        HomeScreen()));
                           },
                           child: Container(
                             margin: EdgeInsets.only(left: 32, bottom: 30),
@@ -105,11 +107,12 @@ class _AppDrawerState extends State<AppDrawer> {
                         ),
                         InkWell(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (BuildContext context) =>
-                            //             SignUpPage()));
+                             Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        ProfileScreen()));
+                            
                           },
                           child: Container(
                             margin: EdgeInsets.only(left: 32, bottom: 30),
@@ -149,7 +152,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                 ),
                                 Container(
                                   child: Text(
-                                    'My Company',
+                                    'My Shop',
                                     style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.w600),
@@ -405,7 +408,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       child: Center(
                           child: IconButton(
                               icon: Icon(
-                                Icons.clear,
+                                Icons.dashboard,
                                 color: Colors.black,
                                 size: 30,
                               ),

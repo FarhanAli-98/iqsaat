@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: 800,
                 width: 500,
                 child: Image.asset(
-                  'assets/appIcons/welcom.gif',
+                  'assets/images/10.jpg',
                 ),
               ),
             ),
