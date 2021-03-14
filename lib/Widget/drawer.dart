@@ -1,7 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
+import 'package:iqsaat/ui/saller/home/chat.dart';
 import 'package:iqsaat/ui/saller/home/profile/profile_screen.dart';
+import 'package:iqsaat/ui/user/chat/chat.dart';
 import 'package:iqsaat/ui/user/home/home_screen.dart';
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
@@ -243,12 +245,12 @@ class _AppDrawerState extends State<AppDrawer> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder:
-                                        //             (BuildContext context) =>
-                                        //                 ReportPage()));
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        Chat()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
@@ -256,12 +258,12 @@ class _AppDrawerState extends State<AppDrawer> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        /* Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        ChatScreen())); */
+                                        //  Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder:
+                                        //             (BuildContext context) =>
+                                        //                 ChatTab())); 
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),

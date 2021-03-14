@@ -22,7 +22,7 @@ class ServiceProviderContainer extends StatelessWidget {
                        Container(
                         width:130,
                         height:70,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/rect.png'),fit: BoxFit.cover ),
+                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/appIcons/logo1.png'),fit: BoxFit.cover ),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(top:5,right: 05),
@@ -34,7 +34,7 @@ class ServiceProviderContainer extends StatelessWidget {
                       
                       Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('DJ Artist',
+                          child: Text('Customers',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 15,
@@ -60,7 +60,7 @@ class ServiceProviderContainer extends StatelessWidget {
                       Container(
                         width:130,
                         height:70,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/Rectangle.png'),fit: BoxFit.cover ),
+                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/LED.jpg'),fit: BoxFit.cover ),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(top:5,right: 05),
@@ -72,7 +72,7 @@ class ServiceProviderContainer extends StatelessWidget {
                       Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            'Gutar Trainer',
+                            'Products',
                             style: TextStyle(color: Colors.white, fontSize: 15),
                           ))
                     ],

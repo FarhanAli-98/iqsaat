@@ -15,10 +15,10 @@ class ProvidersListViewContainer extends StatelessWidget {
                     color: AppColor.fillColor.withOpacity(0.30)),
                 child: Row(children: [
                   Expanded(
-                      flex: 3,
+                      flex: 5,
                       child: Column(
                         children: [
-                          Image.asset('assets/images/Ellipse40.png'),
+                          Image.asset('assets/images/provider.png'),
                         ],
                       )),
                   Expanded(
@@ -31,9 +31,9 @@ class ProvidersListViewContainer extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'SINGER NEEDED!',
+                                  'PRODUCTS NEEDED!',
                                   style: TextStyle(
-                                      color: AppColor.green,
+                                      color: Colors.black,
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -52,7 +52,7 @@ class ProvidersListViewContainer extends StatelessWidget {
                                     text: 'Posted by ',
                                     style: TextStyle(
                                         color: Colors.white.withOpacity(0.55))),
-                                TextSpan(text: ' Johnny_D')
+                                TextSpan(text: ' Farhan')
                               ])),
                             ),
                             Center(
@@ -90,7 +90,7 @@ class ProvidersListViewContainer extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Send Offer',
+                                    'Send Order',
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 12),
                                   ),

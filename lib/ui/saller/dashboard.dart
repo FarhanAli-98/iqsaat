@@ -44,14 +44,14 @@ class Dashboard extends StatelessWidget {
                           footer: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text('67%',
-                                style:
-                                    TextStyle(color: Colors.black, fontSize: 15)),
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 15)),
                           ),
                         ),
                         Text(
                           'Selling Rate',
-                          style:
-                              TextStyle(color: AppColor.greyColor, fontSize: 12),
+                          style: TextStyle(
+                              color: AppColor.greyColor, fontSize: 12),
                         )
                       ],
                     ),
@@ -67,14 +67,15 @@ class Dashboard extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               '53%',
-                              style: TextStyle(color: Colors.black, fontSize: 15),
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 15),
                             ),
                           ),
                         ),
                         Text(
                           'Conversion Rate',
-                          style:
-                              TextStyle(color: AppColor.greyColor, fontSize: 12),
+                          style: TextStyle(
+                              color: AppColor.greyColor, fontSize: 12),
                         )
                       ],
                     ),
@@ -90,14 +91,15 @@ class Dashboard extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               '57%',
-                              style: TextStyle(color: Colors.black, fontSize: 15),
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 15),
                             ),
                           ),
                         ),
                         Text(
                           'Overall Customer\n          Rating',
-                          style:
-                              TextStyle(color: AppColor.greyColor, fontSize: 12),
+                          style: TextStyle(
+                              color: AppColor.greyColor, fontSize: 12),
                         )
                       ],
                     )
@@ -109,7 +111,7 @@ class Dashboard extends StatelessWidget {
             Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Recent Request',
+                  'Recent Orders',
                   style: TextStyle(color: Colors.black, fontSize: 20),
                 )),
             Container(
@@ -118,7 +120,7 @@ class Dashboard extends StatelessWidget {
                 itemBuilder: (BuildContext context, int inedx) {
                   return ProvidersListViewContainer();
                 },
-                itemCount: 3,
+                itemCount: 5,
                 scrollDirection: Axis.horizontal,
               ),
             ),
@@ -128,7 +130,7 @@ class Dashboard extends StatelessWidget {
             Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Sent Offer',
+                  'Send List of Orders',
                   style: TextStyle(color: Colors.black, fontSize: 20),
                 )),
             Container(
@@ -148,7 +150,7 @@ class Dashboard extends StatelessWidget {
                             flex: 2,
                             child: Column(
                               children: [
-                                Image.asset('assets/images/Ellipse40.png'),
+                                Image.asset('assets/images/provider.png'),
                               ],
                             )),
                         Expanded(
@@ -161,9 +163,9 @@ class Dashboard extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'SINGER NEEDED!',
+                                        'INITIAL PRODUCTS',
                                         style: TextStyle(
-                                            color: AppColor.green,
+                                            color: Colors.black,
                                             fontSize: 14,
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -179,7 +181,7 @@ class Dashboard extends StatelessWidget {
                                           style: TextStyle(
                                               color: Colors.black
                                                   .withOpacity(0.55))),
-                                      TextSpan(text: ' Johnny_D')
+                                      TextSpan(text: ' IQSAAT')
                                     ])),
                                   ),
                                   SizedBox(
@@ -193,7 +195,8 @@ class Dashboard extends StatelessWidget {
                                     height: 05,
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(bottom: 08, top: 05),
+                                    margin:
+                                        EdgeInsets.only(bottom: 08, top: 05),
                                     height: 02,
                                     width: 240,
                                     color: AppColor.greyColor,
@@ -213,12 +216,14 @@ class Dashboard extends StatelessWidget {
                                               offset: Offset(0, 2))
                                         ]),
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'View Sent Offer',
+                                          'View Sent Orders',
                                           style: TextStyle(
-                                              color: Colors.black, fontSize: 12),
+                                              color: Colors.black,
+                                              fontSize: 12),
                                         ),
                                       ],
                                     ),
@@ -226,33 +231,21 @@ class Dashboard extends StatelessWidget {
                                 ])),
                       ]));
                 },
-                itemCount: 3,
+                itemCount: 5,
                 scrollDirection: Axis.horizontal,
               ),
             ),
-             Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-          
-              SizedBox(
-                height: 10,
+            Container(
+              height: 150,
+              child: ListView.builder(
+                itemBuilder: (BuildContext context, int index) {
+                  return ServiceProviderContainer();
+                },
+                itemCount: 5,
+                scrollDirection: Axis.horizontal,
               ),
-              ServiceProviderContainer(),
-              SizedBox(
-                height: 10,
-              ),
-              
-              ServiceProviderContainer(),
-              
-           
-            ],
-          ),
-        
-          
-          
-          
-          
-          
+            ),
+       
           ]),
         ),
       ),
