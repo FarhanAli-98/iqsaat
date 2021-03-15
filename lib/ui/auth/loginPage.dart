@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
-import 'package:iqsaat/ui/saller/home/saller_home.dart';
+import 'package:iqsaat/ui/saller/home/seller_home.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
@@ -166,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                     widthPercent: 0.8,
                   ),
                   Button(
-                    buttonText: 'Saller Homepage',
+                    buttonText: 'Seller Homepage',
                     buttonColor: AppColors.primarycolor,
                     onTap: () {
 

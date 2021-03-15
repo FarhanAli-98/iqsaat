@@ -1,9 +1,13 @@
+import 'dart:ffi';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
+import 'package:iqsaat/ui/Product/add_product.dart';
+
+
 
 class AppDrawer extends StatefulWidget {
   @override
@@ -72,11 +76,11 @@ class _AppDrawerState extends State<AppDrawer> {
                         ),
                         InkWell(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (BuildContext context) =>
-                            //             CompanyProfile()));
+                            Navigator.push(
+                                 context,
+                               MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                         addProduct()));
                           },
                           child: Container(
                             margin: EdgeInsets.only(left: 32, bottom: 30),
@@ -92,6 +96,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                   width: 17,
                                 ),
                                 Container(
+                                  
                                   child: Text(
                                     'Advertise',
                                     style: TextStyle(

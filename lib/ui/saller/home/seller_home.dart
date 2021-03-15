@@ -98,7 +98,7 @@ class _SallerHomePageState extends State<SallerHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Farhanja Ali',
+                  'Farhan Ali',
                   textAlign: TextAlign.start,
                   style: TextStyle(
                       fontSize: 13,
@@ -120,7 +120,7 @@ class _SallerHomePageState extends State<SallerHomePage> {
       body: PageView(
         children: <Widget>[
           Container(
-            child: Text("Saller Home Side")  ),
+            child: Text("Seller Home Side")  ),
         ],
        
       ),
