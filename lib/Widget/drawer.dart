@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/saller/home/chat.dart';
 import 'package:iqsaat/ui/saller/home/profile/profile_screen.dart';
-import 'package:iqsaat/ui/user/chat/chat.dart';
-import 'package:iqsaat/ui/user/home/home_screen.dart';
+import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
@@ -74,69 +73,28 @@ class _AppDrawerState extends State<AppDrawer> {
                             ),
                           ),
                         ),
-                        InkWell(
+                        CustomField(
+                          iconData: AppIcons.termCondation,
+                          text: 'Home',
                           onTap: () {
-                           Navigator.push(
+                                 Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        HomeScreen()));
+                                        SallerHomePage()));
+                  
                           },
-                          child: Container(
-                            margin: EdgeInsets.only(left: 32, bottom: 30),
-                            child: Row(
-                              children: <Widget>[
-                                Image.asset(
-                                  'assets/appIcons/offlineVector.png',
-                                  height: 16,
-                                  width: 22,
-                                  color: Colors.black,
-                                ),
-                                SizedBox(
-                                  width: 17,
-                                ),
-                                Container(
-                                  child: Text(
-                                    'Advertise',
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ),
-                        InkWell(
+                        CustomField(
+                          iconData: AppIcons.termCondation,
+                          text: 'Profile',
                           onTap: () {
-                             Navigator.push(
+                            Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
                                         ProfileScreen()));
-                            
                           },
-                          child: Container(
-                            margin: EdgeInsets.only(left: 32, bottom: 30),
-                            child: Row(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.person_outline,
-                                ),
-                                SizedBox(
-                                  width: 17,
-                                ),
-                                Container(
-                                  child: Text(
-                                    'My Profile',
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ),
                         InkWell(
                           onTap: () {
@@ -202,7 +160,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
-                                          child: Text("Subscription")),
+                                          child: Text("Orders")),
                                     ),
                                     InkWell(
                                       onTap: () {
@@ -215,7 +173,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
-                                          child: Text("Advertisement")),
+                                          child: Text("Products")),
                                     ),
                                     /* InkWell(
                                       onTap: () {
@@ -263,103 +221,31 @@ class _AppDrawerState extends State<AppDrawer> {
                                         //     MaterialPageRoute(
                                         //         builder:
                                         //             (BuildContext context) =>
-                                        //                 ChatTab())); 
+                                        //                 ChatTab()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
-                                          child: Text("Chat History")),
+                                          child: Text("History")),
                                     ),
                                   ],
                                 ))
                             : Container(),
-                        InkWell(
+                        CustomField(
+                          iconData: AppIcons.help,
+                          text: 'Help',
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (BuildContext context) =>
-                            //             LanguagePage()));
+                            //Image.asset('assets/appIcons/icon_help services.png'),
                           },
-                          child: Container(
-                            margin: EdgeInsets.only(left: 32, bottom: 30),
-                            child: Row(
-                              children: <Widget>[
-                                Image.asset('assets/appIcons/world.png'),
-                                SizedBox(
-                                  width: 17,
-                                ),
-                                Container(
-                                  child: Text(
-                                    'Language',
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ),
-                        InkWell(
+                        CustomField(
+                          iconData: AppIcons.termCondation,
+                          text: 'Terms of use',
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (BuildContext context) =>
-                            //             HelpRequest()));
+                            //Image.asset('assets/appIcons/icon_help services.png'),
                           },
-                          child: Container(
-                            margin: EdgeInsets.only(left: 32, bottom: 30),
-                            child: Row(
-                              children: <Widget>[
-                                Image.asset(
-                                    'assets/appIcons/icon_help services.png'),
-                                SizedBox(
-                                  width: 17,
-                                ),
-                                Container(
-                                  child: Text(
-                                    'Help',
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (BuildContext context) =>
-                            //             HomePage()));
-                          },
-                          child: Container(
-                            margin: EdgeInsets.only(left: 32, bottom: 30),
-                            child: Row(
-                              children: <Widget>[
-                                Image.asset(
-                                    'assets/appIcons/icon_Terms of Use.png'),
-                                SizedBox(
-                                  width: 17,
-                                ),
-                                Container(
-                                  child: Text(
-                                    'Terms of use',
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ),
                         SizedBox(
-                          height: isCompanyTaped ? 20 : size.width * 0.45,
+                          height: isCompanyTaped ? 30 : size.width * 0.45,
                         ),
                         InkWell(
                           onTap: () {
@@ -486,72 +372,61 @@ class DrawerFull extends PreferredSize {
                                     ],
                                   ),
                                 ),
-                               
-                              CustomField(
-                                iconData: AppIcons.world,
+                                CustomField(
+                                  iconData: AppIcons.world,
                                   text: 'Profile',
-                                  onTap: () {                              
-                                  },
+                                  onTap: () {},
                                 ),
                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Settings',
-                                  onTap: () {                              
-                                  },
+                                  onTap: () {},
                                 ),
                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Search',
-                                  onTap: () {                              
-                                  },
+                                  onTap: () {},
                                 ),
                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'My reviews',
                                   //Image.asset('assets/appIcons/icon_reviews.png'),
-                                  onTap: () {                              
-                                  },
+                                  onTap: () {},
                                 ),
                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Language',
-                                  onTap: () {  
-                                    //Image.asset( 'assets/appIcons/world.png'),                            
+                                  onTap: () {
+                                    //Image.asset( 'assets/appIcons/world.png'),
                                   },
                                 ),
                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Consumer Term of Use',
-                                  onTap: () {    
-                                    //Image.asset('assets/appIcons/icon_Terms of Use.png'),                          
+                                  onTap: () {
+                                    //Image.asset('assets/appIcons/icon_Terms of Use.png'),
                                   },
                                 ),
                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Help',
-                                  onTap: () {    
-                                    //Image.asset('assets/appIcons/icon_help services.png'),                          
+                                  onTap: () {
+                                    //Image.asset('assets/appIcons/icon_help services.png'),
                                   },
                                 ),
                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Search',
-                                  onTap: () {                              
-                                  },
+                                  onTap: () {},
                                 ),
                                 Spacer(),
                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Logout User',
-                                  onTap: () {    
-                                    //Image.asset('assets/appIcons/icon_logout.png'),                          
+                                  onTap: () {
+                                    //Image.asset('assets/appIcons/icon_logout.png'),
                                   },
                                 ),
-                                
-                               
-                               
-                              
-                               
                               ],
                             ),
                           ),

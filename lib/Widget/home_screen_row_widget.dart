@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iqsaat/utils/app_colors.dart';
 
 class HomeScreenRow extends StatelessWidget {
   final String text;
@@ -10,8 +11,8 @@ class HomeScreenRow extends StatelessWidget {
     return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(text, style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18)),
-                Text('see all', style: TextStyle(color: Colors.white))
+                Text(text, style: TextStyle(color: AppColors.primarycolor,fontWeight: FontWeight.bold,fontSize: 18)),
+                Text('see all', style: TextStyle(color: AppColors.primarycolor))
               ],
           
       

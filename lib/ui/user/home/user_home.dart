@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:iqsaat/Widget/drawer.dart';
+import 'package:iqsaat/Widget/three_dots_icon.dart';
+import 'package:iqsaat/models/chat_item.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iqsaat/Widget/home_Screen_listview.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:iqsaat/utils/colors.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class HomePage extends StatefulWidget {
   @override
@@ -132,77 +136,15 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(children: [
             SizedBox(height: 20),
-            HomeScreenRow(text: 'My Active orders'),
-            Container(
-              height: 140,
-              child: ListView.builder(
-                itemBuilder: (BuildContext context, int index) {
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Container(
-                      margin: EdgeInsets.only(
-                          top: 10, right: 20, bottom: 10, left: 10),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                      height: 120,
-                      width: 360,
-                      decoration: BoxDecoration(
-                          color: AppColor.fillColor.withOpacity(0.58),
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: [
-                            BoxShadow(
-                                color: AppColor.green.withOpacity(.2),
-                                // offset: Offset(5, -10),
-                                spreadRadius: 3,
-                                blurRadius: 5),
-                          ]),
-                      child: Row(
-                        children: [
-                          Expanded(
-                              flex: 2,
-                              child: Image.asset('assets/images/laptop1.jpg')),
-                          Expanded(
-                              flex: 5,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Align(
-                                      alignment: Alignment.topRight,
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 05),
-                                        child: Text('Salls Session',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12)),
-                                      )),
-                                  Text(
-                                    'Laptop 7th Generation',
-                                    style: TextStyle(
-                                        color: AppColor.textBlue, fontSize: 20),
-                                  ),
-                                  Text(
-                                    '\$2666',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 18),
-                                  ),
-                                  SizedBox(
-                                    height: 08,
-                                  ),
-                                  //HomeScreenWidget(),
-                                ],
-                              )),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-              ),
-            ),
+            HomeScreenRow(text: 'Comming Up Services'),
+             Container(
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(5),
+                    alignment: Alignment.center,
+                    constraints: BoxConstraints.expand(
+                        height: 150, width: double.infinity),
+                    child: imageSlider(context)),
+            
             SizedBox(height: 05),
             HomeScreenRow(
               text: 'Popular Services',
@@ -220,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                         height: 130,
                         width: 130,
                         decoration: BoxDecoration(
-                            color: AppColor.fillColor.withOpacity(0.58),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             boxShadow: [
                               BoxShadow(
@@ -237,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
-                                            'assets/images/phone1.jpg'),
+                                            'assets/images/bike.png'),
                                         fit: BoxFit.cover))),
                             Padding(
                               padding: const EdgeInsets.only(
@@ -248,11 +190,11 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   Text(
                                     'Mobiles Phones',
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(color: Colors.black),
                                   ),
                                   Text(
                                     '\$200',
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(color: Colors.black),
                                   ),
                                 ],
                               ),
@@ -268,14 +210,7 @@ class _HomePageState extends State<HomePage> {
                                     size: 10,
                                   )),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(top: 05),
-                              height: 02,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                      colors: [Colors.blue, Colors.green])),
-                            )
+                          
                           ],
                         ),
                       ),
@@ -285,282 +220,112 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                 )),
             SizedBox(height: 05),
-            HomeScreenRow(text: 'Popular Artist'),
-            Container(
-                margin: EdgeInsets.only(top: 05),
-                height: 150,
+             Container(
+                margin: EdgeInsets.only(top: 05, bottom: 05),
+                height: 120,
+                //width: 100,
                 child: ListView.builder(
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      margin: EdgeInsets.only(
-                        left: 10,
-                      ),
-                      height: 150,
-                      width: 130,
-                      decoration: BoxDecoration(
-                        color: AppColor.fillColor.withOpacity(0.35),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Container(
+                        margin: EdgeInsets.all(05),
+                        height: 100,
+                        width: 100,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: AppColor.green.withOpacity(.2),
+                                  // offset: Offset(5, -10),
+                                  spreadRadius: 3,
+                                  blurRadius: 5),
+                            ]),
+                        child: Column(
                           children: [
                             Container(
-                              height: 70,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(15),
-                                      topRight: Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage('assets/images/23.png'),
-                                      fit: BoxFit.cover)),
-                              child: Padding(
-                                padding: EdgeInsets.only(top: 05, right: 05),
-                                child: Align(
-                                    alignment: Alignment.topRight,
-                                    child: Icon(
-                                      FontAwesomeIcons.heart,
-                                      color: Colors.white,
-                                      size: 15,
-                                    )),
+                                height: 75,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/LED.jpg'),
+                                        fit: BoxFit.cover))),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 5.0, right: 05, bottom: 05),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Mobiles',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                  Text(
+                                    '\$200',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ],
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8.0,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text(
-                                    'Ed Shreen',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  Container(
-                                    margin:
-                                        EdgeInsets.only(top: 03, bottom: 03),
-                                    height: 12,
-                                    width: 65,
-                                    decoration: BoxDecoration(
-                                        color: AppColor.green,
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    child: Center(
-                                      child: Text(
-                                        'Singer',
-                                        style: TextStyle(fontSize: 10),
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    'Fee- \$500',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Image.asset('assets/images/star.png'),
-                                      Text(
-                                        '205  ',
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                  Container(
-                                      height: 02,
-                                      width: 115,
-                                      decoration: BoxDecoration(
-                                          gradient: LinearGradient(colors: [
-                                        Colors.blue,
-                                        Colors.green
-                                      ]))),
-                                ],
-                              ),
-                            )
-                          ]),
+                              padding:
+                                  const EdgeInsets.only(left: 5.0, right: 05),
+                              child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Icon(
+                                    FontAwesomeIcons.heart,
+                                    color: Colors.red,
+                                    size: 10,
+                                  )),
+                            ),
+                          
+                          ],
+                        ),
+                      ),
                     );
                   },
                   itemCount: 5,
                   scrollDirection: Axis.horizontal,
                 )),
-            Container(
-              margin: EdgeInsets.only(top: 08),
-              padding: EdgeInsets.all(10),
-              height: 120,
-              width: 335,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: AppColor.fillColor.withOpacity(0.5),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Invite Friends and Get Upto \$100',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                  Text(
-                    'Introduce your friends to fastest way\n                to get things done',
-                    style: TextStyle(color: Colors.white, fontSize: 12),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 08),
-                    height: 30,
-                    width: 110,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: AppColor.green),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Invite Friends',
-                        style: TextStyle(fontSize: 10, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 05),
-            HomeScreenRow(text: 'My Custom Offer'),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.only(top: 05, left: 08, right: 08),
-              height: 150,
-              width: 340,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: AppColor.fillColor.withOpacity(0.5),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                          flex: 2,
-                          child: Image.asset(
-                            'assets/images/ab-pic.png',
-                            height: 70,
-                          )),
-                      Expanded(
-                          flex: 4,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Hair Style',
-                                    style: TextStyle(
-                                        color: AppColor.textBlue, fontSize: 18),
-                                  ),
-                                  SizedBox(
-                                    height: 05,
-                                  ),
-                                  Text(
-                                    '\$26',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                              //HomeScreenWidget()
-                            ],
-                          ))
-                    ],
-                  ),
-                  Container(
-                    height: 0.5,
-                    width: 350,
-                    color: AppColor.green,
-                  ),
-                  SizedBox(
-                    height: 08,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            'Offer Valid At All Times. Lucky You!',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            height: 16,
-                            width: 76,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: AppColor.green),
-                              borderRadius: BorderRadius.circular(05),
-                            ),
-                            child: Center(
-                                child: Text(
-                              'Open In chat',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 12),
-                            )),
-                          ),
-                          SizedBox(height: 10),
-                          Container(
-                            height: 16,
-                            width: 76,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: AppColor.textBlue),
-                              borderRadius: BorderRadius.circular(05),
-                            ),
-                            child: Center(
-                                child: Text(
-                              'Review',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 12),
-                            )),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 05),
-            HomeScreenRow(text: 'Recently Saved'),
-            Container(
-                margin: EdgeInsets.only(top: 10, right: 10),
-                height: 130,
-                width: 350,
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return HomeScreenListView();
-                  },
-                  itemCount: 3,
-                  scrollDirection: Axis.horizontal,
-                )),
-            SizedBox(height: 05),
-            HomeScreenRow(text: 'Inspired by Your Browsing History'),
-            Container(
-                margin: EdgeInsets.only(top: 10, right: 10),
-                height: 130,
-                width: 350,
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return HomeScreenListView();
-                  },
-                  itemCount: 3,
-                  scrollDirection: Axis.horizontal,
-                ))
-          ]),
+            
+            HomeScreenRow(text: 'Newest Post'),
+              SizedBox(height: 12),
+
+                UserPost(
+                  profileimageUrl: chatItems.last.imageUrl,
+                  title:
+                      "Farhan Ali  \u27A1  Northern Florida Regional Tournament",
+                  description:
+                      "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
+                  imageUrl: "assets/images/car1.webp",
+                ),
+                SizedBox(height: 12),
+                 UserPost(
+                  profileimageUrl: chatItems.first.imageUrl,
+                  title: "Dan Jordan",
+                  description:
+                      "2015 - 86,000 km \n2015 Model Honda Civic UG 1.8 Vti Oriel Prosmatec Full Option Rebirth",
+                  imageUrl: "assets/images/image.webp",
+                ),
+                SizedBox(height: 12),
+                 UserPost(
+                  profileimageUrl: chatItems.last.imageUrl,
+                  title:
+                      "Farhan Ali  \u27A1  Northern Florida Regional Tournament",
+                  description:
+                      "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
+                  imageUrl: "assets/images/car1.webp",
+                ),
+
+             
+
+
+
+
+           ]),
         ),
       );
     }
@@ -647,6 +412,114 @@ class _HomePageState extends State<HomePage> {
       ),
       
         body: _body(),
+      ),
+    );
+  }
+}
+  Swiper imageSlider(context) {
+  return new Swiper(
+    autoplay: true,
+    itemBuilder: (BuildContext context, int index) {
+      return new Image.network(
+        "https://lahorerealestate.com/wp-content/uploads/2019/11/DHA-Bahawalpur-Installment-Plots-Balloting-2019.jpg",
+        // fit: BoxFit.fitHeight,
+      );
+    },
+    itemCount: 10,
+    viewportFraction: 0.75,
+    scale: 1,
+  );
+}
+
+
+
+class UserPost extends StatelessWidget {
+  final String profileimageUrl;
+  final String title;
+  final String description;
+  final String imageUrl;
+  const UserPost({
+    Key key,
+    @required this.profileimageUrl,
+    @required this.title,
+    @required this.description,
+    @required this.imageUrl,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: AppColors.greyBackground.withOpacity(0.4),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          ListTile(
+            leading: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: AspectRatio(
+                aspectRatio: 1,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(200),
+                  child: CachedNetworkImage(
+                    imageUrl: profileimageUrl,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+            title: Text(
+               title,
+              style: TextStyle(
+                fontSize: 14,
+              ),
+            ),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 4.0),
+              child: Text(
+                timeago.format(
+                  DateTime.now().subtract(
+                    Duration(minutes: 43),
+                  ),
+                ),
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+            ),
+            trailing: Container(
+              width: 30,
+              child: ThreeDotsIcon(),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 4,
+            ),
+            child: Text( description),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(imageUrl),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 16.0,
+              bottom: 12,
+              top: 12,
+            ),
+            child: Text(
+              "View Complete Post",
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 14,
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
