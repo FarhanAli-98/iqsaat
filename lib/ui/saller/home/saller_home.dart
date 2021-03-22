@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/drawer.dart';
 
 
-import '../dashboard.dart';
+import 'dashboard.dart';
 
 class SallerHomePage extends StatefulWidget {
   @override
@@ -96,7 +96,7 @@ class _SallerHomePageState extends State<SallerHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Farhanja Ali',
+                  'Farhan Ali',
                   textAlign: TextAlign.start,
                   style: TextStyle(
                       fontSize: 13,
@@ -104,7 +104,7 @@ class _SallerHomePageState extends State<SallerHomePage> {
                       color: Colors.black),
                 ),
                 Text(
-                  'TFDD',
+                  'SALLER',
                   style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,

@@ -21,8 +21,8 @@ class CustomField extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               iconData,
-              height: 16,
-              width: 22,
+              height: 17,
+              width: 23,
               color: Colors.black,
             ),
             SizedBox(
@@ -31,7 +31,7 @@ class CustomField extends StatelessWidget {
             Container(
               child: Text(
                 text,
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
             ),
           ],

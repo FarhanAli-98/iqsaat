@@ -26,7 +26,7 @@ List<ChatItem> chatItems = [
     userName: "Joan Smith",
     message: "Hey when are you going?",
     imageUrl:
-        "https://images.unsplash.com/photo-1542080681-b52d382432af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+        "https://i.pinimg.com/originals/2c/40/b2/2c40b20db36393c6df7bf5ac32b1f08b.png",
     time: DateTime.now().subtract(Duration(hours: 2)),
     isRead: false,
   ),
@@ -34,7 +34,7 @@ List<ChatItem> chatItems = [
       userName: "Randy Ford",
       message: "Hey when are you going?",
       imageUrl:
-          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "https://i.pinimg.com/originals/2c/40/b2/2c40b20db36393c6df7bf5ac32b1f08b.png",
       time: DateTime.now().subtract(Duration(hours: 3)),
       isRead: false),
   ChatItem(
@@ -48,7 +48,7 @@ List<ChatItem> chatItems = [
     userName: "Randy Ford",
     message: "Hey when are you going?",
     imageUrl:
-        "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr500=1&w=",
     time: DateTime.now().subtract(Duration(hours: 5)),
   ),
   ChatItem(
@@ -62,7 +62,7 @@ List<ChatItem> chatItems = [
     userName: "Randy Ford",
     message: "Hey when are you going?",
     imageUrl:
-        "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "https://i.pinimg.com/originals/2c/40/b2/2c40b20db36393c6df7bf5ac32b1f08b.png",
     time: DateTime.now().subtract(Duration(hours: 7)),
   ),
 ];

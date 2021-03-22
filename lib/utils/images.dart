@@ -1,5 +1,7 @@
 class Images {
-  static const String credit = 'asset/Images/ic_credit_card.png';
+  static const String person = 'assets/images/temp.jpg';
+  static const String person2 = 'assets/images/Ellipse40.png';
+  static const String credit = 'assets/images/Ellipse.png';
   static const String coach = 'assets/images/coach.png';
   static const String challanges = 'assets/images/challenges.png';
   static const String weight = 'assets/images/weight.png';
