@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
+import 'package:iqsaat/ui/auth/loginPage.dart';
+import 'package:iqsaat/ui/saller/adds/create_adds.dart';
 import 'package:iqsaat/ui/saller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/saller/chat_tab/tempchat.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
@@ -140,12 +142,12 @@ class _AppDrawerState extends State<AppDrawer> {
                                   children: <Widget>[
                                        InkWell(
                                       onTap: () {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder:
-                                        //             (BuildContext context) =>
-                                        //                 AdvertisementList()));
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        AddsCreations()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
@@ -254,7 +256,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         InkWell(
                           onTap: () {
                             print("Logout");
-                            // AppRoutes.makeFirst(context, LoginPage());
+                             AppRoutes.makeFirst(context, LoginPage());
                           },
                           child: Container(
                             // color: Colors.green,
@@ -438,6 +440,7 @@ class DrawerFull extends PreferredSize {
                                   iconData: AppIcons.world,
                                   text: 'Logout User',
                                   onTap: () {
+                                      AppRoutes.makeFirst(context, LoginPage());
                                     //Image.asset('assets/appIcons/icon_logout.png'),
                                   },
                                 ),
