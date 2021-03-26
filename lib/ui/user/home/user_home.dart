@@ -3,12 +3,9 @@ import 'package:flutter/painting.dart';
 import 'package:iqsaat/Widget/drawer.dart';
 import 'package:iqsaat/Widget/three_dots_icon.dart';
 import 'package:iqsaat/models/chat_item.dart';
-import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:iqsaat/utils/routes.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
-import 'package:iqsaat/utils/colors.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -41,42 +38,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    buildSearchField() {
-      return GestureDetector(
-        onTap: () => AppRoutes.push(context, LoginPage()),
-        child: Container(
-          margin: EdgeInsets.only(right: 10, bottom: 5),
-          padding: EdgeInsets.only(right: 15, left: 15),
-          width: width * 0.8,
-          height: height * 0.06,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.3),
-                spreadRadius: 2,
-                blurRadius: 10,
-              ),
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                'Search',
-                style: TextStyle(color: Colors.grey, fontSize: 16),
-              ),
-              Icon(
-                Icons.search,
-                color: Colors.grey,
-                size: 30,
-              ),
-            ],
-          ),
-        ),
-      );
-    }
+  
 
     // ignore: unused_element
     Widget buildAppar() {
@@ -119,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         )),
-                buildSearchField(),
+               
               ],
             ),
           ],
@@ -166,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(15),
                             boxShadow: [
                               BoxShadow(
-                                  color: AppColor.green.withOpacity(.2),
+                                  color: AppColors.greenColor.withOpacity(.2),
                                   // offset: Offset(5, -10),
                                   spreadRadius: 3,
                                   blurRadius: 5),
@@ -237,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(15),
                             boxShadow: [
                               BoxShadow(
-                                  color: AppColor.green.withOpacity(.2),
+                                  color: AppColors.greenColor.withOpacity(.2),
                                   // offset: Offset(5, -10),
                                   spreadRadius: 3,
                                   blurRadius: 5),
@@ -297,7 +259,7 @@ class _HomePageState extends State<HomePage> {
                 UserPost(
                   profileimageUrl: chatItems.last.imageUrl,
                   title:
-                      "Farhan Ali  \u27A1  Northern Florida Regional Tournament",
+                      "Farhan Ali  \u27A1  Township Lahore, Punjab",
                   description:
                       "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
                   imageUrl: "assets/images/car1.webp",
@@ -305,7 +267,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 12),
                  UserPost(
                   profileimageUrl: chatItems.first.imageUrl,
-                  title: "Dan Jordan",
+                  title: "Abdul hannan",
                   description:
                       "2015 - 86,000 km \n2015 Model Honda Civic UG 1.8 Vti Oriel Prosmatec Full Option Rebirth",
                   imageUrl: "assets/images/image.webp",
@@ -314,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                  UserPost(
                   profileimageUrl: chatItems.last.imageUrl,
                   title:
-                      "Farhan Ali  \u27A1  Northern Florida Regional Tournament",
+                      "Farhan Ali  \u27A1  Township Lahore, Punjab",
                   description:
                       "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
                   imageUrl: "assets/images/car1.webp",

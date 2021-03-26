@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:iqsaat/utils/colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 
 
@@ -28,7 +27,7 @@ class _EditProfileState extends State<EditProfile> {
           padding: EdgeInsets.all(20),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(gradient: AppColor.backgroundColors),
+          decoration: BoxDecoration(gradient: AppColors.background),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -53,7 +52,7 @@ class _EditProfileState extends State<EditProfile> {
                                 child: Center(
                                   child: Icon(
                                     FontAwesomeIcons.edit,
-                                    color: AppColor.textBlue,
+                                    color: AppColors.skyBlueColor,
                                     size: 15,
                                   ),
                                 ),
@@ -61,13 +60,13 @@ class _EditProfileState extends State<EditProfile> {
                         ]),
                         Text(
                           'John Doe',
-                          style: TextStyle(color: AppColor.green, fontSize: 20),
+                          style: TextStyle(color: AppColors.primarycolor, fontSize: 20),
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 10, bottom: 10),
                           padding: EdgeInsets.only(left: 08, right: 08),
                           decoration: BoxDecoration(
-                              color: AppColor.fillColor.withOpacity(0.30),
+                              color: AppColors.primarycolor.withOpacity(0.30),
                               borderRadius: BorderRadius.circular(25)),
                           width: 360,
                           height: 35,
@@ -75,7 +74,7 @@ class _EditProfileState extends State<EditProfile> {
                             children: [
                               Icon(
                                 Icons.phone,
-                                color: AppColor.textBlue,
+                                color: AppColors.primarycolor,
                                 size: 18,
                               ),
                               SizedBox(
@@ -90,7 +89,7 @@ class _EditProfileState extends State<EditProfile> {
                               ),
                               Icon(
                                 Icons.location_on_outlined,
-                                color: AppColor.textBlue,
+                                color: AppColors.primarycolor,
                               ),
                               Align(
                                   alignment: Alignment.centerRight,
@@ -106,7 +105,7 @@ class _EditProfileState extends State<EditProfile> {
                 ),
                 Text(
                   'Full Name',
-                  style: TextStyle(color: AppColor.textBlue),
+                  style: TextStyle(color: AppColors.primarycolor),
                 ),
                 Container(
                   padding: EdgeInsets.all(05),
@@ -114,10 +113,10 @@ class _EditProfileState extends State<EditProfile> {
                   width: 350,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColor.fillColor.withOpacity(0.5),
+                      color: AppColors.primarycolor.withOpacity(0.5),
                       boxShadow: [
                         BoxShadow(
-                            color: AppColor.shadowColor.withOpacity(0.30),
+                            color: AppColors.primarycolor.withOpacity(0.30),
                             offset: Offset(0, 4),
                             blurRadius: 1)
                       ]),
@@ -130,11 +129,11 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     Icon(
                       Icons.phone,
-                      color: AppColor.textBlue,
+                      color: AppColors.primarycolor,
                     ),
                     Text(
                       'Phone number',
-                      style: TextStyle(color: AppColor.textBlue),
+                      style: TextStyle(color: AppColors.primarycolor),
                     ),
                   ],
                 ),
@@ -144,10 +143,10 @@ class _EditProfileState extends State<EditProfile> {
                   width: 350,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColor.fillColor.withOpacity(0.5),
+                      color: AppColors.primarycolor.withOpacity(0.5),
                       boxShadow: [
                         BoxShadow(
-                            color: AppColor.shadowColor.withOpacity(0.30),
+                            color: AppColors.primarycolor.withOpacity(0.30),
                             offset: Offset(0, 4),
                             blurRadius: 1)
                       ]),
@@ -168,11 +167,11 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     Icon(
                       Icons.location_on_outlined,
-                      color: AppColor.textBlue,
+                      color: AppColors.primarycolor,
                     ),
                     Text(
                       'Address',
-                      style: TextStyle(color: AppColor.textBlue),
+                      style: TextStyle(color: AppColors.primarycolor),
                     ),
                   ],
                 ),
@@ -182,10 +181,10 @@ class _EditProfileState extends State<EditProfile> {
                   width: 350,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColor.fillColor.withOpacity(0.5),
+                      color: AppColors.primarycolor.withOpacity(0.5),
                       boxShadow: [
                         BoxShadow(
-                            color: AppColor.shadowColor.withOpacity(0.30),
+                            color: AppColors.primarycolor.withOpacity(0.30),
                             offset: Offset(0, 4),
                             blurRadius: 1)
                       ]),
@@ -203,7 +202,7 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                     Text(
                       'Edit',
-                      style: TextStyle(color: AppColor.green),
+                      style: TextStyle(color: AppColors.primarycolor),
                     ),
                   ],
                 ),

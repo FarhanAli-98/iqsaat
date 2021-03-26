@@ -1,10 +1,8 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/providers_listView_container.dart';
 import 'package:iqsaat/models/interest_item_model.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:iqsaat/utils/colors.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:fl_chart/fl_chart.dart';
 
@@ -28,7 +26,7 @@ class Dashboard extends StatelessWidget {
           padding: EdgeInsets.all(10),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(gradient: AppColor.backgroundColors),
+          decoration: BoxDecoration(gradient: AppColors.background),
           child: Column(children: [
             Align(
                 alignment: Alignment.topRight,
@@ -42,7 +40,7 @@ class Dashboard extends StatelessWidget {
                 width: 400,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: AppColor.greyColor.withOpacity(0.15)),
+                    color: AppColors.greyColor.withOpacity(0.15)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -65,7 +63,7 @@ class Dashboard extends StatelessWidget {
                         Text(
                           'Selling Rate',
                           style: TextStyle(
-                              color: AppColor.greyColor, fontSize: 12),
+                              color: AppColors.greyColor, fontSize: 12),
                         )
                       ],
                     ),
@@ -89,7 +87,7 @@ class Dashboard extends StatelessWidget {
                         Text(
                           'Conversion Rate',
                           style: TextStyle(
-                              color: AppColor.greyColor, fontSize: 12),
+                              color: AppColors.greyColor, fontSize: 12),
                         )
                       ],
                     ),
@@ -113,7 +111,7 @@ class Dashboard extends StatelessWidget {
                         Text(
                           'Overall Customer\n          Rating',
                           style: TextStyle(
-                              color: AppColor.greyColor, fontSize: 12),
+                              color: AppColors.greyColor, fontSize: 12),
                         )
                       ],
                     )
@@ -211,118 +209,7 @@ class Dashboard extends StatelessWidget {
           .toList(),
     ),
             ),
-            // Container(
-            //   height: 150,
-            //   child: ListView.builder(
-            //     itemBuilder: (BuildContext context, int index) {
-            //       return Container(
-            //           height: 150,
-            //           width: 330,
-            //           padding: EdgeInsets.all(08),
-            //           margin: EdgeInsets.all(08),
-            //           decoration: BoxDecoration(
-            //               borderRadius: BorderRadius.circular(18),
-            //               color: AppColor.fillColor.withOpacity(0.30)),
-            //           child: Row(children: [
-            //             Expanded(
-            //                 flex: 2,
-            //                 child: Column(
-            //                   children: [
-            //                     Image.asset('assets/images/provider.png'),
-            //                   ],
-            //                 )),
-            //             Expanded(
-            //                 flex: 8,
-            //                 child: Column(
-            //                     crossAxisAlignment: CrossAxisAlignment.start,
-            //                     children: [
-            //                       Row(
-            //                         mainAxisAlignment:
-            //                             MainAxisAlignment.spaceBetween,
-            //                         children: [
-            //                           Text(
-            //                             'INITIAL PRODUCTS',
-            //                             style: TextStyle(
-            //                                 color: Colors.black,
-            //                                 fontSize: 14,
-            //                                 fontWeight: FontWeight.bold),
-            //                           ),
-            //                           Image.asset('assets/images/Path421.png'),
-            //                         ],
-            //                       ),
-            //                       Padding(
-            //                         padding: const EdgeInsets.only(bottom: 05),
-            //                         child: RichText(
-            //                             text: TextSpan(children: [
-            //                           TextSpan(
-            //                               text: 'Posted by ',
-            //                               style: TextStyle(
-            //                                   color: Colors.black
-            //                                       .withOpacity(0.55))),
-            //                           TextSpan(text: ' IQSAAT')
-            //                         ])),
-            //                       ),
-            //                       SizedBox(
-            //                         height: 03,
-            //                       ),
-            //                       Text(
-            //                         'BUDGET : \$320',
-            //                         style: TextStyle(color: AppColor.textBlue),
-            //                       ),
-            //                       SizedBox(
-            //                         height: 05,
-            //                       ),
-            //                       Container(
-            //                         margin:
-            //                             EdgeInsets.only(bottom: 08, top: 05),
-            //                         height: 02,
-            //                         width: 240,
-            //                         color: AppColor.greyColor,
-            //                       ),
-            //                       Container(
-            //                         padding: EdgeInsets.only(top: 02),
-            //                         height: 25,
-            //                         width: 100,
-            //                         decoration: BoxDecoration(
-            //                             borderRadius: BorderRadius.circular(25),
-            //                             color:
-            //                                 AppColor.fillColor.withOpacity(0.5),
-            //                             boxShadow: [
-            //                               BoxShadow(
-            //                                   color: Color(0xff6AB5D5),
-            //                                   blurRadius: 1.5,
-            //                                   offset: Offset(0, 2))
-            //                             ]),
-            //                         child: Column(
-            //                           mainAxisAlignment:
-            //                               MainAxisAlignment.center,
-            //                           children: [
-            //                             Text(
-            //                               'View Sent Orders',
-            //                               style: TextStyle(
-            //                                   color: Colors.black,
-            //                                   fontSize: 12),
-            //                             ),
-            //                           ],
-            //                         ),
-            //                       ),
-            //                     ])),
-            //           ]));
-            //     },
-            //     itemCount: 5,
-            //     scrollDirection: Axis.horizontal,
-            //   ),
-            // ),
-            //  Container(
-            //   height: 150,
-            //   child: ListView.builder(
-            //     itemBuilder: (BuildContext context, int index) {
-            //       return ServiceProviderContainer();
-            //     },
-            //     itemCount: 5,
-            //     scrollDirection: Axis.horizontal,
-            //   ),
-            // ),
+         
           ]),
         ),
       ),

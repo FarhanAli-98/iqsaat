@@ -8,21 +8,18 @@ import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 
-
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  
   double width, height;
-   bool _isloading = false;
+  bool _isloading = false;
   final _formKey = GlobalKey<FormState>();
 
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
- 
 
   // Future<void> validateAndSubmit() async {
   //   if (validateAndSave()) {
@@ -56,13 +53,12 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: height * 0.03,
             ),
-          //  _lowerButtonsContainer(),
+            //  _lowerButtonsContainer(),
           ],
         ),
       ),
     );
   }
-
 
   Widget _loginFormContainer(BuildContext context) {
     return Container(
@@ -99,6 +95,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
+
+                
                   TextFields.emailTextField(context,
                       hintText: 'Email Address',
                       controller: _emailController,
@@ -124,11 +122,8 @@ class _LoginPageState extends State<LoginPage> {
                     buttonText: 'Login',
                     buttonColor: AppColors.primarycolor,
                     onTap: () {
-
-                      Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (c) => HomePage()));
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (c) => HomePage()));
                       // validateAndSubmit().then((value) => () {
                       //       loginProvider.userModel == null
                       //           ? print('user is null')
@@ -141,42 +136,53 @@ class _LoginPageState extends State<LoginPage> {
                     buttonTextStyle: TextStyles.buttonFontText,
                     widthPercent: 0.8,
                   ),
-                 
-                  Center(child: Text("OR"),),
-                   Button(
-                    buttonText: 'Signup',
-                    buttonColor: AppColors.primarycolor,
+                  GestureDetector(
                     onTap: () {
-
-                      Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (c) => SignUpPage()));
-                      // validateAndSubmit().then((value) => () {
-                      //       loginProvider.userModel == null
-                      //           ? print('user is null')
-                      //           : Navigator.pushReplacement(
-                      //               context,
-                      //               MaterialPageRoute(
-                      //                   builder: (c) => LoginPage()));
-                      //     });
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (c) => SignUpPage()));
                     },
-                    buttonTextStyle: TextStyles.buttonFontText,
-                    widthPercent: 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          "Don’t have an account? : ",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(color: Colors.black38),
+                        ),
+                        Text(
+                          "Register Now ",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                            color: AppColors.primarycolor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  Button(
-                    buttonText: 'Saller Homepage',
-                    buttonColor: AppColors.primarycolor,
+                  GestureDetector(
                     onTap: () {
-
-                      Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (c) =>  SallerHomePage()));
-                  
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (c) => SallerHomePage()));
                     },
-                    buttonTextStyle: TextStyles.buttonFontText,
-                    widthPercent: 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          "Login as a Saller? :  ",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(color: Colors.black38),
+                        ),
+                        Text(
+                          "Click Now! ",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                            color: AppColors.primarycolor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -189,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-  //  loginProvider = Provider.of<LoginProvider>(context);
+    //  loginProvider = Provider.of<LoginProvider>(context);
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(gradient: AppColors.background),

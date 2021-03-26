@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:iqsaat/utils/colors.dart';
 
 import 'edit_profile.dart';
 
@@ -25,7 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         padding: EdgeInsets.all(15),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(gradient: AppColor.backgroundColors),
+        decoration: BoxDecoration(gradient: AppColors.background),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -62,7 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     margin: EdgeInsets.only(top: 10, bottom: 10),
                     padding: EdgeInsets.only(left: 08, right: 08),
                     decoration: BoxDecoration(
-                        color: AppColor.fillColor.withOpacity(0.30),
+                        color: AppColors.primarycolor.withOpacity(0.30),
                         borderRadius: BorderRadius.circular(25)),
                     width: 360,
                     height: 35,

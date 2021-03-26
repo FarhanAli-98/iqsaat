@@ -54,6 +54,8 @@ class Personcard extends StatelessWidget {
                           ],
                         ),
                         Row(
+
+                          
                           children: <Widget>[
                             Padding(
                               padding: EdgeInsets.fromLTRB(20.0, 2.0, 0.0, 0.0),

@@ -24,7 +24,10 @@ class Button extends StatelessWidget {
       color: buttonColor,
       disabledColor: AppColors.whiteColor,
       elevation: 0,
-      shape: StadiumBorder(),
+     // shape: StadiumBorder(),
+      shape: RoundedRectangleBorder(
+          borderRadius:  BorderRadius.circular(12),
+        ),
       minWidth: width * widthPercent,
       height: 48,
       child: Text(

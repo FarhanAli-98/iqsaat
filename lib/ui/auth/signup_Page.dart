@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
+import 'package:iqsaat/ui/auth/terms_and_condition.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
+import 'loginPage.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -26,157 +29,44 @@ class _SignUpPageState extends State<SignUpPage> {
   int selectedRadio;
 //images
   Dio dio = new Dio();
-    File _image;
+  File _image;
   final picker = ImagePicker();
   bool _isloading = false;
   String imageUrl;
-  String honorificValue = "Mr", role = 'consumer';
+  String honorificValue = "Mr", role = 'Customer';
   String advertiser;
-  bool isAdvertiser;
+  bool isAdvertiser,isClicked=false;
   String getid;
   final _formKey = GlobalKey<FormState>();
   final dateFormat = DateFormat('dd-MM-yyyy');
 
-  // uploadImage(File file, BuildContext context) async {
-  //   Map<String, String> headers = ({
-  //     "Content-Type": "multipart/form-data",
-  //     "Authorization": "Bearer ${User.userData.accessToken} ",
-  //   });
-  //   print('starting to send the file');
-  //   print("Sendiing Header is  = " + headers.toString());
-  //   // ignore: deprecated_member_use
-  //   var stream = new http.ByteStream(DelegatingStream.typed(file.openRead()));
-  //   // get file length
-  //   var length = await file.length();
 
-  //   // string to uri
-  //   var uri = Uri.parse("${API.PROFILEIMAGE_API}");
-  //   print("URI =  = = " + uri.toString());
-  //   // create multipart request
-  //   var request = new http.MultipartRequest("POST", uri);
-  //   request.headers.addAll(headers);
-
-  //   // multipart that takes file
-  //   var multipartFile = new http.MultipartFile('file', stream, length,
-  //       filename: file.path.split('/').last);
-
-  //   // add file to multipart
-  //   request.files.add(multipartFile);
-
-  //   // send
-  //   var response = await request.send();
-  //   // print("Status code  = ");
-  //   print(response.statusCode);
-
-  //   // listen for response
-  //   response.stream.transform(utf8.decoder).listen((value) {
-  //     var result = jsonDecode(value);
-
-  //     //print(result['data']['user']['displayPictureURL']);
-  //     setState(() {
-  //       imageUrl = result['data']['user']['displayPictureURL'];
-  //     });
-  //   });
-  // }
-
-  // bool validateAndSave() {
-  //   final form = _formKey.currentState;
-  //   form.save();
-  //   if (form.validate()) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
-  // void validateAndSubmit(context) {
-  //   if (validateAndSave()) {
-  //     Provider.of<RegisterProvider>(context, listen: false)
-  //         .registerResponse(
-  //       _emailController.text,
-  //       _firstNameController.text,
-  //       honorificValue,
-  //       _lastNameController.text,
-  //       _passwordController.text,
-  //       role,
-  //     )
-  //         .then((value) {
-  //       if (_image != null) {
-  //         uploadImage(_image, context);
-  //       }
-  //       if (value) {
-  //         Fluttertoast.showToast(
-  //             msg: "Successfully Create Account",
-  //             toastLength: Toast.LENGTH_SHORT,
-  //             gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
-  //             );
-  //         _emailController.text = "";
-  //         _firstNameController.text = "";
-  //         honorificValue = "";
-  //         _lastNameController.text = "";
-  //         _passwordController.text = "";
-  //         role = "";
-  //         _image = null;
-  //       } else {
-  //         Fluttertoast.showToast(
-  //             msg: "Failed to Create an Account",
-  //             toastLength: Toast.LENGTH_SHORT,
-  //             gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
-  //             );
-  //       }
-  //     });
-  //   } else {
-  //     showDialog(
-  //         context: context,
-  //         builder: (BuildContext context) {
-  //           return AlertDialog(
-  //             title: Text("Syntax Error"),
-  //             content: Text("Please Enter valid information"),
-  //           );
-  //         });
-  //   }
-  // }
-
+  bool validateAndSave() {
+    final form = _formKey.currentState;
+    form.save();
+    if (form.validate()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+ 
   @override
   void initState() {
     super.initState();
-
     selectedRadio = 0;
     isAdvertiser = false;
   }
 
   Widget _body(BuildContext context) {
-   // registerProvider = Provider.of<RegisterProvider>(context);
+
     return ListView(
       children: <Widget>[
         Container(
           margin: EdgeInsets.only(top: 15),
           child: Stack(
             children: <Widget>[
-              Container(
-                height: 40,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          bottom: 10,
-                        ),
-                        child: GestureDetector(
-                          onTap: () => Navigator.pop(context),
-                          child: Icon(
-                            Icons.chevron_left,
-                            color: Colors.grey,
-                            size: 40,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
               Container(
                   margin: EdgeInsets.only(top: 32, left: 16, right: 16),
                   width: double.infinity,
@@ -212,28 +102,28 @@ class _SignUpPageState extends State<SignUpPage> {
                                       // fieldValue: _firstName,
                                       controller: _firstNameController,
                                       validaterMsg:
-                                          'FirstName cannot be empty')),
+                                          'First Name cannot be empty')),
                               textFieldHeader('Last Name'),
                               Center(
                                   child: TextFields.normalTextField(context,
                                       // fieldValue: _lastName,
                                       controller: _lastNameController,
                                       validaterMsg:
-                                          ' cannot be empty')),
+                                          'Last Name cannot be empty')),
                                textFieldHeader('Address'),
                               Center(
                                   child: TextFields.normalTextField(context,
                                       // fieldValue: _lastName,
                                       controller: _lastNameController,
                                       validaterMsg:
-                                          ' cannot be empty')),
+                                          'Address cannot be empty')),
                                            textFieldHeader('Phone Number'),
                               Center(
                                   child: TextFields.normalTextField(context,
                                       // fieldValue: _lastName,
                                       controller: _lastNameController,
                                       validaterMsg:
-                                          ' cannot be empty')),
+                                          'Phone Number cannot be empty')),
                                            textFieldHeader('CNIC'),
                               Center(
                                   child: TextFields.normalTextField(context,
@@ -312,7 +202,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                           border: InputBorder.none),
                                       validator: (value) {
                                         if (value.isEmpty)
-                                          return 'Confirm Password cannot be Empty';
+                                          return 'Confirm Password cannot be Empity';
                                         if (value != _passwordController.text)
                                           return 'Password Not Match';
                                         return null;
@@ -346,12 +236,101 @@ class _SignUpPageState extends State<SignUpPage> {
                                     Text(
                                       "Continue to register as an Saller",
                                       style: TextStyle(fontSize: 14),
-                                      maxLines: 2,
+                                     // maxLines: 2,
                                     ),
                                   ],
                                 ),
                               ),
+                          
+                               Container(
+                                margin: EdgeInsets.only(left: 15, right: 15),
+                                child: Row(
+                                  mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                  children: <Widget>[
+                                      Checkbox(
+                                      activeColor: Colors.green,
+                                      value: isClicked,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          isClicked = value;
+                                       
+                                           
+                                       });
+                                      },
+                                    ),
+                                      Text(
+                                          "I have read & accept ",
+                                          textAlign: TextAlign.start,
+                                          style:
+                                              TextStyle(color: Colors.black38),
+                                        ),
+                                           GestureDetector(
+                                          onTap: (){
+                                             Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        TermsAndConditionScreen()));
+                                          },
+                                          child: Text(
+                                            "Terms & Conditions",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              color: AppColors.primarycolor,
+                                              fontWeight: FontWeight.bold,
+                                              decoration:
+                                                  TextDecoration.underline,
+                                            ),
+                                          ),
+                                        ),
+                                    // Text(
+                                    //   "Continue aller",
+                                    //   style: TextStyle(fontSize: 14),
+                                    //   maxLines: 2,
+                                    // ),
+                                  ],
+                                ),
+                              ),
                               SizedBox(height: 20),
+
+                              // Expanded(
+                                    
+                              //       child: Row(
+                              //         mainAxisAlignment:
+                              //             MainAxisAlignment.start,
+                              //         children: <Widget>[
+                              //           Text(
+                              //             "I have read & accept ",
+                              //             textAlign: TextAlign.start,
+                              //             style:
+                              //                 TextStyle(color: Colors.black38),
+                              //           ),
+                              //           GestureDetector(
+                              //             onTap: (){
+                              //                Navigator.push(
+                              //               context,
+                              //               MaterialPageRoute(
+                              //                   builder:
+                              //                       (BuildContext context) =>
+                              //                           TermsAndConditionScreen()));
+                              //             },
+                              //             child: Text(
+                              //               "Terms & Conditions",
+                              //               textAlign: TextAlign.start,
+                              //               style: TextStyle(
+                              //                 color: AppColors.primarycolor,
+                              //                 fontWeight: FontWeight.bold,
+                              //                 decoration:
+                              //                     TextDecoration.underline,
+                              //               ),
+                              //             ),
+                              //           ),
+                              //         ],
+                              //       ),
+                              //     )
+                               
                             ]),
                       ),
                     ),
@@ -411,6 +390,22 @@ class _SignUpPageState extends State<SignUpPage> {
                     buttonText: 'Signup',
                     buttonColor: AppColors.primarycolor,
                     onTap: () {
+
+                      if(validateAndSave())
+                      {
+                        Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (c) => LoginPage()));
+
+                      }
+                      else{
+                        // Navigator.pushReplacement(
+                        //             context,
+                        //             MaterialPageRoute(
+                        //                 builder: (c) => LoginPage()));
+
+                      }
                       // validateAndSubmit().then((value) => () {
                       //       loginProvider.userModel == null
                       //           ? print('user is null')
@@ -438,7 +433,7 @@ class _SignUpPageState extends State<SignUpPage> {
         decoration: BoxDecoration(gradient: AppColors.background),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          //appBar: appBarwithbackIcon(context),
+          appBar: appBarwithbackIcon(context),
           body: Container(
             margin: EdgeInsets.all(5),
             child: Stack(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/utils/colors.dart';
+import 'package:iqsaat/utils/app_colors.dart';
+
 
 
 class ServiceProviderContainer extends StatelessWidget {
@@ -13,7 +14,7 @@ class ServiceProviderContainer extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Color(0xff545454).withOpacity(0.4),
                     boxShadow: [
-                      BoxShadow(color: AppColor.green.withOpacity(0.3), offset: Offset(0, 5))
+                      BoxShadow(color: AppColors.greenColor.withOpacity(0.3), offset: Offset(0, 5))
                     ],
                     borderRadius: BorderRadius.circular(25),
                   ),
@@ -51,7 +52,7 @@ class ServiceProviderContainer extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Color(0xff545454).withOpacity(0.4),
                     boxShadow: [
-                      BoxShadow(color: AppColor.green.withOpacity(0.3), offset: Offset(0, 5))
+                      BoxShadow(color: AppColors.greenColor.withOpacity(0.3), offset: Offset(0, 5))
                     ],
                     borderRadius: BorderRadius.circular(25),
                   ),

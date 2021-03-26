@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:iqsaat/utils/colors.dart';
+import 'package:iqsaat/utils/app_colors.dart';
 
 class ChatObj {
   String name;
@@ -98,7 +98,7 @@ class _Chat extends State<Chat> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5))),
           child: Container(
-            color: isSender ? Colors.white : AppColor.fillColor,            padding: EdgeInsets.all(10),
+            color: isSender ? Colors.white : AppColors.primarycolor,            padding: EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

@@ -1,11 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
+import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/saller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/saller/chat_tab/tempchat.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
 import 'package:iqsaat/ui/user/profile/profile_screen.dart';
+import 'package:iqsaat/ui/user/help/helpRequestPage.dart';
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
@@ -138,6 +140,20 @@ class _AppDrawerState extends State<AppDrawer> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
+
+                                        InkWell(
+                                      onTap: () {
+                                        // Navigator.push(
+                                        //     context,
+                                        //     MaterialPageRoute(
+                                        //         builder:
+                                        //             (BuildContext context) =>
+                                        //                 AdvertisementList()));
+                                      },
+                                      child: Container(
+                                          margin: EdgeInsets.only(top: 18),
+                                          child: Text("About")),
+                                    ),
                                        InkWell(
                                       onTap: () {
                                         // Navigator.push(
@@ -253,8 +269,8 @@ class _AppDrawerState extends State<AppDrawer> {
                         ),
                         InkWell(
                           onTap: () {
-                            print("Logout");
-                            // AppRoutes.makeFirst(context, LoginPage());
+                           
+                             AppRoutes.makeFirst(context, LoginPage());
                           },
                           child: Container(
                             // color: Colors.green,
@@ -423,7 +439,11 @@ class DrawerFull extends PreferredSize {
                                   iconData: AppIcons.world,
                                   text: 'Help',
                                   onTap: () {
-                                    //Image.asset('assets/appIcons/icon_help services.png'),
+                                   Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                HelpRequest()));
                                   },
                                 ),
                              
@@ -438,7 +458,7 @@ class DrawerFull extends PreferredSize {
                                   iconData: AppIcons.world,
                                   text: 'Logout User',
                                   onTap: () {
-                                    //Image.asset('assets/appIcons/icon_logout.png'),
+                                      AppRoutes.makeFirst(context, LoginPage());
                                   },
                                 ),
                               ],

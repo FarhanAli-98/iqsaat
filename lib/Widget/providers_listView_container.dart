@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:iqsaat/utils/colors.dart';
 
 class ProvidersListViewContainer extends StatelessWidget {
   @override
@@ -12,7 +11,7 @@ class ProvidersListViewContainer extends StatelessWidget {
         margin: EdgeInsets.all(08),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(18),
-            color: AppColor.greyColor.withOpacity(0.15)),
+            color: AppColors.greyColor.withOpacity(0.15)),
         child: Row(children: [
           Expanded(
               flex: 5,
@@ -46,7 +45,7 @@ class ProvidersListViewContainer extends StatelessWidget {
                         ),
                         Text(
                           '\$320',
-                          style: TextStyle(color: AppColor.textBlue),
+                          style: TextStyle(color: AppColors.primarycolor),
                         )
                       ],
                     ),
@@ -85,7 +84,7 @@ class ProvidersListViewContainer extends StatelessWidget {
                       width: 100,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          color: AppColor.fillColor.withOpacity(0.5),
+                          color: AppColors.primarycolor.withOpacity(0.5),
                           boxShadow: [
                             BoxShadow(
                                 color: AppColors.primarycolor,

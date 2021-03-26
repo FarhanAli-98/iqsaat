@@ -67,12 +67,12 @@ class _ChatPageState extends State<ChatPage> {
               flex: 10,
               child: ListView(
                 children: <Widget>[
-                  MessageBox(message: "Hey when are you going?", isSent: false),
-                  MessageBox(message: "Wednesday, Next week", isSent: true),
+                  MessageBox(message: "Hey whats going on?", isSent: false),
+                  MessageBox(message: "Nothing Special", isSent: true),
                   MessageBox(message: "Sounds Perfect", isSent: false),
                   MessageBox(
                     message:
-                        "I have to go through a few things, then I am ready.",
+                        "I have to go through a few things, then I am for palcement order.",
                     isSent: false,
                   ),
                   MessageBox(message: "Ok cool", isSent: true),

@@ -10,7 +10,7 @@ class TextFields {
       String validaterMsg}) {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(60),
+          borderRadius: BorderRadius.circular(15),
           border: Border.all(
             color: Colors.grey[300],
           )),
@@ -73,7 +73,7 @@ class TextFields {
       height: 50,
       width: MediaQuery.of(context).size.width * 0.8,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(60),
+          borderRadius: BorderRadius.circular(15),
           border: Border.all(
             color: Colors.grey[300],
           )),
@@ -101,7 +101,7 @@ class TextFields {
       String validaterMsg}) {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(60),
+          borderRadius: BorderRadius.circular(15),
           border: Border.all(
             color: Colors.grey[300],
           )),
