@@ -87,11 +87,11 @@ class _LoginPageState extends State<LoginPage> {
                   Hero(
                     tag: 'logo',
                     child: Container(
-                      height: 60,
+                      height: 160,
                       width: 170,
                       child: Image.asset(
-                        'assets/appIcons/profile.png',
-                        // scale: 0.1,
+                        'assets/images/logo.png',
+                         scale: 0.01,
                       ),
                     ),
                   ),

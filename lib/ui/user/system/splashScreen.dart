@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 
-import 'auth/loginPage.dart';
+import '../../auth/loginPage.dart';
 
 
 class SplashScreen extends StatefulWidget {

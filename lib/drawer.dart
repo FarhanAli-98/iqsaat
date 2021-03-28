@@ -2,10 +2,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
+import 'package:iqsaat/ui/auth/terms_and_condition.dart';
+import 'package:iqsaat/ui/saller/adds/create_adds.dart';
 import 'package:iqsaat/ui/saller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/saller/chat_tab/tempchat.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
+import 'package:iqsaat/ui/user/help/languagePage.dart';
 import 'package:iqsaat/ui/user/profile/profile_screen.dart';
 import 'package:iqsaat/ui/user/help/helpRequestPage.dart';
 import 'package:iqsaat/utils/Icons.dart';
@@ -156,12 +159,12 @@ class _AppDrawerState extends State<AppDrawer> {
                                     ),
                                        InkWell(
                                       onTap: () {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder:
-                                        //             (BuildContext context) =>
-                                        //                 AdvertisementList()));
+                                    Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        ProductDashbord()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
@@ -170,12 +173,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                   
                                     InkWell(
                                       onTap: () {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder:Profile
-                                        //             (BuildContext context) =>
-                                        //                 SubscriptionPage()));
+                                        
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
@@ -261,12 +259,17 @@ class _AppDrawerState extends State<AppDrawer> {
                           iconData: AppIcons.termCondation,
                           text: 'Terms of use',
                           onTap: () {
-                            //Image.asset('assets/appIcons/icon_help services.png'),
+                           Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                TermsAndConditionScreen()));
                           },
                         ),
                         SizedBox(
                           height: isCompanyTaped ? 30 : size.width * 0.45,
                         ),
+                        Spacer(),
                         InkWell(
                           onTap: () {
                            
@@ -378,7 +381,7 @@ class DrawerFull extends PreferredSize {
                                           backgroundColor:
                                               AppColors.greyBackColor,
                                           child: Image.asset(
-                                              'assets/appIcons/profile.png'),
+                                              'assets/images/logo.png',scale: 0.11,),
                                         ),
                                       ),
                                       Container(
@@ -405,7 +408,41 @@ class DrawerFull extends PreferredSize {
                                     
                                   },
                                 ),
+                               
                                 CustomField(
+                                  iconData: AppIcons.world,
+                                  text: 'Language',
+                                  onTap: () {
+                                     Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                LanguagePage()));
+                                  },
+                                ),
+                                CustomField(
+                                  iconData: AppIcons.world,
+                                  text: 'Term of Use',
+                                  onTap: () {
+                                     Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                TermsAndConditionScreen()));
+                                  },
+                                ),
+                                CustomField(
+                                  iconData: AppIcons.world,
+                                  text: 'Help',
+                                  onTap: () {
+                                   Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                HelpRequest()));
+                                  },
+                                ),
+                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Settings',
                                   onTap: () {},
@@ -421,38 +458,10 @@ class DrawerFull extends PreferredSize {
                                   //Image.asset('assets/appIcons/icon_reviews.png'),
                                   onTap: () {},
                                 ),
-                                CustomField(
-                                  iconData: AppIcons.world,
-                                  text: 'Language',
-                                  onTap: () {
-                                    //Image.asset( 'assets/appIcons/world.png'),
-                                  },
-                                ),
-                                CustomField(
-                                  iconData: AppIcons.world,
-                                  text: 'Consumer Term of Use',
-                                  onTap: () {
-                                    //Image.asset('assets/appIcons/icon_Terms of Use.png'),
-                                  },
-                                ),
-                                CustomField(
-                                  iconData: AppIcons.world,
-                                  text: 'Help',
-                                  onTap: () {
-                                   Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                                HelpRequest()));
-                                  },
-                                ),
                              
 
-                                CustomField(
-                                  iconData: AppIcons.world,
-                                  text: 'Search',
-                                  onTap: () {},
-                                ),
+                              
+                            
                                 Spacer(),
                                 CustomField(
                                   iconData: AppIcons.world,

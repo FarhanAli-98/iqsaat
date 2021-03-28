@@ -9,10 +9,15 @@ class TermsAndConditionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     // backgroundColor: AppColors.primarycolor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: BackButton(color: Colors.black),
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor:  AppColors.primarycolor,
+        title: Text(
+          'Profile',
+          // style: Styles.heading,
+        ),
       ),
       body: SafeArea(
         child: Padding(

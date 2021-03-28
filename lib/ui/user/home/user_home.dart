@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:iqsaat/Widget/drawer.dart';
+import 'package:iqsaat/drawer.dart';
 import 'package:iqsaat/Widget/three_dots_icon.dart';
 import 'package:iqsaat/models/chat_item.dart';
 import 'package:iqsaat/utils/app_colors.dart';

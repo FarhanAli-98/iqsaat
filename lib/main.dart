@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/ui/splashScreen.dart';
+import 'package:iqsaat/ui/user/system/splashScreen.dart';
 void main() {
   runApp(MyApp());
 }
-//Hive Data temper database 
+//Hive Data temperary  database 
 //roles
 //
 class MyApp extends StatelessWidget {

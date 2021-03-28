@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/images.dart';
 
-import 'edit_profile.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -15,11 +15,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
-          backgroundColor: Colors.white,
-          iconTheme: IconThemeData(color: Colors.black),
-          elevation: 0,
+       backgroundColor: AppColors.primarycolor,
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor:  AppColors.primarycolor,
+        title: Text(
+          'Profile',
+          // style: Styles.heading,
         ),
+      ),
       body: Container(
         padding: EdgeInsets.all(15),
         height: MediaQuery.of(context).size.height,
@@ -34,14 +39,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => EditProfile()));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (BuildContext context) => EditProfile()));
                   },
                   child: Icon(
                     FontAwesomeIcons.edit,
-                    color: AppColors.primarycolor,
+                    color:   Colors.black,
                   ),
                 )
               ],
@@ -51,17 +56,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 //crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset('assets/images/profiilepic.png'),
+                     CircleAvatar(
+                          radius: 40.0,
+                          backgroundImage: AssetImage(Images.person),
+                        ),
                   Text(
-                    'John Doe',
+                    'Farhan Ali',
                     style:
-                        TextStyle(color: AppColors.primarycolor, fontSize: 20),
+                        TextStyle(color:   Colors.black, fontSize: 20),
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 10, bottom: 10),
                     padding: EdgeInsets.only(left: 08, right: 08),
                     decoration: BoxDecoration(
-                        color: AppColors.primarycolor.withOpacity(0.30),
+                          color: AppColors.greyColor.withOpacity(0.15),
                         borderRadius: BorderRadius.circular(25)),
                     width: 360,
                     height: 35,
@@ -69,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Icon(
                           Icons.phone,
-                          color: AppColors.primarycolor,
+                          color:   Colors.black,
                           size: 18,
                         ),
                         SizedBox(
@@ -84,7 +92,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         Icon(
                           Icons.location_on_outlined,
-                          color: AppColors.primarycolor,
+                          color:   Colors.black,
                         ),
                         Align(
                             alignment: Alignment.centerRight,
@@ -102,7 +110,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       padding: const EdgeInsets.only(left: 15.0),
                       child: Text(
                         'My Personal Balance:  \$0.00',
-                        style: TextStyle(color: AppColors.primarycolor),
+                        style: TextStyle(color:   Colors.black),
                       ),
                     ),
                   )
@@ -113,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 style: TextStyle(color: Colors.black, fontSize: 18)),
             Row(
               children: [
-                Icon(FontAwesomeIcons.heart, color: AppColors.primarycolor),
+                Icon(FontAwesomeIcons.heart, color:   Colors.black),
                 SizedBox(
                   width: 15,
                 ),
@@ -125,7 +133,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Row(
               children: [
-                Icon(FontAwesomeIcons.folder, color: AppColors.primarycolor),
+                Icon(FontAwesomeIcons.folder, color:   Colors.black),
                 SizedBox(
                   width: 15,
                 ),
@@ -142,7 +150,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 )),
             Row(
               children: [
-                Icon(Icons.ballot_outlined, color: AppColors.primarycolor),
+                Icon(Icons.ballot_outlined, color:   Colors.black),
                 SizedBox(
                   width: 15,
                 ),
@@ -155,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Row(
               children: [
                 Image.asset('assets/images/Group92.png',
-                    color: AppColors.primarycolor),
+                    color:   Colors.black),
                 SizedBox(
                   width: 15,
                 ),
@@ -168,7 +176,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Row(
               children: [
                 Image.asset('assets/images/File.png',
-                    color: AppColors.primarycolor),
+                    color:   Colors.black),
                 SizedBox(
                   width: 15,
                 ),
@@ -186,7 +194,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Row(
               children: [
                 Image.asset('assets/images/layer1.png',
-                    color: AppColors.primarycolor),
+                    color:   Colors.black),
                 SizedBox(
                   width: 15,
                 ),
@@ -195,10 +203,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       color: Colors.black,
                     )),
                 SizedBox(
-                  width: 150,
+                  width: 190,
                 ),
                 CupertinoSwitch(
-                    activeColor: AppColors.primarycolor,
+                    activeColor: Colors.black,
                     value: switchValue,
                     onChanged: (value) {
                       setState(() {
@@ -211,7 +219,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 Icon(
                   Icons.payment_outlined,
-                  color: AppColors.primarycolor,
+                  color:   Colors.black,
                 ),
                 SizedBox(
                   width: 15,
@@ -226,7 +234,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 Image.asset(
                   'assets/images/Group94.png',
-                  color: AppColors.primarycolor,
+                  color:   Colors.black,
                 ),
                 SizedBox(
                   width: 15,
@@ -239,7 +247,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Row(
               children: [
-                Icon(Icons.headset_mic_outlined, color: AppColors.primarycolor),
+                Icon(Icons.headset_mic_outlined, color:   Colors.black),
                 SizedBox(
                   width: 15,
                 ),
