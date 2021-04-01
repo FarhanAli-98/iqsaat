@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/textField.dart';
+import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
@@ -107,8 +108,8 @@ class _LoginPageState extends State<LoginPage> {
                       // fieldValue: _password,
                       validaterMsg: 'Password cannot be less than 6'),
                   InkWell(
-                      onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (c) => LoginPage())),
+                    onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (c) => PasswordReset())),
                       child: Text(
                         'Forget Password?',
                         style: GoogleFonts.poppins(

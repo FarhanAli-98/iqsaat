@@ -432,8 +432,16 @@ class _SignUpPageState extends State<SignUpPage> {
       child: Container(
         decoration: BoxDecoration(gradient: AppColors.background),
         child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: appBarwithbackIcon(context),
+         appBar: AppBar(
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor:  AppColors.primarycolor,
+        title: Text(
+          'Signup Account',
+          // style: Styles.heading,
+        ),
+      ),
+      
           body: Container(
             margin: EdgeInsets.all(5),
             child: Stack(

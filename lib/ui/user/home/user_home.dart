@@ -9,6 +9,7 @@ import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'mapview.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -38,8 +39,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-  
-
     // ignore: unused_element
     Widget buildAppar() {
       return Container(
@@ -81,7 +80,6 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         )),
-               
               ],
             ),
           ],
@@ -97,20 +95,100 @@ class _HomePageState extends State<HomePage> {
         decoration: BoxDecoration(),
         child: SingleChildScrollView(
           child: Column(children: [
+            GestureDetector(
+              // onTap: () => AppRoutes.push(context, SearchScreen()),
+              child: Container(
+                margin: EdgeInsets.only(right: 10, bottom: 5),
+                padding: EdgeInsets.only(right: 15, left: 15),
+                width: width * 0.9,
+                height: height * 0.06,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Search',
+                      style: TextStyle(color: Colors.grey, fontSize: 16),
+                    ),
+                    Icon(
+                      Icons.search,
+                      color: Colors.grey,
+                      size: 30,
+                    ),
+                  ],
+                ),
+              ),
+            ),
             SizedBox(height: 20),
             HomeScreenRow(text: 'Comming Up Services'),
-             Container(
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(5),
-                    alignment: Alignment.center,
-                    constraints: BoxConstraints.expand(
-                        height: 150, width: double.infinity),
-                    child: imageSlider(context)),
-            
+            Container(
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.all(5),
+                alignment: Alignment.center,
+                constraints:
+                    BoxConstraints.expand(height: 150, width: double.infinity),
+                child: imageSlider(context)),
             SizedBox(height: 05),
             HomeScreenRow(
               text: 'Popular Services',
             ),
+            Container(
+                margin: EdgeInsets.only(top: 05, bottom: 05),
+                height: 100,
+                //   width: 100,
+                child: ListView.builder(
+                  
+                  itemBuilder: (BuildContext context, int index) {
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Container(
+                        margin: EdgeInsets.all(05),
+                        height: 40,
+                        width: 80,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(60),
+                          ),
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  'https://www.woolha.com/media/2020/03/eevee.png'),
+                            ),
+                            Text(
+                              'Mobiles',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            // Padding(
+                            //   padding:
+                            //       const EdgeInsets.only(left: 5.0, right: 05),
+                            //   child: Align(
+                            //       alignment: Alignment.centerRight,
+                            //       child: Icon(
+                            //         FontAwesomeIcons.heart,
+                            //         color: Colors.red,
+                            //         size: 10,
+                            //       )),
+                            // ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  itemCount: 15,
+                  scrollDirection: Axis.horizontal,
+                )),
+            SizedBox(height: 05),
             Container(
                 margin: EdgeInsets.only(top: 05, bottom: 05),
                 height: 130,
@@ -172,7 +250,6 @@ class _HomePageState extends State<HomePage> {
                                     size: 10,
                                   )),
                             ),
-                          
                           ],
                         ),
                       ),
@@ -182,112 +259,32 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                 )),
             SizedBox(height: 05),
-             Container(
-                margin: EdgeInsets.only(top: 05, bottom: 05),
-                height: 120,
-                //width: 100,
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Container(
-                        margin: EdgeInsets.all(05),
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: AppColors.greenColor.withOpacity(.2),
-                                  // offset: Offset(5, -10),
-                                  spreadRadius: 3,
-                                  blurRadius: 5),
-                            ]),
-                        child: Column(
-                          children: [
-                            Container(
-                                height: 75,
-                                width: 100,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/LED.jpg'),
-                                        fit: BoxFit.cover))),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 5.0, right: 05, bottom: 05),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Mobiles',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                  Text(
-                                    '\$200',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 5.0, right: 05),
-                              child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Icon(
-                                    FontAwesomeIcons.heart,
-                                    color: Colors.red,
-                                    size: 10,
-                                  )),
-                            ),
-                          
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                  itemCount: 5,
-                  scrollDirection: Axis.horizontal,
-                )),
-            
             HomeScreenRow(text: 'Newest Post'),
-              SizedBox(height: 12),
-
-                UserPost(
-                  profileimageUrl: chatItems.last.imageUrl,
-                  title:
-                      "Farhan Ali  \u27A1  Township Lahore, Punjab",
-                  description:
-                      "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
-                  imageUrl: "assets/images/car1.webp",
-                ),
-                SizedBox(height: 12),
-                 UserPost(
-                  profileimageUrl: chatItems.first.imageUrl,
-                  title: "Abdul hannan",
-                  description:
-                      "2015 - 86,000 km \n2015 Model Honda Civic UG 1.8 Vti Oriel Prosmatec Full Option Rebirth",
-                  imageUrl: "assets/images/image.webp",
-                ),
-                SizedBox(height: 12),
-                 UserPost(
-                  profileimageUrl: chatItems.last.imageUrl,
-                  title:
-                      "Farhan Ali  \u27A1  Township Lahore, Punjab",
-                  description:
-                      "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
-                  imageUrl: "assets/images/car1.webp",
-                ),
-
-             
-
-
-
-
-           ]),
+            SizedBox(height: 12),
+            UserPost(
+              profileimageUrl: chatItems.last.imageUrl,
+              title: "Farhan Ali  \u27A1  Township Lahore, Punjab",
+              description:
+                  "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
+              imageUrl: "assets/images/car1.webp",
+            ),
+            SizedBox(height: 12),
+            UserPost(
+              profileimageUrl: chatItems.first.imageUrl,
+              title: "Abdul hannan",
+              description:
+                  "2015 - 86,000 km \n2015 Model Honda Civic UG 1.8 Vti Oriel Prosmatec Full Option Rebirth",
+              imageUrl: "assets/images/image.webp",
+            ),
+            SizedBox(height: 12),
+            UserPost(
+              profileimageUrl: chatItems.last.imageUrl,
+              title: "Farhan Ali  \u27A1  Township Lahore, Punjab",
+              description:
+                  "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
+              imageUrl: "assets/images/car1.webp",
+            ),
+          ]),
         ),
       );
     }
@@ -297,88 +294,88 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         drawer: DrawerFull(context, MediaQuery.of(context).size),
-         appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: Builder(
-            builder: (context) => InkWell(
-                  onTap: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  child: Container(
-                    //width: 55,
-                    // height: 30,
-                    decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 10,
-                              spreadRadius: 5,
-                              color: Colors.black12)
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(50),
-                            topRight: Radius.circular(50))),
-                    child: Image.asset(
-                      'assets/appIcons/menu.png',
-                      width: 50,
-                      height: 50,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          leading: Builder(
+              builder: (context) => InkWell(
+                    onTap: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    child: Container(
+                      //width: 55,
+                      // height: 30,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 10,
+                                spreadRadius: 5,
+                                color: Colors.black12)
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(50),
+                              topRight: Radius.circular(50))),
+                      child: Image.asset(
+                        'assets/appIcons/menu.png',
+                        width: 50,
+                        height: 50,
+                      ),
                     ),
+                  )),
+          actions: <Widget>[
+            GestureDetector(
+               onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (c) => Mapview())),
+                child: Container(
+                  margin: EdgeInsets.only(right: 13),
+                  child: Image.asset(
+                    'assets/appIcons/offlineVector.png',
+                    width: 33,
+                    height: 24,
                   ),
-                )),
-
-        actions: <Widget>[
-          GestureDetector(
-              onTap: (){}, 
-              child: Container(
-                margin: EdgeInsets.only(right: 13),
-                child: Image.asset(
-                  'assets/appIcons/offlineVector.png',
-                  width: 33,
-                  height: 24,
-                ),
-              ))
-        ],
-        title: Row(
-          children: <Widget>[
-            CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage('assets/appIcons/image47.png'),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Farhanja Ali',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
-                ),
-                Text(
-                  'TFDD',
-                  style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
-                ),
-              ],
-            )
+                ))
           ],
+          title: Row(
+            children: <Widget>[
+              CircleAvatar(
+                radius: 20,
+                backgroundImage: AssetImage('assets/appIcons/image47.png'),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Farhanja Ali',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black),
+                  ),
+                  Text(
+                    'USER',
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
-      ),
-      
         body: _body(),
       ),
     );
   }
 }
-  Swiper imageSlider(context) {
+
+Swiper imageSlider(context) {
   return new Swiper(
     autoplay: true,
     itemBuilder: (BuildContext context, int index) {
@@ -392,8 +389,6 @@ class _HomePageState extends State<HomePage> {
     scale: 1,
   );
 }
-
-
 
 class UserPost extends StatelessWidget {
   final String profileimageUrl;
@@ -430,7 +425,7 @@ class UserPost extends StatelessWidget {
               ),
             ),
             title: Text(
-               title,
+              title,
               style: TextStyle(
                 fontSize: 14,
               ),
@@ -458,7 +453,7 @@ class UserPost extends StatelessWidget {
               horizontal: 16.0,
               vertical: 4,
             ),
-            child: Text( description),
+            child: Text(description),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
