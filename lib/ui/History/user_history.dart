@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iqsaat/ui/History/product_history.dart';
+import './product_history.dart';
+
 class user_history extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,11 +30,11 @@ class user_history extends StatelessWidget {
             child:InkWell( 
               splashColor: Colors.deepOrange[50],
               onTap:(){
-                  // Navigator.push(
-                              //  context,
-                              //  MaterialPageRoute(
-                                  //  builder: (BuildContext context) =>
-                                      //  productHistory()));
+                  Navigator.push(
+                               context,
+                               MaterialPageRoute(
+                                   builder: (BuildContext context) =>
+                                       productHistory()));
               },
               //                           <-- Card widget
             child: ListTile(

@@ -1,48 +1,25 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import './home_body.dart';
 import 'package:iqsaat/drawer.dart';
 
-
-import 'dashboard.dart';
-
-class SallerHomePage extends StatefulWidget {
-  @override
-  _SallerHomePageState createState() => _SallerHomePageState();
-}
-
-double width, height;
-
-class _SallerHomePageState extends State<SallerHomePage> {
- 
-  bool isChatSelected = false;
-  bool isChat = false;
-  bool isNotification = false;
-  bool isNotificationCancelClicked = false;
-  bool isDashBoard = false;
-  bool isRadioScreen = false;
-  String selectedUid;
-  PageController pageController;
-  int page = 0;
-
-
-
-
-
-
-
-
-
-
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    width = MediaQuery.of(context).size.width;
-    height = MediaQuery.of(context).size.height;
     return Scaffold(
-      drawer: AppDrawer(),
-      appBar: AppBar(
+      resizeToAvoidBottomInset: false,
+      drawer:AppDrawer(),
+      appBar: buildAppBar(),
+      body:
+      
+        Body(),
+      
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.lightBlueAccent,
         elevation: 0,
         leading: Builder(
             builder: (context) => InkWell(
@@ -96,7 +73,7 @@ class _SallerHomePageState extends State<SallerHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Farhan Ali',
+                  'Seller1',
                   textAlign: TextAlign.start,
                   style: TextStyle(
                       fontSize: 13,
@@ -104,7 +81,7 @@ class _SallerHomePageState extends State<SallerHomePage> {
                       color: Colors.black),
                 ),
                 Text(
-                  'Seller',
+                  'view and edit',
                   style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
@@ -114,9 +91,28 @@ class _SallerHomePageState extends State<SallerHomePage> {
             )
           ],
         ),
-      ),
-      body:  Dashboard()
+      
+      
     );
   }
-  
+
+//Widget buildFloatingSearchBar() {
+
+  // return FloatingSearch(
+  //         trailing: CircleAvatar(
+  //           child: Text("RD"),
+  //         ),
+  //         drawer: Drawer(
+  //           child: Container(),
+  //         ),
+  //         onChanged: (String value) {},
+  //         onTap: () {},
+  //         decoration: InputDecoration.collapsed(
+  //           hintText: "Search...",
+  //         ),
+  //         children: [
+  //         ],
+  //       ));
 }
+
+//}
