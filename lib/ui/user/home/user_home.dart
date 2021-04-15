@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:iqsaat/Widget/rounded_outline_button%20copy.dart';
 import 'package:iqsaat/drawer.dart';
 import 'package:iqsaat/Widget/three_dots_icon.dart';
 import 'package:iqsaat/models/chat_item.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'mapview.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -30,7 +32,28 @@ class _HomePageState extends State<HomePage> {
   double lat, long;
   bool locationConformed = false;
   String chatId = '';
+  List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
+   StaggeredTile.extent(1, 100.0),
+    StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+];
 
+List<Widget> _tiles = const <Widget>[
+ 
+  const _Example01Tile(Colors.green, Icons.car_rental,"car"),
+  const _Example01Tile(Colors.amber, Icons.mobile_friendly,"mobile"),
+  const _Example01Tile(Colors.deepOrange, Icons.computer,"computer"),
+  const _Example01Tile(Colors.indigo, Icons.house,"house"),
+  const _Example01Tile(Colors.pink, Icons.home_repair_service,"home"),
+  const _Example01Tile(Colors.purple, Icons.business,"business"),
+  const _Example01Tile(Colors.blue, Icons.bike_scooter,"bike"),
+  const _Example01Tile(Colors.blue, Icons.room_service,"service"),
+];
   @override
   void initState() {
     super.initState();
@@ -38,8 +61,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-  
-
     // ignore: unused_element
     Widget buildAppar() {
       return Container(
@@ -81,7 +102,6 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         )),
-               
               ],
             ),
           ],
@@ -97,197 +117,77 @@ class _HomePageState extends State<HomePage> {
         decoration: BoxDecoration(),
         child: SingleChildScrollView(
           child: Column(children: [
+         
+            
             SizedBox(height: 20),
-            HomeScreenRow(text: 'Comming Up Services'),
-             Container(
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(5),
-                    alignment: Alignment.center,
-                    constraints: BoxConstraints.expand(
-                        height: 150, width: double.infinity),
-                    child: imageSlider(context)),
-            
-            SizedBox(height: 05),
-            HomeScreenRow(
-              text: 'Popular Services',
+            HomeScreenRow(text: 'Comming Up '),
+             SizedBox(
+              height: 20,
             ),
-            Container(
-                margin: EdgeInsets.only(top: 05, bottom: 05),
-                height: 130,
-                //width: 100,
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Container(
-                        margin: EdgeInsets.all(05),
-                        height: 130,
-                        width: 130,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: AppColors.greenColor.withOpacity(.2),
-                                  // offset: Offset(5, -10),
-                                  spreadRadius: 3,
-                                  blurRadius: 5),
-                            ]),
-                        child: Column(
-                          children: [
-                            Container(
-                                height: 75,
-                                width: 120,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/bike.png'),
-                                        fit: BoxFit.cover))),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 5.0, right: 05, bottom: 05),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Mobiles Phones',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                  Text(
-                                    '\$200',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 5.0, right: 05),
-                              child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Icon(
-                                    FontAwesomeIcons.heart,
-                                    color: Colors.red,
-                                    size: 10,
-                                  )),
-                            ),
-                          
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                  itemCount: 5,
-                  scrollDirection: Axis.horizontal,
-                )),
-            SizedBox(height: 05),
-             Container(
-                margin: EdgeInsets.only(top: 05, bottom: 05),
-                height: 120,
-                //width: 100,
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Container(
-                        margin: EdgeInsets.all(05),
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: AppColors.greenColor.withOpacity(.2),
-                                  // offset: Offset(5, -10),
-                                  spreadRadius: 3,
-                                  blurRadius: 5),
-                            ]),
-                        child: Column(
-                          children: [
-                            Container(
-                                height: 75,
-                                width: 100,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/LED.jpg'),
-                                        fit: BoxFit.cover))),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 5.0, right: 05, bottom: 05),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Mobiles',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                  Text(
-                                    '\$200',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 5.0, right: 05),
-                              child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Icon(
-                                    FontAwesomeIcons.heart,
-                                    color: Colors.red,
-                                    size: 10,
-                                  )),
-                            ),
-                          
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                  itemCount: 5,
-                  scrollDirection: Axis.horizontal,
-                )),
             
-            HomeScreenRow(text: 'Newest Post'),
-              SizedBox(height: 12),
-
-                UserPost(
-                  profileimageUrl: chatItems.last.imageUrl,
-                  title:
-                      "Farhan Ali  \u27A1  Township Lahore, Punjab",
-                  description:
-                      "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
-                  imageUrl: "assets/images/car1.webp",
-                ),
-                SizedBox(height: 12),
-                 UserPost(
-                  profileimageUrl: chatItems.first.imageUrl,
-                  title: "Abdul hannan",
-                  description:
-                      "2015 - 86,000 km \n2015 Model Honda Civic UG 1.8 Vti Oriel Prosmatec Full Option Rebirth",
-                  imageUrl: "assets/images/image.webp",
-                ),
-                SizedBox(height: 12),
-                 UserPost(
-                  profileimageUrl: chatItems.last.imageUrl,
-                  title:
-                      "Farhan Ali  \u27A1  Township Lahore, Punjab",
-                  description:
-                      "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
-                  imageUrl: "assets/images/car1.webp",
-                ),
-
-             
-
-
-
-
-           ]),
+            Container(
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.all(5),
+                alignment: Alignment.center,
+                constraints:
+                    BoxConstraints.expand(height: 150, width: double.infinity),
+                child: imageSlider(context)),
+           SizedBox(
+              height: 20,
+            ),
+            
+             HomeScreenRow(text: 'Services'),
+           SizedBox(
+              height: 20,
+            ),
+            
+            Container(
+              height: 200,
+              width: 400,
+              child: Padding(
+              padding: const EdgeInsets.only(top: 12.0),
+              child: StaggeredGridView.count(
+                crossAxisCount: 4,
+                staggeredTiles: _staggeredTiles,
+                children: _tiles,
+                mainAxisSpacing: 3.0,
+                crossAxisSpacing: 3.0,
+                padding: const EdgeInsets.all(2.0),
+              )),
+            ),
+         
+            
+         
+            SizedBox(height: 20),
+             HomeScreenRow(text: 'Ads'),
+              SizedBox(
+              height: 20,
+            ),
+            
+            UserPost(
+              profileimageUrl: chatItems.last.imageUrl,
+              title: "Farhan Ali  \u27A1  Township Lahore, Punjab",
+              description:
+                  "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
+              imageUrl: "assets/images/car1.webp",
+            ),
+            SizedBox(height: 12),
+            UserPost(
+              profileimageUrl: chatItems.first.imageUrl,
+              title: "Abdul hannan",
+              description:
+                  "2015 - 86,000 km \n2015 Model Honda Civic UG 1.8 Vti Oriel Prosmatec Full Option Rebirth",
+              imageUrl: "assets/images/image.webp",
+            ),
+            SizedBox(height: 12),
+            UserPost(
+              profileimageUrl: chatItems.last.imageUrl,
+              title: "Farhan Ali  \u27A1  Township Lahore, Punjab",
+              description:
+                  "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
+              imageUrl: "assets/images/car1.webp",
+            ),
+          ]),
         ),
       );
     }
@@ -297,88 +197,88 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         drawer: DrawerFull(context, MediaQuery.of(context).size),
-         appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: Builder(
-            builder: (context) => InkWell(
-                  onTap: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  child: Container(
-                    //width: 55,
-                    // height: 30,
-                    decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 10,
-                              spreadRadius: 5,
-                              color: Colors.black12)
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(50),
-                            topRight: Radius.circular(50))),
-                    child: Image.asset(
-                      'assets/appIcons/menu.png',
-                      width: 50,
-                      height: 50,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          leading: Builder(
+              builder: (context) => InkWell(
+                    onTap: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    child: Container(
+                      //width: 55,
+                      // height: 30,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 10,
+                                spreadRadius: 5,
+                                color: Colors.black12)
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(50),
+                              topRight: Radius.circular(50))),
+                      child: Image.asset(
+                        'assets/appIcons/menu.png',
+                        width: 50,
+                        height: 50,
+                      ),
                     ),
+                  )),
+          actions: <Widget>[
+            GestureDetector(
+               onTap: () => Navigator.push(context,
+                          MaterialPageRoute(builder: (c) => Mapview())),
+                child: Container(
+                  margin: EdgeInsets.only(right: 13),
+                  child: Image.asset(
+                    'assets/appIcons/offlineVector.png',
+                    width: 33,
+                    height: 24,
                   ),
-                )),
-
-        actions: <Widget>[
-          GestureDetector(
-              onTap: (){}, 
-              child: Container(
-                margin: EdgeInsets.only(right: 13),
-                child: Image.asset(
-                  'assets/appIcons/offlineVector.png',
-                  width: 33,
-                  height: 24,
-                ),
-              ))
-        ],
-        title: Row(
-          children: <Widget>[
-            CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage('assets/appIcons/image47.png'),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Farhanja Ali',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
-                ),
-                Text(
-                  'TFDD',
-                  style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
-                ),
-              ],
-            )
+                ))
           ],
+          title: Row(
+            children: <Widget>[
+              CircleAvatar(
+                radius: 20,
+                backgroundImage: AssetImage('assets/appIcons/image47.png'),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Farhanja Ali',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black),
+                  ),
+                  Text(
+                    'USER',
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
-      ),
-      
         body: _body(),
       ),
     );
   }
 }
-  Swiper imageSlider(context) {
+
+Swiper imageSlider(context) {
   return new Swiper(
     autoplay: true,
     itemBuilder: (BuildContext context, int index) {
@@ -392,8 +292,6 @@ class _HomePageState extends State<HomePage> {
     scale: 1,
   );
 }
-
-
 
 class UserPost extends StatelessWidget {
   final String profileimageUrl;
@@ -430,7 +328,7 @@ class UserPost extends StatelessWidget {
               ),
             ),
             title: Text(
-               title,
+              title,
               style: TextStyle(
                 fontSize: 14,
               ),
@@ -458,7 +356,7 @@ class UserPost extends StatelessWidget {
               horizontal: 16.0,
               vertical: 4,
             ),
-            child: Text( description),
+            child: Text(description),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -482,6 +380,179 @@ class UserPost extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class SearchAppBar extends StatefulWidget {
+  final TextEditingController controller;
+  final VoidCallback onTap;
+
+  const SearchAppBar({Key key, this.controller, this.onTap}) : super(key: key);
+
+  @override
+  _SearchAppBarState createState() => _SearchAppBarState();
+}
+
+class _SearchAppBarState extends State<SearchAppBar> {
+  bool filtered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Material(
+          elevation: 4,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              AnimatedContainer(
+                duration: Duration(milliseconds: 300),
+                curve: Curves.easeInOutCubic,
+                alignment: Alignment.center,
+                color: Colors.white,
+                height: 50,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    AppBar(
+                      leading: IconButton(
+                        icon: Icon(
+                          Icons.filter_list,
+                          color: filtered
+                              ? AppColors.primarycolor
+                              : Colors.black54,
+                        ),
+                        onPressed: () {
+                          filtered = !filtered;
+                          setState(() {});
+                        },
+                      ),
+                      title: TextField(
+                        controller: widget.controller,
+                        decoration: InputDecoration(
+                          hintText: "Search students, events and more",
+                          hintStyle: TextStyle(color: Colors.black54),
+                        ),
+                      ),
+                      actions: <Widget>[
+                        AspectRatio(
+                          aspectRatio: 1,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.black38,
+                                borderRadius: BorderRadius.circular(6)),
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 14,
+                            ),
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              icon: Icon(
+                                Icons.close,
+                                size: 18,
+                                color: Colors.white,
+                              ),
+                              onPressed: widget.onTap,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    if (filtered)
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Expanded(
+                                child: RoundedOutlineButton(
+                                  borderRadius: 6,
+                                  widthRatio: 0.0,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                  onTap: () {},
+                                  text: "Students",
+                                ),
+                              ),
+                              SizedBox(width: 6),
+                              Expanded(
+                                child: RoundedOutlineButton(
+                                  borderRadius: 6,
+                                  widthRatio: 0.0,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                  onTap: () {},
+                                  text: "Events",
+                                ),
+                              ),
+                              SizedBox(width: 6),
+                              Expanded(
+                                child: RoundedOutlineButton(
+                                  borderRadius: 6,
+                                  widthRatio: 0.0,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                  onTap: () {},
+                                  text: "Universities",
+                                ),
+                              ),
+                              SizedBox(width: 6),
+                              Expanded(
+                                child: RoundedOutlineButton(
+                                  borderRadius: 6,
+                                  widthRatio: 0.0,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal,
+                                  onTap: () {},
+                                  text: "Businesses",
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+class _Example01Tile extends StatelessWidget {
+  const _Example01Tile(this.backgroundColor, this.iconData, this.title);
+
+  final Color backgroundColor;
+  final IconData iconData;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: backgroundColor,
+      child: InkWell(
+        onTap: () {},
+        child: Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top:20.0),
+                child: Icon(
+                  iconData,
+                  color: Colors.white,
+                  size: 40,
+                ),
+              ),
+              Text(title,style: TextStyle(color: Colors.white,fontSize: 13),)
+            ],
+          ),
+        ),
       ),
     );
   }

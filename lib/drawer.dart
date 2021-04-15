@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
-import 'package:iqsaat/ui/saller/adds/create_adds.dart';
+
 import 'package:iqsaat/ui/saller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/saller/chat_tab/tempchat.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
@@ -11,9 +11,14 @@ import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
 import 'package:iqsaat/ui/user/help/languagePage.dart';
 import 'package:iqsaat/ui/user/profile/profile_screen.dart';
 import 'package:iqsaat/ui/user/help/helpRequestPage.dart';
+import 'package:iqsaat/ui/user/profile/user_profile.dart';
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
+
+import 'ui/saller/create_Ads/Mobiles/mobiles.dart';
+import 'ui/saller/create_Ads/create_adds.dart';
+import 'ui/shared/chat/chat_dash.dart';
 
 class AppDrawer extends StatefulWidget {
   @override
@@ -49,7 +54,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     height: size.height,
                     child: ListView(
                       children: <Widget>[
-                        Container(
+                        Container(  
                           width: double.infinity,
                           height: size.width * 0.4,
                           child: Container(
@@ -164,7 +169,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                             MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                        ProductDashbord()));
+                                                        CreateProducts()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
@@ -173,6 +178,12 @@ class _AppDrawerState extends State<AppDrawer> {
                                   
                                     InkWell(
                                       onTap: () {
+                                         Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        OrderList()));
                                         
                                       },
                                       child: Container(
@@ -213,7 +224,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                             MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                        Chat()));
+                                                        ChatTab()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
@@ -381,7 +392,7 @@ class DrawerFull extends PreferredSize {
                                           backgroundColor:
                                               AppColors.greyBackColor,
                                           child: Image.asset(
-                                              'assets/images/logo.png',scale: 0.11,),
+                                              'assets/appIcons/iqsaat.jpeg',scale: 0.11,),
                                         ),
                                       ),
                                       Container(
@@ -404,7 +415,7 @@ class DrawerFull extends PreferredSize {
                                             MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                        ProfileScreen()));
+                                                        ProfilePage()));
                                     
                                   },
                                 ),

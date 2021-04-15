@@ -32,9 +32,9 @@ class AppColors {
     end: Alignment.bottomRight,
     colors: [
       Color(0XFFFFFFFF),
-      Color(0XFFFFFFFE),
-      Color(0XFFFFFEF1),
-      Color(0XFFFFFEF2),
+      Color(0xFFFFFFFF),
+      Color(0xFFFFFFFF),
+      Color(0xFFFFFFFF),
     ],
   );
   static LinearGradient appBar = LinearGradient(

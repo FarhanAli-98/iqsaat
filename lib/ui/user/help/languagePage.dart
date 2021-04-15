@@ -77,7 +77,7 @@ class LanguagePage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           appBar: appBarwithCenterTitle(context, 'Choose language'),
           body: _body(context),
-          resizeToAvoidBottomPadding: false,
+          resizeToAvoidBottomInset: false,
         ),
       ),
     );

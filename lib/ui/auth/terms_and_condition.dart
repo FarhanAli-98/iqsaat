@@ -15,7 +15,7 @@ class TermsAndConditionScreen extends StatelessWidget {
         elevation: 0.0,
         backgroundColor:  AppColors.primarycolor,
         title: Text(
-          'Profile',
+          'Terms & Conditions',
           // style: Styles.heading,
         ),
       ),
