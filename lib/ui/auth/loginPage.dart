@@ -8,6 +8,7 @@ import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
+import 'package:iqsaat/ui/Buyer/home_screen.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -171,6 +172,30 @@ class _LoginPageState extends State<LoginPage> {
                       children: <Widget>[
                         Text(
                           "Login as a Saller? :  ",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(color: Colors.black38),
+                        ),
+                        Text(
+                          "Click Now! ",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                            color: AppColors.primarycolor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (c) => HomeScreen()));
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          "Login as a Buyer? :  ",
                           textAlign: TextAlign.end,
                           style: TextStyle(color: Colors.black38),
                         ),
