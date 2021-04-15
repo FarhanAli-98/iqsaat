@@ -77,7 +77,7 @@ Widget appBarwithbackIcon(BuildContext context) {
         backgroundColor: AppColors.backgroundColor,
         appBar: appBarwithbackIcon(context),
         body: _body(context),
-        resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomInset: false,
       ),
     );
   }
