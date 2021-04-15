@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 160,
                       width: 170,
                       child: Image.asset(
-                        'assets/images/logo.png',
+                        'assets/appIcons/iqsaat.jpeg',
                          scale: 0.01,
                       ),
                     ),

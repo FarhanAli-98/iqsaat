@@ -389,7 +389,9 @@ class _SignUpPageState extends State<SignUpPage> {
           child:   Button(
                     buttonText: 'Signup',
                     buttonColor: AppColors.primarycolor,
-                    onTap: () {
+                    
+                    onTap: 
+                    () {
 
                       if(validateAndSave())
                       {
@@ -415,6 +417,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       //                   builder: (c) => LoginPage()));
                       //     });
                     },
+                    
+                    
                     buttonTextStyle: TextStyles.buttonFontText,
                     widthPercent: 0.8,
                   ),
@@ -432,15 +436,7 @@ class _SignUpPageState extends State<SignUpPage> {
       child: Container(
         decoration: BoxDecoration(gradient: AppColors.background),
         child: Scaffold(
-         appBar: AppBar(
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor:  AppColors.primarycolor,
-        title: Text(
-          'Signup Account',
-          // style: Styles.heading,
-        ),
-      ),
+         appBar:appBarwithbackIcon(context,"Signup"),
       
           body: Container(
             margin: EdgeInsets.all(5),

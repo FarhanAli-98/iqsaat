@@ -80,9 +80,9 @@ class ResetPasswordMessage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.backgroundColor,
-        appBar: appBarwithbackIcon(context),
+        appBar: appBarwithbackIcon(context,"Reset Password Message"),
         body: _body(context),
-        resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomInset: false,
       ),
     );
   }

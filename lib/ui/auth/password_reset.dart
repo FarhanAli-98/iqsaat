@@ -141,9 +141,9 @@ class _PasswordResetState extends State<PasswordReset> {
         decoration: BoxDecoration(gradient: AppColors.background),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: appBarwithbackIcon(context),
+          appBar: appBarwithbackIcon(context,"Password Reset"),
           body: _body(context),
-          resizeToAvoidBottomPadding: false,
+          resizeToAvoidBottomInset: false,
         ),
       ),
     );

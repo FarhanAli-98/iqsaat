@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:iqsaat/Widget/rounded_outline_button%20copy.dart';
 import 'package:iqsaat/drawer.dart';
 import 'package:iqsaat/Widget/three_dots_icon.dart';
 import 'package:iqsaat/models/chat_item.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -31,7 +32,28 @@ class _HomePageState extends State<HomePage> {
   double lat, long;
   bool locationConformed = false;
   String chatId = '';
+  List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
+   StaggeredTile.extent(1, 100.0),
+    StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+  StaggeredTile.extent(1, 100.0),
+];
 
+List<Widget> _tiles = const <Widget>[
+ 
+  const _Example01Tile(Colors.green, Icons.car_rental,"car"),
+  const _Example01Tile(Colors.amber, Icons.mobile_friendly,"mobile"),
+  const _Example01Tile(Colors.deepOrange, Icons.computer,"computer"),
+  const _Example01Tile(Colors.indigo, Icons.house,"house"),
+  const _Example01Tile(Colors.pink, Icons.home_repair_service,"home"),
+  const _Example01Tile(Colors.purple, Icons.business,"business"),
+  const _Example01Tile(Colors.blue, Icons.bike_scooter,"bike"),
+  const _Example01Tile(Colors.blue, Icons.room_service,"service"),
+];
   @override
   void initState() {
     super.initState();
@@ -95,42 +117,14 @@ class _HomePageState extends State<HomePage> {
         decoration: BoxDecoration(),
         child: SingleChildScrollView(
           child: Column(children: [
-            GestureDetector(
-              // onTap: () => AppRoutes.push(context, SearchScreen()),
-              child: Container(
-                margin: EdgeInsets.only(right: 10, bottom: 5),
-                padding: EdgeInsets.only(right: 15, left: 15),
-                width: width * 0.9,
-                height: height * 0.06,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
-                      spreadRadius: 2,
-                      blurRadius: 10,
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      'Search',
-                      style: TextStyle(color: Colors.grey, fontSize: 16),
-                    ),
-                    Icon(
-                      Icons.search,
-                      color: Colors.grey,
-                      size: 30,
-                    ),
-                  ],
-                ),
-              ),
-            ),
+         
+            
             SizedBox(height: 20),
-            HomeScreenRow(text: 'Comming Up Services'),
+            HomeScreenRow(text: 'Comming Up '),
+             SizedBox(
+              height: 20,
+            ),
+            
             Container(
                 padding: EdgeInsets.all(10),
                 margin: EdgeInsets.all(5),
@@ -138,129 +132,38 @@ class _HomePageState extends State<HomePage> {
                 constraints:
                     BoxConstraints.expand(height: 150, width: double.infinity),
                 child: imageSlider(context)),
-            SizedBox(height: 05),
-            HomeScreenRow(
-              text: 'Popular Services',
+           SizedBox(
+              height: 20,
             ),
+            
+             HomeScreenRow(text: 'Services'),
+           SizedBox(
+              height: 20,
+            ),
+            
             Container(
-                margin: EdgeInsets.only(top: 05, bottom: 05),
-                height: 100,
-                //   width: 100,
-                child: ListView.builder(
-                  
-                  itemBuilder: (BuildContext context, int index) {
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Container(
-                        margin: EdgeInsets.all(05),
-                        height: 40,
-                        width: 80,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(60),
-                          ),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  'https://www.woolha.com/media/2020/03/eevee.png'),
-                            ),
-                            Text(
-                              'Mobiles',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            // Padding(
-                            //   padding:
-                            //       const EdgeInsets.only(left: 5.0, right: 05),
-                            //   child: Align(
-                            //       alignment: Alignment.centerRight,
-                            //       child: Icon(
-                            //         FontAwesomeIcons.heart,
-                            //         color: Colors.red,
-                            //         size: 10,
-                            //       )),
-                            // ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                  itemCount: 15,
-                  scrollDirection: Axis.horizontal,
-                )),
-            SizedBox(height: 05),
-            Container(
-                margin: EdgeInsets.only(top: 05, bottom: 05),
-                height: 130,
-                //width: 100,
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Container(
-                        margin: EdgeInsets.all(05),
-                        height: 130,
-                        width: 130,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: AppColors.greenColor.withOpacity(.2),
-                                  // offset: Offset(5, -10),
-                                  spreadRadius: 3,
-                                  blurRadius: 5),
-                            ]),
-                        child: Column(
-                          children: [
-                            Container(
-                                height: 75,
-                                width: 120,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/bike.png'),
-                                        fit: BoxFit.cover))),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 5.0, right: 05, bottom: 05),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Mobiles Phones',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                  Text(
-                                    '\$200',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 5.0, right: 05),
-                              child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Icon(
-                                    FontAwesomeIcons.heart,
-                                    color: Colors.red,
-                                    size: 10,
-                                  )),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                  itemCount: 5,
-                  scrollDirection: Axis.horizontal,
-                )),
-            SizedBox(height: 05),
-            HomeScreenRow(text: 'Newest Post'),
-            SizedBox(height: 12),
+              height: 200,
+              width: 400,
+              child: Padding(
+              padding: const EdgeInsets.only(top: 12.0),
+              child: StaggeredGridView.count(
+                crossAxisCount: 4,
+                staggeredTiles: _staggeredTiles,
+                children: _tiles,
+                mainAxisSpacing: 3.0,
+                crossAxisSpacing: 3.0,
+                padding: const EdgeInsets.all(2.0),
+              )),
+            ),
+         
+            
+         
+            SizedBox(height: 20),
+             HomeScreenRow(text: 'Ads'),
+              SizedBox(
+              height: 20,
+            ),
+            
             UserPost(
               profileimageUrl: chatItems.last.imageUrl,
               title: "Farhan Ali  \u27A1  Township Lahore, Punjab",
@@ -477,6 +380,179 @@ class UserPost extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class SearchAppBar extends StatefulWidget {
+  final TextEditingController controller;
+  final VoidCallback onTap;
+
+  const SearchAppBar({Key key, this.controller, this.onTap}) : super(key: key);
+
+  @override
+  _SearchAppBarState createState() => _SearchAppBarState();
+}
+
+class _SearchAppBarState extends State<SearchAppBar> {
+  bool filtered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Material(
+          elevation: 4,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              AnimatedContainer(
+                duration: Duration(milliseconds: 300),
+                curve: Curves.easeInOutCubic,
+                alignment: Alignment.center,
+                color: Colors.white,
+                height: 50,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    AppBar(
+                      leading: IconButton(
+                        icon: Icon(
+                          Icons.filter_list,
+                          color: filtered
+                              ? AppColors.primarycolor
+                              : Colors.black54,
+                        ),
+                        onPressed: () {
+                          filtered = !filtered;
+                          setState(() {});
+                        },
+                      ),
+                      title: TextField(
+                        controller: widget.controller,
+                        decoration: InputDecoration(
+                          hintText: "Search students, events and more",
+                          hintStyle: TextStyle(color: Colors.black54),
+                        ),
+                      ),
+                      actions: <Widget>[
+                        AspectRatio(
+                          aspectRatio: 1,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.black38,
+                                borderRadius: BorderRadius.circular(6)),
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 14,
+                            ),
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              icon: Icon(
+                                Icons.close,
+                                size: 18,
+                                color: Colors.white,
+                              ),
+                              onPressed: widget.onTap,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    if (filtered)
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Expanded(
+                                child: RoundedOutlineButton(
+                                  borderRadius: 6,
+                                  widthRatio: 0.0,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                  onTap: () {},
+                                  text: "Students",
+                                ),
+                              ),
+                              SizedBox(width: 6),
+                              Expanded(
+                                child: RoundedOutlineButton(
+                                  borderRadius: 6,
+                                  widthRatio: 0.0,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                  onTap: () {},
+                                  text: "Events",
+                                ),
+                              ),
+                              SizedBox(width: 6),
+                              Expanded(
+                                child: RoundedOutlineButton(
+                                  borderRadius: 6,
+                                  widthRatio: 0.0,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                  onTap: () {},
+                                  text: "Universities",
+                                ),
+                              ),
+                              SizedBox(width: 6),
+                              Expanded(
+                                child: RoundedOutlineButton(
+                                  borderRadius: 6,
+                                  widthRatio: 0.0,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal,
+                                  onTap: () {},
+                                  text: "Businesses",
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
+class _Example01Tile extends StatelessWidget {
+  const _Example01Tile(this.backgroundColor, this.iconData, this.title);
+
+  final Color backgroundColor;
+  final IconData iconData;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: backgroundColor,
+      child: InkWell(
+        onTap: () {},
+        child: Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top:20.0),
+                child: Icon(
+                  iconData,
+                  color: Colors.white,
+                  size: 40,
+                ),
+              ),
+              Text(title,style: TextStyle(color: Colors.white,fontSize: 13),)
+            ],
+          ),
+        ),
       ),
     );
   }

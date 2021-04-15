@@ -3,8 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 
-Widget appBarwithbackIcon(BuildContext context) {
+Widget appBarwithbackIcon(BuildContext context,String titles) {
   return AppBar(
+    title: Text(titles,style: TextStyle(color: Colors.black),),
     elevation: 0.0,
     backgroundColor: Colors.white,
     leading: IconButton(
@@ -14,6 +15,7 @@ Widget appBarwithbackIcon(BuildContext context) {
       ),
       onPressed: () => Navigator.pop(context),
     ),
+    
   );
 }
 
