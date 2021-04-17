@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/textField.dart';
+import 'package:iqsaat/ui/Buyer/home_screen.dart';
 import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/ui/saller/profile/shop_profile.dart';
+
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
-import 'package:iqsaat/ui/Buyer/home_screen.dart';
+
 
 class LoginPage extends StatefulWidget {
   @override

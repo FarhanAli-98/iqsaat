@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
+import 'CreateProducts/selectCategory.dart';
+
 List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
   StaggeredTile.extent(1, 100.0),
   StaggeredTile.extent(1, 100.0),
@@ -55,7 +57,16 @@ class _Example01Tile extends StatelessWidget {
     return Card(
       color: backgroundColor,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+
+     Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        CreateProducts()));
+
+        },
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(4.0),

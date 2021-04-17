@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/ui/saller/create_Ads/create_adds.dart';
-import 'package:iqsaat/ui/saller/home/dashboard.dart';
+import 'package:iqsaat/ui/saller/create_Ads/CreateProducts.dart';
+
 import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
 
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
     // home: SplashScreen(),
-     home: ProfileTab(),
+    home: Example01(),
     );
   }
 }

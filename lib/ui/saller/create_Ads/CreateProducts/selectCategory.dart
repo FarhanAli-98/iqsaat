@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:iqsaat/ui/saller/create_Ads/Mobiles/mobiles.dart';
+
+
+import 'productsAds.dart';
 
 class CreateProducts extends StatefulWidget {
   @override
@@ -67,7 +69,7 @@ class _CreateProductsState extends State<CreateProducts> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) => OrderList()));
+                        builder: (BuildContext context) => AddAdvertisementPage()));
               },
               child: myItems(Icons.mobile_friendly, "Mobile")),
           InkWell(
@@ -75,7 +77,7 @@ class _CreateProductsState extends State<CreateProducts> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => OrderList()));
+                      builder: (BuildContext context) => AddAdvertisementPage()));
             },
             child: myItems(
               Icons.point_of_sale,
@@ -87,7 +89,7 @@ class _CreateProductsState extends State<CreateProducts> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => OrderList()));
+                      builder: (BuildContext context) => AddAdvertisementPage()));
             },
             child: myItems(
               Icons.circle_notifications,
@@ -99,7 +101,7 @@ class _CreateProductsState extends State<CreateProducts> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => OrderList()));
+                      builder: (BuildContext context) => AddAdvertisementPage()));
             },
             child: myItems(
               Icons.electrical_services_sharp,
@@ -111,7 +113,7 @@ class _CreateProductsState extends State<CreateProducts> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => OrderList()));
+                      builder: (BuildContext context) => AddAdvertisementPage()));
             },
             child: myItems(
               Icons.emoji_nature_sharp,
@@ -124,7 +126,7 @@ class _CreateProductsState extends State<CreateProducts> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => OrderList()));
+                      builder: (BuildContext context) => AddAdvertisementPage()));
             },
             child: myItems(
               Icons.computer_rounded,
