@@ -3,13 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
-
-import 'package:iqsaat/ui/saller/chat_tab/chat_dash.dart';
-import 'package:iqsaat/ui/saller/chat_tab/tempchat.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
 import 'package:iqsaat/ui/user/help/languagePage.dart';
-import 'package:iqsaat/ui/user/profile/profile_screen.dart';
 import 'package:iqsaat/ui/user/help/helpRequestPage.dart';
 import 'package:iqsaat/ui/user/profile/user_profile.dart';
 import 'package:iqsaat/utils/Icons.dart';

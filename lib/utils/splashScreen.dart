@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 
-import '../../auth/loginPage.dart';
+import '../ui/auth/loginPage.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -39,27 +39,29 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: AppColors.background,
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(gradient: AppColors.background),
-        child: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Hero(
-              tag: 'logo',
-              child: Container(
-                height: 800,
-                width: 500,
-                child: Image.asset(
-                  'assets/appIcons/iqsaat.jpeg',
+      body: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(gradient: AppColors.background),
+          child: Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Hero(
+                tag: 'logo',
+                child: Container(
+                 // height: 800,
+                  width: 500,
+                  child: Image.asset(
+                    'assets/appIcons/iqsaat.jpeg',
+                  ),
                 ),
               ),
-            ),
-          ],
-        )),
+            ],
+          )),
+        ),
       ),
     );
   }

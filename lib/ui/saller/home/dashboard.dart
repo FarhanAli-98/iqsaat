@@ -24,8 +24,8 @@ class Dashboard extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(10),
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+          // height: MediaQuery.of(context).size.height,
+          // width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(gradient: AppColors.background),
           child: Column(children: [
             Align(
@@ -37,7 +37,7 @@ class Dashboard extends StatelessWidget {
                 padding: EdgeInsets.all(10),
                 margin: EdgeInsets.only(left: 20, top: 10),
                 height: 150,
-                width: 400,
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     color: AppColors.greyColor.withOpacity(0.15)),

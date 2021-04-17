@@ -73,7 +73,7 @@ dependencies:
   zefyr: ^0.12.0
   quill_delta: ^1.0.0
   flutter_screenutil: ^0.5.3
-
+  mask_text_input_formatter: ^1.2.1
 
 dependency_overrides:
 
