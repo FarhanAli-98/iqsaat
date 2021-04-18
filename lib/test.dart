@@ -1,359 +1,228 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 
-class ProfilePage extends StatefulWidget {
-  final String profileid;
-
-  const ProfilePage({Key key, this.profileid}) : super(key: key);
-
+class MobileAds extends StatefulWidget {
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _MobileAdsState createState() => _MobileAdsState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _MobileAdsState extends State<MobileAds> {
+  TextEditingController firstcontroller = TextEditingController();
+  TextEditingController secondcontroller = TextEditingController();
+  TextEditingController thirdcontroller = TextEditingController();
 
+  final _formKey = GlobalKey<FormState>();
+  String title=" ";
+  bool validateAndSave() {
+    final form = _formKey.currentState;
+    form.save();
+    if (form.validate()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+int selectedIndex = -1;
+
+  validateAnd(BuildContext context) {
+    if (validateAndSave()) {
+      print("Validation Comp[lete");
+      print(firstcontroller.text);
+      print(secondcontroller.text);
+      print(thirdcontroller.text);
+      setState(() {
+        title=firstcontroller.text;
+      });
+    } else {
+      print("Validation Wrong");
+      
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0.0,
-        title: Text(
-          "Find A Buddies",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 20.0,
-              color: Colors.cyan[900],
-              fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.white,
-      ),
+      appBar: AppBar(title: Text("Advertisement Form")),
       body: SingleChildScrollView(
-        
-        child: 
+          child: Container(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+              title,
+                style: TextStyle(
+                  fontSize: 30,
 
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.7,
-                  //width: MediaQuery.of(context).size.width * 1.2,
-                  child: Card(
-                          semanticContainer: true,
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: Image.network(
-                            "https://i.pinimg.com/736x/35/4a/59/354a59f73d62ffde38c0eada0177f164.jpg",
-                            fit: BoxFit.fill,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          elevation: 5,
-                          margin: EdgeInsets.all(10),
-                        )
-                      // : Card(
-                      //     semanticContainer: true,
-                      //     clipBehavior: Clip.antiAliasWithSaveLayer,
-                      //     child: Image.asset(Images.tind),
-                      //     shape: RoundedRectangleBorder(
-                      //       borderRadius: BorderRadius.circular(10.0),
-                      //     ),
-                      //     elevation: 5,
-                      //     margin: EdgeInsets.all(10),
-                      //   ),
+                  color: Colors.green,
+                  //background: Colors.accents,
                 ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.fromLTRB(30.0, 10.0, 95.0, 5.0),
-                  child: Text(
-                    "Name",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 17.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
+
+
+              Padding(
+                padding: const EdgeInsets.all(25),
+                child: TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter model name';
+                    }
+                    return null;
+                  },
+                  controller: firstcontroller,
+                  keyboardType: TextInputType.name,
+                  decoration:
+                      new InputDecoration(labelText: "Enter Model Name"),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0.0, 10.0, 30.0, 5.0),
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(37.0),
-                        side: BorderSide(color: Colors.grey[300])),
-                    onPressed: () {},
-                    color: Colors.red[200],
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(0.0, 0.0, 10.0, 0.0),
-                          child: Icon(
-                            Icons.favorite,
-                            size: 12,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          " Match",
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+              ),
+ 
+              
+              Padding(
+                padding: const EdgeInsets.all(25),
+                child: TextFormField(
+
+                          inputFormatters: [
+                          new LengthLimitingTextInputFormatter(3),
+                           ],
+                  validator: (value) {
+                    if (value.length <= 2) {
+                      return 'Please  increase your numbers';
+                    }
+                    return null;
+                  },
+                  controller: secondcontroller,
+                  keyboardType: TextInputType.number,
+                  decoration:
+                      new InputDecoration(labelText: "Enter Price"),
                 ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(14.0, 0.0, 0.0, 5.0),
+              ),
+              
+             
+              Align(
+              alignment: Alignment.centerLeft,
               child: Container(
-                width: 160,
-                child: FlatButton(
-                  onPressed: () {},
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Icon(
-                        Icons.location_on,
-                        size: 19,
-                        color: Colors.black,
-                      ),
-                      Text(
-                        'New York city, NY',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
+              child: Padding(padding: EdgeInsets.all(20.0),
+              child: Text(
+               "Description",
+               style: TextStyle(   
+                    color: Colors.black38,
+                    fontSize: 15),
                   ),
+              ),
                 ),
               ),
-            ),
-            Container(
-              height: 120,
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 10.0),
+
+
+          Card(
+            color: Colors.white,
+           
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: TextField(
+                maxLength: 500,
+                maxLines: 3,
+                decoration: InputDecoration.collapsed(hintText: "Discription of product"),
+              ),
+            )
+          ),
+
+              Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+              child: Padding(padding: EdgeInsets.all(20.0),
+              child: Text(
+               "Description",
+               style: TextStyle(   
+                    color: Colors.black38,
+                    fontSize: 15),
+                  ),
+              ),
+                ),
+              ),
+              
+              
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.08,
+                  width: MediaQuery.of(context).size.width * 0.282,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),),
+                    color: Colors.white,
+                    child: Center(
+                    child: Text(
+                      "New",
+                      style: TextStyle(fontSize: 26, color: Colors.black),
+                    ),
+                  )),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.08,
+                  width: MediaQuery.of(context).size.width * 0.282,
+                  child: Card(
+                    color: Colors.white.withOpacity(1),
+                    shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),),
+                    child: Center(
+                        child: Text(
+                      "Use",
+                      style: TextStyle(fontSize: 26, color: Colors.black),
+                    )),
+                  ),
+                ),
+                 Container(
+                height: 200,
                 child: ListView.builder(
-                  shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      height: MediaQuery.of(context).size.height * 0.1,
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      child: Card(
-                              semanticContainer: true,
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              child: Image.network(
-                                "https://i.pinimg.com/736x/35/4a/59/354a59f73d62ffde38c0eada0177f164.jpg",
-                                fit: BoxFit.fill,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              elevation: 5,
-                              margin: EdgeInsets.all(10),
-                            )
-                          // : Card(
-                          //     semanticContainer: true,
-                          //     clipBehavior: Clip.antiAliasWithSaveLayer,
-                          //     child: Image.asset(Images.tind,
-                          //     fit: BoxFit.fill,
-                          //     ),
-                          //     shape: RoundedRectangleBorder(
-                          //       borderRadius: BorderRadius.circular(10.0),
-                                
-                          //     ),
-                          //     elevation: 5,
-                          //     margin: EdgeInsets.all(10),
-                          //   ),
+                  //itemCount: iconList.length,
+                  itemBuilder: (BuildContext context, int position) {
+                    return InkWell(
+                      onTap: () => setState(() => selectedIndex=position),
+                      child: Container(
+                        width: 150,
+                        child: Card(
+                          shape: (selectedIndex==position)
+                              ? RoundedRectangleBorder(
+                                  side: BorderSide(color: Colors.green))
+                              : null,
+                          elevation: 5,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              //Icon(iconList[position].iconName),
+                              //Text(iconList[position].titleIcon)
+                            ],
+                          ),
+                        ),
+                      ),
                     );
                   },
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 5.0),
-              child: Text(
-                "About me",
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 10.0),
-              child: Text(
-               " profileProvider.userProfileSingle.data.aboutme",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(25.0, 10.0, 30.0, 5.0),
-              child: Text(
-                "Your Empowerment song",
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 10.0),
-              child: Text(
-               " profileProvider.userProfileSingle.data.empoweringsong",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(25.0, 10.0, 30.0, 5.0),
-              child: Text(
-                "I am ",
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 10.0),
-              child: Text(
-               " profileProvider.userProfileSingle.data.jobtitle",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(25.0, 10.0, 30.0, 5.0),
-              child: Text(
-                "Education ",
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 10.0),
-              child: Text(
-                "profileProvider.userProfileSingle.data.education",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 0.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Ethnicity ",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  Text(
-                    "Religion ",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  Text(
-                    "Politics ",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-             padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 30.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                   " profileProvider.userProfileSingle.data.ethnicity",
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    "profileProvider.userProfileSingle.data.religion",
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    //profileProvider.,
-                   " profileProvider.userProfileSingle.data.politics",
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        )
-        
+                
+              ]),
+               Align(
+                alignment: Alignment.bottomCenter,
+               child: RaisedButton(
+               onPressed: () {
+                 validateAnd(context);
+               },
+               child: const Text('Submit', style: TextStyle(fontSize: 20)),
+              color: Colors.blue,
+              textColor: Colors.white,
+              elevation: 5,
       ),
-    );
+    ),
+              
+            ],
+          ),
+        ),
+      ),
+      
+      
+    ),
+  );
   }
-
-
 }

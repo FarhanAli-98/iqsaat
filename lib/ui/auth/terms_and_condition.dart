@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
@@ -9,16 +10,8 @@ class TermsAndConditionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     // backgroundColor: AppColors.primarycolor,
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor:  AppColors.primarycolor,
-        title: Text(
-          'Terms & Conditions',
-          // style: Styles.heading,
-        ),
-      ),
+     appBar: appBarwithbackIcon(context, "Terms & Conditions"),
+    
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30),
@@ -27,7 +20,7 @@ class TermsAndConditionScreen extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 12),
               Text(
-                "Terms & Conditions",
+                "Terms & Conditions For Incoming Users",
                 style: TextStyle(
                   fontSize: 24,
                 ),

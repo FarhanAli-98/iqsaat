@@ -17,12 +17,12 @@ import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:async/async.dart';
 
-class addProduct extends StatefulWidget {
+class AdProduct extends StatefulWidget {
   @override
-  _addProductState createState() => _addProductState();
+  _AdProductState createState() => _AdProductState();
 }
 
-class _addProductState extends State<addProduct> {
+class _AdProductState extends State<AdProduct> {
   double width, height;
 
   TextEditingController _itemNameController = TextEditingController();

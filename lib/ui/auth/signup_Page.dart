@@ -12,7 +12,7 @@ import 'package:iqsaat/ui/auth/terms_and_condition.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'loginPage.dart';
-
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 class SignUpPage extends StatefulWidget {
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -21,10 +21,16 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   double width, height;
 
-  TextEditingController _firstNameController = TextEditingController();
-  TextEditingController _lastNameController = TextEditingController();
+  TextEditingController _nameController = TextEditingController();
+    TextEditingController _addressController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
+  TextEditingController _cnicController = TextEditingController();
+   var phonemaskFormatter = new MaskTextInputFormatter(
+      mask: '#### #######', filter: {"#": RegExp(r'[0-9]')});
+      var cnicmaskFormatter = new MaskTextInputFormatter(
+      mask: '#####-#######-#', filter: {"#": RegExp(r'[0-9]')});
 
   int selectedRadio;
 //images
@@ -35,11 +41,10 @@ class _SignUpPageState extends State<SignUpPage> {
   String imageUrl;
   String honorificValue = "Mr", role = 'Customer';
   String advertiser;
-  bool isAdvertiser,isClicked=false;
+  bool isAdvertiser, isClicked = false;
   String getid;
   final _formKey = GlobalKey<FormState>();
   final dateFormat = DateFormat('dd-MM-yyyy');
-
 
   bool validateAndSave() {
     final form = _formKey.currentState;
@@ -50,7 +55,7 @@ class _SignUpPageState extends State<SignUpPage> {
       return false;
     }
   }
- 
+
   @override
   void initState() {
     super.initState();
@@ -59,14 +64,12 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Widget _body(BuildContext context) {
-
     return ListView(
       children: <Widget>[
         Container(
           margin: EdgeInsets.only(top: 15),
           child: Stack(
             children: <Widget>[
-
               Container(
                   margin: EdgeInsets.only(top: 32, left: 16, right: 16),
                   width: double.infinity,
@@ -95,50 +98,32 @@ class _SignUpPageState extends State<SignUpPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               textFieldHeader(
-                                'First Name',
+                                'Full Name',
                               ),
                               Center(
                                   child: TextFields.normalTextField(context,
                                       // fieldValue: _firstName,
-                                      controller: _firstNameController,
-                                      validaterMsg:
-                                          'First Name cannot be empty')),
-                              textFieldHeader('Last Name'),
+                                      controller: _nameController,
+                                      validaterMsg: ' Name cannot be empty')),
+                              textFieldHeader('Address'),
                               Center(
                                   child: TextFields.normalTextField(context,
-                                      // fieldValue: _lastName,
-                                      controller: _lastNameController,
-                                      validaterMsg:
-                                          'Last Name cannot be empty')),
-                               textFieldHeader('Address'),
+                                       
+                                      controller: _addressController,
+                                      validaterMsg: 'Address cannot be empty')),
+                              textFieldHeader('Phone Number'),
                               Center(
-                                  child: TextFields.normalTextField(context,
-                                      // fieldValue: _lastName,
-                                      controller: _lastNameController,
-                                      validaterMsg:
-                                          'Address cannot be empty')),
-                                           textFieldHeader('Phone Number'),
-                              Center(
-                                  child: TextFields.normalTextField(context,
-                                      // fieldValue: _lastName,
-                                      controller: _lastNameController,
+                                  child: TextFields.maskTextField(context,
+                                      inputFormatters: [phonemaskFormatter],
+                                      controller: _phoneController,
                                       validaterMsg:
                                           'Phone Number cannot be empty')),
-                                           textFieldHeader('CNIC'),
+                              textFieldHeader('CNIC'),
                               Center(
-                                  child: TextFields.normalTextField(context,
-                                      // fieldValue: _lastName,
-                                      controller: _lastNameController,
-                                      validaterMsg:
-                                          ' cannot be empty')),
-                                           textFieldHeader('Temp'),
-                              Center(
-                                  child: TextFields.normalTextField(context,
-                                      // fieldValue: _lastName,
-                                      controller: _lastNameController,
-                                      validaterMsg:
-                                          'LastName cannot be empty')),
-                             
+                                  child: TextFields.maskTextField(context,
+                                       inputFormatters: [cnicmaskFormatter],
+                                      controller: _cnicController,
+                                      validaterMsg: 'CNIC cannot be empty')),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 5.0, horizontal: 25.0),
@@ -229,62 +214,55 @@ class _SignUpPageState extends State<SignUpPage> {
                                           // else{
                                           //    role = "consumer";
                                           // }
-                                           
-                                       });
+                                        });
                                       },
                                     ),
                                     Text(
                                       "Continue to register as an Saller",
                                       style: TextStyle(fontSize: 14),
-                                     // maxLines: 2,
+                                      // maxLines: 2,
                                     ),
                                   ],
                                 ),
                               ),
-                          
-                               Container(
+                              Container(
                                 margin: EdgeInsets.only(left: 15, right: 15),
                                 child: Row(
-                                  mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                      Checkbox(
+                                    Checkbox(
                                       activeColor: Colors.green,
                                       value: isClicked,
                                       onChanged: (value) {
                                         setState(() {
                                           isClicked = value;
-                                       
-                                           
-                                       });
+                                        });
                                       },
                                     ),
-                                      Text(
-                                          "I have read & accept ",
-                                          textAlign: TextAlign.start,
-                                          style:
-                                              TextStyle(color: Colors.black38),
-                                        ),
-                                           GestureDetector(
-                                          onTap: (){
-                                             Navigator.push(
+                                    Text(
+                                      "I have read & accept ",
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(color: Colors.black38),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        TermsAndConditionScreen()));
-                                          },
-                                          child: Text(
-                                            "Terms & Conditions",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              color: AppColors.primarycolor,
-                                              fontWeight: FontWeight.bold,
-                                              decoration:
-                                                  TextDecoration.underline,
-                                            ),
-                                          ),
+                                                builder: (BuildContext
+                                                        context) =>
+                                                    TermsAndConditionScreen()));
+                                      },
+                                      child: Text(
+                                        "Terms & Conditions",
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                          color: AppColors.primarycolor,
+                                          fontWeight: FontWeight.bold,
+                                          decoration: TextDecoration.underline,
                                         ),
+                                      ),
+                                    ),
                                     // Text(
                                     //   "Continue aller",
                                     //   style: TextStyle(fontSize: 14),
@@ -294,43 +272,6 @@ class _SignUpPageState extends State<SignUpPage> {
                                 ),
                               ),
                               SizedBox(height: 20),
-
-                              // Expanded(
-                                    
-                              //       child: Row(
-                              //         mainAxisAlignment:
-                              //             MainAxisAlignment.start,
-                              //         children: <Widget>[
-                              //           Text(
-                              //             "I have read & accept ",
-                              //             textAlign: TextAlign.start,
-                              //             style:
-                              //                 TextStyle(color: Colors.black38),
-                              //           ),
-                              //           GestureDetector(
-                              //             onTap: (){
-                              //                Navigator.push(
-                              //               context,
-                              //               MaterialPageRoute(
-                              //                   builder:
-                              //                       (BuildContext context) =>
-                              //                           TermsAndConditionScreen()));
-                              //             },
-                              //             child: Text(
-                              //               "Terms & Conditions",
-                              //               textAlign: TextAlign.start,
-                              //               style: TextStyle(
-                              //                 color: AppColors.primarycolor,
-                              //                 fontWeight: FontWeight.bold,
-                              //                 decoration:
-                              //                     TextDecoration.underline,
-                              //               ),
-                              //             ),
-                              //           ),
-                              //         ],
-                              //       ),
-                              //     )
-                               
                             ]),
                       ),
                     ),
@@ -376,53 +317,39 @@ class _SignUpPageState extends State<SignUpPage> {
             ],
           ),
         ),
-       displayEmptySpace(),
-        isAdvertiser
-            ? Container()
-            : Text('Synchronize with Social  Media Account',
-                textAlign: TextAlign.center,
-                style:
-                    GoogleFonts.poppins(textStyle: TextStyles.buttonFontText)),
         displayEmptySpace(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child:   Button(
-                    buttonText: 'Signup',
-                    buttonColor: AppColors.primarycolor,
-                    
-                    onTap: 
-                    () {
+        isAdvertiser
+            
+            ?Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Button(
+                  buttonText: 'Signup',
+                  buttonColor: AppColors.primarycolor,
+                  onTap: () {
+                    if (validateAndSave()) {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (c) => LoginPage()));
+                    } else {
+                      // Navigator.pushReplacement(
+                      //             context,
+                      //             MaterialPageRoute(
+                      //                 builder: (c) => LoginPage()));
 
-                      if(validateAndSave())
-                      {
-                        Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (c) => LoginPage()));
-
-                      }
-                      else{
-                        // Navigator.pushReplacement(
-                        //             context,
-                        //             MaterialPageRoute(
-                        //                 builder: (c) => LoginPage()));
-
-                      }
-                      // validateAndSubmit().then((value) => () {
-                      //       loginProvider.userModel == null
-                      //           ? print('user is null')
-                      //           : Navigator.pushReplacement(
-                      //               context,
-                      //               MaterialPageRoute(
-                      //                   builder: (c) => LoginPage()));
-                      //     });
-                    },
-                    
-                    
-                    buttonTextStyle: TextStyles.buttonFontText,
-                    widthPercent: 0.8,
-                  ),
-        ),
+                    }
+                    // validateAndSubmit().then((value) => () {
+                    //       loginProvider.userModel == null
+                    //           ? print('user is null')
+                    //           : Navigator.pushReplacement(
+                    //               context,
+                    //               MaterialPageRoute(
+                    //                   builder: (c) => LoginPage()));
+                    //     });
+                  },
+                  buttonTextStyle: TextStyles.buttonFontText,
+                  widthPercent: 0.8,
+                ),
+              )
+              : Container(),
         displayEmptySpace(),
       ],
     );
@@ -436,8 +363,7 @@ class _SignUpPageState extends State<SignUpPage> {
       child: Container(
         decoration: BoxDecoration(gradient: AppColors.background),
         child: Scaffold(
-         appBar:appBarwithbackIcon(context,"Signup"),
-      
+          appBar: appBarwithbackIcon(context, "SIGNUP"),
           body: Container(
             margin: EdgeInsets.all(5),
             child: Stack(

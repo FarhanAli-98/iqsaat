@@ -17,41 +17,45 @@ class ProfileTab extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.black),
           elevation: 0,
         ),
-      body: Column(
-        children: <Widget>[
-          const ProfileInfoColumn(),
-          SizedBox(height: 12),
-          Expanded(
-            child: DefaultTabController(
-              length: 3,
-              child: Column(
-                children: <Widget>[
-                  Material(
-                    elevation: 2,
-                    child: TabBar(
-                      indicatorColor: AppColors.primarycolor,
-                      labelColor: Colors.black,
-                      tabs: <Widget>[
-                        Tab(child: Text("Timeline Ads")),
-                        Tab(child: Text("About Shop")),
-                        Tab(child: Text("Vault Ads"))
-                      ],
-                    ),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              const ProfileInfoColumn(),
+              SizedBox(height: 12),
+              Expanded(
+                child: DefaultTabController(
+                  length: 3,
+                  child: Column(
+                    children: <Widget>[
+                      Material(
+                        elevation: 2,
+                        child: TabBar(
+                          indicatorColor: AppColors.primarycolor,
+                          labelColor: Colors.black,
+                          tabs: <Widget>[
+                            Tab(child: Text("Timeline Ads")),
+                            Tab(child: Text("About Shop")),
+                            Tab(child: Text("Vault Ads"))
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: TabBarView(
+                          children: <Widget>[
+                            TimeLineBar(),
+                            AboutTab(),
+                            PerviousAds(),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
-                  Expanded(
-                    child: TabBarView(
-                      children: <Widget>[
-                        TimeLineBar(),
-                        AboutTab(),
-                        PerviousAds(),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
+                ),
+              )
+            ],
+          ),
+        ),
       ),
       
     );

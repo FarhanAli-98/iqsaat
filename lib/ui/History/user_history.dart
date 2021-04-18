@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/ui/History/product_history.dart';
 import './product_history.dart';
 
 class user_history extends StatelessWidget {

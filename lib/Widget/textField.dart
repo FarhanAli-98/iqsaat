@@ -94,6 +94,39 @@ class TextFields {
     );
   }
 
+
+  static Widget maskTextField(BuildContext context,
+      {String hintText,
+      TextEditingController controller,
+      var inputFormatters,
+      // var fieldValue,
+      String validaterMsg}) {
+    return Container(
+      height: 50,
+      width: MediaQuery.of(context).size.width * 0.8,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(
+            color: Colors.grey[300],
+          )),
+      child: TextFormField(
+        inputFormatters:inputFormatters,
+          controller: controller,
+          decoration: new InputDecoration(
+              contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+              hintText: hintText,
+              fillColor: Colors.white,
+              errorStyle: TextStyles.buttonFontText
+                  .copyWith(fontSize: 10, color: AppColors.redColor),
+              border: InputBorder.none),
+          validator: (value) {
+            return (value.isEmpty) ? validaterMsg : null;
+          },
+          keyboardType: TextInputType.emailAddress,
+          style: GoogleFonts.poppins(textStyle: TextStyles.textFieldFontText)),
+    );
+  }
+
   static Widget passwordTextField(BuildContext context,
       {String hintText,
       TextEditingController controller,

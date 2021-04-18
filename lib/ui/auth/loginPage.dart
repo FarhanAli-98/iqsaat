@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/textField.dart';
+import 'package:iqsaat/ui/Buyer/home_screen.dart';
 import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
+import 'package:iqsaat/ui/saller/profile/shop_profile.dart';
+
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
-import 'package:iqsaat/ui/Buyer/home_screen.dart';
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -64,157 +68,143 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _loginFormContainer(BuildContext context) {
     return Container(
-        decoration:
-            BoxDecoration(borderRadius: BorderRadius.circular(60), boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 2,
-            blurRadius: 10,
-          ),
-        ]),
-        child: Card(
-          elevation: 0,
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-            side: BorderSide.none,
-            borderRadius: BorderRadius.circular(40),
-          ),
-          child: Container(
-            height: height * 0.8,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Hero(
-                    tag: 'logo',
-                    child: Container(
-                      height: 160,
-                      width: 170,
-                      child: Image.asset(
-                        'assets/appIcons/iqsaat.jpeg',
-                         scale: 0.01,
-                      ),
-                    ),
-                  ),
+      height: height * 0.8,
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Hero(
+              tag: 'logo',
+              child: Container(
+                height: 160,
+                width: 170,
+                child: Image.asset(
+                  'assets/appIcons/iqsaat.jpeg',
+                   scale: 0.01,
+                ),
+              ),
+            ),
 
-                
-                  TextFields.emailTextField(context,
-                      hintText: 'Email Address',
-                      controller: _emailController,
-                      validaterMsg: 'Enter valid Email'),
-                  TextFields.passwordTextField(context,
-                      hintText: "Password",
-                      controller: _passwordController,
-                      // fieldValue: _password,
-                      validaterMsg: 'Password cannot be less than 6'),
-                  InkWell(
-                    onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (c) => PasswordReset())),
-                      child: Text(
-                        'Forget Password?',
-                        style: GoogleFonts.poppins(
-                            textStyle: TextStyles.buttonFontText.copyWith(
-                          color: AppColors.greyTextColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                        )),
-                      )),
-                  Button(
-                    buttonText: 'Login',
-                    buttonColor: AppColors.primarycolor,
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (c) => HomePage()));
-                      // validateAndSubmit().then((value) => () {
-                      //       loginProvider.userModel == null
-                      //           ? print('user is null')
-                      //           : Navigator.pushReplacement(
-                      //               context,
-                      //               MaterialPageRoute(
-                      //                   builder: (c) => HomePage()));
-                      //     });
-                    },
-                    buttonTextStyle: TextStyles.buttonFontText,
-                    widthPercent: 0.8,
+          
+            TextFields.emailTextField(context,
+                hintText: 'Email Address',
+                controller: _emailController,
+                validaterMsg: 'Enter valid Email'),
+            TextFields.passwordTextField(context,
+                hintText: "Password",
+                controller: _passwordController,
+                // fieldValue: _password,
+                validaterMsg: 'Password cannot be less than 6'),
+            InkWell(
+              onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (c) => PasswordReset())),
+                child: Text(
+                  'Forget Password?',
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyles.buttonFontText.copyWith(
+                    color: AppColors.greyTextColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  )),
+                )),
+            Button(
+              buttonText: 'Login',
+              buttonColor: AppColors.primarycolor,
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (c) => HomePage()));
+                // validateAndSubmit().then((value) => () {
+                //       loginProvider.userModel == null
+                //           ? print('user is null')
+                //           : Navigator.pushReplacement(
+                //               context,
+                //               MaterialPageRoute(
+                //                   builder: (c) => HomePage()));
+                //     });
+              },
+              buttonTextStyle: TextStyles.buttonFontText,
+              widthPercent: 0.8,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (c) => SignUpPage()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    "Don’t have an account? : ",
+                    textAlign: TextAlign.end,
+                    style: TextStyle(color: Colors.black38),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (c) => SignUpPage()));
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Text(
-                          "Don’t have an account? : ",
-                          textAlign: TextAlign.end,
-                          style: TextStyle(color: Colors.black38),
-                        ),
-                        Text(
-                          "Register Now ",
-                          textAlign: TextAlign.end,
-                          style: TextStyle(
-                            color: AppColors.primarycolor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (c) => SallerHomePage()));
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Text(
-                          "Login as a Saller? :  ",
-                          textAlign: TextAlign.end,
-                          style: TextStyle(color: Colors.black38),
-                        ),
-                        Text(
-                          "Click Now! ",
-                          textAlign: TextAlign.end,
-                          style: TextStyle(
-                            color: AppColors.primarycolor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (c) => HomeScreen()));
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Text(
-                          "Login as a Buyer? :  ",
-                          textAlign: TextAlign.end,
-                          style: TextStyle(color: Colors.black38),
-                        ),
-                        Text(
-                          "Click Now! ",
-                          textAlign: TextAlign.end,
-                          style: TextStyle(
-                            color: AppColors.primarycolor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                  Text(
+                    "Register Now ",
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      color: AppColors.primarycolor,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-        ));
+            GestureDetector(
+              onTap: () {
+
+                   AppRoutes.replace(context, ShopProfile());
+               
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    "Login as a Saller? :  ",
+                    textAlign: TextAlign.end,
+                    style: TextStyle(color: Colors.black38),
+                  ),
+                  Text(
+                    "Click Now! ",
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      color: AppColors.primarycolor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+           
+              
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (c) => HomeScreen()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    "Login as a Buyer? :  ",
+                    textAlign: TextAlign.end,
+                    style: TextStyle(color: Colors.black38),
+                  ),
+                  Text(
+                    "Click Now! ",
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      color: AppColors.primarycolor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   @override
