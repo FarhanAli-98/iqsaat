@@ -15,7 +15,7 @@ import 'package:iqsaat/ui/user/profile/user_profile.dart';
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
-
+import 'package:iqsaat/ui/History/user_history.dart';
 import 'ui/saller/create_Ads/Mobiles/mobiles.dart';
 import 'ui/saller/create_Ads/create_adds.dart';
 import 'ui/shared/chat/chat_dash.dart';
@@ -232,12 +232,12 @@ class _AppDrawerState extends State<AppDrawer> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        //  Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder:
-                                        //             (BuildContext context) =>
-                                        //                 ChatTab()));
+                                         Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        user_history()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
