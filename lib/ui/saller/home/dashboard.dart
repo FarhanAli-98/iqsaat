@@ -84,13 +84,8 @@ class _DashboardState extends State<Dashboard> {
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(10),
-<<<<<<< HEAD
           height:900, //MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-=======
-          // height: MediaQuery.of(context).size.height,
-          // width: MediaQuery.of(context).size.width,
->>>>>>> main
           decoration: BoxDecoration(gradient: AppColors.background),
 
           child: Column(children: [
@@ -98,7 +93,6 @@ class _DashboardState extends State<Dashboard> {
                 alignment: Alignment.topRight,
                 child: Center(
                     child: Text('Welcome back!',
-<<<<<<< HEAD
                         style: TextStyle(color: Colors.black, fontSize: 16,fontWeight: FontWeight.bold)))),
              Container(
                   padding: EdgeInsets.all(5),
@@ -188,93 +182,6 @@ class _DashboardState extends State<Dashboard> {
                   //
               ),
             
-=======
-                        style: TextStyle(color: Colors.black, fontSize: 18)))),
-            Container(
-                padding: EdgeInsets.all(10),
-                margin: EdgeInsets.only(left: 20, top: 10),
-                height: 150,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: AppColors.greyColor.withOpacity(0.15)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CircularPercentIndicator(
-                          radius: 40.0,
-                          lineWidth: 5.0,
-                          percent: 0.67,
-                          progressColor: AppColors.redColor,
-                          backgroundColor: AppColors.white,
-                          footer: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text('67%',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 15)),
-                          ),
-                        ),
-                        Text(
-                          'Selling Rate',
-                          style: TextStyle(
-                              color: AppColors.greyColor, fontSize: 12),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        CircularPercentIndicator(
-                          radius: 40.0,
-                          lineWidth: 5.0,
-                          percent: 0.53,
-                          backgroundColor: AppColors.white,
-                          progressColor: AppColors.primarycolor,
-                          footer: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              '53%',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 15),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Conversion Rate',
-                          style: TextStyle(
-                              color: AppColors.greyColor, fontSize: 12),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        CircularPercentIndicator(
-                          radius: 40.0,
-                          lineWidth: 5.0,
-                          percent: 0.80,
-                          backgroundColor: AppColors.white,
-                          progressColor: AppColors.greenColor,
-                          footer: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              '80%',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 15),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Overall Customer\n          Rating',
-                          style: TextStyle(
-                              color: AppColors.greyColor, fontSize: 12),
-                        )
-                      ],
-                    )
-                  ],
-                )),
->>>>>>> main
             SizedBox(
               height: 10,
             ),

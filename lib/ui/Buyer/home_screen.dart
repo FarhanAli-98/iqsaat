@@ -56,6 +56,7 @@ class HomeScreenState extends State<HomeScreen> {
                 )),
 
         actions: <Widget>[
+          
          !isSearching ? GestureDetector(
               onTap: (){
                 setState((){

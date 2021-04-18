@@ -13,8 +13,11 @@ import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/History/user_history.dart';
-import 'ui/saller/create_Ads/Mobiles/mobiles.dart';
-import 'ui/saller/create_Ads/create_adds.dart';
+import 'package:iqsaat/ui/cart/cart_screen.dart';
+
+
+//import 'ui/saller/create_Ads/Mobiles/mobiles.dart';
+//import 'ui/saller/create_Ads/create_adds.dart';
 
 import 'ui/shared/chat/chat_dash.dart';
 
@@ -272,7 +275,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
-                                                TermsAndConditionScreen()));
+                                                CartScreen()));
                           },
                         ),
                         SizedBox(

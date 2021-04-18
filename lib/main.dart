@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/ui/saller/create_Ads/CreateProducts.dart';
 
 import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
+import 'package:iqsaat/utils/splashScreen.dart';
+
 
 
 void main() {
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
     // home: SplashScreen(),
-    home: Example01(),
+    home: SplashScreen(),
     );
   }
 }

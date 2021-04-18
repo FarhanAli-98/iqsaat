@@ -12,7 +12,7 @@ import 'package:iqsaat/ui/auth/terms_and_condition.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'loginPage.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+//import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 class SignUpPage extends StatefulWidget {
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -27,10 +27,10 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _phoneController = TextEditingController();
   TextEditingController _cnicController = TextEditingController();
-   var phonemaskFormatter = new MaskTextInputFormatter(
-      mask: '#### #######', filter: {"#": RegExp(r'[0-9]')});
-      var cnicmaskFormatter = new MaskTextInputFormatter(
-      mask: '#####-#######-#', filter: {"#": RegExp(r'[0-9]')});
+  // var phonemaskFormatter = new MaskTextInputFormatter(
+     // mask: '#### #######', filter: {"#": RegExp(r'[0-9]')});
+    //  var cnicmaskFormatter = new MaskTextInputFormatter(
+     // mask: '#####-#######-#', filter: {"#": RegExp(r'[0-9]')});
 
   int selectedRadio;
 //images
@@ -114,14 +114,14 @@ class _SignUpPageState extends State<SignUpPage> {
                               textFieldHeader('Phone Number'),
                               Center(
                                   child: TextFields.maskTextField(context,
-                                      inputFormatters: [phonemaskFormatter],
+                                     // inputFormatters: [phonemaskFormatter],
                                       controller: _phoneController,
                                       validaterMsg:
                                           'Phone Number cannot be empty')),
                               textFieldHeader('CNIC'),
                               Center(
                                   child: TextFields.maskTextField(context,
-                                       inputFormatters: [cnicmaskFormatter],
+                                       //inputFormatters: [cnicmaskFormatter],
                                       controller: _cnicController,
                                       validaterMsg: 'CNIC cannot be empty')),
                               Padding(
