@@ -5,6 +5,7 @@ import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/models/user_info.dart';
+import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'add_image_page.dart';
@@ -32,8 +33,8 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
   TextEditingController _travelController2 = TextEditingController();
   TextEditingController _minimumController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  List<String> images = List();
-  List<Service> serviceList = List();
+  List<String> images = [];
+  List<Service> serviceList = [];
   Service serv;
 
   int count = 0;
@@ -47,6 +48,14 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
       return true;
     } else {
       return false;
+    }
+  }
+
+  Future<void> validateAndSubmit() async {
+    if (validateAndSave()) {
+      Navigator.push(context, MaterialPageRoute(builder: (c) => LoginPage()));
+    } else {
+      print("object");
     }
   }
 
@@ -105,69 +114,265 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-
                               textFieldHeader(
-                                'Full Name',
+                                'Product Name',
                               ),
                               Center(
                                   child: TextFields.normalTextField(context,
                                       // fieldValue: _firstName,
                                       controller: _servicesController,
                                       validaterMsg: ' Name cannot be empty')),
-
-                                      textFieldHeader(
-                                'Full Name',
+                              textFieldHeader(
+                                'Price',
+                              ),
+                              Center(
+                                  child: TextFields.phoneNoTextField(context,
+                                      // fieldValue: _firstName,
+                                      controller: _servicesController,
+                                      validaterMsg: ' Price cannot be empty')),
+                              textFieldHeader(
+                                'Unit',
                               ),
                               Center(
                                   child: TextFields.normalTextField(context,
                                       // fieldValue: _firstName,
                                       controller: _servicesController,
-                                      validaterMsg: ' Name cannot be empty')),
-
-
-                                      textFieldHeader(
-                                'Full Name',
+                                      validaterMsg: ' Unit cannot be empty')),
+                              textFieldHeader(
+                                'Subscription Package',
                               ),
-                              Center(
-                                  child: TextFields.normalTextField(context,
-                                      // fieldValue: _firstName,
-                                      controller: _servicesController,
-                                      validaterMsg: ' Name cannot be empty')),
+                              Container(
+                                padding: EdgeInsets.only(
+                                    top: 10, left: 10, right: 10),
+                                child: Table(
+                           
+                        
+                      
+                                    border: TableBorder.all(), // Allows to add a border decoration around your table
+                                    children: [
+                                      TableRow(children: [
+                                        Center(
+                                            child: Text(
+                                          'Package',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                          ),
+                                        )),
+                                        Center(
+                                            child: Text(
+                                          'Price',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                          ),
+                                        )),
+                                        Center(
+                                            child: Text(
+                                          'Month',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                          ),
+                                        )),
+                                      ]),
+                                      TableRow(children: [
+                                        Center(
+                                          child: Text(
+                                            'Package',
+                                            style: TextStyle(fontSize: 17),
+                                          ),
+                                        ),
+                                        TextFormField(
+                                          //controller: controller,
+                                          validator: (value) {
+                                            return (value.isEmpty)
+                                                ? "Enter Value"
+                                                : null;
+                                          },
+                                          decoration: new InputDecoration(
+                                              // prefix: Text(hintText),
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 20,
+                                                      vertical: 4),
+                                              fillColor: Colors.white,
+                                              errorStyle: TextStyles
+                                                  .buttonFontText
+                                                  .copyWith(
+                                                      fontSize: 10,
+                                                      color:
+                                                          AppColors.redColor),
+                                              border: InputBorder.none),
 
-                                   textFieldHeader('about'),
+                                          keyboardType: TextInputType.phone,
+                                        ),
+                                        TextFormField(
+                                          validator: (value) {
+                                            return (value.isEmpty)
+                                                ? "Enter Value"
+                                                : null;
+                                          },
+                                          //controller: controller,
+                                          decoration: new InputDecoration(
+                                              // prefix: Text(hintText),
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 20,
+                                                      vertical: 4),
+                                              fillColor: Colors.white,
+                                              errorStyle: TextStyles
+                                                  .buttonFontText
+                                                  .copyWith(
+                                                      fontSize: 10,
+                                                      color:
+                                                          AppColors.redColor),
+                                              border: InputBorder.none),
+
+                                          keyboardType: TextInputType.phone,
+                                        ),
+                                      ]),
+                                      TableRow(children: [
+                                        Center(
+                                          child: Text(
+                                            'Package',
+                                            style: TextStyle(fontSize: 17),
+                                          ),
+                                        ),
+                                        TextFormField(
+                                          validator: (value) {
+                                            return (value.isEmpty)
+                                                ? "Enter Value"
+                                                : null;
+                                          },
+                                          //controller: controller,
+                                          decoration: new InputDecoration(
+                                              // prefix: Text(hintText),
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 20,
+                                                      vertical: 4),
+                                              fillColor: Colors.white,
+                                              errorStyle: TextStyles
+                                                  .buttonFontText
+                                                  .copyWith(
+                                                      fontSize: 10,
+                                                      color:
+                                                          AppColors.redColor),
+                                              border: InputBorder.none),
+
+                                          keyboardType: TextInputType.phone,
+                                        ),
+                                        TextFormField(
+                                          validator: (value) {
+                                            return (value.isEmpty)
+                                                ? "Enter Value"
+                                                : null;
+                                          },
+                                          //controller: controller,
+                                          decoration: new InputDecoration(
+                                              // prefix: Text(hintText),
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 20,
+                                                      vertical: 4),
+                                              fillColor: Colors.white,
+                                              errorStyle: TextStyles
+                                                  .buttonFontText
+                                                  .copyWith(
+                                                      fontSize: 10,
+                                                      color:
+                                                          AppColors.redColor),
+                                              border: InputBorder.none),
+
+                                          keyboardType: TextInputType.phone,
+                                        ),
+                                      ]),
+                                      TableRow(children: [
+                                        Center(
+                                          child: Text(
+                                            'Package',
+                                            style: TextStyle(fontSize: 17),
+                                          ),
+                                        ),
+                                        TextFormField(
+                                          validator: (value) {
+                                            return (value.isEmpty)
+                                                ? "Enter Value"
+                                                : null;
+                                          },
+                                          //controller: controller,
+                                          decoration: new InputDecoration(
+                                              // prefix: Text(hintText),
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 20,
+                                                      vertical: 4),
+                                              fillColor: Colors.white,
+                                              errorStyle: TextStyles
+                                                  .buttonFontText
+                                                  .copyWith(
+                                                      fontSize: 10,
+                                                      color:
+                                                          AppColors.redColor),
+                                              border: InputBorder.none),
+
+                                          keyboardType: TextInputType.phone,
+                                        ),
+                                        TextFormField(
+                                          validator: (value) {
+                                            return (value.isEmpty)
+                                                ? "Enter Value"
+                                                : null;
+                                          },
+                                          //controller: controller,
+                                          decoration: new InputDecoration(
+                                              // prefix: Text(hintText),
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 20,
+                                                      vertical: 4),
+                                              fillColor: Colors.white,
+                                              errorStyle: TextStyles
+                                                  .buttonFontText
+                                                  .copyWith(
+                                                      fontSize: 10,
+                                                      color:
+                                                          AppColors.redColor),
+                                              border: InputBorder.none),
+
+                                          keyboardType: TextInputType.phone,
+                                        ),
+                                      ]),
+                                    ]),
+                              ),
+                              textFieldHeader('Description'),
                               Center(
                                 child: GestureDetector(
-                                  onTap: () async {
-                                
-                                  },
+                                  onTap: () async {},
                                   child: Container(
-                                    margin: EdgeInsets.only(
-                                      bottom: 10,
-                                    ),
-                                    padding: EdgeInsets.only(top: 10, left: 10),
-                                    height: MediaQuery.of(context).size.height *
-                                        0.15,
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.8,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        border: Border.all(
-                                          color: Colors.grey[300],
-                                        )),
-                                    child: Text(
-                                            'Description of your  Shop including services and specialties.')
-                                       
-                                  ),
+                                      margin: EdgeInsets.only(
+                                        bottom: 10,
+                                      ),
+                                      padding:
+                                          EdgeInsets.only(top: 10, left: 10),
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.15,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.8,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          border: Border.all(
+                                            color: Colors.grey[300],
+                                          )),
+                                      child: Text(
+                                          'Description of your  Shop including services and specialties.')),
                                 ),
                               ),
-                              Text('Photos'),
+                              textFieldHeader('Photos'),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
-                                  // _displayImageCard(),
-
-                                  //imageFile picker 1
                                   DottedBorder(
                                     color: Colors.green,
                                     strokeWidth: 1,
@@ -183,7 +388,6 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                                           ? Container(
                                               child: InkWell(
                                                 onTap: () async {
-                                                  // _openImagePicker(1);
                                                   final result =
                                                       await Navigator.push(
                                                           context,
@@ -337,186 +541,21 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 10),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: <Widget>[
-                                  // _displayImageCard(),
-
-                                  //imagePicker 4
-                                  Container(
-                                    margin: EdgeInsets.only(top: 5),
-                                    height: 52,
-                                    width: width * 0.27,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color:
-                                                Colors.grey.withOpacity(0.3)),
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child:
-                                        User.userData.images.asMap()[3] == null
-                                            ? Container(
-                                                child: InkWell(
-                                                  onTap: () async {
-                                                    // _openImagePicker(4);
-                                                    setState(() {});
-                                                    final result =
-                                                        await Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                                builder: (c) =>
-                                                                    AddImagePage(
-                                                                        3)));
-                                                    if (result) {
-                                                      setState(() {});
-                                                    }
-                                                  },
-                                                ),
-                                              )
-                                            : Container(
-                                                child: InkWell(
-                                                  onTap: () async {
-                                                    final result =
-                                                        await Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                                builder: (c) =>
-                                                                    AddImagePage(
-                                                                        3)));
-                                                    if (result) {
-                                                      setState(() {});
-                                                    }
-                                                  },
-                                                  child: Image.file(
-                                                    User.userData.images[3],
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                              ),
-                                  ),
-
-                                  //imagePicker 5
-
-                                  Container(
-                                    margin: EdgeInsets.only(top: 5),
-                                    height: 52,
-                                    width: width * 0.27,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color:
-                                                Colors.grey.withOpacity(0.3)),
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child:
-                                        User.userData.images.asMap()[4] == null
-                                            ? Container(
-                                                child: InkWell(
-                                                  onTap: () async {
-                                                    // _openImagePicker(5);
-                                                    setState(() {});
-                                                    final result =
-                                                        await Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                                builder: (c) =>
-                                                                    AddImagePage(
-                                                                        4)));
-                                                    if (result) {
-                                                      setState(() {});
-                                                    }
-                                                  },
-                                                ),
-                                              )
-                                            : Container(
-                                                child: InkWell(
-                                                  onTap: () async {
-                                                    final result =
-                                                        await Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                                builder: (c) =>
-                                                                    AddImagePage(
-                                                                        4)));
-                                                    if (result) {
-                                                      setState(() {});
-                                                    }
-                                                  },
-                                                  child: Image.file(
-                                                    User.userData.images[4],
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                              ),
-                                  ),
-
-                                  //imagePicker 6
-
-                                  Container(
-                                    margin: EdgeInsets.only(top: 5),
-                                    height: 52,
-                                    width: width * 0.27,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color:
-                                                Colors.grey.withOpacity(0.3)),
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child: User.userData.images.asMap()[5] ==
-                                            null
-                                        ? Container(
-                                            child: InkWell(
-                                              onTap: () async {
-                                                // _openImagePicker(6);
-                                                // setState(() {});
-                                                final result =
-                                                    await Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                            builder: (c) =>
-                                                                AddImagePage(
-                                                                    5)));
-                                                if (result) {
-                                                  setState(() {});
-                                                }
-                                              },
-                                            ),
-                                          )
-                                        : Container(
-                                            child: InkWell(
-                                              onTap: () async {
-                                                final result =
-                                                    await Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                            builder: (c) =>
-                                                                AddImagePage(
-                                                                    5)));
-                                                if (result) {
-                                                  setState(() {});
-                                                }
-                                              },
-                                              child: Image.file(
-                                                User.userData.images.asMap()[5],
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
-                                  ),
-                                ],
-                              ),
+                              SizedBox(height: 20),
                             ]),
                       ),
                     )),
               ],
             ),
           ),
+           SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Button(
               buttonText: 'Save and Exit',
-              buttonColor: AppColors.yellowColor,
+              buttonColor: AppColors.primarycolor,
               onTap: () async {
-                // _isloading = true;
-                //setState(() {});
+                validateAndSubmit();
               },
               buttonTextStyle: TextStyles.buttonFontText,
               widthPercent: 0.8,

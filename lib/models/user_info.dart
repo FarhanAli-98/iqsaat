@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 
 
@@ -17,19 +16,11 @@ class User {
   String companyAbout;
   String ads;
   String cid;
-  double lat, long;
-  
-  List<File> images;
-  List<String> imageTitles = List<String>();
-  List<String> imageDesc = List<String>();
- // List<ImageModel> imageList = List<ImageModel>();
-  List<String> videoTitles=List();
-  List<String> videoDescriptions=List();
-  List<String> imgUrl = List();
-  Uint8List video1;
-  Uint8List video2;
-  Uint8List video3;
-
+  double lat, long; 
+  List<File> images=[];
+  List<String> imageTitles = [];
+  List<String> imageDesc = [];
+  List<String> imgUrl = [];
   String adid;
-  static String companyabout;
+
 }

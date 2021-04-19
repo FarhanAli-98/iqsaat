@@ -109,18 +109,7 @@ class _AddImagePageState extends State<AddImagePage> {
           SizedBox(
             height: 20,
           ),
-          Container(
-            padding: EdgeInsets.only(left: 20, right: 20),
-            child: TextField(
-              controller: _descriptionController,
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: 4,
-                    // horizontal: 20,
-                  ),
-                  hintText: 'Enter a description*'),
-            ),
-          ),
+       
           SizedBox(
             height: height / 5,
           ),
@@ -130,9 +119,9 @@ class _AddImagePageState extends State<AddImagePage> {
               buttonText: 'Done',
               buttonColor: AppColors.primarycolor,
               onTap: () {
-                // imageTitles.add
+              
                 User.userData.imageTitles.add(_titleController.text);
-                User.userData.imageDesc.add(_descriptionController.text);
+                myFile=null;
                 Navigator.pop(context, false);
               },
               buttonTextStyle: TextStyles.buttonFontText,

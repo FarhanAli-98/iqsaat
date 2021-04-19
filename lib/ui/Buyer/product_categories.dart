@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
-
-
-
-// We need satefull widget for our categories
-
+import 'package:iqsaat/ui/user/home/categoryPages.dart/cnusmerElectronics.dart';
+import 'package:iqsaat/ui/user/home/categoryPages.dart/homeAppliances.dart';
+import 'package:iqsaat/ui/user/home/categoryPages.dart/mobilePads.dart';
+import 'package:iqsaat/ui/user/home/categoryPages.dart/vehicles.dart';
+import 'package:iqsaat/ui/user/home/user_home.dart';
 class Categories extends StatefulWidget {
+  final int indexs;
+
+  const Categories({Key key, @required this.indexs}) : super(key: key);
   @override
   _CategoriesState createState() => _CategoriesState();
 }
 
 class _CategoriesState extends State<Categories> {
-  List<String> categories = ["Mobile phones/Laptops", "Home Appliance", "Bikes", "Cars"];
+  List<String> categories = [
+    "All",
+    "Consumer Electronics",
+    "Home Appliance",
+    "Mobiles/Pads",
+    "Vehicle"
+  ];
   // By default our first item will be selected
   int selectedIndex = 0;
   @override
@@ -33,6 +42,36 @@ class _CategoriesState extends State<Categories> {
       onTap: () {
         setState(() {
           selectedIndex = index;
+          print("def" + index.toString());
+          if (index == 0) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => HomePage()));
+          } else if (index == 1) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => Allitems(title: "Consumer Electronics",)));
+          }
+          else if (index == 2) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => HomeAppiances(title:"HomeAppiances")));
+          }
+          else if (index == 3) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => MobilePads(title: "MobilePads",)));
+          }
+          else if (index == 4) {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => Vehicles(title: "Vehicles",)));
+          }
         });
       },
       child: Padding(
@@ -44,14 +83,14 @@ class _CategoriesState extends State<Categories> {
               categories[index],
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: selectedIndex == index ? Colors.blueGrey : Colors.grey,
+                color: widget.indexs == index ? Colors.blueGrey : Colors.grey,
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top:20.0/ 4), //top padding 5
+              margin: EdgeInsets.only(top: 20.0 / 4), //top padding 5
               height: 2,
               width: 30,
-              color: selectedIndex == index ? Colors.black : Colors.transparent,
+              color: widget.indexs == index ? Colors.black : Colors.transparent,
             )
           ],
         ),
