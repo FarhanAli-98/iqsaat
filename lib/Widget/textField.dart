@@ -99,7 +99,7 @@ class TextFields {
       {String hintText,
       TextEditingController controller,
       var inputFormatters,
-      // var fieldValue,
+     
       String validaterMsg}) {
     return Container(
       height: 50,

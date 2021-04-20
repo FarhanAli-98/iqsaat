@@ -14,7 +14,18 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "0.41.2"
+=======
+    version: "0.40.6"
+  animated_splash_screen:
+    dependency: "direct main"
+    description:
+      name: animated_splash_screen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
+>>>>>>> main
   animated_text_kit:
     dependency: "direct dev"
     description:
@@ -681,6 +692,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.10"
+  page_transition:
+    dependency: transitive
+    description:
+      name: page_transition
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1-nullsafety.0"
   path:
     dependency: transitive
     description:

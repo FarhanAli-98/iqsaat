@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iqsaat/Widget/textField.dart';
+import 'package:iqsaat/ui/user/home/mapview.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 
@@ -68,4 +70,66 @@ Widget appBarwithImageTitle(BuildContext context, String title) {
       ],
     ),
   );
+}
+
+Widget appBarUserSide(BuildContext context, String title) {
+  return AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          leading: Builder(
+              builder: (context) => InkWell(
+                    onTap: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    child: Container(
+                      //width: 55,
+                      // height: 30,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 10,
+                                spreadRadius: 5,
+                                color: Colors.black12)
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(50),
+                              topRight: Radius.circular(50))),
+                      child: Image.asset(
+                        'assets/appIcons/menu.png',
+                        width: 50,
+                        height: 50,
+                      ),
+                    ),
+                  )),
+          actions: <Widget>[
+            GestureDetector(
+                onTap: () => Navigator.push(
+                    context, MaterialPageRoute(builder: (c) => Mapview())),
+                child: Container(
+                    margin: EdgeInsets.only(right: 13),
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.black,
+                    ))),
+            GestureDetector(
+                onTap: () => Navigator.push(
+                    context, MaterialPageRoute(builder: (c) => Mapview())),
+                child: Container(
+                  margin: EdgeInsets.only(right: 13),
+                  child: Image.asset(
+                    'assets/appIcons/offlineVector.png',
+                    width: 33,
+                    height: 24,
+                  ),
+                ))
+          ],
+          title: Center(
+              child: TextFields.maskTextField(
+            context,
+            hintText: "Search",
+          )),
+        );
+       
 }

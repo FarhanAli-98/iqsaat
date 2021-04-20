@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/ui/Product/products.dart';
+import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/selectCategory.dart';
 
 import './product_categories.dart';
 import './product_card.dart';
@@ -63,13 +64,13 @@ class Body extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) => ItemCard(
                       product: products[index],
-                      // press: () => Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => DetailsScreen(
-                      //         product: products[index],
-                      //       ),
-                      //     )),
+                      press: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CreateProducts(
+                             
+                            ),
+                          )),
                     )),
           ),
         ),

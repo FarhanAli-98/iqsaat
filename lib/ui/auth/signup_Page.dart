@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -8,9 +9,11 @@ import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
+import 'package:iqsaat/provider/signup_provider.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
+import 'package:provider/provider.dart';
 import 'loginPage.dart';
 //import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 class SignUpPage extends StatefulWidget {
@@ -20,8 +23,9 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   double width, height;
-
-  TextEditingController _nameController = TextEditingController();
+RegisterProvider registerProvider;
+  TextEditingController _firstNameController = TextEditingController();
+  TextEditingController _lastNameController = TextEditingController();
     TextEditingController _addressController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -39,7 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final picker = ImagePicker();
   bool _isloading = false;
   String imageUrl;
-  String honorificValue = "Mr", role = 'Customer';
+  String  role = 'consumer';
   String advertiser;
   bool isAdvertiser, isClicked = false;
   String getid;
@@ -53,6 +57,94 @@ class _SignUpPageState extends State<SignUpPage> {
       return true;
     } else {
       return false;
+    }
+  }
+    void validateAndSubmit(context) {
+    if (validateAndSave()) {
+      if (false) {
+        Fluttertoast.showToast(
+            msg: "Please select a Honorific value",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
+            );
+      } else {
+        Provider.of<RegisterProvider>(context, listen: false)
+            .registerResponse(
+              _firstNameController.text,
+               _lastNameController.text,
+               _addressController.text,
+               _phoneController.text,
+               _cnicController.text,
+                _emailController.text,
+                _passwordController.text,
+                role,
+                _image)
+            .then((value) {
+          print(value);
+
+      
+          Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (c) => LoginPage()));
+       
+
+
+
+
+
+
+
+
+
+          /* if (_image != null) {
+            uploadImage(_image, context);
+          }
+          if (value) {
+            Fluttertoast.showToast(
+                msg: "Successfully Create Account",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
+                );
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    title: Text(''),
+                    content: Text(
+                        "An email has been sent to you, kindly click on the link to verfiy your email."),
+                  );
+                });
+            _emailController.text = "";
+            _firstNameController.text = "";
+            honorificValue = "Mr.";
+            _lastNameController.text = "";
+            _passwordController.text = "";
+            _confirmPassController.text = "";
+            role = "Consumer";
+            isAdvertiser = false;
+            selectedRadio = 1;
+            _image = null;
+          } else {
+            Fluttertoast.showToast(
+                msg: "Failed to Create an Account",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
+                );
+          } */
+        });
+      }
+    } else {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              title: Text("Syntax Error"),
+              content: Text("Please Enter valid information"),
+            );
+          });
     }
   }
 
@@ -98,12 +190,20 @@ class _SignUpPageState extends State<SignUpPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               textFieldHeader(
-                                'Full Name',
+                                'First Name',
                               ),
                               Center(
                                   child: TextFields.normalTextField(context,
                                       // fieldValue: _firstName,
-                                      controller: _nameController,
+                                      controller: _firstNameController,
+                                      validaterMsg: ' Name cannot be empty')),
+                                      textFieldHeader(
+                                'Last Name',
+                              ),
+                              Center(
+                                  child: TextFields.normalTextField(context,
+                                      // fieldValue: _firstName,
+                                      controller: _lastNameController,
                                       validaterMsg: ' Name cannot be empty')),
                               textFieldHeader('Address'),
                               Center(
@@ -207,13 +307,13 @@ class _SignUpPageState extends State<SignUpPage> {
                                       onChanged: (value) {
                                         setState(() {
                                           isAdvertiser = value;
-                                          // if(isAdvertiser)
-                                          // {
-                                          //   role = "advertiser";
-                                          // }
-                                          // else{
-                                          //    role = "consumer";
-                                          // }
+                                          if(isAdvertiser)
+                                          {
+                                            role = "advertiser";
+                                          }
+                                          else{
+                                             role = "consumer";
+                                          }
                                         });
                                       },
                                     ),
@@ -326,16 +426,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   buttonText: 'Signup',
                   buttonColor: AppColors.primarycolor,
                   onTap: () {
-                    if (validateAndSave()) {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (c) => LoginPage()));
-                    } else {
-                      // Navigator.pushReplacement(
-                      //             context,
-                      //             MaterialPageRoute(
-                      //                 builder: (c) => LoginPage()));
 
-                    }
+                    validateAndSubmit(context);
+               
                     // validateAndSubmit().then((value) => () {
                     //       loginProvider.userModel == null
                     //           ? print('user is null')
@@ -359,6 +452,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
+    registerProvider = Provider.of<RegisterProvider>(context);
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(gradient: AppColors.background),
