@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
               height: 10,
             ),
 
-            HomeScreenRow(text: 'Services'),
+            HomeScreenRow(text: 'Categories'),
             SizedBox(
               height: 10,
             ),
