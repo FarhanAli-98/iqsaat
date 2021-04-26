@@ -14,49 +14,41 @@ class ItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: press,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(5.0),
-              // For  demo we use fixed height  and width
-              // Now we dont need them
-              // height: 180,
-              // width: 160,
-              decoration: BoxDecoration(
-                color: product.color,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Hero(
-                tag: "${product.id}",
-                child: Image.asset(product.image),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20 / 4),
-            child: Text(
-              // products is out demo list
-              product.title,
-              style: TextStyle(color: Colors.blueAccent),
-            ),
-          ),
-          Text(
-            "\R\S\:${product.price}",
-            style: TextStyle(fontWeight: FontWeight.bold,color: Colors.lightBlue[200]),
-          ),
-           Text(
-            product.plan,
-            style: TextStyle(fontWeight: FontWeight.bold,color: Colors.lightBlue[200]),
-          ),
-            Text(
-            product.description,
-            style: TextStyle(fontWeight: FontWeight.bold,color: Colors.deepPurple),
-          )
+      child: Container(
+        child: Card(
+          elevation: 5,
+          margin: EdgeInsets.all(5.0),
+          
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(child: Image.asset(product.image,)),
+                Text(
+                  // products is out demo list
+                  product.title,
+                  style: TextStyle(color: Colors.black),
+                ),
+                Text(
+                  "\R\S\:${product.price}",
+                  style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+                ),
+                 Text(
+                  product.plan,
+                  style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black45),
+                ),
+                  Text(
+                  product.description,
+                  style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+                )
 
 
-        ],
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

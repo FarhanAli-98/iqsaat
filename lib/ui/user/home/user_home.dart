@@ -7,7 +7,10 @@ import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/drawer.dart';
 import 'package:iqsaat/Widget/three_dots_icon.dart';
 import 'package:iqsaat/models/chat_item.dart';
+import 'package:iqsaat/ui/Buyer/product_card.dart';
 import 'package:iqsaat/ui/Buyer/product_categories.dart';
+import 'package:iqsaat/ui/Product/products.dart';
+import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/selectCategory.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -47,7 +50,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   List<Widget> _tiles = const <Widget>[
-    const _Example01Tile(Colors.green, Icons.car_rental, "car"),
+    const _Example01Tile(Colors.green, Icons.category, "AllCategory"),
     const _Example01Tile(Colors.amber, Icons.mobile_friendly, "mobile"),
     const _Example01Tile(Colors.deepOrange, Icons.computer, "computer"),
     const _Example01Tile(Colors.indigo, Icons.house, "house"),
@@ -66,40 +69,40 @@ class _HomePageState extends State<HomePage> {
     
 
     _body() {
-      return Container(
-        padding: EdgeInsets.all(10),
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(),
-        child: SingleChildScrollView(
+      return SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(10),
+          height: double.maxFinite,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(),
           child: Column(children: [
             Categories(indexs:0),
 
-            SizedBox(height: 10),
+          //  SizedBox(height: 5),
             HomeScreenRow(text: 'Comming Up '),
-            SizedBox(
-              height: 10,
-            ),
+            // SizedBox(
+            //   height: 5,
+            // ),
 
             Container(
                 padding: EdgeInsets.all(10),
                 margin: EdgeInsets.all(5),
                 alignment: Alignment.center,
                 constraints:
-                    BoxConstraints.expand(height: 150, width: double.infinity),
+                    BoxConstraints.expand(height: 170, width: double.maxFinite),
                 child: imageSlider(context)),
-            SizedBox(
-              height: 10,
-            ),
+            // SizedBox(
+            //   height: 10,
+            // ),
 
             HomeScreenRow(text: 'Services'),
-            SizedBox(
-              height: 10,
-            ),
+            // SizedBox(
+            //   height: 10,
+            // ),
 
             Container(
-              height: 200,
-              width: 400,
+              height:250,
+              width: width,
               child: Padding(
                   padding: const EdgeInsets.only(top: 12.0),
                   child: StaggeredGridView.count(
@@ -112,35 +115,35 @@ class _HomePageState extends State<HomePage> {
                   )),
             ),
 
-            SizedBox(height: 10),
-            HomeScreenRow(text: 'Ads'),
+            
+            HomeScreenRow(text: 'Ads gven blew'),
             SizedBox(
               height: 10,
             ),
+             Container(
+               height: height,
+              width: width,
+               child: GridView.builder(
+                   itemCount: products.length,
+                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                     crossAxisCount: 2,
+                     mainAxisSpacing:5.0,
+                     crossAxisSpacing: 10.0,
+                     childAspectRatio: 0.75,
+                   ),
+                   itemBuilder: (context, index) => ItemCard(
+                         product: products[index],
+                         press: () => Navigator.push(
+                             context,
+                             MaterialPageRoute(
+                               builder: (context) => CreateProducts(
+                                
+                               ),
+                             )),
+                       )),
+             ),
 
-            // UserPost(
-            //   profileimageUrl: chatItems.last.imageUrl,
-            //   title: "Farhan Ali  \u27A1  Township Lahore, Punjab",
-            //   description:
-            //       "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
-            //   imageUrl: "assets/images/car1.webp",
-            // ),
-            // SizedBox(height: 12),
-            // UserPost(
-            //   profileimageUrl: chatItems.first.imageUrl,
-            //   title: "Abdul hannan",
-            //   description:
-            //       "2015 - 86,000 km \n2015 Model Honda Civic UG 1.8 Vti Oriel Prosmatec Full Option Rebirth",
-            //   imageUrl: "assets/images/image.webp",
-            // ),
-            // SizedBox(height: 12),
-            // UserPost(
-            //   profileimageUrl: chatItems.last.imageUrl,
-            //   title: "Farhan Ali  \u27A1  Township Lahore, Punjab",
-            //   description:
-            //       "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
-            //   imageUrl: "assets/images/car1.webp",
-            // ),
+           
           ]),
         ),
       );
@@ -151,6 +154,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         drawer: DrawerFull(context, MediaQuery.of(context).size),
+        
         appBar: appBarUserSide(context,"Custome Side"),
        
         body: _body(),
@@ -163,13 +167,13 @@ Swiper imageSlider(context) {
   return new Swiper(
     autoplay: true,
     itemBuilder: (BuildContext context, int index) {
-      return new Image.network(
-        "https://lahorerealestate.com/wp-content/uploads/2019/11/DHA-Bahawalpur-Installment-Plots-Balloting-2019.jpg",
-        // fit: BoxFit.fitHeight,
+      return Image.network(
+        "https://assetscdn1.paytm.com/images/catalog/view_item/646586/1600422816487.jpg",
+         fit: BoxFit.fitWidth,
       );
     },
     itemCount: 3,
-    viewportFraction: 0.75,
+    viewportFraction: 1,
     scale: 1,
   );
 }
@@ -301,3 +305,26 @@ class UserPost extends StatelessWidget {
     );
   }
 }
+ // UserPost(
+            //   profileimageUrl: chatItems.last.imageUrl,
+            //   title: "Farhan Ali  \u27A1  Township Lahore, Punjab",
+            //   description:
+            //       "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
+            //   imageUrl: "assets/images/car1.webp",
+            // ),
+            // SizedBox(height: 12),
+            // UserPost(
+            //   profileimageUrl: chatItems.first.imageUrl,
+            //   title: "Abdul hannan",
+            //   description:
+            //       "2015 - 86,000 km \n2015 Model Honda Civic UG 1.8 Vti Oriel Prosmatec Full Option Rebirth",
+            //   imageUrl: "assets/images/image.webp",
+            // ),
+            // SizedBox(height: 12),
+            // UserPost(
+            //   profileimageUrl: chatItems.last.imageUrl,
+            //   title: "Farhan Ali  \u27A1  Township Lahore, Punjab",
+            //   description:
+            //       "Rent Honda BRV, Toyota Corolla, Toyota Yaris, Honda Civic in Islamabad with driver for your city and intercity car rental requirements.\n Honda BRV: 5,000/day in Islamabad & 6,000/day outside Islamabad",
+            //   imageUrl: "assets/images/car1.webp",
+            // ),

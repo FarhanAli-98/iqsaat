@@ -7,7 +7,6 @@ class RegisterApi {
 
   final String firstName;
   final String lastName;
-  final String address;
   final String phone;
   final String cnic;
   final String email;
@@ -15,7 +14,7 @@ class RegisterApi {
   final String role;
   final File file;
 
-  RegisterApi(this.firstName, this.lastName, this.address, this.phone, this.cnic, this.email, this.password, this.role, this.file);
+  RegisterApi(this.firstName, this.lastName,  this.phone, this.cnic, this.email, this.password, this.role, this.file);
 
   Future<http.Response> createUser() {
     Map<String, String> customHeaders = {
@@ -26,17 +25,16 @@ class RegisterApi {
     var body = {
       "firstName": "$firstName",
       "lastName": "$lastName",
-      "address": "$address",
       "contactNumber": "$phone",
       "cnic": "$cnic",
       "email": "$email",
       "password": "$password",
-      "role": "seller",
+      "role": "buyer",
    
     };
     //print("ID = "+.toString());
     print("Adds Data getten is = = = = " + json.encode(body));
-    print("Signup create At this link${API.SIGNUP_API}");
+    print("Signup create At ?? this link${API.SIGNUP_API}");
     return http.post(
       "${API.SIGNUP_API}",
       headers: customHeaders,

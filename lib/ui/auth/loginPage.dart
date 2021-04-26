@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/textField.dart';
+import 'package:iqsaat/provider/login_provider.dart';
 import 'package:iqsaat/ui/Buyer/home_screen.dart';
 import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
@@ -12,6 +13,7 @@ import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
+import 'package:provider/provider.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -26,26 +28,25 @@ class _LoginPageState extends State<LoginPage> {
 
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-
-  // Future<void> validateAndSubmit() async {
-  //   if (validateAndSave()) {
-  //     await Provider.of<LoginProvider>(context, listen: false)
-  //         .loginResponse(_emailController.text, _passwordController.text)
-  //         .then((value) => ({
-  //               //print("Add check"),
-  //               if (loginProvider.userModel != null)
-  //                 {
-  //                   userToken = UserToken(
-  //                     loginProvider.userModel.data.accessToken,
-  //                     loginProvider.userModel.data.user.refreshToken,
-  //                     loginProvider.userModel.data.user.id,
-  //                     loginProvider.userModel.data.user.role,
-  //                   ),
-  //                   addData(userToken)
-  //                 }
-  //             }));
-  //   }
-  // }
+  bool validateAndSave() {
+    final form = _formKey.currentState;
+    form.save();
+    if (form.validate()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  Future<void> validateAndSubmit() async {
+    if (validateAndSave()) {
+      await Provider.of<LoginProvider>(context, listen: false)
+          .loginResponse(_emailController.text, _passwordController.text)
+          .then((value) => ({
+                
+                  
+              }));
+    }
+  }
 
   Widget _body(BuildContext context) {
     return Container(
@@ -175,32 +176,32 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-            GestureDetector(
-              onTap: () {
+            // GestureDetector(
+            //   onTap: () {
            
               
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (c) => HomeScreen()));
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Text(
-                    "Login as a Buyer? :  ",
-                    textAlign: TextAlign.end,
-                    style: TextStyle(color: Colors.black38),
-                  ),
-                  Text(
-                    "Click Now! ",
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      color: AppColors.primarycolor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            //     Navigator.push(context,
+            //         MaterialPageRoute(builder: (c) => HomeScreen()));
+            //   },
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.end,
+            //     children: <Widget>[
+            //       Text(
+            //         "Login as a Buyer? :  ",
+            //         textAlign: TextAlign.end,
+            //         style: TextStyle(color: Colors.black38),
+            //       ),
+            //       Text(
+            //         "Click Now! ",
+            //         textAlign: TextAlign.end,
+            //         style: TextStyle(
+            //           color: AppColors.primarycolor,
+            //           fontWeight: FontWeight.bold,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),

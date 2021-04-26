@@ -4,9 +4,9 @@ class API {
   -------------------------------------------------------------*/
    //static const String API_URL = "https://giraffe-app.com/api";
 
-  //static const String API_URL = "http://10.0.2.2/api";
-   static const String API_URL = "http://192.168.1.10/api";
-  //static const String API_URL = "http://127.0.0.1:43153/YeZlVOjpVO8=/";
+  //static const String API_URL = "http://10.0.2.3/api";
+  // static const String API_URL = "http://192.168.1.10/api";
+  static const String API_URL = "http://localhost/api";
 
   /*------------------------------------------------------------
                   LOGIN API: LOGIN API
