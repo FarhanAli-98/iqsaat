@@ -3,7 +3,6 @@ import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/provider/signup_provider.dart';
-import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:provider/provider.dart';
 
@@ -28,6 +27,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           home: SplashScreen()
+           //home: SplashScreen()
+           // home: SplashScreen()
           
           ),
     );

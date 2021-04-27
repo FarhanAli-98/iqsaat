@@ -72,7 +72,6 @@ RegisterProvider registerProvider;
             .registerResponse(
               _firstNameController.text,
                _lastNameController.text,
-               _addressController.text,
                _phoneController.text,
                _cnicController.text,
                 _emailController.text,
@@ -80,11 +79,11 @@ RegisterProvider registerProvider;
                 role,
                 _image)
             .then((value) {
-          print(value);
+        
 
       
-          Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (c) => LoginPage()));
+          // Navigator.pushReplacement(context,
+          //                 MaterialPageRoute(builder: (c) => LoginPage()));
        
 
 

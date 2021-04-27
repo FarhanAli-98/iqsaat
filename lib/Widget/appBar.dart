@@ -4,7 +4,7 @@ import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/ui/user/home/mapview.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
-
+import 'package:badges/badges.dart';
 Widget appBarwithbackIcon(BuildContext context,String titles) {
   return AppBar(
     title: Text(titles,style: TextStyle(color: Colors.black),),
@@ -74,9 +74,10 @@ Widget appBarwithImageTitle(BuildContext context, String title) {
 
 Widget appBarUserSide(BuildContext context, String title) {
   return AppBar(
+    
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
-          elevation: 0,
+          elevation: 2,
           leading: Builder(
               builder: (context) => InkWell(
                     onTap: () {
@@ -110,19 +111,20 @@ Widget appBarUserSide(BuildContext context, String title) {
                 child: Container(
                     margin: EdgeInsets.only(right: 13),
                     child: Icon(
-                      Icons.search,
+                      Icons.search
+                      ,
                       color: Colors.black,
                     ))),
+    
             GestureDetector(
                 onTap: () => Navigator.push(
                     context, MaterialPageRoute(builder: (c) => Mapview())),
                 child: Container(
                   margin: EdgeInsets.only(right: 13),
-                  child: Image.asset(
-                    'assets/appIcons/offlineVector.png',
-                    width: 33,
-                    height: 24,
-                  ),
+                   child:   Badge(
+     badgeContent: Text('3'),
+      child: Icon(Icons.store_mall_directory),
+    )
                 ))
           ],
           title: Center(
