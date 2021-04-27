@@ -16,6 +16,7 @@ import 'package:iqsaat/utils/styles.dart';
 import 'package:provider/provider.dart';
 import 'loginPage.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
 class SignUpPage extends StatefulWidget {
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -23,27 +24,28 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   double width, height;
-RegisterProvider registerProvider;
+  RegisterProvider registerProvider;
   TextEditingController _firstNameController = TextEditingController();
   TextEditingController _lastNameController = TextEditingController();
-    TextEditingController _addressController = TextEditingController();
+  TextEditingController _addressController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _phoneController = TextEditingController();
   TextEditingController _cnicController = TextEditingController();
-   var phonemaskFormatter = new MaskTextInputFormatter(
+  var phonemaskFormatter = new MaskTextInputFormatter(
       mask: '#### #######', filter: {"#": RegExp(r'[0-9]')});
-      var cnicmaskFormatter = new MaskTextInputFormatter(
+  var cnicmaskFormatter = new MaskTextInputFormatter(
       mask: '#####-#######-#', filter: {"#": RegExp(r'[0-9]')});
 
   int selectedRadio;
 //images
   Dio dio = new Dio();
+
   File _image;
   final picker = ImagePicker();
   bool _isloading = false;
   String imageUrl;
-  String  role = 'consumer';
+  String role = 'buyer';
   String advertiser;
   bool isAdvertiser, isClicked = false;
   String getid;
@@ -59,42 +61,62 @@ RegisterProvider registerProvider;
       return false;
     }
   }
-    void validateAndSubmit(context) {
+
+  void showMessage(msg) {
+    Fluttertoast.showToast(
+        msg: msg,
+        textColor: AppColors.greyColor,
+        backgroundColor: Colors.white);
+  }
+
+  void validateAndSubmit(context) {
     if (validateAndSave()) {
-      if (false) {
-        Fluttertoast.showToast(
-            msg: "Please select a Honorific value",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
-            );
-      } else {
-        Provider.of<RegisterProvider>(context, listen: false)
-            .registerResponse(
+      Provider.of<RegisterProvider>(context, listen: false)
+          .registerResponse(
               _firstNameController.text,
-               _lastNameController.text,
-               _phoneController.text,
-               _cnicController.text,
-                _emailController.text,
-                _passwordController.text,
-                role,
-                _image)
-            .then((value) {
-        
+              _lastNameController.text,
+              _phoneController.text,
+              _cnicController.text,
+              _emailController.text,
+              _passwordController.text,
+              role,
+              _image)
+          .then((value) {
+        try {
+          print(registerProvider.signUpModel.success);
+          print(registerProvider.signUpModel.data.id.toString());
+          print(value.success);
+          if (registerProvider.signUpModel.success == true) {
+            print("Seccessfullly Account Create");
+            showMessage("Seccessfully Account Created");
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (c) => LoginPage()));
+          } else {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    title: Text('User Account Creation Failed'),
+                    content: Text("Please Enter Valid info"),
+                  );
+                });
+          }
+        } catch (e) {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  title: Text(e.toString()),
+                  content: Text("Please Enter Valid info"),
+                );
+              });
+        }
 
-      
-          // Navigator.pushReplacement(context,
-          //                 MaterialPageRoute(builder: (c) => LoginPage()));
-       
-
-
-
-
-
-
-
-
-
-          /* if (_image != null) {
+        /* if (_image != null) {
             uploadImage(_image, context);
           }
           if (value) {
@@ -131,8 +153,7 @@ RegisterProvider registerProvider;
                 gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
                 );
           } */
-        });
-      }
+      });
     } else {
       showDialog(
           context: context,
@@ -196,7 +217,7 @@ RegisterProvider registerProvider;
                                       // fieldValue: _firstName,
                                       controller: _firstNameController,
                                       validaterMsg: ' Name cannot be empty')),
-                                      textFieldHeader(
+                              textFieldHeader(
                                 'Last Name',
                               ),
                               Center(
@@ -204,12 +225,6 @@ RegisterProvider registerProvider;
                                       // fieldValue: _firstName,
                                       controller: _lastNameController,
                                       validaterMsg: ' Name cannot be empty')),
-                              textFieldHeader('Address'),
-                              Center(
-                                  child: TextFields.normalTextField(context,
-                                       
-                                      controller: _addressController,
-                                      validaterMsg: 'Address cannot be empty')),
                               textFieldHeader('Phone Number'),
                               Center(
                                   child: TextFields.maskTextField(context,
@@ -220,7 +235,7 @@ RegisterProvider registerProvider;
                               textFieldHeader('CNIC'),
                               Center(
                                   child: TextFields.maskTextField(context,
-                                       inputFormatters: [cnicmaskFormatter],
+                                      inputFormatters: [cnicmaskFormatter],
                                       controller: _cnicController,
                                       validaterMsg: 'CNIC cannot be empty')),
                               Padding(
@@ -306,18 +321,16 @@ RegisterProvider registerProvider;
                                       onChanged: (value) {
                                         setState(() {
                                           isAdvertiser = value;
-                                          if(isAdvertiser)
-                                          {
-                                            role = "advertiser";
-                                          }
-                                          else{
-                                             role = "consumer";
+                                          if (isAdvertiser) {
+                                            role = "buyer";
+                                          } else {
+                                            role = "seller";
                                           }
                                         });
                                       },
                                     ),
                                     Text(
-                                      "Continue to register as an Saller",
+                                      "Continue to register as an Seller",
                                       style: TextStyle(fontSize: 14),
                                       // maxLines: 2,
                                     ),
@@ -417,31 +430,22 @@ RegisterProvider registerProvider;
           ),
         ),
         displayEmptySpace(),
-        isAdvertiser
-            
-            ?Padding(
+        isClicked
+            ? Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Button(
                   buttonText: 'Signup',
                   buttonColor: AppColors.primarycolor,
                   onTap: () {
-
                     validateAndSubmit(context);
-               
-                    // validateAndSubmit().then((value) => () {
-                    //       loginProvider.userModel == null
-                    //           ? print('user is null')
-                    //           : Navigator.pushReplacement(
-                    //               context,
-                    //               MaterialPageRoute(
-                    //                   builder: (c) => LoginPage()));
-                    //     });
+
+              
                   },
                   buttonTextStyle: TextStyles.buttonFontText,
                   widthPercent: 0.8,
                 ),
               )
-              : Container(),
+            : Container(),
         displayEmptySpace(),
       ],
     );

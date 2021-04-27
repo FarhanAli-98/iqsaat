@@ -29,7 +29,7 @@ class RegisterApi {
       "cnic": "$cnic",
       "email": "$email",
       "password": "$password",
-      "role": "buyer",
+      "role": "$role",
    
     };
     //print("ID = "+.toString());

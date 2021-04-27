@@ -1,29 +1,46 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:iqsaat/utils/app_colors.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:iqsaat/ui/saller/profile/shop_profile.dart';
+import 'package:iqsaat/ui/user/home/user_home.dart';
 import '../ui/auth/loginPage.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatefulWidget {
-  // final String role;
-  // SplashScreen({@required this.role});
+  final String role;
+  SplashScreen({@required this.role});
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  check() {
-  print("we are in splash Screen");
-     return LoginPage();
-    // print("splash screen = " + role);
-    // if (role == "0") {
-    //   return LoginPage();
-    // } else if (role == "consumer") {
-    //   return LoginPage();
-    // } else if (role == "advertiser") {
-    //   return LoginPage();
-    // }
+
+    check(String role) {
+    print("splash screen = " + role);
+    if (role == null || role == '0') {
+      print("roll null Store");
+      return LoginPage();
+    } else if (role == "buyer") {
+       return HomePage();
+    } else if (role == "seller") {
+      return ShopProfile();
+      /* if (res.comapnyId == null) {
+        print(res.comapnyId);
+        print('comapny id null');
+        return CompanyProfile();
+      } else if (res.adLength == null || res.adLength <= 0) {
+        print(res.adLength);
+        print('ad was null');
+        return AddAdvertisementPage();
+      } else if (res.paid == false) {
+        print(res.paid);
+        print('not paid');
+        return SubscriptionPage();
+      } else 
+      {
+        
+      }*/
+    }
   }
 
   @override
@@ -32,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(milliseconds: 4500),
         () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => check())));
+            MaterialPageRoute(builder: (context) => check(widget.role))));
   }
 
   @override
