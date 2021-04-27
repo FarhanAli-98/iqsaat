@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/drawer.dart';
+import 'package:iqsaat/drawer.dart';
 
 
 import 'dashboard.dart';
@@ -104,7 +104,7 @@ class _SallerHomePageState extends State<SallerHomePage> {
                       color: Colors.black),
                 ),
                 Text(
-                  'SALLER',
+                  'Seller',
                   style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,

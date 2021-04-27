@@ -16,7 +16,7 @@ class AboutTab extends StatelessWidget {
           upper: "City",
         ),
         AboutInfoField(
-          bottom: "North Florida High School",
+          bottom: "Lahore",
           upper: "District",
         ),
         Row(
@@ -39,13 +39,13 @@ class AboutTab extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: AboutInfoField(
-                bottom: "Florida, Pakistan",
-                upper: "Lives In",
+                bottom: "Lahore, Pakistan",
+                upper: "Stabel",
               ),
             ),
             Expanded(
               child: AboutInfoField(
-                bottom: "Texas, Pakistan",
+                bottom: "Pakistan",
                 upper: "Origin Country",
               ),
             ),
@@ -61,8 +61,8 @@ class AboutTab extends StatelessWidget {
             ),
             Expanded(
               child: AboutInfoField(
-                bottom: "Texas, USA",
-                upper: "+92-333-6787103",
+                bottom: "Texas, PK",
+                upper: "+92303-6183-103",
               ),
             ),
           ],

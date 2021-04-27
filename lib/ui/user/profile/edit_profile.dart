@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:iqsaat/utils/colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 
 
@@ -19,16 +18,21 @@ class _EditProfileState extends State<EditProfile> {
    
     
     return Scaffold(
-       appBar: AppBar(
-          backgroundColor: Colors.white,
-          iconTheme: IconThemeData(color: Colors.black),
-          elevation: 0,
+        backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: AppColors.primarycolor,
+        title: Text(
+          'Edit Profile',
+          // style: Styles.heading,
         ),
+      ),
         body: Container(
           padding: EdgeInsets.all(20),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(gradient: AppColor.backgroundColors),
+          decoration: BoxDecoration(gradient: AppColors.background),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -53,21 +57,21 @@ class _EditProfileState extends State<EditProfile> {
                                 child: Center(
                                   child: Icon(
                                     FontAwesomeIcons.edit,
-                                    color: AppColor.textBlue,
+                                    color: AppColors.skyBlueColor,
                                     size: 15,
                                   ),
                                 ),
                               ))
                         ]),
                         Text(
-                          'John Doe',
-                          style: TextStyle(color: AppColor.green, fontSize: 20),
+                          'Farhan ali',
+                          style: TextStyle(color: AppColors.primarycolor, fontSize: 20),
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 10, bottom: 10),
                           padding: EdgeInsets.only(left: 08, right: 08),
                           decoration: BoxDecoration(
-                              color: AppColor.fillColor.withOpacity(0.30),
+                               color: AppColors.greyColor.withOpacity(0.15),
                               borderRadius: BorderRadius.circular(25)),
                           width: 360,
                           height: 35,
@@ -75,7 +79,7 @@ class _EditProfileState extends State<EditProfile> {
                             children: [
                               Icon(
                                 Icons.phone,
-                                color: AppColor.textBlue,
+                                color: AppColors.primarycolor,
                                 size: 18,
                               ),
                               SizedBox(
@@ -83,21 +87,21 @@ class _EditProfileState extends State<EditProfile> {
                               ),
                               Text(
                                 '+1 123-456-1234',
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: Colors.black),
                               ),
                               SizedBox(
                                 width: 25,
                               ),
                               Icon(
                                 Icons.location_on_outlined,
-                                color: AppColor.textBlue,
+                                color: AppColors.primarycolor,
                               ),
                               Align(
                                   alignment: Alignment.centerRight,
                                   child: Text(
                                     '8614, Macclellan road, New york\n                                  United States',
                                     style: TextStyle(
-                                        fontSize: 10, color: Colors.white),
+                                        fontSize: 10, color: Colors.black),
                                   ))
                             ],
                           ),
@@ -106,7 +110,7 @@ class _EditProfileState extends State<EditProfile> {
                 ),
                 Text(
                   'Full Name',
-                  style: TextStyle(color: AppColor.textBlue),
+                  style: TextStyle(color: AppColors.primarycolor),
                 ),
                 Container(
                   padding: EdgeInsets.all(05),
@@ -114,27 +118,28 @@ class _EditProfileState extends State<EditProfile> {
                   width: 350,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColor.fillColor.withOpacity(0.5),
-                      boxShadow: [
-                        BoxShadow(
-                            color: AppColor.shadowColor.withOpacity(0.30),
-                            offset: Offset(0, 4),
-                            blurRadius: 1)
-                      ]),
+                        color: AppColors.greyColor.withOpacity(0.15),
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //       color: AppColors.primarycolor.withOpacity(0.30),
+                      //       offset: Offset(0, 4),
+                      //       blurRadius: 1)
+                      // ]
+                      ),
                   child: Text(
-                    'John Doe',
-                    style: TextStyle(color: Colors.white),
+                    'Farhan ALi',
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
                 Row(
                   children: [
                     Icon(
                       Icons.phone,
-                      color: AppColor.textBlue,
+                      color: AppColors.primarycolor,
                     ),
                     Text(
                       'Phone number',
-                      style: TextStyle(color: AppColor.textBlue),
+                      style: TextStyle(color: AppColors.primarycolor),
                     ),
                   ],
                 ),
@@ -144,10 +149,10 @@ class _EditProfileState extends State<EditProfile> {
                   width: 350,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColor.fillColor.withOpacity(0.5),
+                      color: AppColors.primarycolor.withOpacity(0.5),
                       boxShadow: [
                         BoxShadow(
-                            color: AppColor.shadowColor.withOpacity(0.30),
+                            color: AppColors.primarycolor.withOpacity(0.30),
                             offset: Offset(0, 4),
                             blurRadius: 1)
                       ]),
@@ -168,11 +173,11 @@ class _EditProfileState extends State<EditProfile> {
                   children: [
                     Icon(
                       Icons.location_on_outlined,
-                      color: AppColor.textBlue,
+                      color: AppColors.primarycolor,
                     ),
                     Text(
                       'Address',
-                      style: TextStyle(color: AppColor.textBlue),
+                      style: TextStyle(color: AppColors.primarycolor),
                     ),
                   ],
                 ),
@@ -182,10 +187,10 @@ class _EditProfileState extends State<EditProfile> {
                   width: 350,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColor.fillColor.withOpacity(0.5),
+                      color: AppColors.primarycolor.withOpacity(0.5),
                       boxShadow: [
                         BoxShadow(
-                            color: AppColor.shadowColor.withOpacity(0.30),
+                            color: AppColors.primarycolor.withOpacity(0.30),
                             offset: Offset(0, 4),
                             blurRadius: 1)
                       ]),
@@ -203,7 +208,7 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                     Text(
                       'Edit',
-                      style: TextStyle(color: AppColor.green),
+                      style: TextStyle(color: AppColors.primarycolor),
                     ),
                   ],
                 ),

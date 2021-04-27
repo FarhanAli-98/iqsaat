@@ -8,9 +8,9 @@ class InterestItemModel {
 
 List<InterestItemModel> interstsList = <InterestItemModel>[
   InterestItemModel("Adventure", "assets/images/PC.png", false),
-  InterestItemModel("Adventure", "assets/images/PC.png", false),
-  InterestItemModel("Adventure", "assets/images/PC.png", false),
-  InterestItemModel("Adventure", "assets/images/PC.png", false),
+  InterestItemModel("Adventure", "assets/images/Phone1.png", false),
+  InterestItemModel("Adventure", "assets/images/phone1.png", false),
+  InterestItemModel("Adventure", "assets/images/bike.png", false),
   InterestItemModel("Adventure", "assets/images/PC.png", false),
   InterestItemModel("AAdventureir", "assets/images/PC.png", false),
   InterestItemModel("Adventure", "assets/images/PC.png", false),

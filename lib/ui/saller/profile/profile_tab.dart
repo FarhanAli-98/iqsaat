@@ -17,41 +17,45 @@ class ProfileTab extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.black),
           elevation: 0,
         ),
-      body: Column(
-        children: <Widget>[
-          const ProfileInfoColumn(),
-          SizedBox(height: 12),
-          Expanded(
-            child: DefaultTabController(
-              length: 3,
-              child: Column(
-                children: <Widget>[
-                  Material(
-                    elevation: 2,
-                    child: TabBar(
-                      indicatorColor: AppColors.primarycolor,
-                      labelColor: Colors.black,
-                      tabs: <Widget>[
-                        Tab(child: Text("Timeline Ads")),
-                        Tab(child: Text("About Shop")),
-                        Tab(child: Text("Vault Ads"))
-                      ],
-                    ),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              const ProfileInfoColumn(),
+              SizedBox(height: 12),
+              Expanded(
+                child: DefaultTabController(
+                  length: 3,
+                  child: Column(
+                    children: <Widget>[
+                      Material(
+                        elevation: 2,
+                        child: TabBar(
+                          indicatorColor: AppColors.primarycolor,
+                          labelColor: Colors.black,
+                          tabs: <Widget>[
+                            Tab(child: Text("Timeline Ads")),
+                            Tab(child: Text("About Shop")),
+                            Tab(child: Text("Vault Ads"))
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: TabBarView(
+                          children: <Widget>[
+                            TimeLineBar(),
+                            AboutTab(),
+                            PerviousAds(),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
-                  Expanded(
-                    child: TabBarView(
-                      children: <Widget>[
-                        TimeLineBar(),
-                        AboutTab(),
-                        PerviousAds(),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
+                ),
+              )
+            ],
+          ),
+        ),
       ),
       
     );
@@ -72,7 +76,7 @@ class ProfileInfoColumn extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Text(
-            "Afzal is fuelled by her passion for understanding the nuances of cross-cultural advertising. He considers himself a ‘forever student,’ eager to both build on his academic foundations in computer science.",
+            "AFZAL Electronics is one of the leading electronics companies of Pakistan. Selling all types of electronic products and of different brands. AFZAL Electronics sells world class products and provides expert services all over Pakistan using extensive research and development to create leading edge technologies under one roof.AFZAL Electronics have a vision: To earn our customer’s commitment, we must listen to them, forestall their needs and act to create value in their eyes. We want to be known for reliability, flexibility, responsiveness, innovative products and services, and exemplary citizenship. Growth, longevity and financial success will naturally follow.",
             style: TextStyle(color: Colors.black54),
           ),
         ),
@@ -81,11 +85,11 @@ class ProfileInfoColumn extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             ChipContainer(
-              leading: "Followes",
+              leading: "Receved oders",
               trailing: "13",
             ),
             ChipContainer(
-              leading: "Following",
+              leading: "Daliver orders",
               trailing: "7",
             ),
             ChipContainer(
@@ -162,7 +166,7 @@ class ProfileRow extends StatelessWidget {
           Expanded(
             child: RoundedOutlineButton(
               text: "Edit",
-              fontSize: 12,
+              fontSize: 7,
               onTap: () {
                 // Navigator.of(context).push(
                 //   MaterialPageRoute(
