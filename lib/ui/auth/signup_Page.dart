@@ -228,7 +228,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               textFieldHeader('Phone Number'),
                               Center(
                                   child: TextFields.maskTextField(context,
-                                      inputFormatters: [phonemaskFormatter],
+                                     // inputFormatters: [phonemaskFormatter],
                                       controller: _phoneController,
                                       validaterMsg:
                                           'Phone Number cannot be empty')),

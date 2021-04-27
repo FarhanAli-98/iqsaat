@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:iqsaat/ui/Buyer/product_categories.dart';
+import 'package:iqsaat/ui/Product/product_detail.dart';
 
 import '../../../../drawer.dart';
 
@@ -39,7 +40,16 @@ class _VehiclesState extends State<Vehicles> {
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                       padding: EdgeInsets.all(0),
-                      
+                      child:InkWell(
+                        
+
+                          onTap: () {
+                                         Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        ProductDetailPage()));},
                       child: Card(
                         margin: EdgeInsets.all(10),
                           semanticContainer: true,
@@ -84,7 +94,7 @@ class _VehiclesState extends State<Vehicles> {
                                         fontWeight: FontWeight.bold),
                                   )),
                             ],
-                          )));
+                          ))));
                 },
               ),
             )
