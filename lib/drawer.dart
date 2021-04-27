@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
-import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/selectCategory.dart';
+
+import 'package:iqsaat/ui/saller/chat_tab/chat_dash.dart';
+import 'package:iqsaat/ui/saller/chat_tab/tempchat.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
 import 'package:iqsaat/ui/user/help/languagePage.dart';
@@ -87,17 +89,20 @@ class _AppDrawerState extends State<AppDrawer> {
                             ),
                           ),
                         ),
+                      
                         CustomField(
                           iconData: AppIcons.termCondation,
                           text: 'Home',
-                          onTap: () {
-                                 Navigator.push(
+                           onTap: () {
+                            Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
                                         SallerHomePage()));
-                  
                           },
+                        
+                  
+                          
                         ),
                         CustomField(
                           iconData: AppIcons.termCondation,
@@ -158,7 +163,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                         //     MaterialPageRoute(
                                         //         builder:
                                         //             (BuildContext context) =>
-                                        //                 AdvertisementList()));
+                                        //                 AddsCreations()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
@@ -285,7 +290,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         Spacer(),
                         InkWell(
                           onTap: () {
-                           
+                            print("Logout");
                              AppRoutes.makeFirst(context, LoginPage());
                           },
                           child: Container(
@@ -481,6 +486,7 @@ class DrawerFull extends PreferredSize {
                                   text: 'Logout User',
                                   onTap: () {
                                       AppRoutes.makeFirst(context, LoginPage());
+                                    //Image.asset('assets/appIcons/icon_logout.png'),
                                   },
                                 ),
                               ],
