@@ -1,4 +1,6 @@
 
+import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
+import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/provider/signup_provider.dart';
 import 'package:iqsaat/utils/splashScreen.dart';

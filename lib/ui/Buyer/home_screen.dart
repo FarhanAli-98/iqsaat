@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import './home_body.dart';
 import 'package:iqsaat/drawer.dart';
+class HomeScreen extends StatefulWidget {
+  @override
+  HomeScreenState createState() => HomeScreenState();
+}
 
-class HomeScreen extends StatelessWidget {
+
+class HomeScreenState extends State<HomeScreen> {
+  bool isSearching=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +24,7 @@ class HomeScreen extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
+      
         automaticallyImplyLeading: false,
         backgroundColor: Colors.lightBlueAccent,
         elevation: 0,
@@ -49,18 +56,34 @@ class HomeScreen extends StatelessWidget {
                 )),
 
         actions: <Widget>[
-          GestureDetector(
-              onTap: (){}, 
+          
+         !isSearching ? GestureDetector(
+              onTap: (){
+                setState((){
+                  this.isSearching=true;
+
+                });
+                
+              }, 
               child: Container(
                 margin: EdgeInsets.only(right: 13),
-                child: Image.asset(
-                  'assets/appIcons/offlineVector.png',
-                  width: 33,
-                  height: 24,
-                ),
+                 child:  Icon(Icons.search)
+              )):
+              GestureDetector(
+              onTap: (){
+                setState((){
+                  this.isSearching=false;
+
+                });
+                
+              }, 
+              child: Container(
+                margin: EdgeInsets.only(right: 13),
+                 child:  Icon(Icons.cancel)
               ))
+
         ],
-        title: Row(
+        title: !isSearching ? Row(
           children: <Widget>[
             CircleAvatar(
               radius: 20,
@@ -90,8 +113,34 @@ class HomeScreen extends StatelessWidget {
               ],
             )
           ],
+        ):
+          Column(
+           // automatically
+         // mainAxisAlignment: MainAxisAlignment.start,
+          children:<Widget>
+          [
+              TextField(
+          style:TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            icon:Icon(Icons.search,color:Colors.white),
+            hintText: "Search product of your choice",
+            hintStyle: TextStyle(color: Colors.white),
+
+          ),
+
         ),
-      
+        //   TextField(
+        //   style:TextStyle(color: Colors.white),
+        //   decoration: InputDecoration(
+        //     icon:Icon(Icons.location_city,color:Colors.white),
+        //     hintText: "Search by area,location",
+        //     hintStyle: TextStyle(color: Colors.white),
+
+        //   ),
+
+        // ),
+          ]
+        )
       
     );
   }
