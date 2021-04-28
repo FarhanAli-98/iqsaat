@@ -13,6 +13,7 @@ import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/History/user_history.dart';
+import 'package:iqsaat/ui/saller/Ads/Seller_Ads.dart';
 
 
 
@@ -166,16 +167,16 @@ class _AppDrawerState extends State<AppDrawer> {
                                     ),
                                        InkWell(
                                       onTap: () {
-                                    // Navigator.push(
-                                    //         context,
-                                    //         MaterialPageRoute(
-                                    //             builder:
-                                    //                 (BuildContext context) =>
-                                    //                     CreateProducts()));
+                                    Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        SellerAds()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
-                                          child: Text("Products")),
+                                          child: Text("My Products")),
                                     ),
                                   
                                     InkWell(
