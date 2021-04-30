@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/ui/Product/products.dart';
-import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/selectCategory.dart';
+import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/selectCategory.dart';
 
 import './product_categories.dart';
 import './product_card.dart';

@@ -6,8 +6,8 @@ import 'package:iqsaat/provider/login_provider.dart';
 import 'package:iqsaat/ui/Buyer/home_screen.dart';
 import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
-import 'package:iqsaat/ui/saller/home/saller_home.dart';
-import 'package:iqsaat/ui/saller/profile/shop_profile.dart';
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
+import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
 
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Text(
-                    "Login as a Saller? :  ",
+                    "Login as a Seller? :  ",
                     textAlign: TextAlign.end,
                     style: TextStyle(color: Colors.black38),
                   ),

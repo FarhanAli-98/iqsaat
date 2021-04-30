@@ -6,14 +6,14 @@ import 'package:iqsaat/drawer.dart';
 
 import 'dashboard.dart';
 
-class SallerHomePage extends StatefulWidget {
+class SellerHomePage extends StatefulWidget {
   @override
-  _SallerHomePageState createState() => _SallerHomePageState();
+  _SellerHomePageState createState() => _SellerHomePageState();
 }
 
 double width, height;
 
-class _SallerHomePageState extends State<SallerHomePage> {
+class _SellerHomePageState extends State<SellerHomePage> {
  
   bool isChatSelected = false;
   bool isChat = false;
@@ -24,16 +24,6 @@ class _SallerHomePageState extends State<SallerHomePage> {
   String selectedUid;
   PageController pageController;
   int page = 0;
-
-
-
-
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;

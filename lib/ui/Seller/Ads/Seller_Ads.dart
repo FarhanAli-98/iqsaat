@@ -154,7 +154,7 @@ class CardContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 200,
+          height: 196.0,
           child: Stack(
             children: [
               Positioned.fill(

@@ -4,7 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
-import 'package:iqsaat/ui/saller/home/saller_home.dart';
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 
@@ -274,7 +274,7 @@ class _ShopProfileState extends State< ShopProfile> {
             buttonColor: AppColors.primarycolor,
             onTap: () {
                Navigator.push(context,
-                    MaterialPageRoute(builder: (c) => SallerHomePage()));
+                    MaterialPageRoute(builder: (c) => SellerHomePage()));
             
             },
             buttonTextStyle: TextStyles.buttonFontText,

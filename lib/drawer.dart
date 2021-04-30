@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
-import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/selectCategory.dart';
-import 'package:iqsaat/ui/saller/home/saller_home.dart';
-import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
+import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/selectCategory.dart';
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
+import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
 import 'package:iqsaat/ui/user/help/languagePage.dart';
 import 'package:iqsaat/ui/user/help/helpRequestPage.dart';
 import 'package:iqsaat/ui/user/profile/user_profile.dart';
@@ -13,7 +13,8 @@ import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/History/user_history.dart';
-import 'package:iqsaat/ui/saller/Ads/Seller_Ads.dart';
+import 'package:iqsaat/ui/Seller/Ads/Seller_Ads.dart';
+import 'package:iqsaat/ui/Seller/Customers/Customers_main.dart';
 
 
 
@@ -96,7 +97,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        SallerHomePage()));
+                                        SellerHomePage()));
                   
                           },
                         ),
@@ -209,16 +210,16 @@ class _AppDrawerState extends State<AppDrawer> {
                                     ), */
                                     InkWell(
                                       onTap: () {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder:
-                                        //             (BuildContext context) =>
-                                        //                 Reviews()));
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        Customers()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
-                                          child: Text("Reviews")),
+                                          child: Text("Customers")),
                                     ),
                                     InkWell(
                                       onTap: () {
