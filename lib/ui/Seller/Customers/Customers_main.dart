@@ -13,28 +13,30 @@ class Customers extends StatefulWidget {
 class _CustomersState extends State<Customers> {
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
-        appBar: AppBar(
-          title:Text( "Customers"),
-          backgroundColor: Colors.blue[100],
+    //  return Scaffold(
+    //     appBar: AppBar(
+    //       title:Text( "Customers"),
+    //       backgroundColor: Colors.blue[100],
 
 
-        ),
+    //     ),
 
-        body:Container
+        return Container
         (
-            child:_body(context),
-      )
-     );
+            child:body(context),
+      );
       
   }
-  Widget _body(BuildContext context
+  Widget body(BuildContext context
   )
   {
       return Column(
          mainAxisAlignment: MainAxisAlignment.start,
          children: <Widget>
          [
+           SizedBox(
+              height: 10,
+            ),
            Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -48,7 +50,7 @@ class _CustomersState extends State<Customers> {
                Container(
                  height: 170,
               child: ListView.builder(
-                itemBuilder: (BuildContext context, int inedx) {
+                itemBuilder: (BuildContext context, int index) {
                   return Buyers_Order();
                 },
                 itemCount: 5,
@@ -70,7 +72,7 @@ class _CustomersState extends State<Customers> {
               height: 10,
             ),
             Container(
-              height: 420,
+              height: 350,
               child: ListView.builder(
                   itemBuilder: (BuildContext context, int inedx) {
                     return active_customers();

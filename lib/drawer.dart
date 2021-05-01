@@ -14,7 +14,7 @@ import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/History/user_history.dart';
 import 'package:iqsaat/ui/Seller/Ads/Seller_Ads.dart';
-import 'package:iqsaat/ui/Seller/Customers/Customers_main.dart';
+import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
 
 
 
@@ -215,7 +215,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                             MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                        Customers()));
+                                                        customersTab()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
