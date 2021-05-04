@@ -22,6 +22,14 @@ class Buyers_Order extends StatelessWidget {
                     ),
                     radius: 55.0,
                   ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        '45 mins ago',
+                        style: TextStyle(
+                            color: Colors.blue, fontSize: 15),
+                      ),
+                    ),
                 ],
               )),
           SizedBox(
@@ -37,10 +45,10 @@ class Buyers_Order extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Haier Fridge 304',
+                          'Haier 304',
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: 16,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
@@ -58,26 +66,19 @@ class Buyers_Order extends StatelessWidget {
                             style: TextStyle(color: Colors.black)),
                         TextSpan(
                             text: ' SellerName',
-                            style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold))
+                            style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18))
                       ])),
                     ),
                      SizedBox(
                       height: 05,
                     ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        '45 mins ago',
-                        style: TextStyle(
-                            color: AppColors.greenColor, fontSize: 15),
-                      ),
-                    ),
+                  
                     SizedBox(
                       height: 05,
                     ),
                     Text(
                       'Plan:Monthly',
-                      style: TextStyle(color: Colors.blueAccent, fontSize: 16,fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.blue, fontSize: 18,fontWeight: FontWeight.bold),
                     ),
                   SizedBox(height: 10,),
                     Container(
@@ -97,7 +98,7 @@ class Buyers_Order extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'View Details',
+                            'OrderId:23',
                             style: TextStyle(color: Colors.white, fontSize: 12,fontWeight: FontWeight.bold),
                           ),
                           // SizedBox(

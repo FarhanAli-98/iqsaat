@@ -16,9 +16,6 @@ import 'package:iqsaat/ui/History/user_history.dart';
 import 'package:iqsaat/ui/Seller/Ads/Seller_Ads.dart';
 import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
 
-
-
-
 //import 'ui/saller/create_Ads/Mobiles/mobiles.dart';
 //import 'ui/saller/create_Ads/create_adds.dart';
 
@@ -58,7 +55,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     height: size.height,
                     child: ListView(
                       children: <Widget>[
-                        Container(  
+                        Container(
                           width: double.infinity,
                           height: size.width * 0.4,
                           child: Container(
@@ -93,18 +90,17 @@ class _AppDrawerState extends State<AppDrawer> {
                           iconData: AppIcons.termCondation,
                           text: 'Home',
                           onTap: () {
-                                 Navigator.push(
+                            Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
                                         SellerHomePage()));
-                  
                           },
                         ),
                         CustomField(
                           iconData: AppIcons.termCondation,
                           text: 'Profile',
-                          onTap: () {
+                        onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -152,8 +148,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-
-                                        InkWell(
+                                    InkWell(
                                       onTap: () {
                                         // Navigator.push(
                                         //     context,
@@ -166,9 +161,9 @@ class _AppDrawerState extends State<AppDrawer> {
                                           margin: EdgeInsets.only(top: 18),
                                           child: Text("About")),
                                     ),
-                                       InkWell(
+                                    InkWell(
                                       onTap: () {
-                                    Navigator.push(
+                                        Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder:
@@ -179,7 +174,6 @@ class _AppDrawerState extends State<AppDrawer> {
                                           margin: EdgeInsets.only(top: 18),
                                           child: Text("My Products")),
                                     ),
-                                  
                                     InkWell(
                                       // onTap: () {
                                       //    Navigator.push(
@@ -188,13 +182,13 @@ class _AppDrawerState extends State<AppDrawer> {
                                       //           builder:
                                       //               (BuildContext context) =>
                                       //                   ProductDetailPage()));
-                                        
+
                                       //},
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
                                           child: Text("Orders")),
                                     ),
-                                 
+
                                     /* InkWell(
                                       onTap: () {
                                         Navigator.push(
@@ -236,7 +230,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                         Navigator.push(
+                                        Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder:
@@ -257,19 +251,17 @@ class _AppDrawerState extends State<AppDrawer> {
                             //Image.asset('assets/appIcons/icon_help services.png'),
                           },
                         ),
-                             CustomField(
-                                  iconData: AppIcons.world,
-                                  text: 'Chat',
-                                  onTap: () {
-                                    Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        ChatTab()));
-                                  
-                                  },
-                                ),
+                        CustomField(
+                          iconData: AppIcons.world,
+                          text: 'Chat',
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        ChatTab()));
+                          },
+                        ),
                         CustomField(
                           iconData: AppIcons.termCondation,
                           text: 'Terms of use',
@@ -287,8 +279,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         Spacer(),
                         InkWell(
                           onTap: () {
-                           
-                             AppRoutes.makeFirst(context, LoginPage());
+                            AppRoutes.makeFirst(context, LoginPage());
                           },
                           child: Container(
                             // color: Colors.green,
@@ -396,7 +387,9 @@ class DrawerFull extends PreferredSize {
                                           backgroundColor:
                                               AppColors.greyBackColor,
                                           child: Image.asset(
-                                              'assets/appIcons/iqsaat.jpeg',scale: 0.11,),
+                                            'assets/appIcons/iqsaat.jpeg',
+                                            scale: 0.11,
+                                          ),
                                         ),
                                       ),
                                       Container(
@@ -414,21 +407,18 @@ class DrawerFull extends PreferredSize {
                                   iconData: AppIcons.world,
                                   text: 'Profile',
                                   onTap: () {
-                                     Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        ProfilePage()));
-                                    
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                ProfilePage()));
                                   },
                                 ),
-                               
                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Language',
                                   onTap: () {
-                                     Navigator.push(
+                                    Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
@@ -439,7 +429,7 @@ class DrawerFull extends PreferredSize {
                                   iconData: AppIcons.world,
                                   text: 'Term of Use',
                                   onTap: () {
-                                     Navigator.push(
+                                    Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
@@ -450,14 +440,14 @@ class DrawerFull extends PreferredSize {
                                   iconData: AppIcons.world,
                                   text: 'Help',
                                   onTap: () {
-                                   Navigator.push(
+                                    Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
                                                 HelpRequest()));
                                   },
                                 ),
-                                 CustomField(
+                                CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Settings',
                                   onTap: () {},
@@ -473,16 +463,12 @@ class DrawerFull extends PreferredSize {
                                   //Image.asset('assets/appIcons/icon_reviews.png'),
                                   onTap: () {},
                                 ),
-                             
-
-                              
-                            
                                 Spacer(),
                                 CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Logout User',
                                   onTap: () {
-                                      AppRoutes.makeFirst(context, LoginPage());
+                                    AppRoutes.makeFirst(context, LoginPage());
                                   },
                                 ),
                               ],
