@@ -126,7 +126,7 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                                 'Price',
                               ),
                               Center(
-                                  child: TextFields.phoneNoTextField(context,
+                                  child: TextFields.normalTextField(context,
                                       // fieldValue: _firstName,
                                       controller: _servicesController,
                                       validaterMsg: ' Price cannot be empty')),

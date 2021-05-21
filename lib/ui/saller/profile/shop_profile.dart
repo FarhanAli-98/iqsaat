@@ -1,12 +1,18 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
+import 'package:iqsaat/provider/shopProvider.dart';
+import 'package:iqsaat/ui/auth/loginPage.dart';
+import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/addNewProducts.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
+import 'package:provider/provider.dart';
 
 
 
@@ -24,18 +30,93 @@ class _ShopProfileState extends State< ShopProfile> {
   bool _isloading = false;
 
   TextEditingController _shopNameController = TextEditingController();
+  
+   TextEditingController _aboutController = TextEditingController();
+  
   TextEditingController _addressController = TextEditingController();
-
+  ShopProvider shopProvider;
   FocusNode _focusNode;
   int index = 0;
   String category, selectServicSubeCategory;
   File _image;
-  List subCat = List();
-  List dropList = List();
+  List subCat = [];
+  List dropList = [];
   final picker = ImagePicker();
   var stream;
   var queryCat;
   var dropDown;
+
+
+
+
+
+
+
+  void validateAndSubmit(context) {
+    if (validateAndSave()) {
+      Provider.of<ShopProvider>(context, listen: false)
+          .createShop(
+              _image,
+              _shopNameController.text,
+              _addressController.text,
+              _aboutController.text,
+            
+              )
+          .then((data) {
+  try {
+          print(shopProvider.shopModel.success);
+          print(shopProvider.shopModel.details.id.toString());
+          
+          if (shopProvider.shopModel.success== true) {
+            print("Seccessfullly Account Create");
+            showMessage("Seccessfully Account Created");
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (c) => AddAdvertisementPage()));
+          } else {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    title: Text('User Account Creation Failed'),
+                    content: Text("Please Enter Valid info"),
+                  );
+                });
+          }
+        } catch (e) {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  title: Text(e.toString()),
+                  content: Text("Please Enter Valid info"),
+                );
+              });
+        }
+      });
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   @override
   void initState() {
@@ -190,39 +271,38 @@ class _ShopProfileState extends State< ShopProfile> {
                                         0.15,
                                     width:
                                         MediaQuery.of(context).size.width * 0.8,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        border: Border.all(
-                                          color: Colors.grey[300],
-                                        )),
-                                    child: Text(
-                                            'Description of your  Shop including services and specialties.')
+                                   
+                                    child: TextFields.largeTextField(context,
+                                      controller: _aboutController,
+                                     )
+                                          
                                        
                                   ),
                                 ),
                               ),
                           
-                             SizedBox(height: 20),
-                            textFieldHeader('Required things'),
-                              Center(
-                                  child: TextFields.normalTextField(context,
-                                      controller: _shopNameController,
-                                      validaterMsg:
-                                          ' Shop Name cannot be empty')),
+                            //  SizedBox(height: 20),
+                            // textFieldHeader('Required things'),
+                            //   Center(
+                            //       child: TextFields.normalTextField(context,
+                            //           controller: _shopNameController,
+                            //           validaterMsg:
+                            //               ' Shop Name cannot be empty')),
 
-                             textFieldHeader('Required things'),
-                              Center(
-                                  child: TextFields.normalTextField(context,
-                                      controller: _shopNameController,
-                                      validaterMsg:
-                                          ' Shop Name cannot be empty')),
+                            //  textFieldHeader('Required things'),
+                            //   Center(
+                            //       child: TextFields.normalTextField(context,
+                            //           controller: _shopNameController,
+                            //           validaterMsg:
+                            //               ' Shop Name cannot be empty')),
 
-                                          textFieldHeader('Required things'),
-                              Center(
-                                  child: TextFields.normalTextField(context,
-                                      controller: _shopNameController,
-                                      validaterMsg:
-                                          ' Shop Name cannot be empty')),
+                            //               textFieldHeader('Required things'),
+                            //   Center(
+                            //       child: TextFields.normalTextField(context,
+                            //           controller: _shopNameController,
+                            //           validaterMsg:
+                            //               ' Shop Name cannot be empty')),
+                                          SizedBox(height: 20,)
                             
                             
                             ]),
@@ -267,14 +347,16 @@ class _ShopProfileState extends State< ShopProfile> {
             ],
           ),
         ),
+        SizedBox(height:20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Button(
             buttonText: 'Submit',
             buttonColor: AppColors.primarycolor,
             onTap: () {
-               Navigator.push(context,
-                    MaterialPageRoute(builder: (c) => SallerHomePage()));
+              validateAndSubmit(context);
+              //  Navigator.push(context,
+              //       MaterialPageRoute(builder: (c) => SallerHomePage()));
             
             },
             buttonTextStyle: TextStyles.buttonFontText,
@@ -290,6 +372,7 @@ class _ShopProfileState extends State< ShopProfile> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
+    shopProvider = Provider.of<ShopProvider>(context);
 
     return SafeArea(
       child: Container(
