@@ -62,7 +62,7 @@ class API {
                   LOGIN API: CREATE COMPANY Api
                         TYPE: POST
   -------------------------------------------------------------*/
-  static const String CREATECOMPANY_API = "$API_URL/company";
+  static const String CREATESHOP_API = "$API_URL/shop";
 
   /*------------------------------------------------------------*/
 

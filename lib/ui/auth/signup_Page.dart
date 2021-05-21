@@ -62,12 +62,6 @@ class _SignUpPageState extends State<SignUpPage> {
     }
   }
 
-  void showMessage(msg) {
-    Fluttertoast.showToast(
-        msg: msg,
-        textColor: AppColors.greyColor,
-        backgroundColor: Colors.white);
-  }
 
   void validateAndSubmit(context) {
     if (validateAndSave()) {

@@ -342,3 +342,10 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+  void showMessage(msg) {
+    Fluttertoast.showToast(
+        msg: msg,
+        textColor: AppColors.greyColor,
+        backgroundColor: Colors.white);
+  }

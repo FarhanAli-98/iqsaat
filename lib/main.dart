@@ -1,4 +1,5 @@
 
+import 'package:iqsaat/provider/shopProvider.dart';
 import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,7 @@ class _MyAppState extends State<MyApp> {
       providers: [
        ChangeNotifierProvider(create: (_) => RegisterProvider()),
          ChangeNotifierProvider(create: (_) => LoginProvider()),
+         ChangeNotifierProvider(create: (_) => ShopProvider()),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false, //home: CompanyProfile()
