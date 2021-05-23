@@ -15,6 +15,7 @@ import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/History/user_history.dart';
 import 'package:iqsaat/ui/Seller/Ads/Seller_Ads.dart';
 import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
+import 'package:iqsaat/ui/Seller/create_Ads/createPackage/packagecreate.dart';
 
 //import 'ui/saller/create_Ads/Mobiles/mobiles.dart';
 //import 'ui/saller/create_Ads/create_adds.dart';
@@ -105,7 +106,8 @@ class _AppDrawerState extends State<AppDrawer> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        ProfileTab()));
+                                      //  ProfileTab()
+                                     createPackages()   ));
                           },
                         ),
                         InkWell(
