@@ -1,13 +1,16 @@
 import 'dart:developer';
+import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/models/user_info.dart';
+import 'package:iqsaat/provider/adsProvider.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
+import 'package:provider/provider.dart';
 import 'add_image_page.dart';
 
 class AddAdvertisementPage extends StatefulWidget {
@@ -20,24 +23,23 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
   bool _isloading = false;
 
   bool cod = true;
-  bool masterCard = false;
+  bool jazz = false;
   bool interac = false;
   bool visa = false;
   int number = 0;
-
-  TextEditingController _servicesController = TextEditingController();
-  TextEditingController _productsController = TextEditingController();
-  TextEditingController _productsController1 = TextEditingController();
+  File file1, file2, file3;
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController priceController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
   TextEditingController _productsController2 = TextEditingController();
   TextEditingController _travelController1 = TextEditingController();
   TextEditingController _travelController2 = TextEditingController();
   TextEditingController _minimumController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   List<String> images = [];
-  List<Service> serviceList = [];
-  Service serv;
-
-  int count = 0;
+  List<Package> packagesList = [];
+  String categoryID;
+ String subCategoryID;
   // ignore: unused_field
   FocusNode _focusNode;
   String imageUrl;
@@ -50,15 +52,60 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
       return false;
     }
   }
+  AdsProvider adsProvider;
 
   Future<void> validateAndSubmit() async {
     if (validateAndSave()) {
-      Navigator.push(context, MaterialPageRoute(builder: (c) => LoginPage()));
+       Provider.of<AdsProvider>(context, listen: false)
+          .createadds(
+
+  _nameController.text,
+   priceController.text,
+   descriptionController.text,
+   cod,
+   jazz,
+  packagesList,
+  categoryID,
+  subCategoryID,
+
+
+
+          )
+          .then((value) {
+        print("Time to change image work because image code is commints");
+       print(User.userData.images.length);
+        if (User.userData.images != null) {
+          try {
+
+          print("adds chek");
+          User.userData.images=null;
+
+          } catch (e) {
+            print("Exception found in images "+e.toString());
+          }
+
+        } else {
+          print("image not found and list is Empity");
+        }
+        // if (value.success) {
+        //   Navigator.push(
+        //       context, MaterialPageRoute(builder: (c) => AdvertiserHomePage()));
+        // }
+        // else{
+        //   print("Response getting fail in create ad");
+        // }
+      });
+      // ignore: dead_code
+     // Navigator.push(context, MaterialPageRoute(builder: (c) => LoginPage()));
     } else {
       print("object");
     }
   }
+// setImages(){
+//     File file1,file2,file3;
 
+// User.userData.images.asMap()
+// }
   @override
   void initState() {
     super.initState();
@@ -120,7 +167,7 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                               Center(
                                   child: TextFields.normalTextField(context,
                                       // fieldValue: _firstName,
-                                      controller: _servicesController,
+                                      controller: _nameController,
                                       validaterMsg: ' Name cannot be empty')),
                               textFieldHeader(
                                 'Price',
@@ -128,246 +175,95 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                               Center(
                                   child: TextFields.normalTextField(context,
                                       // fieldValue: _firstName,
-                                      controller: _servicesController,
+                                      controller: priceController,
                                       validaterMsg: ' Price cannot be empty')),
-                              textFieldHeader(
-                                'Unit',
-                              ),
+                              textFieldHeader('Description'),
                               Center(
-                                  child: TextFields.normalTextField(context,
-                                      // fieldValue: _firstName,
-                                      controller: _servicesController,
-                                      validaterMsg: ' Unit cannot be empty')),
+                                child: TextFields.largeTextField(
+                                  context,
+                                  // fieldValue: _firstName,
+                                  controller: descriptionController,
+                                ),
+                              ),
+                              displayHeaderText('Modes of payment'),
+                              textFieldHeader('Select all that apply'),
+                              // displayEmptySpace(),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  // _displayCardIcons(
+                                  //     'assets/appIcons/Group.png', 1),
+
+                                  //MoneyCard With RadioButton 1
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5),
+                                    height: 52,
+                                    width: width * 0.3,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.green),
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: <Widget>[
+                                          Image.asset(
+                                              'assets/appIcons/Group.png'),
+                                          Checkbox(
+                                              value: cod,
+                                              activeColor:
+                                                  AppColors.yellowColor,
+                                              checkColor: Colors.black,
+                                              onChanged: (val) {
+                                                cod = val;
+                                                setState(() {});
+                                              })
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+
+                                  //MoneyCard with RadioButton 2
+
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5),
+                                    height: 52,
+                                    width: width * 0.3,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color:
+                                                Colors.grey.withOpacity(0.3)),
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: <Widget>[
+                                          Image.asset(
+                                              'assets/images/jazz.png'),
+                                          Checkbox(
+                                              value: jazz,
+                                              activeColor:
+                                                  AppColors.yellowColor,
+                                              checkColor: Colors.black,
+                                              onChanged: (val) {
+                                                jazz = val;
+                                                setState(() {});
+                                              })
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  // _displayCardIcons(
+                                  //     'assets/appIcons/image42.png', 2)
+                                ],
+                              ),
+                              SizedBox(height: 10),
                               textFieldHeader(
                                 'Subscription Package',
                               ),
-                              Container(
-                                padding: EdgeInsets.only(
-                                    top: 10, left: 10, right: 10),
-                                child: Table(
-                           
-                        
-                      
-                                    border: TableBorder.all(), // Allows to add a border decoration around your table
-                                    children: [
-                                      TableRow(children: [
-                                        Center(
-                                            child: Text(
-                                          'Package',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                          ),
-                                        )),
-                                        Center(
-                                            child: Text(
-                                          'Price',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                          ),
-                                        )),
-                                        Center(
-                                            child: Text(
-                                          'Month',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                          ),
-                                        )),
-                                      ]),
-                                      TableRow(children: [
-                                        Center(
-                                          child: Text(
-                                            'Package',
-                                            style: TextStyle(fontSize: 17),
-                                          ),
-                                        ),
-                                        TextFormField(
-                                          //controller: controller,
-                                          validator: (value) {
-                                            return (value.isEmpty)
-                                                ? "Enter Value"
-                                                : null;
-                                          },
-                                          decoration: new InputDecoration(
-                                              // prefix: Text(hintText),
-                                              contentPadding:
-                                                  EdgeInsets.symmetric(
-                                                      horizontal: 20,
-                                                      vertical: 4),
-                                              fillColor: Colors.white,
-                                              errorStyle: TextStyles
-                                                  .buttonFontText
-                                                  .copyWith(
-                                                      fontSize: 10,
-                                                      color:
-                                                          AppColors.redColor),
-                                              border: InputBorder.none),
 
-                                          keyboardType: TextInputType.phone,
-                                        ),
-                                        TextFormField(
-                                          validator: (value) {
-                                            return (value.isEmpty)
-                                                ? "Enter Value"
-                                                : null;
-                                          },
-                                          //controller: controller,
-                                          decoration: new InputDecoration(
-                                              // prefix: Text(hintText),
-                                              contentPadding:
-                                                  EdgeInsets.symmetric(
-                                                      horizontal: 20,
-                                                      vertical: 4),
-                                              fillColor: Colors.white,
-                                              errorStyle: TextStyles
-                                                  .buttonFontText
-                                                  .copyWith(
-                                                      fontSize: 10,
-                                                      color:
-                                                          AppColors.redColor),
-                                              border: InputBorder.none),
-
-                                          keyboardType: TextInputType.phone,
-                                        ),
-                                      ]),
-                                      TableRow(children: [
-                                        Center(
-                                          child: Text(
-                                            'Package',
-                                            style: TextStyle(fontSize: 17),
-                                          ),
-                                        ),
-                                        TextFormField(
-                                          validator: (value) {
-                                            return (value.isEmpty)
-                                                ? "Enter Value"
-                                                : null;
-                                          },
-                                          //controller: controller,
-                                          decoration: new InputDecoration(
-                                              // prefix: Text(hintText),
-                                              contentPadding:
-                                                  EdgeInsets.symmetric(
-                                                      horizontal: 20,
-                                                      vertical: 4),
-                                              fillColor: Colors.white,
-                                              errorStyle: TextStyles
-                                                  .buttonFontText
-                                                  .copyWith(
-                                                      fontSize: 10,
-                                                      color:
-                                                          AppColors.redColor),
-                                              border: InputBorder.none),
-
-                                          keyboardType: TextInputType.phone,
-                                        ),
-                                        TextFormField(
-                                          validator: (value) {
-                                            return (value.isEmpty)
-                                                ? "Enter Value"
-                                                : null;
-                                          },
-                                          //controller: controller,
-                                          decoration: new InputDecoration(
-                                              // prefix: Text(hintText),
-                                              contentPadding:
-                                                  EdgeInsets.symmetric(
-                                                      horizontal: 20,
-                                                      vertical: 4),
-                                              fillColor: Colors.white,
-                                              errorStyle: TextStyles
-                                                  .buttonFontText
-                                                  .copyWith(
-                                                      fontSize: 10,
-                                                      color:
-                                                          AppColors.redColor),
-                                              border: InputBorder.none),
-
-                                          keyboardType: TextInputType.phone,
-                                        ),
-                                      ]),
-                                      TableRow(children: [
-                                        Center(
-                                          child: Text(
-                                            'Package',
-                                            style: TextStyle(fontSize: 17),
-                                          ),
-                                        ),
-                                        TextFormField(
-                                          validator: (value) {
-                                            return (value.isEmpty)
-                                                ? "Enter Value"
-                                                : null;
-                                          },
-                                          //controller: controller,
-                                          decoration: new InputDecoration(
-                                              // prefix: Text(hintText),
-                                              contentPadding:
-                                                  EdgeInsets.symmetric(
-                                                      horizontal: 20,
-                                                      vertical: 4),
-                                              fillColor: Colors.white,
-                                              errorStyle: TextStyles
-                                                  .buttonFontText
-                                                  .copyWith(
-                                                      fontSize: 10,
-                                                      color:
-                                                          AppColors.redColor),
-                                              border: InputBorder.none),
-
-                                          keyboardType: TextInputType.phone,
-                                        ),
-                                        TextFormField(
-                                          validator: (value) {
-                                            return (value.isEmpty)
-                                                ? "Enter Value"
-                                                : null;
-                                          },
-                                          //controller: controller,
-                                          decoration: new InputDecoration(
-                                              // prefix: Text(hintText),
-                                              contentPadding:
-                                                  EdgeInsets.symmetric(
-                                                      horizontal: 20,
-                                                      vertical: 4),
-                                              fillColor: Colors.white,
-                                              errorStyle: TextStyles
-                                                  .buttonFontText
-                                                  .copyWith(
-                                                      fontSize: 10,
-                                                      color:
-                                                          AppColors.redColor),
-                                              border: InputBorder.none),
-
-                                          keyboardType: TextInputType.phone,
-                                        ),
-                                      ]),
-                                    ]),
-                              ),
-                              textFieldHeader('Description'),
-                              Center(
-                                child: GestureDetector(
-                                  onTap: () async {},
-                                  child: Container(
-                                      margin: EdgeInsets.only(
-                                        bottom: 10,
-                                      ),
-                                      padding:
-                                          EdgeInsets.only(top: 10, left: 10),
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.15,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.8,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          border: Border.all(
-                                            color: Colors.grey[300],
-                                          )),
-                                      child: Text(
-                                          'Description of your  Shop including services and specialties.')),
-                                ),
-                              ),
                               textFieldHeader('Photos'),
                               Row(
                                 mainAxisAlignment:
@@ -541,21 +437,21 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 20),
+                              SizedBox(height: 40),
                             ]),
                       ),
                     )),
               ],
             ),
           ),
-           SizedBox(height: 20),
+          SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Button(
               buttonText: 'Save and Exit',
               buttonColor: AppColors.primarycolor,
               onTap: () async {
-                validateAndSubmit();
+                  validateAndSubmit();
               },
               buttonTextStyle: TextStyles.buttonFontText,
               widthPercent: 0.8,
@@ -566,11 +462,17 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
     );
   }
 
+  Container table() {
+    return Container(
+      child: table(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-
+    adsProvider = Provider.of<AdsProvider>(context);
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(gradient: AppColors.background),
@@ -599,4 +501,158 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
       ),
     );
   }
+}
+
+Widget table() {
+  return Container(
+    padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+    child: Table(
+        border: TableBorder
+            .all(), // Allows to add a border decoration around your table
+        children: [
+          TableRow(children: [
+            Center(
+                child: Text(
+              'Package',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            )),
+            Center(
+                child: Text(
+              'Price',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            )),
+            Center(
+                child: Text(
+              'Month',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            )),
+          ]),
+          TableRow(children: [
+            Center(
+              child: Text(
+                'Package',
+                style: TextStyle(fontSize: 17),
+              ),
+            ),
+            TextFormField(
+              //controller: controller,
+              validator: (value) {
+                return (value.isEmpty) ? "Enter Value" : null;
+              },
+              decoration: new InputDecoration(
+                  // prefix: Text(hintText),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                  fillColor: Colors.white,
+                  errorStyle: TextStyles.buttonFontText
+                      .copyWith(fontSize: 10, color: AppColors.redColor),
+                  border: InputBorder.none),
+
+              keyboardType: TextInputType.phone,
+            ),
+            TextFormField(
+              validator: (value) {
+                return (value.isEmpty) ? "Enter Value" : null;
+              },
+              //controller: controller,
+              decoration: new InputDecoration(
+                  // prefix: Text(hintText),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                  fillColor: Colors.white,
+                  errorStyle: TextStyles.buttonFontText
+                      .copyWith(fontSize: 10, color: AppColors.redColor),
+                  border: InputBorder.none),
+
+              keyboardType: TextInputType.phone,
+            ),
+          ]),
+          TableRow(children: [
+            Center(
+              child: Text(
+                'Package',
+                style: TextStyle(fontSize: 17),
+              ),
+            ),
+            TextFormField(
+              validator: (value) {
+                return (value.isEmpty) ? "Enter Value" : null;
+              },
+              //controller: controller,
+              decoration: new InputDecoration(
+                  // prefix: Text(hintText),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                  fillColor: Colors.white,
+                  errorStyle: TextStyles.buttonFontText
+                      .copyWith(fontSize: 10, color: AppColors.redColor),
+                  border: InputBorder.none),
+
+              keyboardType: TextInputType.phone,
+            ),
+            TextFormField(
+              validator: (value) {
+                return (value.isEmpty) ? "Enter Value" : null;
+              },
+              //controller: controller,
+              decoration: new InputDecoration(
+                  // prefix: Text(hintText),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                  fillColor: Colors.white,
+                  errorStyle: TextStyles.buttonFontText
+                      .copyWith(fontSize: 10, color: AppColors.redColor),
+                  border: InputBorder.none),
+
+              keyboardType: TextInputType.phone,
+            ),
+          ]),
+          TableRow(children: [
+            Center(
+              child: Text(
+                'Package',
+                style: TextStyle(fontSize: 17),
+              ),
+            ),
+            TextFormField(
+              validator: (value) {
+                return (value.isEmpty) ? "Enter Value" : null;
+              },
+              //controller: controller,
+              decoration: new InputDecoration(
+                  // prefix: Text(hintText),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                  fillColor: Colors.white,
+                  errorStyle: TextStyles.buttonFontText
+                      .copyWith(fontSize: 10, color: AppColors.redColor),
+                  border: InputBorder.none),
+
+              keyboardType: TextInputType.phone,
+            ),
+            TextFormField(
+              validator: (value) {
+                return (value.isEmpty) ? "Enter Value" : null;
+              },
+              //controller: controller,
+              decoration: new InputDecoration(
+                  // prefix: Text(hintText),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                  fillColor: Colors.white,
+                  errorStyle: TextStyles.buttonFontText
+                      .copyWith(fontSize: 10, color: AppColors.redColor),
+                  border: InputBorder.none),
+
+              keyboardType: TextInputType.phone,
+            ),
+          ]),
+        ]),
+  );
 }

@@ -25,15 +25,6 @@ class _SallerHomePageState extends State<SallerHomePage> {
   PageController pageController;
   int page = 0;
 
-
-
-
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
