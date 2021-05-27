@@ -4,9 +4,9 @@ class API {
   -------------------------------------------------------------*/
    //static const String API_URL = "https://giraffe-app.com/api";
 
-  //static const String API_URL = "http://10.0.2.3/api";
+  static const String API_URL = "http://10.0.3.2/api";
   // static const String API_URL = "http://192.168.1.10/api";
-  static const String API_URL = "http://localhost/api";
+ // static const String API_URL = "http://localhost/api";
 
   /*------------------------------------------------------------
                   LOGIN API: LOGIN API
@@ -62,7 +62,7 @@ class API {
                   LOGIN API: CREATE COMPANY Api
                         TYPE: POST
   -------------------------------------------------------------*/
-  static const String CREATECOMPANY_API = "$API_URL/company";
+  static const String CREATESHOP_API = "$API_URL/shop";
 
   /*------------------------------------------------------------*/
 

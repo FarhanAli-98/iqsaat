@@ -1,72 +1,63 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
+import 'package:async/async.dart';
 import 'package:iqsaat/api/api.dart';
+import '../main.dart';
 
-class RegisterApi {
+final tokens = Hive.box('tokens');
 
-  final String firstName;
-  final String lastName;
-  final String phone;
-  final String cnic;
-  final String email;
-  final String password;
-  final String role;
+class ShopApi {
+  final String companyName;
+  final String address;
+  final String about;
   final File file;
+  ShopApi(this.file, this.companyName, this.address, this.about);
 
-  RegisterApi(this.firstName, this.lastName,  this.phone, this.cnic, this.email, this.password, this.role, this.file);
 
-  Future<http.Response> createUser() {
+  Future<http.Response> createShop() {
     Map<String, String> customHeaders = {
       "Content-Type": "application/json",
+       "Authorization": "Bearer ${res.accessToken} ",
      
     };
     print(customHeaders);
     var body = {
-      "firstName": "$firstName",
-      "lastName": "$lastName",
-      "contactNumber": "$phone",
-      "cnic": "$cnic",
-      "email": "$email",
-      "password": "$password",
-      "role": "$role",
+      "name": "$companyName",
+      "address": "$address",
+      "about": "$about",
+     
    
     };
     //print("ID = "+.toString());
     print("Adds Data getten is = = = = " + json.encode(body));
-    print("Signup create At ?? this link${API.SIGNUP_API}");
+    print("Signup create At ?? this link${API.CREATESHOP_API}");
     return http.post(
-      "${API.SIGNUP_API}",
+      "${API.CREATESHOP_API}",
       headers: customHeaders,
       body: json.encode(body),
     );
   }
 
-  // Future<http.StreamedResponse> createUser() async {
+  // Future<http.StreamedResponse> createShop() async {
   //   var stream, length, multipartFile;
   //   Map<String, String> headers = ({
   //     "Content-Type": "multipart/form-data",
+  //     "Authorization": "Bearer ${res.accessToken} ",
   //   });
   //   print('starting to send the file');
   //   print("Sendiing Header is  = " + headers.toString());
-
+  //   print("Name??????? =$companyName $address  $about ");
   //   // string to uri
-  //   var uri = Uri.parse("${API.SIGNUP_API}");
+  //   var uri = Uri.parse("${API.CREATESHOP_API}");
   //   print("URI =  = = " + uri.toString());
   //   // create multipart request
   //   var request = new http.MultipartRequest("POST", uri);
-
-  //   request.fields['firstName'] = 'firstName';
-  //   request.fields['lastName'] = 'lastName';
-  //   request.fields['address'] = 'address';
-  //   request.fields['phone'] = 'phone';
-  //   request.fields['cnic'] = 'nic';
-  //   request.fields['email'] = 'email';
-  //   request.fields['password'] = 'password';
-  //   request.fields['role'] = 'seller';
+  //   request.fields['name'] = '$companyName';
+  //   request.fields['about'] = '$about';
+  //   request.fields['address'] = '$address';
   //   request.headers.addAll(headers);
-  //   print("Headers"+headers.toString());
-  //   print(request.toString());
   //   if (file != null) {
   //     // ignore: deprecated_member_use
   //     stream = new http.ByteStream(DelegatingStream.typed(file.openRead()));
@@ -79,12 +70,9 @@ class RegisterApi {
   //     // add file to multipart
   //     request.files.add(multipartFile);
   //   }
-  //   else {
-  //     print("File Nukk");
-  //   }
 
   //   // send
   //   return await request.send();
-  
+  //   // print("Status code  = ");
   // }
 }

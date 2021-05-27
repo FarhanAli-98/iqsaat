@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iqsaat/Widget/appBar.dart';
-import 'package:iqsaat/Widget/rounded_outline_button%20copy.dart';
-import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/drawer.dart';
 import 'package:iqsaat/Widget/three_dots_icon.dart';
-import 'package:iqsaat/models/chat_item.dart';
 import 'package:iqsaat/ui/Buyer/product_card.dart';
 import 'package:iqsaat/ui/Buyer/product_categories.dart';
 import 'package:iqsaat/ui/Product/products.dart';
@@ -16,7 +13,7 @@ import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'mapview.dart';
+
 
 class HomePage extends StatefulWidget {
   @override

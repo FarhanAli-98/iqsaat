@@ -87,16 +87,20 @@ class _AppDrawerState extends State<AppDrawer> {
                             ),
                           ),
                         ),
+                      
                         CustomField(
                           iconData: AppIcons.termCondation,
                           text: 'Home',
-                          onTap: () {
+                           onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
                                         SellerHomePage()));
                           },
+                        
+                  
+                          
                         ),
                         CustomField(
                           iconData: AppIcons.termCondation,
@@ -157,7 +161,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                         //     MaterialPageRoute(
                                         //         builder:
                                         //             (BuildContext context) =>
-                                        //                 AdvertisementList()));
+                                        //                 AddsCreations()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
@@ -281,7 +285,8 @@ class _AppDrawerState extends State<AppDrawer> {
                         Spacer(),
                         InkWell(
                           onTap: () {
-                            AppRoutes.makeFirst(context, LoginPage());
+                            print("Logout");
+                             AppRoutes.makeFirst(context, LoginPage());
                           },
                           child: Container(
                             // color: Colors.green,
@@ -470,7 +475,8 @@ class DrawerFull extends PreferredSize {
                                   iconData: AppIcons.world,
                                   text: 'Logout User',
                                   onTap: () {
-                                    AppRoutes.makeFirst(context, LoginPage());
+                                      AppRoutes.makeFirst(context, LoginPage());
+                                    //Image.asset('assets/appIcons/icon_logout.png'),
                                   },
                                 ),
                               ],
