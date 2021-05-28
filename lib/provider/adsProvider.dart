@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:iqsaat/models/postModels/addsModel.dart';
+import 'package:iqsaat/models/postModels/adsModel.dart';
 import 'package:iqsaat/request/addsCreate.dart';
 
 
