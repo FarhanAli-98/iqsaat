@@ -11,7 +11,7 @@ import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
 import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
-import 'package:iqsaat/ui/Seller/home/dashboard.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/dashboard.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';

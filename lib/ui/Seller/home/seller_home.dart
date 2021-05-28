@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/drawer.dart';
 
 
-import 'dashboard.dart';
+import 'dashboard/dashboard.dart';
 
 class SellerHomePage extends StatefulWidget {
   @override
