@@ -21,7 +21,7 @@
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Shop Report",
+              "Sales Report",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -35,7 +35,7 @@
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "Products Sold:",
+                    "Installments:  ",
                     style: TextStyle(
                         color: Colors.grey[900],
                         fontSize: 16,
