@@ -10,6 +10,7 @@ import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'hive/user_box.dart';
+import 'provider/adsProvider.dart';
 
 String role;
 UserBox res;
@@ -28,7 +29,6 @@ Future<void> main() async {
   } else {
     res = boxUser.get(0) as UserBox;
     print(res.role);
-  
     role = res.role;
   }
   runApp(MyApp(role));
@@ -50,6 +50,7 @@ class _MyAppState extends State<MyApp> {
        ChangeNotifierProvider(create: (_) => RegisterProvider()),
          ChangeNotifierProvider(create: (_) => LoginProvider()),
          ChangeNotifierProvider(create: (_) => ShopProvider()),
+          ChangeNotifierProvider(create: (_) => AdsProvider()),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false, //home: CompanyProfile()

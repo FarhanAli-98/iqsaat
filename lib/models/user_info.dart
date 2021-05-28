@@ -24,3 +24,25 @@ class User {
   String adid;
 
 }
+class Package {
+    Package({
+        this.month,
+        this.price,
+    });
+
+    String month;
+  
+    String price;
+
+    factory Package.fromJson(Map<String, dynamic> json) => Package(
+        month: json["month"],
+       
+        price: json["price"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "month": month,
+        
+        "price": price,
+    };
+}

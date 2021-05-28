@@ -5,7 +5,7 @@ class ProvidersListViewContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 150,
+        height: 180,
         width: 330,
         padding: EdgeInsets.all(08),
         margin: EdgeInsets.all(08),

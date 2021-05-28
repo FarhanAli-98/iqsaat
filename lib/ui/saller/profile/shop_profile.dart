@@ -71,7 +71,7 @@ class _ShopProfileState extends State< ShopProfile> {
             print("Seccessfullly Account Create");
             showMessage("Seccessfully Account Created");
             Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (c) => AddAdvertisementPage()));
+                context, MaterialPageRoute(builder: (c) => SallerHomePage()));
           } else {
             showDialog(
                 context: context,

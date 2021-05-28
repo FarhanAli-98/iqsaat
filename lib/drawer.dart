@@ -6,6 +6,8 @@ import 'package:iqsaat/ui/auth/terms_and_condition.dart';
 
 import 'package:iqsaat/ui/saller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/saller/chat_tab/tempchat.dart';
+import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/addNewProducts.dart';
+import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/selectCategory.dart';
 import 'package:iqsaat/ui/saller/home/saller_home.dart';
 import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
 import 'package:iqsaat/ui/user/help/languagePage.dart';
@@ -171,12 +173,12 @@ class _AppDrawerState extends State<AppDrawer> {
                                     ),
                                        InkWell(
                                       onTap: () {
-                                    // Navigator.push(
-                                    //         context,
-                                    //         MaterialPageRoute(
-                                    //             builder:
-                                    //                 (BuildContext context) =>
-                                    //                     CreateProducts()));
+                                    Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        AddAdvertisementPage()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),

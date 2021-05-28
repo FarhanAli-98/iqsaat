@@ -196,7 +196,7 @@ class _DashboardState extends State<Dashboard> {
               height: 10,
             ),
                Container(
-              height: 150,
+              height: 180,
               child: ListView.builder(
                 itemBuilder: (BuildContext context, int inedx) {
                   return ProvidersListViewContainer();
