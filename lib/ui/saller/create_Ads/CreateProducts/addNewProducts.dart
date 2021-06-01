@@ -11,6 +11,7 @@ import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:provider/provider.dart';
+import '../../../../test.dart';
 import 'add_image_page.dart';
 
 class AddAdvertisementPage extends StatefulWidget {
@@ -21,7 +22,23 @@ class AddAdvertisementPage extends StatefulWidget {
 class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
   double width, height;
   bool _isloading = false;
+  var dropDown;
+  String subValue;
+  List subCategory = [];
+  List mobile = ["Sumsang", "iphone", "oppo", "vivo", "realme"];
+  List vehicle = ["Car", "bike", "truck", "etc"];
+  List homeApplicances = [
+    "Air conditioning.",
+    "Air fryer.",
+    "Air ioniser.",
+    "Blower.",
+    "Blender. Immersion blender.",
+    "Clothes dryer. combo.",
+    'Clothes iron.',
+    "Coffee maker.",
+  ];
 
+  List categoryList = ["Mobile", "vehicle", "Home Appliances"];
   bool cod = true;
   bool jazz = false;
   bool interac = false;
@@ -38,11 +55,12 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
   final _formKey = GlobalKey<FormState>();
   List<String> images = [];
   List<Package> packagesList = [];
-  String categoryID;
- String subCategoryID;
+  int index = 0;
+  String category, selectServicSubeCategory;
   // ignore: unused_field
   FocusNode _focusNode;
   String imageUrl;
+  bool isVisible = false;
   bool validateAndSave() {
     final form = _formKey.currentState;
     form.save();
@@ -52,41 +70,38 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
       return false;
     }
   }
+
   AdsProvider adsProvider;
 
   Future<void> validateAndSubmit() async {
     if (validateAndSave()) {
-       Provider.of<AdsProvider>(context, listen: false)
+      Provider.of<AdsProvider>(context, listen: false)
           .createadds(
-
-  _nameController.text,
-   priceController.text,
-   descriptionController.text,
-   cod,
-   jazz,
-  packagesList,
-  categoryID,
-  subCategoryID,
-
-
-
-          )
+        _nameController.text,
+        priceController.text,
+        descriptionController.text,
+        cod,
+        jazz,
+        packagesList,
+        category,
+        subValue,
+      )
           .then((value) {
         print("Time to change image work because image code is commints");
-       print(User.userData.images.length);
-        if (User.userData.images != null) {
-          try {
+        //  print(User.userData.images.length);
+        //   if (User.userData.images != null) {
+        //     try {
 
-          print("adds chek");
-          User.userData.images=null;
+        //     print("adds chek");
+        //     User.userData.images=null;
 
-          } catch (e) {
-            print("Exception found in images "+e.toString());
-          }
+        //     } catch (e) {
+        //       print("Exception found in images "+e.toString());
+        //     }
 
-        } else {
-          print("image not found and list is Empity");
-        }
+        //   } else {
+        //     print("image not found and list is Empity");
+        //   }
         // if (value.success) {
         //   Navigator.push(
         //       context, MaterialPageRoute(builder: (c) => AdvertiserHomePage()));
@@ -96,7 +111,7 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
         // }
       });
       // ignore: dead_code
-     // Navigator.push(context, MaterialPageRoute(builder: (c) => LoginPage()));
+      // Navigator.push(context, MaterialPageRoute(builder: (c) => LoginPage()));
     } else {
       print("object");
     }
@@ -240,8 +255,7 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: <Widget>[
-                                          Image.asset(
-                                              'assets/images/jazz.png'),
+                                          Image.asset('assets/images/jazz.png'),
                                           Checkbox(
                                               value: jazz,
                                               activeColor:
@@ -263,8 +277,164 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                               textFieldHeader(
                                 'Subscription Package',
                               ),
+                             Container(height:400,width:width,child:CreatePackages(),) ,
+                              textFieldHeader(
+                                "Select Category",
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 8.0),
+                                child: Center(
+                                  child: Container(
+                                    margin: EdgeInsets.only(top: 10),
+                                    height: height * 0.07,
+                                    width: width * 0.8,
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 5),
+                                    decoration: ShapeDecoration(
+                                      // borderRadius: BorderRadius.circular(25),
+                                      shape: RoundedRectangleBorder(
+                                        side: BorderSide(
+                                            width: 1.0,
+                                            color: Colors.grey[300],
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(25.0)),
+                                      ),
+                                    ),
+                                    child: InputDecorator(
+                                      decoration: const InputDecoration(
+                                        hintText: 'Choose an category',
+                                        hintStyle: TextStyle(
+                                          color: AppColors.primarycolor,
+                                          fontSize: 16.0,
+                                          fontFamily: "OpenSans",
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                      isEmpty: category == null,
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton(
+                                          value: category,
+                                          isDense: true,
+                                          isExpanded: true,
+                                          onChanged: (String newValue) {
+                                            setState(() {
+                                              category = category;
 
+                                              category = newValue;
+                                              print(category);
+                                              index = categoryList
+                                                  .indexOf(newValue);
+                                              print(index);
+
+                                              if (index == 0) {
+                                                subCategory = mobile;
+                                              } else if (index == 1) {
+                                                subCategory = vehicle;
+                                              } else if (index == 2) {
+                                                subCategory = homeApplicances;
+                                              }
+
+                                              isVisible = true;
+                                            });
+                                          },
+                                          items: categoryList.map((document) {
+                                            return new DropdownMenuItem<String>(
+                                                value: document,
+                                                child: new Text(document,
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.bold)));
+                                          }).toList(),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Visibility(
+                                  visible: isVisible,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      textFieldHeader(
+                                        "Select SubCategory",
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 8.0),
+                                        child: Center(
+                                          child: Container(
+                                            margin: EdgeInsets.only(top: 10),
+                                            height: height * 0.07,
+                                            width: width * 0.8,
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 20, vertical: 5),
+                                            decoration: ShapeDecoration(
+                                              // borderRadius: BorderRadius.circular(25),
+                                              shape: RoundedRectangleBorder(
+                                                side: BorderSide(
+                                                    width: 1.0,
+                                                    color: Colors.grey[300],
+                                                    style: BorderStyle.solid),
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(25.0)),
+                                              ),
+                                            ),
+                                            child: InputDecorator(
+                                              decoration: const InputDecoration(
+                                                hintText:
+                                                    'Choose an Subcategory',
+                                                hintStyle: TextStyle(
+                                                  color: AppColors.primarycolor,
+                                                  fontSize: 16.0,
+                                                  fontFamily: "OpenSans",
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                              ),
+                                              // isEmpty: category == null,
+                                              child:
+                                                  DropdownButtonHideUnderline(
+                                                child: DropdownButton(
+                                                  value: subValue,
+                                                  isDense: true,
+                                                  isExpanded: true,
+                                                  onChanged: (String newValue) {
+                                                    setState(() {
+                                                      subValue = newValue;
+                                                      print(subValue);
+                                                    });
+                                                  },
+                                                  items: subCategory
+                                                      .map((document) {
+                                                    return new DropdownMenuItem<
+                                                            String>(
+                                                        value: document,
+                                                        child: new Text(
+                                                            document,
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black,
+                                                                fontSize: 16,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold)));
+                                                  }).toList(),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )),
                               textFieldHeader('Photos'),
+
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
@@ -451,7 +621,7 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
               buttonText: 'Save and Exit',
               buttonColor: AppColors.primarycolor,
               onTap: () async {
-                  validateAndSubmit();
+                validateAndSubmit();
               },
               buttonTextStyle: TextStyles.buttonFontText,
               widthPercent: 0.8,
@@ -501,158 +671,4 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
       ),
     );
   }
-}
-
-Widget table() {
-  return Container(
-    padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-    child: Table(
-        border: TableBorder
-            .all(), // Allows to add a border decoration around your table
-        children: [
-          TableRow(children: [
-            Center(
-                child: Text(
-              'Package',
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            )),
-            Center(
-                child: Text(
-              'Price',
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            )),
-            Center(
-                child: Text(
-              'Month',
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            )),
-          ]),
-          TableRow(children: [
-            Center(
-              child: Text(
-                'Package',
-                style: TextStyle(fontSize: 17),
-              ),
-            ),
-            TextFormField(
-              //controller: controller,
-              validator: (value) {
-                return (value.isEmpty) ? "Enter Value" : null;
-              },
-              decoration: new InputDecoration(
-                  // prefix: Text(hintText),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-                  fillColor: Colors.white,
-                  errorStyle: TextStyles.buttonFontText
-                      .copyWith(fontSize: 10, color: AppColors.redColor),
-                  border: InputBorder.none),
-
-              keyboardType: TextInputType.phone,
-            ),
-            TextFormField(
-              validator: (value) {
-                return (value.isEmpty) ? "Enter Value" : null;
-              },
-              //controller: controller,
-              decoration: new InputDecoration(
-                  // prefix: Text(hintText),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-                  fillColor: Colors.white,
-                  errorStyle: TextStyles.buttonFontText
-                      .copyWith(fontSize: 10, color: AppColors.redColor),
-                  border: InputBorder.none),
-
-              keyboardType: TextInputType.phone,
-            ),
-          ]),
-          TableRow(children: [
-            Center(
-              child: Text(
-                'Package',
-                style: TextStyle(fontSize: 17),
-              ),
-            ),
-            TextFormField(
-              validator: (value) {
-                return (value.isEmpty) ? "Enter Value" : null;
-              },
-              //controller: controller,
-              decoration: new InputDecoration(
-                  // prefix: Text(hintText),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-                  fillColor: Colors.white,
-                  errorStyle: TextStyles.buttonFontText
-                      .copyWith(fontSize: 10, color: AppColors.redColor),
-                  border: InputBorder.none),
-
-              keyboardType: TextInputType.phone,
-            ),
-            TextFormField(
-              validator: (value) {
-                return (value.isEmpty) ? "Enter Value" : null;
-              },
-              //controller: controller,
-              decoration: new InputDecoration(
-                  // prefix: Text(hintText),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-                  fillColor: Colors.white,
-                  errorStyle: TextStyles.buttonFontText
-                      .copyWith(fontSize: 10, color: AppColors.redColor),
-                  border: InputBorder.none),
-
-              keyboardType: TextInputType.phone,
-            ),
-          ]),
-          TableRow(children: [
-            Center(
-              child: Text(
-                'Package',
-                style: TextStyle(fontSize: 17),
-              ),
-            ),
-            TextFormField(
-              validator: (value) {
-                return (value.isEmpty) ? "Enter Value" : null;
-              },
-              //controller: controller,
-              decoration: new InputDecoration(
-                  // prefix: Text(hintText),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-                  fillColor: Colors.white,
-                  errorStyle: TextStyles.buttonFontText
-                      .copyWith(fontSize: 10, color: AppColors.redColor),
-                  border: InputBorder.none),
-
-              keyboardType: TextInputType.phone,
-            ),
-            TextFormField(
-              validator: (value) {
-                return (value.isEmpty) ? "Enter Value" : null;
-              },
-              //controller: controller,
-              decoration: new InputDecoration(
-                  // prefix: Text(hintText),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-                  fillColor: Colors.white,
-                  errorStyle: TextStyles.buttonFontText
-                      .copyWith(fontSize: 10, color: AppColors.redColor),
-                  border: InputBorder.none),
-
-              keyboardType: TextInputType.phone,
-            ),
-          ]),
-        ]),
-  );
 }

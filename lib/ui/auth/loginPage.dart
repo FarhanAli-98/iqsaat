@@ -66,23 +66,28 @@ class _LoginPageState extends State<LoginPage> {
         } else if (res.role == "buyer") {
           AppRoutes.replace(context, HomePage());
         } else if (res.role == "seller") {
-          // if (res.shopId == null) {
+           if (res.shopId == null) {  
           print(res.shopId);
           print('shopId id null');
           AppRoutes.replace(context, ShopProfile());
-          // } else if (res.adLength == null || res.adLength <= 0) {
+           }
+           else{
+             AppRoutes.replace(context, SallerHomePage());
+           }
+          //   else if (res.adLength == null || res.adLength <= 0) {
           //   print(res.adLength);
           //   print('ad was null');
           //   AppRoutes.replace(context, AddAdvertisementPage());
-          // } else if (res.paid == false) {
+          // } 
+          // else if (res.paid == false) {
           //   print(res.paid);
           //   print('not paid');
           //   AppRoutes.replace(context, SubscriptionPage());
-          // } else {
-          //   AppRoutes.replace(context, AdvertiserHomePage());
-          // }
+         
         }
+        
         else{
+
            showMessage("Role not verified");
         }
         showMessage("Seccessfully login");

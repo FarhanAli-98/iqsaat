@@ -4,29 +4,15 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:iqsaat/models/postModels/adsModel.dart';
 import 'package:iqsaat/request/addsCreate.dart';
 
-
 class AdsProvider with ChangeNotifier {
   AdsModel adsModel;
- 
+
   var jResult;
 
-
-  Future<AdsModel> createadds(name,
-   price,
-   description,
-   cod,
-   jazz,
-  packagesList
-  ,cata,subcata) async {
+  Future<AdsModel> createadds(
+      name, price, description, cod, jazz, packagesList, cata, subcata) async {
     await AdsApi(
-   name,
-   price,
-   description,
-   cod,
-   jazz,
-  packagesList,
-  cata,
-  subcata)
+            name, price, description, cod, jazz, packagesList, cata, subcata)
         .createAdds()
         .then((data) {
       print("Adds Provide Creating" + data.statusCode.toString());
@@ -44,7 +30,6 @@ class AdsProvider with ChangeNotifier {
       } else {
         Map<String, dynamic> result = json.decode(data.body);
         print("Errors = " + result.toString());
-   
       }
     });
 
@@ -68,12 +53,11 @@ class AdsProvider with ChangeNotifier {
 //       else {
 //         Map<String, dynamic> result = json.decode(data.body);
 //         print("Errors = " + result.toString());
-     
+
 //       }
 //     });
 //     return getAds;
 //   }
-
 
 //  Future<GetMyAdModel> getMyAd(id) async {
 //     await GetAdsApi().getMyAd(id).then((data) {
@@ -88,7 +72,7 @@ class AdsProvider with ChangeNotifier {
 //         {
 //           print("Face Error ");
 //         }
-       
+
 //       } else if (data.statusCode == 404) {
 //         Fluttertoast.showToast(
 //             msg: "Faild to Fetching Ad"+data.statusCode.toString(),
@@ -106,12 +90,11 @@ class AdsProvider with ChangeNotifier {
 //       else {
 //         Map<String, dynamic> result = json.decode(data.body);
 //         print("Errors = " + result.toString());
-     
+
 //       }
 //     });
 //     return getMyAdModel;
 //   }
-
 
 //   Future<AdsModel> updateData(
 //       serviceList, productList, cod, masterCard, interac, visa) async {
@@ -133,19 +116,21 @@ class AdsProvider with ChangeNotifier {
 //       } else {
 //         Map<String, dynamic> result = json.decode(data.body);
 //         print("Errors = " + result.toString());
-   
+
 //       }
 //     });
 
 //      return adsModel;
 //   }
 
-
-  
-
   void createAd(value) {
     adsModel = value;
     print("Message Updated = " + adsModel.message.toString());
+    Fluttertoast.showToast(
+        msg: "Add Create Seccessfully",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
+        );
     notifyListeners();
   }
 
