@@ -7,17 +7,16 @@ import 'package:iqsaat/hive/user_box.dart';
 import 'package:iqsaat/models/postModels/user.dart';
 import 'package:iqsaat/provider/login_provider.dart';
 import 'package:iqsaat/ui/Buyer/home_screen.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
+import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
 import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
-import 'package:iqsaat/ui/Seller/home/seller_home.dart';
-import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
-import 'package:iqsaat/ui/Seller/home/dashboard/dashboard.dart';
+
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:provider/provider.dart';
-
 
 import '../../main.dart';
 
@@ -73,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
           AppRoutes.replace(context, ShopProfile());
            }
            else{
-             AppRoutes.replace(context, SallerHomePage());
+             AppRoutes.replace(context, SellerHomePage());
            }
           //   else if (res.adLength == null || res.adLength <= 0) {
           //   print(res.adLength);
@@ -241,7 +240,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             GestureDetector(
               onTap: () {
-                AppRoutes.replace(context,SellerHomePage());
+                AppRoutes.replace(context, ShopProfile());
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,

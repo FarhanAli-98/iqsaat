@@ -2,11 +2,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/providers_listView_container.dart';
 import 'package:iqsaat/models/interest_item_model.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/pie/indicator.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/pie/sections.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:iqsaat/ui/saller/home/pie/indicator.dart';
-import 'package:iqsaat/ui/saller/home/pie/sections.dart';
 
 class Dashboard extends StatefulWidget {
   @override
