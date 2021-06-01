@@ -3,9 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/drawer.dart';
 
-
-import 'dashboard/dashboard.dart';
-
+import 'dashboard.dart';
 class SellerHomePage extends StatefulWidget {
   @override
   _SellerHomePageState createState() => _SellerHomePageState();
@@ -24,10 +22,6 @@ class _SellerHomePageState extends State<SellerHomePage> {
   String selectedUid;
   PageController pageController;
   int page = 0;
-<<<<<<< HEAD:lib/ui/Seller/home/seller_home.dart
-=======
-
->>>>>>> main:lib/ui/Seller/home/dashboard/sellerHome.dart
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
