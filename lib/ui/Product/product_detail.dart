@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:iqsaat/ui/cart/cart_screen.dart';
+import 'package:iqsaat/utils/app_colors.dart';
 //import 'package:flutter_ecommerce_app/src/model/data.dart';
 //import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
 //import 'package:flutter_ecommerce_app/src/themes/theme.dart';
@@ -224,7 +225,14 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                     Text( "Samsung mobile A70",style: TextStyle(fontSize: 25),),
+                     Column(
+                       children: [
+                         Text( "Samsung mobile A70",style: TextStyle(fontSize: 25),),
+                         Align(alignment: Alignment.bottomLeft,
+                           child: Text("Category:",style: TextStyle(color: AppColors.primarycolor))),
+                        Align(alignment: Alignment.bottomLeft, child:Text("SubCategory:",style: TextStyle(color: AppColors.primarycolor))),
+                       ],
+                     ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[

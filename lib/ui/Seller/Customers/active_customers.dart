@@ -129,7 +129,7 @@ class active_customers extends StatelessWidget {
                       Text(
                         'Plan:Monthly',
                         style: TextStyle(
-                            color: Colors.blue,
+                            color: AppColors.primarycolor,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),

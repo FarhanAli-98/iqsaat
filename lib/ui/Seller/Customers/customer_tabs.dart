@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/models/notification.dart';
+import 'package:iqsaat/utils/app_colors.dart';
 import './Customers_main.dart';
 import './active_customers.dart';
 
@@ -13,14 +14,15 @@ class customersTab extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             elevation: 5.0,
-            backgroundColor: Colors.cyan[700],
+            backgroundColor: Colors.white,
             bottom: TabBar(
+              labelColor: AppColors.primarycolor,
               tabs: [
-                Tab(text:"Ongoing"),
+                Tab(text:"Ongoing",),
                 Tab(text:"Finished"),
               ],
             ),
-            title: Text('Customers Main'),
+            title: Text('Customers Main',style:TextStyle(color: AppColors.primarycolor)),
             actions:<Widget>
             [
               

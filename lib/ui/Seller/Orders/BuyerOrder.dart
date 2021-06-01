@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:iqsaat/ui/Seller/Orders/ordersDetail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 class Buyers_Order extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+       onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        orderDetails()));
+                          },
+   child: Container(
         height: 170,
         width: 350,
         padding: EdgeInsets.all(08),
@@ -78,7 +87,7 @@ class Buyers_Order extends StatelessWidget {
                     ),
                     Text(
                       'Plan:Monthly',
-                      style: TextStyle(color: Colors.blue, fontSize: 18,fontWeight: FontWeight.bold),
+                      style: TextStyle(color:AppColors.primarycolor, fontSize: 18,fontWeight: FontWeight.bold),
                     ),
                   SizedBox(height: 10,),
                     Container(
@@ -113,6 +122,6 @@ class Buyers_Order extends StatelessWidget {
                       ),
                     ),
                   ])),
-        ]));
+        ])));
   }
 }

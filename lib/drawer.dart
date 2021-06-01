@@ -106,12 +106,12 @@ class _AppDrawerState extends State<AppDrawer> {
                           iconData: AppIcons.termCondation,
                           text: 'Profile',
                         onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                      //  ProfileTab()
-                                     createPackages()   ));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (BuildContext context) =>
+                            //           //  ProfileTab()
+                            //          createPackages()   ));
                           },
                         ),
                         InkWell(

@@ -35,7 +35,7 @@
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "Installments:  ",
+                    "Installments:    ",
                     style: TextStyle(
                         color: Colors.grey[900],
                         fontSize: 16,
