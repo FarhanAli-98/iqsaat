@@ -29,4 +29,8 @@ class TextStyles {
       color: AppColors.primarycolor,
       fontWeight: FontWeight.w400,
       fontSize: 18.0);
+       static const TextStyle normalFontText2 = const TextStyle(
+      color: AppColors.primarycolor,
+      fontWeight: FontWeight.w400,
+      );
 }

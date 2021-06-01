@@ -1,6 +1,6 @@
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:flutter/material.dart';
-class createPackages extends StatelessWidget {
+class CreatePackages extends StatelessWidget {
   List<PlutoColumn> columns = [
   /// Text Column definition
   

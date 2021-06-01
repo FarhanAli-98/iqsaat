@@ -4,6 +4,7 @@ import 'package:iqsaat/ui/user/home/categoryPages.dart/homeAppliances.dart';
 import 'package:iqsaat/ui/user/home/categoryPages.dart/mobilePads.dart';
 import 'package:iqsaat/ui/user/home/categoryPages.dart/vehicles.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
+
 class Categories extends StatefulWidget {
   final int indexs;
 
@@ -52,25 +53,29 @@ class _CategoriesState extends State<Categories> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => Allitems(title: "Consumer Electronics",)));
-          }
-          else if (index == 2) {
+                    builder: (BuildContext context) => Allitems(
+                          title: "Consumer Electronics",
+                        )));
+          } else if (index == 2) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => HomeAppiances(title:"HomeAppiances")));
-          }
-          else if (index == 3) {
+                    builder: (BuildContext context) =>
+                        HomeAppiances(title: "HomeAppiances")));
+          } else if (index == 3) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => MobilePads(title: "MobilePads",)));
-          }
-          else if (index == 4) {
+                    builder: (BuildContext context) => MobilePads(
+                          title: "MobilePads",
+                        )));
+          } else if (index == 4) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => Vehicles(title: "Vehicles",)));
+                    builder: (BuildContext context) => Vehicles(
+                          title: "Vehicles",
+                        )));
           }
         });
       },

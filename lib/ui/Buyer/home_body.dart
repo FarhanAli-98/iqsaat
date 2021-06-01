@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/ui/Product/products.dart';
-import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/selectCategory.dart';
+import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/selectCategory.dart';
 
 import './product_categories.dart';
 import './product_card.dart';
@@ -50,7 +50,7 @@ class Body extends StatelessWidget {
         
         ),
         
-        Categories(),
+        Categories(indexs: 1,),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),

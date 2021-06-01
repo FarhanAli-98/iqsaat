@@ -58,7 +58,7 @@ dependencies:
   flutter_swiper: ^1.1.6
   timeago: ^2.0.26
   fl_chart: ^0.12.0
-  select_form_field: ^2.0.0
+  
 
   
 
@@ -80,6 +80,9 @@ dependencies:
   quill_delta: ^1.0.0
   flutter_screenutil: ^0.5.3
   mask_text_input_formatter: ^1.2.1
+  flutter_switch: ^0.3.1
+  tuple: ^2.0.0
+  select_form_field: ^2.0.0
 
 dependency_overrides:
 

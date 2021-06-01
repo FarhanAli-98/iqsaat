@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:iqsaat/ui/saller/home/saller_home.dart';
-import 'package:iqsaat/ui/saller/profile/shop_profile.dart';
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import '../main.dart';
 import '../ui/auth/loginPage.dart';
@@ -25,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     } else if (role == "buyer") {
        return HomePage();
     } else if (role == "seller") {
-       return SallerHomePage();
+       return SellerHomePage();
     //  // return ShopProfile();
     //   if (res.shopId == null) {
     //     print(res.shopId);

@@ -1,13 +1,10 @@
 
 import 'package:iqsaat/provider/shopProvider.dart';
-import 'package:iqsaat/test.dart';
-import 'package:iqsaat/ui/saller/profile/profile_tab.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:iqsaat/provider/login_provider.dart';
 import 'package:iqsaat/provider/signup_provider.dart';
-import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'hive/user_box.dart';

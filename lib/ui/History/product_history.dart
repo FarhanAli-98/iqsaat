@@ -35,7 +35,7 @@ class productHistoryState extends State<productHistory> {
                   //crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset('assets/images/bike.jpg'),
+                    Image.asset('assets/images/bike.png'),
                     Text(
                       'Product Name:Honda 70',
                       style:

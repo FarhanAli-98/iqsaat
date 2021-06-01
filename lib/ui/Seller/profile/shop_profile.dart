@@ -7,13 +7,14 @@ import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/hive/user_box.dart';
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/provider/shopProvider.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
-import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/addNewProducts.dart';
-import 'package:iqsaat/ui/saller/home/saller_home.dart';
+import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/addNewProducts.dart';
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
-import 'package:provider/provider.dart';
+//import 'package:provider/provider.dart';
 
 import '../../../main.dart';
 
@@ -56,54 +57,53 @@ class _ShopProfileState extends State< ShopProfile> {
 
 
 
-  void validateAndSubmit(context) {
-    if (validateAndSave()) {
-      Provider.of<ShopProvider>(context, listen: false)
-          .createShop(
-              _image,
-              _shopNameController.text,
-              _addressController.text,
-              _aboutController.text,
+  // void validateAndSubmit(context) {
+  //   if (validateAndSave()) {
+  //     Provider.of<ShopProvider>(context, listen: false)
+  //         .createShop(
+  //             _image,
+  //             _shopNameController.text,
+  //             _addressController.text,
+  //             _aboutController.text,
             
-              )
-          .then((data) {
-  try {
-          print(shopProvider.shopModel.success);
-          print(shopProvider.shopModel.details.id.toString());
+  //             )
+  //         .then((data) {
+  // try {
+  //         print(shopProvider.shopModel.success);
+  //         print(shopProvider.shopModel.details.id.toString());
           
-          if (shopProvider.shopModel.success== true) {
-            print("Seccessfullly Account Create");
-           
-
-            updateUserBox(shopProvider.shopModel);
-         
-          } else {
-            showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    title: Text('User Account Creation Failed'),
-                    content: Text("Please Enter Valid info"),
-                  );
-                });
-          }
-        } catch (e) {
-          showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  title: Text(e.toString()),
-                  content: Text("Please Enter Valid info"),
-                );
-              });
-        }
-      });
-    }
-  }
+  //         if (shopProvider.shopModel.success== true) {
+  //           print("Seccessfullly Account Create");
+  //           showMessage("Seccessfully Account Created");
+  //           Navigator.pushReplacement(
+  //               context, MaterialPageRoute(builder: (c) => AddAdvertisementPage()));
+  //         } else {
+  //           showDialog(
+  //               context: context,
+  //               builder: (BuildContext context) {
+  //                 return AlertDialog(
+  //                   shape: RoundedRectangleBorder(
+  //                       borderRadius: BorderRadius.circular(30)),
+  //                   title: Text('User Account Creation Failed'),
+  //                   content: Text("Please Enter Valid info"),
+  //                 );
+  //               });
+  //         }
+  //       } catch (e) {
+  //         showDialog(
+  //             context: context,
+  //             builder: (BuildContext context) {
+  //               return AlertDialog(
+  //                 shape: RoundedRectangleBorder(
+  //                     borderRadius: BorderRadius.circular(30)),
+  //                 title: Text(e.toString()),
+  //                 content: Text("Please Enter Valid info"),
+  //               );
+  //             });
+  //       }
+  //     });
+  //   }
+  // }
 
 
 
@@ -129,7 +129,7 @@ class _ShopProfileState extends State< ShopProfile> {
     res = boxUser.get(0) as UserBox;
     setState(() {});
        Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (c) => SallerHomePage()));
+                context, MaterialPageRoute(builder: (c) => SellerHomePage()));
 
    }catch(e)
    {
@@ -388,7 +388,7 @@ class _ShopProfileState extends State< ShopProfile> {
             buttonText: 'Submit',
             buttonColor: AppColors.primarycolor,
             onTap: () {
-              validateAndSubmit(context);
+              //validateAndSubmit(context);
               //  Navigator.push(context,
               //       MaterialPageRoute(builder: (c) => SallerHomePage()));
             
@@ -406,7 +406,7 @@ class _ShopProfileState extends State< ShopProfile> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-    shopProvider = Provider.of<ShopProvider>(context);
+   // shopProvider = Provider.of<ShopProvider>(context);
 
     return SafeArea(
       child: Container(

@@ -7,7 +7,7 @@ import 'package:iqsaat/Widget/three_dots_icon.dart';
 import 'package:iqsaat/ui/Buyer/product_card.dart';
 import 'package:iqsaat/ui/Buyer/product_categories.dart';
 import 'package:iqsaat/ui/Product/products.dart';
-import 'package:iqsaat/ui/saller/create_Ads/CreateProducts/selectCategory.dart';
+import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/selectCategory.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';

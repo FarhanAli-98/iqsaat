@@ -9,14 +9,15 @@ import 'package:iqsaat/provider/login_provider.dart';
 import 'package:iqsaat/ui/Buyer/home_screen.dart';
 import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
-import 'package:iqsaat/ui/saller/home/saller_home.dart';
-import 'package:iqsaat/ui/saller/profile/shop_profile.dart';
-
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
+import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/dashboard.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:provider/provider.dart';
+
 
 import '../../main.dart';
 
@@ -240,13 +241,13 @@ class _LoginPageState extends State<LoginPage> {
             ),
             GestureDetector(
               onTap: () {
-                AppRoutes.replace(context, ShopProfile());
+                AppRoutes.replace(context,SellerHomePage());
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Text(
-                    "Login as a Saller? :  ",
+                    "Login as a Seller? :  ",
                     textAlign: TextAlign.end,
                     style: TextStyle(color: Colors.black38),
                   ),
