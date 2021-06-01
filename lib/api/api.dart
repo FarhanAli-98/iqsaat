@@ -2,9 +2,9 @@ class API {
   /*------------------------------------------------------------
                           API URL
   -------------------------------------------------------------*/
-   //static const String API_URL = "https://giraffe-app.com/api";
+   static const String API_URL = "https://iqsaat.herokuapp.com/api";
 
-  static const String API_URL = "http://10.0.3.2/api";
+  //static const String API_URL = "http://10.0.3.2/api";
   // static const String API_URL = "http://192.168.1.10/api";
  // static const String API_URL = "http://localhost/api";
 
@@ -70,7 +70,7 @@ class API {
                   All Category API: All Category Api
                         TYPE: POST
   -------------------------------------------------------------*/
-  static const String ALLCATAGORY_API = "$API_URL/category";
+  static const String CATAGORY_API = "$API_URL/category";
 
   /*------------------------------------------------------------*/
 

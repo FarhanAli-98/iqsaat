@@ -126,7 +126,7 @@ class Product {
         this.description,
     });
 
-    int price;
+    String price;
     String description;
 
     factory Product.fromJson(Map<String, dynamic> json) => Product(

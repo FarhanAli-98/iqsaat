@@ -58,7 +58,8 @@ dependencies:
   flutter_swiper: ^1.1.6
   timeago: ^2.0.26
   fl_chart: ^0.12.0
-  
+  select_form_field: ^2.0.0
+
   
 
   
