@@ -1,14 +1,14 @@
 
-import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
+import 'package:iqsaat/provider/shopProvider.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:iqsaat/provider/login_provider.dart';
 import 'package:iqsaat/provider/signup_provider.dart';
-import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'hive/user_box.dart';
+import 'provider/adsProvider.dart';
 
 String role;
 UserBox res;
@@ -27,7 +27,6 @@ Future<void> main() async {
   } else {
     res = boxUser.get(0) as UserBox;
     print(res.role);
-  
     role = res.role;
   }
   runApp(MyApp(role));
@@ -48,7 +47,8 @@ class _MyAppState extends State<MyApp> {
       providers: [
        ChangeNotifierProvider(create: (_) => RegisterProvider()),
          ChangeNotifierProvider(create: (_) => LoginProvider()),
-        // ChangeNotifierProvider(create: (_) => ShopProvider()),
+         ChangeNotifierProvider(create: (_) => ShopProvider()),
+          ChangeNotifierProvider(create: (_) => AdsProvider()),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false, //home: CompanyProfile()
@@ -60,6 +60,7 @@ class _MyAppState extends State<MyApp> {
                 if (snapshot.hasError)
                   return Text(snapshot.error.toString());
                 else
+              //  return CreatePackages();
                   return SplashScreen(role: widget.role);
               } else
                 return Scaffold();

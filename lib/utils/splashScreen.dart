@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
+import '../main.dart';
 import '../ui/auth/loginPage.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -23,23 +24,25 @@ class _SplashScreenState extends State<SplashScreen> {
     } else if (role == "buyer") {
        return HomePage();
     } else if (role == "seller") {
-      return ShopProfile();
-      /* if (res.comapnyId == null) {
-        print(res.comapnyId);
-        print('comapny id null');
-        return CompanyProfile();
-      } else if (res.adLength == null || res.adLength <= 0) {
-        print(res.adLength);
-        print('ad was null');
-        return AddAdvertisementPage();
-      } else if (res.paid == false) {
-        print(res.paid);
-        print('not paid');
-        return SubscriptionPage();
-      } else 
-      {
+       return SellerHomePage();
+    //  // return ShopProfile();
+    //   if (res.shopId == null) {
+    //     print(res.shopId);
+    //     print('comapny id null');
+    //     return ShopProfile();
+    //   // } else if (res.adLength == null || res.adLength <= 0) {
+    //   //   print(res.adLength);
+    //   //   print('ad was null');
+    //   //   return AddAdvertisementPage();
+    //   // } else if (res.paid == false) {
+    //   //   print(res.paid);
+    //   //   print('not paid');
+    //   //   return SubscriptionPage();
+    //   } else 
+    //   {
+    //     return SallerHomePage();
         
-      }*/
+    //   }
     }
   }
 

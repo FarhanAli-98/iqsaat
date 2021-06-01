@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
+import 'package:iqsaat/hive/user_box.dart';
 import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/provider/shopProvider.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
@@ -14,6 +15,8 @@ import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 //import 'package:provider/provider.dart';
+
+import '../../../main.dart';
 
 
 
@@ -29,6 +32,7 @@ class _ShopProfileState extends State< ShopProfile> {
   final _formKey = GlobalKey<FormState>();
   String imageurl;
   bool _isloading = false;
+   UserBox updateResBox;
 
   TextEditingController _shopNameController = TextEditingController();
   
@@ -103,7 +107,36 @@ class _ShopProfileState extends State< ShopProfile> {
 
 
 
+ updateUserBox(value) {
+   try{
+       updateResBox = res;
+    print(updateResBox.role);
+    res = UserBox(
+       email: updateResBox.email,
+                          firstName: updateResBox.firstName,
+                          lastName: updateResBox.lastName,
+                          photo: updateResBox.photo,
+                          accessToken:updateResBox.accessToken,
+                          refreshToken:updateResBox.refreshToken,
+                          userId: updateResBox.userId,
+                          shopId: shopProvider.shopModel.details.id,
+                          role: updateResBox.role,
+                          cnic: updateResBox.cnic,
+                          phone: updateResBox.phone,
 
+    );
+    boxUser.putAt(0, res);
+    res = boxUser.get(0) as UserBox;
+    setState(() {});
+       Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (c) => SellerHomePage()));
+
+   }catch(e)
+   {
+    print(e);
+   }
+  
+  }
 
 
 

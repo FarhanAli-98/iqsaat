@@ -18,7 +18,7 @@ class LoginApi {
     };
     //print(json.encode(body).toString());
     Map<String, String> customHeaders = {
-      "content-type": "application/json;charset=UTF-8",
+      "Content-Type": "application/json",
     };
 
     print(body.toString());

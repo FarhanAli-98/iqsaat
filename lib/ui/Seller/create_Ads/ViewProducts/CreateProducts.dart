@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import 'CreateProducts/selectCategory.dart';
-
+import '../CreateProducts/selectCategory.dart';
 
 List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
   StaggeredTile.extent(1, 100.0),
