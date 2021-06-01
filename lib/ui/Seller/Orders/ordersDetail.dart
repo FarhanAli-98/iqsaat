@@ -22,7 +22,7 @@ Widget _packagedetail() {
       height: MediaQuery.of(context).size.height/4.5,
       margin: EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.backgroundColor,
         borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: const EdgeInsets.all(2.0),
@@ -33,7 +33,7 @@ Widget _packagedetail() {
                 SizedBox(height: 20),
                  RaisedButton(
                    elevation: 5,
-                        color: Colors.white,
+                        color: AppColors.backgroundColor,
                         child:Text("View Packages",style: TextStyle(
                       fontSize:15,
                       fontWeight: FontWeight.bold,
@@ -233,13 +233,13 @@ Widget orderProduct ()
     
     return Scaffold(
           appBar: AppBar(
-            title: Text('Orders'),
-            backgroundColor:AppColors.primarycolor,
+            title: Text('Orders',style:TextStyle(color: AppColors.primarycolor)),
+            backgroundColor:AppColors.white,
           
           ),
           body: SingleChildScrollView(
                       child: Container(
-              padding: EdgeInsets.only(top:10),
+              padding: EdgeInsets.all(10),
               height: SizeConfig.screenHeight,
         color: AppColors.backgroundColor,
         child:Column(
@@ -249,26 +249,27 @@ Widget orderProduct ()
                         elevation: 4,
                                               child: Row(
                           children: [
-                           Column(
-                                children: [
-                                  Align(
-                                                 alignment: Alignment.centerRight,        
-                                                              child: Text(
-                                      "Order Id:45",
-                                      style: TextStyle(color:AppColors.primarycolor,fontSize: 20
-                                      ,fontWeight: FontWeight.bold),
+                           Center(
+                             child: Column(
+                                  children: [
+                                 
+                                     Text(
+                                        "Order Id:45",
+                                        style: TextStyle(color:AppColors.primarycolor,fontSize: 20
+                                        ,fontWeight: FontWeight.bold),
+                                      
+                                      ),
                                     
+                                    CircleAvatar(
+                                      child: ClipOval(
+                                        child: Icon(Icons.person),
+                                      ),
+                                      radius: 32.0,
                                     ),
-                                  ),
-                                  CircleAvatar(
-                                    child: ClipOval(
-                                      child: Icon(Icons.person),
-                                    ),
-                                    radius: 32.0,
-                                  ),
-                                  Text("18//05//21",style:TextStyle(color:AppColors.primarycolor,fontSize: 15))
-                                ],
-                              ),
+                                    Text("18//05//21",style:TextStyle(color:AppColors.primarycolor,fontSize: 15))
+                                  ],
+                                ),
+                           ),
                             
                             SizedBox(width: 10,),
                             Column(
@@ -299,7 +300,7 @@ Widget orderProduct ()
                height: MediaQuery.of(context).size.height/8,
                
                 decoration: BoxDecoration(
-                  color: AppColors.white,
+                  color: AppColors.backgroundColor,
                    boxShadow: [
                     BoxShadow(
                       color: Colors.grey,
@@ -318,7 +319,7 @@ Widget orderProduct ()
         
       floatingActionButton:
       Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           
           FloatingActionButton(
@@ -334,7 +335,7 @@ Widget orderProduct ()
             },
             label: const Text('Approve'),
             icon: const Icon(Icons.thumb_up),
-            backgroundColor: Colors.greenAccent[400],
+            backgroundColor: Colors.green[400],
           ),
           FloatingActionButton.extended(
             onPressed: () {
@@ -342,7 +343,7 @@ Widget orderProduct ()
             },
             label: const Text('Decline'),
             icon: const Icon(Icons.thumb_down),
-            backgroundColor: Colors.redAccent[400],
+            backgroundColor: Colors.red[400],
           ),
         ],
       ),

@@ -1,8 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:tuple/tuple.dart';
-//import 'package:iqsaat/ui/saller/home/pie/indicator.dart';
-//import 'package:iqsaat/ui/saller/home/pie/sections.dart';
 import './pie/indicator.dart';
 import './pie/sections.dart';
 

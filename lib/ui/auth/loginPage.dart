@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
           AppRoutes.replace(context, ShopProfile());
            }
            else{
-             AppRoutes.replace(context, SallerHomePage());
+             AppRoutes.replace(context, SellerHomePage());
            }
           //   else if (res.adLength == null || res.adLength <= 0) {
           //   print(res.adLength);

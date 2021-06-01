@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
     //   //   return SubscriptionPage();
     //   } else 
     //   {
-    //     return SallerHomePage();
+    //     return SellerHomePage();
         
     //   }
     }

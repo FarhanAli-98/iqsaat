@@ -390,7 +390,7 @@ class _ShopProfileState extends State< ShopProfile> {
             onTap: () {
               //validateAndSubmit(context);
               //  Navigator.push(context,
-              //       MaterialPageRoute(builder: (c) => SallerHomePage()));
+              //       MaterialPageRoute(builder: (c) => SellerHomePage()));
             
             },
             buttonTextStyle: TextStyles.buttonFontText,
