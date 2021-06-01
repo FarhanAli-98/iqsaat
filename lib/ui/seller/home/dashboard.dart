@@ -7,7 +7,10 @@ import 'package:iqsaat/ui/Seller/home/dashboard/pie/sections.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:fl_chart/fl_chart.dart';
+<<<<<<< HEAD:lib/ui/seller/home/dashboard.dart
 
+=======
+>>>>>>> main:lib/ui/saller/home/dashboard.dart
 
 class Dashboard extends StatefulWidget {
   @override

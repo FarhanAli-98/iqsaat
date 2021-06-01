@@ -1,6 +1,9 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:tuple/tuple.dart';
+=======
+>>>>>>> main
 import './pie/indicator.dart';
 import './pie/sections.dart';
 

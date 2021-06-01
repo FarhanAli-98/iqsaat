@@ -8,7 +8,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:bezier_chart/bezier_chart.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 import './salesreport.dart';
 import './shopreport.dart';
 import './Statistics/analysisshop.dart';
