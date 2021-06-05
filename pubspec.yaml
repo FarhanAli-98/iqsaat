@@ -83,6 +83,7 @@ dependencies:
   flutter_switch: ^0.3.1
   tuple: ^2.0.0
   select_form_field: ^2.0.0
+  awesome_card: ^1.1.5
 
 dependency_overrides:
 

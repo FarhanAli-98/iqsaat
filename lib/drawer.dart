@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/Seller/Product/Ads/Seller_Ads.dart';
+import 'package:iqsaat/ui/Seller/Product/Ads/categories.dart';
 import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/addNewProducts.dart';
 import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/productsAds.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
@@ -173,7 +174,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                             MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                        SellerAds()));
+                                                        sellerCategories()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),

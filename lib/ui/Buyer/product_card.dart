@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/ui/Product/products.dart';
 
+import 'package:iqsaat/ui/Seller/Product/products.dart';
 class ItemCard extends StatelessWidget {
   final Product product;
   final Function press;
