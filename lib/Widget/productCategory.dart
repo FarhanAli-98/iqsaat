@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/ui/user/home/categoryPages.dart/cnusmerElectronics.dart';
-import 'package:iqsaat/ui/user/home/categoryPages.dart/homeAppliances.dart';
-import 'package:iqsaat/ui/user/home/categoryPages.dart/mobilePads.dart';
-import 'package:iqsaat/ui/user/home/categoryPages.dart/vehicles.dart';
+import 'package:iqsaat/ui/user/home/uperCategoryBar/cnusmerElectronics.dart';
+import 'package:iqsaat/ui/user/home/uperCategoryBar/homeAppliances.dart';
+import 'package:iqsaat/ui/user/home/uperCategoryBar/mobilePads.dart';
+import 'package:iqsaat/ui/user/home/uperCategoryBar/vehicles.dart';
 import 'package:iqsaat/ui/user/home/user_home.dart';
 
 class Categories extends StatefulWidget {

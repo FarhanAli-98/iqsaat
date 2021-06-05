@@ -7,12 +7,12 @@ class AppIcons {
   static const String eletric = 'asset/Images/ic_electricity.png';
   static const String refer = 'asset/Images/refer.png';
   static const String pay = 'asset/Images/ic_pay.png';
-  static const String setting = 'asset/Images/ic_settings.png';
+  static const String setting = 'assets/appIcons/settings.png';
   static const String icRate = 'asset/Images/ic_rate.png';
   static const String invite = 'asset/Images/ic_invite.png';
   static const String help = 'assets/appIcons/icon_help services.png';
   static const String guideline = 'asset/Images/ic_guideline.png';
-  static const String person = 'asset/Images/person.png';
+  static const String person = 'assets/appIcons/icon_profile.png';
   static const String icperson = 'asset/Images/ic_person.png';
   static const String email = 'asset/Images/ic_email.png';
   static const String phone = 'asset/Images/ic_phone.png';
@@ -23,6 +23,8 @@ class AppIcons {
   static const String order = 'asset/Images/ic_orders.png';
    static const String wpay = 'asset/Images/ic_pay.png';
   static const String wsetting = 'asset/Images/ic_settings.png';
-  static const String wicRate = 'asset/Images/ic_rate.png';
+  static const String wicRate = 'assets/appIcons/icon_reviews.png';
   static const String winvite = 'asset/Images/ic_invite.png';
+    static const String logout = 'assets/appIcons/icon_logout.png';
+
 }

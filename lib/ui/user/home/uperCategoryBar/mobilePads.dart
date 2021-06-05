@@ -1,23 +1,24 @@
+
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
-import 'package:iqsaat/ui/Buyer/product_categories.dart';
+import 'package:iqsaat/Widget/productCategory.dart';
 import 'package:iqsaat/ui/Product/product_detail.dart';
 
 import '../../../../drawer.dart';
 
-class Vehicles extends StatefulWidget {
-  Vehicles({Key key, this.title}) : super(key: key);
+class MobilePads extends StatefulWidget {
+  MobilePads({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _VehiclesState createState() => _VehiclesState();
+  _MobilePadsState createState() => _MobilePadsState();
 }
 
 double width, height;
 
-class _VehiclesState extends State<Vehicles> {
+class _MobilePadsState extends State<MobilePads> {
   @override
   Widget build(BuildContext context) {
     _body() {
@@ -25,9 +26,9 @@ class _VehiclesState extends State<Vehicles> {
         child: Container(
             child: Column(
           children: [
-           Categories(indexs:4),
+            Categories(indexs:1),
             SizedBox(height: 10),
-            HomeScreenRow(text: 'Vehicles '),
+            HomeScreenRow(text:widget.title),
             Container(
               height: height,
               width: width,
@@ -66,7 +67,7 @@ class _VehiclesState extends State<Vehicles> {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: NetworkImage(
-                                          'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2Fyc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80'),
+                                          'https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bW9iaWxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80'),
                                       fit: BoxFit.fill),
                                 ),
                               )),
@@ -111,7 +112,7 @@ class _VehiclesState extends State<Vehicles> {
     return SafeArea(
       child: Scaffold(
         drawer: DrawerFull(context, MediaQuery.of(context).size),
-        appBar: appBarUserSide(context, "Vehicles"),
+        appBar: appBarUserSide(context, "MobilePads"),
         body: _body(),
       ),
     );

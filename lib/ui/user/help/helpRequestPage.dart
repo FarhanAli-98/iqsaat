@@ -117,7 +117,16 @@ Widget appBarwithbackIcon(BuildContext context) {
         decoration: BoxDecoration(gradient: AppColors.background),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: appBarwithbackIcon(context),
+        appBar: AppBar(
+        //centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: AppColors.primarycolor,
+        title: Text(
+          'Help',
+          style: TextStyle(fontWeight: FontWeight.w400),
+          // style: Styles.heading,
+        ),
+      ),
           body: Container(
             margin: EdgeInsets.all(5),
             child: Stack(
