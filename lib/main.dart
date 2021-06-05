@@ -1,4 +1,3 @@
-
 import 'package:iqsaat/provider/shopProvider.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';

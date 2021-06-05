@@ -239,7 +239,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             GestureDetector(
               onTap: () {
-                AppRoutes.replace(context, ShopProfile());
+                AppRoutes.replace(context, SellerHomePage());
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
