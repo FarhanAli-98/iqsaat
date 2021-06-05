@@ -8,6 +8,7 @@ import 'package:iqsaat/ui/Buyer/product_card.dart';
 import 'package:iqsaat/ui/Buyer/product_categories.dart';
 import 'package:iqsaat/ui/Product/products.dart';
 import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/selectCategory.dart';
+import 'package:iqsaat/ui/seller/home/dashboard.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -100,7 +101,7 @@ class _HomePageState extends State<HomePage> {
 
 
             Container(
-              height:250,
+              height:10,
               width: width,
               child: Padding(
                   padding: const EdgeInsets.only(top: 12.0),
@@ -115,7 +116,7 @@ class _HomePageState extends State<HomePage> {
             ),
 
             
-            HomeScreenRow(text: 'Ads gven blew'),
+            HomeScreenRow(text: 'Ads given below'),
             SizedBox(
               height: 10,
             ),
@@ -135,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                          press: () => Navigator.push(
                              context,
                              MaterialPageRoute(
-                               builder: (context) => CreateProducts(
+                               builder: (context) => Dashboard(
                                 
                                ),
                              )),

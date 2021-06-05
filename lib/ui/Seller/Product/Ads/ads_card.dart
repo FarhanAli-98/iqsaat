@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/ui/Product/product_detail.dart';
+import 'package:iqsaat/utils/app_colors.dart';
 
 
 
@@ -48,7 +49,7 @@ class AdsCard extends StatefulWidget {
 class _AdsCardState
     extends State<AdsCard> {
   // This height will allow for all the Card's content to fit comfortably within the card.
-  static const height = 380.0;
+ // static const height = 380.0;
   var _isSelected = false;
 
   @override
@@ -63,10 +64,11 @@ class _AdsCardState
         child: Column(
           children: [
             SectionTitle(
-                title: "Title"),
+                title: "CD70"),
             SizedBox(
-              height: height,
+              height: MediaQuery.of(context).size.height/3,
               child: Card(
+                margin: EdgeInsets.all(0),
                 // This ensures that the Card's children (including the ink splash) are clipped correctly.
                 clipBehavior: Clip.antiAlias,
                 child: InkWell(
@@ -150,142 +152,95 @@ class CardContent extends StatelessWidget {
     final titleStyle = theme.textTheme.headline5.copyWith(color: Colors.white);
     final descriptionStyle = theme.textTheme.subtitle1;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          height: 196.0,
-          child: Stack(
-            children: [
-              Positioned.fill(
-                // In order to have the ink splash appear above the image, you
-                // must use Ink.image. This allows the image to be painted as
-                // part of the Material and display ink effects above it. Using
-                // a standard Image will obscure the ink splash.
-                child: Ink.image(
-                  image: AssetImage(
-                   "assets/images/bike.png",
-                    //package: ads.assetPackage,
-                  ),
-                  fit: BoxFit.cover,
-                  child: Container(),
-                ),
-              ),
-              Positioned(
-                bottom: 16,
-                left: 16,
-                right: 16,
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Title",
-                    style:TextStyle(color:Colors.blue,fontSize: 16.0,fontWeight:FontWeight.bold),
-                    
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        // Description and share/explore buttons.
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-          child: DefaultTextStyle(
-            softWrap: false,
-            overflow: TextOverflow.ellipsis,
-            style: descriptionStyle,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height/8,
+            child: Stack(
               children: [
-                // This array contains the three line description on each card
-                // demo.
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                   "Descrption here",
-                    style: descriptionStyle.copyWith(color: Colors.black54,fontWeight: FontWeight.bold),
+                Positioned.fill(
+                  // In order to have the ink splash appear above the image, you
+                  // must use Ink.image. This allows the image to be painted as
+                  // part of the Material and display ink effects above it. Using
+                  // a standard Image will obscure the ink splash.
+                  child: Ink.image(
+                    image: AssetImage(
+                     "assets/images/bike.png",
+                      //package: ads.assetPackage,
+                    ),
+                    fit: BoxFit.cover,
+                    child: Container(),
                   ),
                 ),
-                Text("Price",style: TextStyle(color: Colors.blueAccent,fontWeight: FontWeight.bold),),
-                Text("Category:",style: TextStyle(color: Colors.blueAccent,fontWeight: FontWeight.bold)),
-                Text("Views:",style: TextStyle(color: Colors.blueAccent,fontWeight: FontWeight.bold))
+                Positioned(
+                  bottom: 16,
+                  left: 16,
+                  right: 16,
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "",
+                      style:TextStyle(color:Colors.blue,fontSize: 16.0,fontWeight:FontWeight.bold),
+                      
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
-        ),
-     //  
-          ButtonBar(
-            alignment: MainAxisAlignment.start,
-            children: [
-              FlatButton(
-                child: Text("Plan",style:TextStyle(fontWeight:FontWeight.bold,fontSize: 15.0),),
-                   
-                textColor: Colors.amber.shade500,
-                onPressed: () {
-                  print('InstallmentPlanScreen');
-                },
+          // Description and share/explore buttons.
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 8, 10, 0),
+            child: DefaultTextStyle(
+              softWrap: false,
+              overflow: TextOverflow.ellipsis,
+              style: descriptionStyle,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // This array contains the three line description on each card
+                  // demo.
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Text(
+                     "Descrption here",
+                      style: descriptionStyle.copyWith(color: Colors.black,fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Text("24,000 PKR",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                  Text("Category:Bikes",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold)),
+                  Text("In Stock:13",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold))
+                ],
               ),
-              FlatButton(
-                child: Text("Reviews",style:TextStyle(fontWeight:FontWeight.bold,fontSize: 15.0)),
-                   
-                textColor: Colors.amber.shade500,
-                onPressed: () {
-                  print('pressed');
-                },
-              ),
-            ],
+            ),
           ),
-      ],
-    );
-  }
-}
-
-class SellerAds extends StatefulWidget {
-  
-
-  @override
-  _SellerAdsState createState() => _SellerAdsState();
-}
-
-class _SellerAdsState extends State<SellerAds> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text("My Ads"),
-      ),
-      body: Scrollbar(
-        child: ListView(
-          padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
-          children: [
-           // for (final list in cardslist(context))
-            
-            Container(
-               // height: 400,
-                margin: const EdgeInsets.only(bottom: 8),
-                
-                child:AdsCard()
-              ),
-               Container(
-                margin: const EdgeInsets.only(bottom: 8),
-                child:AdsCard()
-              
-              ),
-               Container(
-                margin: const EdgeInsets.only(bottom: 8),
-                child:AdsCard()
-              
-              ),
-               Container(
-                margin: const EdgeInsets.only(bottom: 8),
-                child:AdsCard()
-              
-              )
-            
-          ],
-        ),
+       //  
+            ButtonBar(
+              alignment: MainAxisAlignment.start,
+              children: [
+                FlatButton(
+                  child: Text("Packages",style:TextStyle(fontWeight:FontWeight.bold,fontSize: 15.0),),
+                     
+                  textColor: AppColors.primarycolor,
+                  onPressed: () {
+                    print('InstallmentPlanScreen');
+                  },
+                ),
+                FlatButton(
+                  child: Text("Reviews",style:TextStyle(fontWeight:FontWeight.bold,fontSize: 15.0)),
+                     
+                  textColor: AppColors.primarycolor,
+                  onPressed: () {
+                    print('pressed');
+                  },
+                ),
+              ],
+            ),
+        ],
       ),
     );
   }
