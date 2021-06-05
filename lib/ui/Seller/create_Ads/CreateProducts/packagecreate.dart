@@ -72,6 +72,8 @@ List<PlutoRow> rows = [
         title: const Text('Packages'),
       ),
       body: Container(
+        height: 200,
+        width: 200,
         padding: const EdgeInsets.all(5),
         child: PlutoGrid(
           columns: columns,

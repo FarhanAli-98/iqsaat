@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/models/notification.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import './Customers_main.dart';
 import './active_customers.dart';

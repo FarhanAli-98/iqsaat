@@ -102,7 +102,7 @@ class API {
                   Ads API: My Ads Api
                         TYPE: GET
   -------------------------------------------------------------*/
-  static const String MYADS_API = "$API_URL/ads/";
+  static const String ADS_API = "$API_URL/ads/";
 
   /*------------------------------------------------------------*/
 

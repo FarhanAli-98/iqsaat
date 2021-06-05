@@ -8,6 +8,8 @@ import 'package:provider/provider.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'hive/user_box.dart';
 import 'provider/adsProvider.dart';
+import 'provider/categoryProvider.dart';
+import 'provider/userProvider.dart';
 
 String role;
 UserBox res;
@@ -15,6 +17,7 @@ Box<dynamic> boxUser;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
+ 
   Hive.init(appDocumentDir.path);
   Hive.registerAdapter(UserBoxAdapter());
   boxUser = await Hive.openBox("user");
@@ -45,9 +48,11 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
        ChangeNotifierProvider(create: (_) => RegisterProvider()),
-         ChangeNotifierProvider(create: (_) => LoginProvider()),
-         ChangeNotifierProvider(create: (_) => ShopProvider()),
-          ChangeNotifierProvider(create: (_) => AdsProvider()),
+       ChangeNotifierProvider(create: (_) => LoginProvider()),
+       ChangeNotifierProvider(create: (_) => ShopProvider()),
+       ChangeNotifierProvider(create: (_) => AdsProvider()),
+       ChangeNotifierProvider(create: (_) => UserProvider()),
+       ChangeNotifierProvider(create: (_) => CategoryProvider()),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false, //home: CompanyProfile()

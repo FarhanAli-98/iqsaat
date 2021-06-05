@@ -55,19 +55,7 @@ class HelpResponse extends StatelessWidget {
       ],
     );
   }
-Widget appBarwithbackIcon(BuildContext context) {
-  return AppBar(
-    elevation: 0.0,
-    backgroundColor: Colors.white,
-    leading: IconButton(
-      icon: Icon(
-        Icons.arrow_back_ios,
-        color: Colors.grey,
-      ),
-      onPressed: () => Navigator.pop(context),
-    ),
-  );
-}
+
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -75,7 +63,16 @@ Widget appBarwithbackIcon(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.backgroundColor,
-        appBar: appBarwithbackIcon(context),
+     appBar: AppBar(
+        //centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: AppColors.primarycolor,
+        title: Text(
+          'Help',
+          style: TextStyle(fontWeight: FontWeight.w400),
+          // style: Styles.heading,
+        ),
+      ),
         body: _body(context),
         resizeToAvoidBottomInset: false,
       ),
