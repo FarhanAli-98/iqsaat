@@ -7,6 +7,7 @@ import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/models/user_info.dart';
 import 'package:iqsaat/provider/adsProvider.dart';
+import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/packagecreate.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
@@ -277,7 +278,11 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                               textFieldHeader(
                                 'Subscription Package',
                               ),
-                             Container(height:400,width:width,child:CreatePackages(),) ,
+                              // Container(
+                              //   height: 400,
+                              //   width: 200,
+                              //   child: CreatePackages(),
+                              // ),
                               textFieldHeader(
                                 "Select Category",
                               ),

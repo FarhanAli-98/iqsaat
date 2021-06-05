@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
-import 'package:iqsaat/ui/Buyer/product_categories.dart';
+import 'package:iqsaat/Widget/productCategory.dart';
 import 'package:iqsaat/ui/Product/product_detail.dart';
+import 'package:iqsaat/ui/user/home/user_home.dart';
 
 import '../../../../drawer.dart';
 
@@ -26,14 +26,14 @@ class _AllitemsState extends State<Allitems> {
         child: Container(
             child: Column(
           children: [
-            Categories(indexs:1),
+            Categories(indexs: 1),
             SizedBox(height: 10),
-            HomeScreenRow(text:widget.title),
+            HomeScreenRow(text: widget.title),
             Container(
               height: height,
               width: width,
               child: GridView.builder(
-                itemCount: 12,
+                itemCount: adsProvider.getAllAds.data.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   childAspectRatio: 8.5 / 10.0,
                   crossAxisCount: 2,
@@ -41,26 +41,22 @@ class _AllitemsState extends State<Allitems> {
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                       padding: EdgeInsets.all(0),
-                      
-                      child:InkWell(
-                        
-
-                          onTap: () {
-                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        ProductDetailPage()));},
-                                              child: Card(
-                          margin: EdgeInsets.all(10),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      ProductDetailPage()));
+                        },
+                        child: Card(
+                            margin: EdgeInsets.all(10),
                             semanticContainer: true,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                           clipBehavior: Clip.antiAlias,
+                            clipBehavior: Clip.antiAlias,
                             child: Column(
-                              
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Expanded(
@@ -75,7 +71,7 @@ class _AllitemsState extends State<Allitems> {
                                 Padding(
                                     padding: EdgeInsets.all(2),
                                     child: Text(
-                                      "Sumsang 4",
+                                      adsProvider.getAllAds.data[index].name,
                                       style: TextStyle(
                                           fontSize: 15.0,
                                           fontStyle: FontStyle.normal),
@@ -83,14 +79,14 @@ class _AllitemsState extends State<Allitems> {
                                 Padding(
                                     padding: EdgeInsets.all(5.0),
                                     child: Text(
-                                      "Location: Pakistan UMT | Views 350",
+                                     adsProvider.getAllAds.data[index].id,
                                       style: TextStyle(
                                           fontSize: 10.0, color: Colors.grey),
                                     )),
                                 Padding(
                                     padding: EdgeInsets.all(5.0),
                                     child: Text(
-                                      " 2552",
+                                      adsProvider.getAllAds.data[index].name,
                                       style: TextStyle(
                                           fontSize: 18.0,
                                           fontWeight: FontWeight.bold),
@@ -101,14 +97,10 @@ class _AllitemsState extends State<Allitems> {
                 },
               ),
             )
-         
-         
-         
           ],
         )),
       );
     }
-
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return SafeArea(
