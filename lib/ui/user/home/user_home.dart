@@ -6,7 +6,7 @@ import 'package:iqsaat/drawer.dart';
 import 'package:iqsaat/Widget/three_dots_icon.dart';
 import 'package:iqsaat/ui/Buyer/product_card.dart';
 import 'package:iqsaat/ui/Buyer/product_categories.dart';
-import 'package:iqsaat/ui/Product/products.dart';
+import 'package:iqsaat/ui/Seller/Product/products.dart';
 import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/selectCategory.dart';
 import 'package:iqsaat/ui/seller/home/dashboard.dart';
 import 'package:iqsaat/utils/app_colors.dart';
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
 
 
             Container(
-              height:10,
+              height:250,
               width: width,
               child: Padding(
                   padding: const EdgeInsets.only(top: 12.0),

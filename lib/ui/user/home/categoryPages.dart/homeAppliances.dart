@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:iqsaat/ui/Buyer/product_categories.dart';
-import 'package:iqsaat/ui/Product/product_detail.dart';
+import 'package:iqsaat/ui/Seller/Product/product_detail.dart';
+
 
 import '../../../../drawer.dart';
 

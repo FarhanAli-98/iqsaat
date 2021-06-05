@@ -2,8 +2,9 @@ import 'dart:ffi';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:iqsaat/ui/Product/product_detail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+
+import '../product_detail.dart';
 
 
 
@@ -63,8 +64,11 @@ class _AdsCardState
         padding: const EdgeInsets.all(8),
         child: Column(
           children: [
-            SectionTitle(
-                title: "CD70"),
+            // SectionTitle(
+            //     title: "CD70"),
+            SizedBox(
+              height: 10,
+            ),
             SizedBox(
               height: MediaQuery.of(context).size.height/3,
               child: Card(
@@ -137,7 +141,7 @@ class SectionTitle extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(4, 4, 4, 12),
       child: Align(
         alignment: Alignment.centerLeft,
-        child: Text(title, style: Theme.of(context).textTheme.subtitle1),
+       // child: Text(title, style: Theme.of(context).textTheme.subtitle1),
       ),
     );
   }
@@ -153,6 +157,8 @@ class CardContent extends StatelessWidget {
     final descriptionStyle = theme.textTheme.subtitle1;
 
     return Container(
+    
+      
       height: MediaQuery.of(context).size.height,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -172,7 +178,7 @@ class CardContent extends StatelessWidget {
                       //package: ads.assetPackage,
                     ),
                     fit: BoxFit.cover,
-                    child: Container(),
+                   // child: Container(),
                   ),
                 ),
                 Positioned(
@@ -184,7 +190,7 @@ class CardContent extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "",
-                      style:TextStyle(color:Colors.blue,fontSize: 16.0,fontWeight:FontWeight.bold),
+                      style:TextStyle(color:Colors.blue,fontSize: 12.0,fontWeight:FontWeight.bold),
                       
                     ),
                   ),
@@ -193,6 +199,13 @@ class CardContent extends StatelessWidget {
             ),
           ),
           // Description and share/explore buttons.
+          Container(
+            color:AppColors.backgroundColor,
+           child: Column(
+              children:[
+
+              
+
           Padding(
             padding: const EdgeInsets.fromLTRB(10, 8, 10, 0),
             child: DefaultTextStyle(
@@ -201,19 +214,53 @@ class CardContent extends StatelessWidget {
               style: descriptionStyle,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   // This array contains the three line description on each card
                   // demo.
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Text(
-                     "Descrption here",
-                      style: descriptionStyle.copyWith(color: Colors.black,fontWeight: FontWeight.bold),
+                    padding: const EdgeInsets.only(bottom: 1),
+                    child: Container(
+                      margin: EdgeInsets.only(left:6,right:6),
+                      width: MediaQuery.of(context).size.width/0.2,
+                      
+                         decoration: BoxDecoration(border:Border(bottom: BorderSide(color: AppColors.primarycolor,
+              ))),
+                      child: Text(
+                       "Descrption here",
+                        style: descriptionStyle.copyWith(color: Colors.black,fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
-                  Text("24,000 PKR",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
-                  Text("Category:Bikes",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold)),
-                  Text("In Stock:13",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold))
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text("Price:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                      SizedBox(width: 40,),
+                      Text("24,000 PKR",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),)
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text("Category:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                      SizedBox(width: 15,),
+                      Text("Vehicle",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                       SizedBox(width: 45,),
+                      Text("SubCategory:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                      SizedBox(width: 15,),
+                      Text("Bike",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),)
+                    ],
+                  ),
+                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text("in Stock:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                      SizedBox(width: 24,),
+                      Text("8",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),)
+                    ],
+                  ),
+                
                 ],
               ),
             ),
@@ -240,6 +287,7 @@ class CardContent extends StatelessWidget {
                 ),
               ],
             ),
+              ]))
         ],
       ),
     );

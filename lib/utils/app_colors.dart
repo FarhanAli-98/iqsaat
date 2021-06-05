@@ -5,7 +5,7 @@ class AppColors {
   static const Color blackTextColor = const Color(0xFF0C0829);
   static const Color yellowColor = const Color(0xFFFFF500);
   static const Color greyButtonColor = const Color(0xFF828FAE);
-  static Color backgroundColor = Colors.grey[200]; //0C0829
+  static const Color backgroundColor = Colors.white; //0C0829
   static const Color greyColor = const Color(0xFF808080);
   static const Color redColor = const Color(0xFFF24A4A);
   static const Color orangeColor = const Color(0xFFFEB42F);

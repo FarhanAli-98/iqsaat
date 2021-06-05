@@ -25,4 +25,5 @@ class AppIcons {
   static const String wsetting = 'asset/Images/ic_settings.png';
   static const String wicRate = 'asset/Images/ic_rate.png';
   static const String winvite = 'asset/Images/ic_invite.png';
+  
 }
