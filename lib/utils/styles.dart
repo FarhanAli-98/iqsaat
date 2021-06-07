@@ -33,4 +33,6 @@ class TextStyles {
       color: AppColors.primarycolor,
       fontWeight: FontWeight.w400,
       );
+      static const TextStyle normalHeading = const TextStyle(fontSize: 16,fontWeight:FontWeight.bold,color:AppColors.primarycolor
+          );
 }

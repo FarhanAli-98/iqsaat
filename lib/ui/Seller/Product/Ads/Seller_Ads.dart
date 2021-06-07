@@ -1,16 +1,11 @@
 import 'dart:ffi';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
-
 import 'ads_card.dart';
-
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SellerAds extends StatefulWidget {
@@ -96,7 +91,7 @@ class _SellerAdsState extends State<SellerAds> {
                                 ],
                                 ),
                          // height: 400,
-                          margin: const EdgeInsets.all(8),
+                          margin: const EdgeInsets.all(12),
                           
                           child:AdsCard(),
                         );

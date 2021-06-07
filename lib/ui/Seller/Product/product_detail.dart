@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iqsaat/ui/Seller/Reviews/reviewTablist.dart';
+import 'package:iqsaat/ui/Seller/Reviews/reviews.dart';
 import 'package:iqsaat/ui/cart/cart_screen.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-//import 'package:flutter_ecommerce_app/src/model/data.dart';
-//import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
-//import 'package:flutter_ecommerce_app/src/themes/theme.dart';
-//import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
-//import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
+import 'package:iqsaat/utils/styles.dart';
 
 class ProductDetailPage extends StatefulWidget {
   ProductDetailPage({Key key}) : super(key: key);
@@ -228,9 +227,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                      Column(
                        children: [
                          Text( "Samsung mobile A70",style: TextStyle(fontSize: 25),),
-                         Align(alignment: Alignment.bottomLeft,
-                           child: Text("Category:",style: TextStyle(color: AppColors.primarycolor))),
-                        Align(alignment: Alignment.bottomLeft, child:Text("SubCategory:",style: TextStyle(color: AppColors.primarycolor))),
+                       
                        ],
                      ),
                       Column(
@@ -268,21 +265,34 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                     ],
                   ),
                 ),
+                SizedBox(height: 5,),
+                Row( mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Align(alignment: Alignment.bottomLeft,
+                           child: Text("Category:",style: TextStyle(fontWeight: FontWeight.bold))),
+                        Align(alignment: Alignment.bottomLeft, child:
+                        Text("SubCategory:",style: TextStyle(fontWeight: FontWeight.bold)))
+                ],),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 _installmentPlan(),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 _location(),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 _description(),
                  SizedBox(
-                  height: 10,),
+                  height: 5,),
                   _shopProfile(),
+                                   SizedBox(
+                  height: 5,),
+                  _reviews(),
+                  
+                 
               ],
             ),
           ),
@@ -296,7 +306,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-           "Installment Plan",style:TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.blueAccent) ,
+           "Installment Plan",style:TextStyles.normalHeading ,
           //fontSize: 14,
         ),
         SizedBox(height: 20),
@@ -337,17 +347,20 @@ class _ProductDetailPageState extends State<ProductDetailPage>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-         "Location",style:TextStyle(fontSize: 16,fontWeight:FontWeight.bold,color: Colors.blueAccent)
-         // fontSize: 14,
+        Align(
+          alignment: Alignment.centerLeft,
+                  child: Text(
+           "Location",style:TextStyles.normalHeading
+           // fontSize: 14,
+          ),
         ),
         SizedBox(height: 20),
          Card(
         child:SizedBox(
-          height: 80,
+          height: 40,
           width: 400,
         child: Text("Hight court society C1 Johar town Umt",
-        style:  TextStyle(color: Colors.lightBlue,fontSize: 14,fontWeight: FontWeight.bold),),),
+        style:  TextStyle(color: Colors.black,fontSize: 14,fontWeight: FontWeight.bold),),),
      ) ,
        
       ],
@@ -373,7 +386,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
              SizedBox(height: 20),
-        Text("Descrption",style: TextStyle(fontSize: 16,fontWeight:FontWeight.bold,color: Colors.blueAccent),),
+        Text("Descrption",style: TextStyles.normalHeading,),
         SizedBox(height: 10,),
         Card(
         child:SizedBox(
@@ -381,6 +394,23 @@ class _ProductDetailPageState extends State<ProductDetailPage>
           width: 400,
         child: Text("Descrption here",style:TextStyle(fontSize: 14,fontWeight: FontWeight.bold),),
      ) )]);
+  }
+   Widget _reviews() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+             SizedBox(height: 20),
+        Text("Reviews",style: TextStyles.normalHeading,),
+        SizedBox(height: 10,),
+        SingleChildScrollView(
+          child: Container(
+          height: MediaQuery.of(context).size.height,
+          width:MediaQuery.of(context).size.width,
+          child:  Review(<ReviewTabList
+                                                        >[]),)
+        ),
+
+         ]);
   }
   Widget _shopProfile(){
     return Column(
@@ -390,19 +420,37 @@ class _ProductDetailPageState extends State<ProductDetailPage>
     [
         SizedBox(height: 20,),
         Text(
-         "Shop Profile",style: TextStyle(fontSize: 16,fontWeight:FontWeight.bold,color: Colors.blueAccent),
+         "Shop Profile",style: TextStyles.normalHeading,
          // fontSize: 14,
         ),
         SizedBox(height: 10,),
         Card(
-          color: Colors.blue[50],
+          color: AppColors.backgroundColor,
           elevation: 10.0,
           child:InkWell(
             child: SizedBox(
               height: 80.0,
-              child:Row(children: [
-                Icon(Icons.shop,color: Colors.lightBlue,),
-                Text("   Raheem Electronics   ",style:(TextStyle(fontWeight: FontWeight.bold)),)
+              child:Row(
+                
+                children: [
+                Icon(FontAwesomeIcons.shopify,
+                color: AppColors.primarycolor,),
+                Text("   Raheem Electronics   ",style:(TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),),
+               SizedBox(width: 40,),
+                Row(
+                  children: [
+                    Text(" View Shop ",style:TextStyle(fontSize: 12,fontWeight: FontWeight.bold,color: AppColors.primarycolor,
+                    
+                    
+                    ),
+                    ),
+                    Icon(FontAwesomeIcons.eye,
+                color: AppColors.primarycolor,
+                size:15
+                )
+                  ],
+                )
+
 
               ],)
             ),
@@ -410,6 +458,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
             {},
           ),
         ),
+        
    
         
 
@@ -437,6 +486,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       floatingActionButton: _flotingButton(),
       body: SafeArea(
         child: Container(
+          margin: EdgeInsets.only(left: 12,right:12),
           decoration: BoxDecoration(
               gradient: LinearGradient(
             colors: [
