@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
            if (res.shopId == null) {  
           print(res.shopId);
           print('shopId id null');
-          AppRoutes.replace(context, ShopProfile());
+          AppRoutes.replace(context, HomePage());
            }
            else{
              AppRoutes.replace(context, SellerHomePage());

@@ -276,7 +276,8 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                 SizedBox(
                   height: 5,
                 ),
-                _installmentPlan(),
+               // _installmentPlan(),
+               _packagesWidget(),
                 SizedBox(
                   height: 5,
                 ),
@@ -322,7 +323,82 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       ],
     );
   }
+   Widget _packagesWidget()
+   {
+     return Container(
+       child:Column(children: [
+             Container(
+               decoration:BoxDecoration(border: Border.all(color:Colors.black26)),
+               child:Column(
+                 children: [
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     children: [
+                     Text("Plan 1",style:TextStyle(fontWeight: FontWeight.bold)),
+                     Text("7 Months",),
+                     Text("4200\p\k\r"+"Per Month"),
+                     
 
+
+                   ],
+                   ),
+                   Align(alignment:Alignment.bottomRight,
+                   child:Text("8,400\p\k\r" + "2 Months")
+                   )
+                 ],
+               )
+               
+             ),
+             Container(
+               decoration:BoxDecoration(border: Border.all(color:Colors.black26)),
+               child:Column(
+                 children: [
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     children: [
+                     Text("Plan 1",style:TextStyle(fontWeight: FontWeight.bold)),
+                     Text("7 Months",),
+                     Text("4200\p\k\r"+"Per Month"),
+                     
+
+
+                   ],
+                   ),
+                   Align(alignment:Alignment.bottomRight,
+                   child:Text("8,400\p\k\r" + "2 Months")
+                   )
+                 ],
+               )
+               
+             ),
+             Container(
+               decoration:BoxDecoration(border: Border.all(color:Colors.black26)),
+               child:Column(
+                 children: [
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     children: [
+                     Text("Plan 1",style:TextStyle(fontWeight: FontWeight.bold)),
+                     Text("7 Months",),
+                     Text("4200\p\k\r"+"Per Month"),
+                     
+
+
+                   ],
+                   ),
+                   Align(alignment:Alignment.bottomRight,
+                   child:Text("8,400\p\k\r" + "2 Months")
+                   )
+                 ],
+               )
+               
+             ),
+
+
+
+       ],),
+     );
+   }
   Widget _sizeWidget(String text,
       {Color color = Colors.white, bool isSelected = false}) {
     return Container(

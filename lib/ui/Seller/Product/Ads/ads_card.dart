@@ -3,7 +3,6 @@ import 'dart:ffi';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-
 import '../product_detail.dart';
 
 
