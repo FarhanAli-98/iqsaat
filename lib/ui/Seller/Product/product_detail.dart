@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iqsaat/Widget/fab.dart';
 import 'package:iqsaat/ui/Seller/Reviews/reviewTablist.dart';
 import 'package:iqsaat/ui/Seller/Reviews/reviews.dart';
 import 'package:iqsaat/ui/cart/cart_screen.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
+
 
 class ProductDetailPage extends StatefulWidget {
   ProductDetailPage({Key key}) : super(key: key);
@@ -277,7 +279,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                   height: 5,
                 ),
                // _installmentPlan(),
-               _packagesWidget(),
+               //_packagesWidget(),
                 SizedBox(
                   height: 5,
                 ),
@@ -325,79 +327,6 @@ class _ProductDetailPageState extends State<ProductDetailPage>
   }
    Widget _packagesWidget()
    {
-     return Container(
-       child:Column(children: [
-             Container(
-               decoration:BoxDecoration(border: Border.all(color:Colors.black26)),
-               child:Column(
-                 children: [
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                     Text("Plan 1",style:TextStyle(fontWeight: FontWeight.bold)),
-                     Text("7 Months",),
-                     Text("4200\p\k\r"+"Per Month"),
-                     
-
-
-                   ],
-                   ),
-                   Align(alignment:Alignment.bottomRight,
-                   child:Text("8,400\p\k\r" + "2 Months")
-                   )
-                 ],
-               )
-               
-             ),
-             Container(
-               decoration:BoxDecoration(border: Border.all(color:Colors.black26)),
-               child:Column(
-                 children: [
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                     Text("Plan 1",style:TextStyle(fontWeight: FontWeight.bold)),
-                     Text("7 Months",),
-                     Text("4200\p\k\r"+"Per Month"),
-                     
-
-
-                   ],
-                   ),
-                   Align(alignment:Alignment.bottomRight,
-                   child:Text("8,400\p\k\r" + "2 Months")
-                   )
-                 ],
-               )
-               
-             ),
-             Container(
-               decoration:BoxDecoration(border: Border.all(color:Colors.black26)),
-               child:Column(
-                 children: [
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                     Text("Plan 1",style:TextStyle(fontWeight: FontWeight.bold)),
-                     Text("7 Months",),
-                     Text("4200\p\k\r"+"Per Month"),
-                     
-
-
-                   ],
-                   ),
-                   Align(alignment:Alignment.bottomRight,
-                   child:Text("8,400\p\k\r" + "2 Months")
-                   )
-                 ],
-               )
-               
-             ),
-
-
-
-       ],),
-     );
    }
   Widget _sizeWidget(String text,
       {Color color = Colors.white, bool isSelected = false}) {
@@ -559,7 +488,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: _flotingButton(),
+      floatingActionButton: Fab(),
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.only(left: 12,right:12),

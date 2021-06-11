@@ -35,4 +35,21 @@ class TextStyles {
       );
       static const TextStyle normalHeading = const TextStyle(fontSize: 16,fontWeight:FontWeight.bold,color:AppColors.primarycolor
           );
+          
+        
+}
+class BoxStyles
+{
+static   BoxDecoration deco=   BoxDecoration(
+                   
+                    color: AppColors.backgroundColor,
+                     borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0.0, 1.0), //(x,y)
+                          blurRadius: 6.0,
+                        ),
+                      ],
+                );
 }

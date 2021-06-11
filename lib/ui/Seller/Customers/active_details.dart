@@ -196,6 +196,7 @@ class _Active_detailsState extends State<Active_details>
       builder: (context, scrollController) {
         return Container(
           // padding: AppTheme.padding.copyWith(bottom: 0),
+          padding:EdgeInsets.all(5),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(40),
@@ -231,7 +232,7 @@ class _Active_detailsState extends State<Active_details>
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        "CustName:Usama Yousaf",
+                        "CustName:   Usama Yousaf",
                         style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                       ),
                       Column(
@@ -266,14 +267,14 @@ class _Active_detailsState extends State<Active_details>
                 ),
                 Text(
                         "House no Nile street Township ,Lahore",
-                        style: TextStyle(fontSize: 20,color: Colors.blue),
+                        style: TextStyle(fontSize: 20,color:AppColors.backgroundColor),
                       ),
                 SizedBox(
                   height: 4,
                 ),
                 Card(
-                   color:Colors.cyan[50],
-                    elevation: 2.0,
+                   color:AppColors.backgroundColor,
+                    elevation: 10.0,
                     margin: EdgeInsets.all(4),
                     child: _maindetail()),
                 SizedBox(
@@ -307,7 +308,7 @@ class _Active_detailsState extends State<Active_details>
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.blueAccent),
+                color: AppColors.backgroundColor),
             //fontSize: 14,
           ),
         ),
@@ -369,7 +370,7 @@ class _Active_detailsState extends State<Active_details>
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueAccent,
+                  color: AppColors.black,
                    )
               // fontSize: 14,
               ),
@@ -437,7 +438,7 @@ class _Active_detailsState extends State<Active_details>
             style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.blueAccent),
+                color: AppColors.black,)
           ),
           SizedBox(
             height: 10,
@@ -456,7 +457,7 @@ class _Active_detailsState extends State<Active_details>
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blueAccent),
+                    color: AppColors.black),
               ),
               SizedBox(
               width:20
@@ -474,7 +475,7 @@ class _Active_detailsState extends State<Active_details>
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueAccent),
+                  color: AppColors.black),
             ),
             SizedBox(height: 5,),
             Text(
@@ -501,7 +502,7 @@ class _Active_detailsState extends State<Active_details>
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueAccent),
+                  color: AppColors.black),
             ),
           ])
         ]);
@@ -520,7 +521,7 @@ class _Active_detailsState extends State<Active_details>
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.blueAccent),
+                color: AppColors.black),
             // fontSize: 14,
           ),
         ),
@@ -528,7 +529,7 @@ class _Active_detailsState extends State<Active_details>
           height: 10,
         ),
         Card(
-          color: Colors.blue[50],
+          color: AppColors.backgroundColor,
           elevation: 10.0,
           child: InkWell(
             child: SizedBox(
@@ -559,7 +560,7 @@ class _Active_detailsState extends State<Active_details>
                                   width: 100,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(25),
-                                      color: Colors.blueAccent,
+                                      color: AppColors.black,
                                       boxShadow: [
                                         BoxShadow(
                                             color: AppColors.primarycolor,
@@ -591,7 +592,7 @@ class _Active_detailsState extends State<Active_details>
           MaterialPageRoute(builder: (context) => CartScreen()),
         );
       },
-      backgroundColor: Colors.orange,
+      backgroundColor: AppColors.primarycolor,
       child: Icon(Icons.chat_bubble,
           color: Theme.of(context).floatingActionButtonTheme.backgroundColor),
     );
