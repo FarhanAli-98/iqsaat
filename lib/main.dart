@@ -1,4 +1,3 @@
-
 import 'package:iqsaat/provider/shopProvider.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +33,8 @@ Future<void> main() async {
   }
   runApp(MyApp(role));
 }
+
+
 
 class MyApp extends StatefulWidget {
   final String role;

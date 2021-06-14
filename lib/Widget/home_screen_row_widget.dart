@@ -8,14 +8,17 @@ class HomeScreenRow extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(text, style: TextStyle(color: AppColors.primarycolor,fontWeight: FontWeight.bold,fontSize: 18)),
-                Text('see all', style: TextStyle(color: AppColors.primarycolor))
-              ],
-          
-      
+    return Container(
+      padding: EdgeInsets.only(left:8,right:6),
+      child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(text, style: TextStyle(color: AppColors.primarycolor,fontWeight: FontWeight.bold,fontSize: 18)),
+                  Text('see all', style: TextStyle(color: AppColors.primarycolor))
+                ],
+            
+        
+      ),
     );
   }
 }

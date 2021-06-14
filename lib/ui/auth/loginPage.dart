@@ -68,7 +68,9 @@ class _LoginPageState extends State<LoginPage> {
            if (res.shopId == null) {  
           print(res.shopId);
           print('shopId id null');
+
           AppRoutes.push(context, SellerHomePage());
+
            }
            else{
              AppRoutes.push(context, SellerHomePage());
@@ -239,7 +241,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             GestureDetector(
               onTap: () {
-                AppRoutes.replace(context, ShopProfile());
+                AppRoutes.replace(context, SellerHomePage());
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,

@@ -1,7 +1,12 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
+import 'package:iqsaat/ui/Seller/Product/Ads/Seller_Ads.dart';
+import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
+import 'package:iqsaat/ui/Seller/Reviews/reviewTablist.dart';
+import 'package:iqsaat/ui/Seller/Reviews/reviews.dart';
 import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/addNewProducts.dart';
+import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/productsAds.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
@@ -12,8 +17,11 @@ import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/History/user_history.dart';
+import 'package:iqsaat/ui/Seller/Product/Ads/Seller_Ads.dart';
+import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
 
 
+import 'Widget/categories_card.dart';
 import 'ui/Seller/profile/profile_tab.dart';
 import 'ui/shared/chat/chat_dash.dart';
 import 'ui/user/system/search.dart';
@@ -152,20 +160,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
                                         InkWell(
                                       onTap: () {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder:
-                                        //             (BuildContext context) =>
-                                        //                 AddsCreations()));
-                                      },
-                                      child: Container(
-                                          margin: EdgeInsets.only(top: 18),
-                                          child: Text("About")),
-                                    ),
-                                       InkWell(
-                                      onTap: () {
-                                    Navigator.push(
+                                        Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder:
@@ -174,22 +169,35 @@ class _AppDrawerState extends State<AppDrawer> {
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
+                                          child: Text("Create Ad")),
+                                    ),
+                                       InkWell(
+                                      onTap: () {
+                                    Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                       sellerCategories()));
+                                      },
+                                      child: Container(
+                                          margin: EdgeInsets.only(top: 18),
                                           child: Text("Products")),
                                     ),
                                   
                                     InkWell(
-                                      // onTap: () {
-                                      //    Navigator.push(
-                                      //       context,
-                                      //       MaterialPageRoute(
-                                      //           builder:
-                                      //               (BuildContext context) =>
-                                      //                   ProductDetailPage()));
+                                      onTap: () {
+                                         Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                      customersTab() ));
                                         
-                                      //},
+                                      },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
-                                          child: Text("Orders")),
+                                          child: Text("Customers")),
                                     ),
                                  
                                     /* InkWell(
@@ -212,24 +220,26 @@ class _AppDrawerState extends State<AppDrawer> {
                                         //     MaterialPageRoute(
                                         //         builder:
                                         //             (BuildContext context) =>
-                                        //                 Reviews()));
+                                        //                )
+                                                        
+                                        //                 );
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
                                           child: Text("Reviews")),
                                     ),
                                     InkWell(
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        ChatTab()));
-                                      },
+                                      // onTap: () {
+                                      //   Navigator.push(
+                                      //       context,
+                                      //       MaterialPageRoute(
+                                      //           builder:
+                                      //               (BuildContext context) =>
+                                      //                   ));
+                                      // },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
-                                          child: Text("Reports")),
+                                          child: Text("Reviews")),
                                     ),
                                     InkWell(
                                       onTap: () {

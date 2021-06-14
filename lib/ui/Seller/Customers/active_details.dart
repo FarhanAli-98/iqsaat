@@ -196,6 +196,7 @@ class _Active_detailsState extends State<Active_details>
       builder: (context, scrollController) {
         return Container(
           // padding: AppTheme.padding.copyWith(bottom: 0),
+          padding:EdgeInsets.all(5),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(40),
@@ -231,7 +232,7 @@ class _Active_detailsState extends State<Active_details>
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        "CustName:Usama Yousaf",
+                        "CustName:   Usama Yousaf",
                         style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                       ),
                       Column(
@@ -266,14 +267,14 @@ class _Active_detailsState extends State<Active_details>
                 ),
                 Text(
                         "House no Nile street Township ,Lahore",
-                        style: TextStyle(fontSize: 20,color: Colors.blue),
+                        style: TextStyle(fontSize: 20,color:AppColors.black),
                       ),
                 SizedBox(
                   height: 4,
                 ),
                 Card(
-                   color:Colors.cyan[50],
-                    elevation: 2.0,
+                   color:AppColors.backgroundColor,
+                    elevation: 4.0,
                     margin: EdgeInsets.all(4),
                     child: _maindetail()),
                 SizedBox(
@@ -307,7 +308,7 @@ class _Active_detailsState extends State<Active_details>
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.blueAccent),
+                color: AppColors.primarycolor),
             //fontSize: 14,
           ),
         ),
@@ -349,7 +350,7 @@ class _Active_detailsState extends State<Active_details>
             color: Colors.white,
             style: !isSelected ? BorderStyle.solid : BorderStyle.none),
         borderRadius: BorderRadius.all(Radius.circular(20)),
-        color: isSelected ? Colors.red : Theme.of(context).backgroundColor,
+        color: isSelected ? Colors.red : Colors.lightGreen,
       ),
       child: Text(
         text,
@@ -369,7 +370,7 @@ class _Active_detailsState extends State<Active_details>
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueAccent,
+                  color: AppColors.primarycolor,
                    )
               // fontSize: 14,
               ),
@@ -437,7 +438,7 @@ class _Active_detailsState extends State<Active_details>
             style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.blueAccent),
+                color: AppColors.black,)
           ),
           SizedBox(
             height: 10,
@@ -449,14 +450,14 @@ class _Active_detailsState extends State<Active_details>
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                    color: Colors.black.withOpacity(0.65)),
               ),
               Text(
                 "12thApril,2021",
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blueAccent),
+                    color: AppColors.black),
               ),
               SizedBox(
               width:20
@@ -469,39 +470,83 @@ class _Active_detailsState extends State<Active_details>
             height: 15,
           ),
            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            Text(
-              "    Started:"+installmentStDate,
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blueAccent),
+            Row(
+              children: [
+                Text(
+                  "    Started:",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.black.withOpacity(0.65)),
+                ),
+                Text(
+                  installmentStDate,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.black),
+                ),
+              ],
             ),
             SizedBox(height: 5,),
-            Text(
-              "Ending: Sep2021",
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
+          Row(
+              children: [
+                Text(
+                  "    Ending:",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.black.withOpacity(0.65)),
+                ),
+                Text(
+                  "26/2/2022",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.black),
+                ),
+              ],
             ),
           ]),
           SizedBox(
             height: 30,
           ),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            Text(
-              "Total:75,000\P\K\R",
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
+            Row(
+              children: [
+                Text(
+                  "Total:",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black.withOpacity(0.65)),
+                ),
+                Text(
+                  "75,000\P\K\R",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+              ],
             ),
-            Text(
-              "Recieved:45,000\P\K\R",
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blueAccent),
+            Row(
+              children: [
+                Text(
+                  "Recieved:",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black.withOpacity(0.65)),
+                ),
+                Text(
+                  "45,000\P\K\R",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+              ],
             ),
           ])
         ]);
@@ -520,7 +565,7 @@ class _Active_detailsState extends State<Active_details>
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Colors.blueAccent),
+                color: AppColors.primarycolor),
             // fontSize: 14,
           ),
         ),
@@ -528,7 +573,7 @@ class _Active_detailsState extends State<Active_details>
           height: 10,
         ),
         Card(
-          color: Colors.blue[50],
+          color: AppColors.backgroundColor,
           elevation: 10.0,
           child: InkWell(
             child: SizedBox(
@@ -559,7 +604,7 @@ class _Active_detailsState extends State<Active_details>
                                   width: 100,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(25),
-                                      color: Colors.blueAccent,
+                                      color: AppColors.black,
                                       boxShadow: [
                                         BoxShadow(
                                             color: AppColors.primarycolor,
@@ -591,7 +636,7 @@ class _Active_detailsState extends State<Active_details>
           MaterialPageRoute(builder: (context) => CartScreen()),
         );
       },
-      backgroundColor: Colors.orange,
+      backgroundColor: AppColors.primarycolor,
       child: Icon(Icons.chat_bubble,
           color: Theme.of(context).floatingActionButtonTheme.backgroundColor),
     );
