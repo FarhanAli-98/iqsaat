@@ -47,14 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
               padding: EdgeInsets.only(top: 10),
               color: Colors.transparent,
               child: AppBar(
-                leading: IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios,
-                      color: AppColors.blackTextColor,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    }),
+              
                 backgroundColor: Colors.transparent,
                 elevation: 0,
                 title: buildSearchField(),
