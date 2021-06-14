@@ -1,8 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iqsaat/provider/userProvider.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
+import 'package:provider/provider.dart';
 
 
 class ProfilePage extends StatefulWidget {
@@ -15,9 +17,28 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+UserProvider userProvider;
+void getUserProfileInfo()
+{
+    Provider.of<UserProvider>(context, listen: false)
+        .userProfile()
+        .then((value) => ({
+              print("User fetch response" + value.success.toString()),
+              // myAds.clear(),
+            }));
+
+}
+
+
+
+  void initState(){
+    super.initState();
+    getUserProfileInfo();
+  }
 
   Widget build(BuildContext context) {
-   
+      userProvider = Provider.of<UserProvider>(context);
+
     return Scaffold(
       // appBar: AppBar(
       //   centerTitle: true,
@@ -37,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
         elevation: 0.0,
         backgroundColor: AppColors.primarycolor,
         title: Text(
-          'Select Category',
+          'Profile',
           style: TextStyle(fontWeight: FontWeight.w400),
           // style: Styles.heading,
         ),
@@ -83,22 +104,23 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
+                // Padding(
+                //   padding: EdgeInsets.fromLTRB(20.0, 10.0, 95.0, 5.0),
+                //   child: Text(
+                //     userProvider.getUser.data.firstName+" "+ userProvider.getUser.data.lastName,
+                //     textAlign: TextAlign.right,
+                //     style: TextStyle(
+                //       fontSize: 17.0,
+                //       fontWeight: FontWeight.bold,
+                //       color: Colors.black,
+                //     ),
+                //   ),
+                // ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(30.0, 10.0, 95.0, 5.0),
-                  child: Text(
-                    "Name",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 17.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0.0, 10.0, 30.0, 5.0),
+                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 30.0, 5.0),
+                  // ignore: deprecated_member_use
                   child: RaisedButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(37.0),
@@ -109,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Padding(
-                          padding: EdgeInsets.fromLTRB(0.0, 0.0, 10.0, 0.0),
+                          padding: EdgeInsets.fromLTRB(0.0, 0.0, 1.0, 0.0),
                           child: Icon(
                             Icons.favorite,
                             size: 12,
@@ -117,7 +139,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                         Text(
-                          " User name",
+                           userProvider.getUser.data.email.toString(),
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w700,
@@ -146,7 +168,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Colors.black,
                       ),
                       Text(
-                        'Green Town Lahore',
+                         userProvider.getUser.data.contactNumber.toString(),
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w700,
@@ -171,7 +193,7 @@ class _ProfilePageState extends State<ProfilePage> {
             //           width: MediaQuery.of(context).size.width * 0.3,
             //           child: Card(
             //                   semanticContainer: true,
-            //                   clipBehavior: Clip.antiAliasWithSaveLayer,
+            //               lastname    clipBehavior: Clip.antiAliasWithSaveLayer,
             //                   child: Image.network(
             //                     "https://i.pinimg.com/736x/35/4a/59/354a59f73d62ffde38c0eada0177f164.jpg",
             //                     fit: BoxFit.fill,
@@ -203,7 +225,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 5.0),
               child: Text(
-                "About me",
+                "CNIC",
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   fontSize: 16.0,
@@ -214,7 +236,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 10.0),
               child: Text(
-               " profileProvider.userProfileSingle.data.aboutme",
+               userProvider.getUser.data.cnic.toString(),
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 15.0,
@@ -228,7 +250,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: EdgeInsets.fromLTRB(25.0, 10.0, 30.0, 5.0),
               child: Text(
-                "Your Empowerment song",
+                "First Name",
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   fontSize: 15.0,
@@ -239,7 +261,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 10.0),
               child: Text(
-               " profileProvider.userProfileSingle.data.empoweringsong",
+               userProvider.getUser.data.firstName,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 15.0,
@@ -253,7 +275,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: EdgeInsets.fromLTRB(25.0, 10.0, 30.0, 5.0),
               child: Text(
-                "I am ",
+                "Last Name ",
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   fontSize: 15.0,
@@ -264,7 +286,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 10.0),
               child: Text(
-               " profileProvider.userProfileSingle.data.jobtitle",
+               userProvider.getUser.data.lastName,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 15.0,
@@ -278,7 +300,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: EdgeInsets.fromLTRB(25.0, 10.0, 30.0, 5.0),
               child: Text(
-                "Education ",
+                "Role ",
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   fontSize: 15.0,
@@ -289,7 +311,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Padding(
               padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 10.0),
               child: Text(
-                "profileProvider.",
+                userProvider.getUser.data.role,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 15.0,
@@ -297,68 +319,68 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 0.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Ethnicity ",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  Text(
-                    "Religion ",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  Text(
-                    "Politics ",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-             padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 30.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                   " profileProvider.u",
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    "profileProvider.u",
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    //profileProvider.,
-                   " profileProvider.",
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 0.0),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: <Widget>[
+            //       Text(
+            //         "Ethnicity ",
+            //         textAlign: TextAlign.right,
+            //         style: TextStyle(
+            //           fontSize: 15.0,
+            //           color: Colors.grey[600],
+            //         ),
+            //       ),
+            //       Text(
+            //         "Religion ",
+            //         textAlign: TextAlign.right,
+            //         style: TextStyle(
+            //           fontSize: 15.0,
+            //           color: Colors.grey[600],
+            //         ),
+            //       ),
+            //       Text(
+            //         "Politics ",
+            //         textAlign: TextAlign.right,
+            //         style: TextStyle(
+            //           fontSize: 15.0,
+            //           color: Colors.grey[600],
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // Padding(
+            //  padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 30.0),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: <Widget>[
+            //       Text(
+            //        " profileProvider.u",
+            //         style: TextStyle(
+            //           fontSize: 15.0,
+            //           color: Colors.black,
+            //         ),
+            //       ),
+            //       Text(
+            //         "profileProvider.u",
+            //         style: TextStyle(
+            //           fontSize: 15.0,
+            //           color: Colors.black,
+            //         ),
+            //       ),
+            //       Text(
+            //         //profileProvider.,
+            //        " profileProvider.",
+            //         style: TextStyle(
+            //           fontSize: 15.0,
+            //           color: Colors.black,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         )
         

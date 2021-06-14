@@ -12,7 +12,7 @@ import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
 import 'package:iqsaat/ui/user/help/languagePage.dart';
 import 'package:iqsaat/ui/user/help/helpRequestPage.dart';
-import 'package:iqsaat/ui/user/profile/user_profile.dart';
+import 'package:iqsaat/ui/user/profile/userProfile.dart';
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
@@ -24,6 +24,7 @@ import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
 import 'Widget/categories_card.dart';
 import 'ui/Seller/profile/profile_tab.dart';
 import 'ui/shared/chat/chat_dash.dart';
+import 'ui/user/system/search.dart';
 
 class AppDrawer extends StatefulWidget {
   @override
@@ -417,7 +418,7 @@ class DrawerFull extends PreferredSize {
                                   ),
                                 ),
                                 CustomField(
-                                  iconData: AppIcons.world,
+                                  iconData: AppIcons.person,
                                   text: 'Profile',
                                   onTap: () {
                                      Navigator.push(
@@ -442,7 +443,7 @@ class DrawerFull extends PreferredSize {
                                   },
                                 ),
                                 CustomField(
-                                  iconData: AppIcons.world,
+                                  iconData: AppIcons.termCondation,
                                   text: 'Term of Use',
                                   onTap: () {
                                      Navigator.push(
@@ -453,7 +454,7 @@ class DrawerFull extends PreferredSize {
                                   },
                                 ),
                                 CustomField(
-                                  iconData: AppIcons.world,
+                                  iconData: AppIcons.help,
                                   text: 'Help',
                                   onTap: () {
                                    Navigator.push(
@@ -464,17 +465,28 @@ class DrawerFull extends PreferredSize {
                                   },
                                 ),
                                  CustomField(
-                                  iconData: AppIcons.world,
+                                  iconData: AppIcons.setting,
                                   text: 'Settings',
-                                  onTap: () {},
+                                  onTap: () {
+                                 
+
+
+                                  },
                                 ),
                                 CustomField(
-                                  iconData: AppIcons.world,
+                                  iconData: AppIcons.search,
                                   text: 'Search',
-                                  onTap: () {},
+                                  onTap: () {
+
+                                         Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                SearchScreen()));
+                                  },
                                 ),
                                 CustomField(
-                                  iconData: AppIcons.world,
+                                  iconData: AppIcons.wicRate,
                                   text: 'My reviews',
                                   //Image.asset('assets/appIcons/icon_reviews.png'),
                                   onTap: () {},
@@ -485,7 +497,7 @@ class DrawerFull extends PreferredSize {
                             
                                 Spacer(),
                                 CustomField(
-                                  iconData: AppIcons.world,
+                                  iconData: AppIcons.logout,
                                   text: 'Logout User',
                                   onTap: () {
                                       AppRoutes.makeFirst(context, LoginPage());

@@ -6,7 +6,6 @@ import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/hive/user_box.dart';
 import 'package:iqsaat/models/postModels/user.dart';
 import 'package:iqsaat/provider/login_provider.dart';
-import 'package:iqsaat/ui/Buyer/home_screen.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
 import 'package:iqsaat/ui/auth/password_reset.dart';
@@ -64,15 +63,17 @@ class _LoginPageState extends State<LoginPage> {
           print("roll null Store");
           AppRoutes.replace(context, LoginPage());
         } else if (res.role == "buyer") {
-          AppRoutes.replace(context, HomePage());
+          AppRoutes.push(context, HomePage());
         } else if (res.role == "seller") {
            if (res.shopId == null) {  
           print(res.shopId);
           print('shopId id null');
-          AppRoutes.replace(context, HomePage());
+
+          AppRoutes.push(context, SellerHomePage());
+
            }
            else{
-             AppRoutes.replace(context, SellerHomePage());
+             AppRoutes.push(context, SellerHomePage());
            }
           //   else if (res.adLength == null || res.adLength <= 0) {
           //   print(res.adLength);

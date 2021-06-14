@@ -1,12 +1,15 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:iqsaat/models/getModels/getAllAds.dart';
 import 'package:iqsaat/models/postModels/adsModel.dart';
+import 'package:iqsaat/request/AllAdsReq.dart';
 import 'package:iqsaat/request/addsCreate.dart';
+import 'package:iqsaat/ui/auth/loginPage.dart';
 
 class AdsProvider with ChangeNotifier {
   AdsModel adsModel;
-
+  GetAllAds getAllAds;
   var jResult;
 
   Future<AdsModel> createadds(
@@ -36,28 +39,23 @@ class AdsProvider with ChangeNotifier {
     return adsModel;
   }
 
-//   Future<GetAds> fetchedAdds() async {
-//     await GetAdsApi().getMyAds().then((data) {
-//       print("Status Code === " + data.statusCode.toString());
-//       print("Body = = = " + data.body.toString());
-//       if (data.statusCode == 200) {
-//         var jResult = json.decode(data.body);
-//         store(GetAds.fromJson(jResult));
-//       } else if (data.statusCode == 404) {
-//         Fluttertoast.showToast(
-//             msg: "Faild to Fetch Adds"+data.statusCode.toString(),
-//             toastLength: Toast.LENGTH_SHORT,
-//             gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
-//             );
-//       }
-//       else {
-//         Map<String, dynamic> result = json.decode(data.body);
-//         print("Errors = " + result.toString());
+  Future<GetAllAds> fetchedAds() async {
+    await GetAdsApi().getAllAds().then((data) {
+      print("Status Code === " + data.statusCode.toString());
+      print("Body = = = " + data.body.toString());
+      if (data.statusCode == 200) {
+        var jResult = json.decode(data.body);
+        productsStore(GetAllAds.fromJson(jResult));
+      } else if (data.statusCode == 404) {
+        showMessage("Faild to Fetch Adds" + data.statusCode.toString());
+      } else {
+        Map<String, dynamic> result = json.decode(data.body);
+        showMessage("Errors = " + result.toString());
 
-//       }
-//     });
-//     return getAds;
-//   }
+      }
+    });
+    return getAllAds;
+  }
 
 //  Future<GetMyAdModel> getMyAd(id) async {
 //     await GetAdsApi().getMyAd(id).then((data) {
@@ -134,12 +132,12 @@ class AdsProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  // void store(value) {
-  //   print("Simple");
-  //   getAds = value;
-  //   print("Message  = = " + getAds.message.toString());
-  //   notifyListeners();
-  // }
+  void productsStore(value) {
+    print("Simple");
+    getAllAds = value;
+    print("Message  = = " + getAllAds.message.toString());
+    notifyListeners();
+  }
 
   //  void storeAd(value) {
   //   print("Simple");

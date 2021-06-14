@@ -1,20 +1,16 @@
-import 'dart:convert';
+
 import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/hive/user_box.dart';
-import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/provider/shopProvider.dart';
-import 'package:iqsaat/ui/auth/loginPage.dart';
-import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/addNewProducts.dart';
-import 'package:iqsaat/ui/Seller/home/seller_home.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
-//import 'package:provider/provider.dart';
 
 import '../../../main.dart';
 
@@ -190,10 +186,10 @@ class _ShopProfileState extends State< ShopProfile> {
     // ignore: deprecated_member_use
     File image = await ImagePicker.pickImage(
         source: ImageSource.gallery, imageQuality: 50);
-    print("imeage set from gallery" + _image.toString());
+    print("image set from gallery" + _image.toString());
     setState(() {
       _image = image;
-      print("imeage set from gallery" + _image.toString());
+      print("image set from gallery" + _image.toString());
     });
   }
 

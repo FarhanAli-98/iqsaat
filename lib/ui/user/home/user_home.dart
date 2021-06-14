@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iqsaat/Widget/appBar.dart';
+import 'package:iqsaat/Widget/productCard.dart';
+import 'package:iqsaat/Widget/productCategory.dart';
 import 'package:iqsaat/drawer.dart';
 import 'package:iqsaat/Widget/three_dots_icon.dart';
-import 'package:iqsaat/ui/Buyer/product_card.dart';
-import 'package:iqsaat/ui/Buyer/product_categories.dart';
+import 'package:iqsaat/provider/adsProvider.dart';
 import 'package:iqsaat/ui/Seller/Product/products.dart';
-import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/selectCategory.dart';
-import 'package:iqsaat/ui/seller/home/dashboard.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/dashboard.dart';
+
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:provider/provider.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-
+  AdsProvider adsProvider;
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -24,6 +26,10 @@ class HomePage extends StatefulWidget {
 double width, height;
 
 class _HomePageState extends State<HomePage> {
+
+  // variables
+
+
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
   // TextEditingController _searchController = TextEditingController();
@@ -35,7 +41,52 @@ class _HomePageState extends State<HomePage> {
   String uid;
   double lat, long;
   bool locationConformed = false;
-  String chatId = '';
+  bool isSearching = false;
+
+  double width,height;
+
+
+
+
+
+
+
+//Functions
+  getAllRendomAds() {
+    Provider.of<AdsProvider>(context, listen: false)
+        .fetchedAds()
+        .then((value) => ({
+              print("Ads fetch response" + value.message.toString()),
+              // myAds.clear(),
+            }));
+  }
+
+  void initState() {
+    super.initState();
+    getAllRendomAds();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
     StaggeredTile.extent(1, 100.0),
     StaggeredTile.extent(1, 100.0),
@@ -57,10 +108,8 @@ class _HomePageState extends State<HomePage> {
     const _Example01Tile(Colors.blue, Icons.bike_scooter, "bike"),
     const _Example01Tile(Colors.blue, Icons.room_service, "service"),
   ];
-  @override
-  void initState() {
-    super.initState();
-  }
+  
+
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                height: height,
               width: width,
                child: GridView.builder(
-                   itemCount: products.length,
+                   itemCount: adsProvider.getAllAds.data.length,
                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                      crossAxisCount: 2,
                      mainAxisSpacing:5.0,
@@ -132,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                      childAspectRatio: 0.75,
                    ),
                    itemBuilder: (context, index) => ItemCard(
-                         product: products[index],
+                       product: products[index],
                          press: () => Navigator.push(
                              context,
                              MaterialPageRoute(
@@ -148,9 +197,9 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     }
-
-    width = MediaQuery.of(context).size.width;
+        width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
+    adsProvider = Provider.of<AdsProvider>(context);
     return SafeArea(
       child: Scaffold(
         drawer: DrawerFull(context, MediaQuery.of(context).size),
