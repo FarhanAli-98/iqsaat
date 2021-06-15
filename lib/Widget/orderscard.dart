@@ -1,18 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/screen_size_utils.dart';
 import 'package:iqsaat/utils/styles.dart';
+import 'package:intl/intl.dart';
 
 class ordersCard extends StatelessWidget {
+
+
+  bool status=false;
+  String prodname,personname;
+  int price;
+  DateTime date;
+  String plan;
+  
+  ordersCard({
+   @required this.status,
+   @required this.prodname,
+   @required this.personname,
+   @required this.price,
+   @required this.plan,
+   @required this.date,
+
+
+  });
+
+
   @override
   Widget build(BuildContext context) {
-    return buildContainer();
-  }
-}
-
-Container buildContainer() {
     return Container(
-      height: 170,
-      width: 350,
+      height: MediaQuery.of(context).size.height/4.4,
+     // width: DS.mq.width,
       padding: EdgeInsets.all(08),
       margin: EdgeInsets.all(08),
       decoration: BoxDecoration(
@@ -20,21 +38,35 @@ Container buildContainer() {
           color: AppColors.backgroundColor,),
       child: Row(children: [
         Expanded(
-            flex: 5,
+            flex: 4,
             child: Column(
               children: [
-                CircleAvatar(
-                  child: ClipOval(
-                    child: Icon(Icons.verified_user),
-                  ),
-                  radius: 55.0,
-                ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      '45 mins ago',
-                      style: TextStyle(
-                          color: AppColors.primarycolor, fontSize: 15),
+               CircleAvatars.profile,
+               
+                  Container(
+                    margin: EdgeInsets.only(top:20),
+                    child: Align(
+                    
+                      alignment: Alignment.bottomLeft,
+                      child: Column(
+                        children: [
+                          status ? Text(
+                            'Accepted on:',
+                            style: TextStyle(
+                                color: AppColors.black.withOpacity(0.5), fontSize: 12),
+                          ):
+                            Text(
+                            'Ordered on:',
+                            style: TextStyle(
+                                color: AppColors.black.withOpacity(0.5), fontSize: 12),
+                          ),
+                          Text(
+                            DateFormat('yyyy-MM-dd').format(date),
+                            style: TextStyle(
+                                color: AppColors.primarycolor, fontSize: 15),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
               ],
@@ -52,14 +84,14 @@ Container buildContainer() {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Haier 304',
+                        prodname,
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        '\R\S\:45,000',
+                        '\R\S\:' + price.toString(),
                         style: TextStyle(color: AppColors.black),
                       )
                     ],
@@ -69,10 +101,12 @@ Container buildContainer() {
                     child: RichText(
                         text: TextSpan(children: [
                       TextSpan(
-                          text: 'Order By:',
+                          text: 'Order By:      ',
                           style: TextStyle(color: Colors.black.withOpacity(0.7),fontWeight: FontWeight.bold)),
+                          
+
                       TextSpan(
-                          text: ' SellerName',
+                          text: personname,
                           style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18))
                     ])),
                   ),
@@ -84,13 +118,15 @@ Container buildContainer() {
                     height: 05,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
                         'Plan:',
                         style: TextStyle(color:AppColors.black.withOpacity(0.7), fontSize: 16,fontWeight: FontWeight.bold),
                       ),
+
                        Text(
-                        'Monthly',
+                         plan,
                         style: TextStyle(color:AppColors.black, fontSize: 18,fontWeight: FontWeight.bold,),
                       ),
                     ],
@@ -103,7 +139,16 @@ Container buildContainer() {
                         padding: EdgeInsets.only(top: 02),
                         height: 25,
                         width: 100,
-                        decoration: BoxStyles.deco,
+                        decoration:
+                         BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            color: AppColors.primarycolor.withOpacity(0.2),
+                            boxShadow: [
+                              // BoxShadow(
+                              //     color: App,
+                              //     offset: Offset(0, 2))
+                            ]),
+                        
                         // decoration: BoxDecoration(
                         //     borderRadius: BorderRadius.circular(25),
                         //     color: AppColors.primarycolor.withOpacity(0.5),
@@ -115,10 +160,16 @@ Container buildContainer() {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            status ?
                             Text(
                               'Accepted',
-                              style: TextStyle(color: Colors.black, fontSize: 14,fontWeight: FontWeight.bold),
-                            ),
+                              style: TextStyle(color: AppColors.black, fontSize: 14,fontWeight: FontWeight.bold),
+                            ):
+                            Text(
+                              'Ongoing',
+                              style: TextStyle(color: AppColors.black, fontSize: 14,fontWeight: FontWeight.bold),
+                            )
+
                             // SizedBox(
                             //   height: 03,
                             // ),
@@ -135,21 +186,19 @@ Container buildContainer() {
                         height: 25,
                         width: 100,
                         decoration: BoxStyles.deco,
-                        // decoration: BoxDecoration(
-                        //     borderRadius: BorderRadius.circular(25),
-                        //     color: AppColors.primarycolor.withOpacity(0.5),
-                        //     boxShadow: [
-                        //       BoxShadow(
-                        //           color: d,
-                        //           offset: Offset(0, 2))
-                        //     ]),
+                        
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            status ?
                             Text(
                               'Add Customer',
-                              style: TextStyle(color: Colors.black, fontSize: 14,fontWeight: FontWeight.bold),
-                            ),
+                              style: TextStyle(color: AppColors.primarycolor, fontSize: 14,fontWeight: FontWeight.bold),
+                            ):
+                              Text(
+                              'View Details',
+                              style: TextStyle(color: AppColors.primarycolor, fontSize: 14,fontWeight: FontWeight.bold),
+                            )
                             // SizedBox(
                             //   height: 03,
                             // ),
@@ -166,3 +215,5 @@ Container buildContainer() {
                 ])),
       ]));
   }
+}
+

@@ -53,3 +53,12 @@ static   BoxDecoration deco=   BoxDecoration(
                       ],
                 );
 }
+class CircleAvatars
+{
+   static CircleAvatar profile= CircleAvatar(
+                radius:40.0,
+                child: ClipOval(child: Image.asset('assets/images/person.png', height: 150, width: 150, fit: BoxFit.cover,),),
+              );
+
+
+}

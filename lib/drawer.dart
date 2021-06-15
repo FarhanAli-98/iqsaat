@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/Seller/Orders/Acceptedorders.dart';
+import 'package:iqsaat/ui/Seller/Orders/orders_tab.dart';
 import 'package:iqsaat/ui/Seller/Product/Ads/Seller_Ads.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
 import 'package:iqsaat/ui/Seller/Reviews/reviewTablist.dart';
@@ -45,7 +46,7 @@ class _AppDrawerState extends State<AppDrawer> {
           width: size.width,
           height: size.height,
           decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.blue.withOpacity(0.2),
           ),
           child: Row(
             children: <Widget>[
@@ -221,7 +222,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                             MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                    accepted_orders()
+                                                    ordersTab()
                                                        )
                                                         
                                                         );

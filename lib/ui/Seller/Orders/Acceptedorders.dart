@@ -9,7 +9,7 @@ class accepted_orders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarwithbackIcon(context,"Accepted Orders"),
+     // appBar: appBarwithbackIcon(context,"Accepted Orders"),
           body: buildInkWell(context),
 
     );
@@ -54,7 +54,15 @@ itemBuilder: (context, index)
             //  );
            }
            ,
-               child:ordersCard(),
+               child:ordersCard(
+                 status: true,
+                 prodname: "Haeir 30",
+                 personname: "Usama",
+                 price:40000,
+                 date: DateTime.now(),
+                 plan:"Monthly"
+                 
+                 ),
          ));
       
 }
@@ -74,5 +82,5 @@ itemBuilder: (context, index)
  );
   }
 
-  
-}
+ 
+  }
