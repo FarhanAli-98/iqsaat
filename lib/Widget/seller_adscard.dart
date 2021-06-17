@@ -2,14 +2,16 @@ import 'dart:ffi';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:iqsaat/ui/Seller/Product/product_detail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-
-import '../product_detail.dart';
+import 'package:iqsaat/utils/routes.dart';
+import 'package:iqsaat/utils/styles.dart';
 
 
 
 class AdsDetails {
-  const AdsDetails({
+  const AdsDetails(
+    {
     @required this.assetName,
     @required this.title,
     @required this.price,
@@ -17,7 +19,8 @@ class AdsDetails {
     @required this.category,
     @required this.views,
    // this.cardType = CardType.standard,
-  }) ;
+  }
+  ) ;
 
   final String assetName;
   final String title;
@@ -61,7 +64,7 @@ class _AdsCardState
       top: false,
       bottom: false,
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(0),
         child: Column(
           children: [
             // SectionTitle(
@@ -157,8 +160,9 @@ class CardContent extends StatelessWidget {
     final descriptionStyle = theme.textTheme.subtitle1;
 
     return Container(
-    
-      
+       
+ 
+     // decoration: BoxStyles.deco,
       height: MediaQuery.of(context).size.height,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,60 +212,66 @@ class CardContent extends StatelessWidget {
 
           Padding(
             padding: const EdgeInsets.fromLTRB(10, 8, 10, 0),
-            child: DefaultTextStyle(
-              softWrap: false,
-              overflow: TextOverflow.ellipsis,
-              style: descriptionStyle,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  // This array contains the three line description on each card
-                  // demo.
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 1),
-                    child: Container(
-                      margin: EdgeInsets.only(left:6,right:6),
-                      width: MediaQuery.of(context).size.width/0.2,
-                      
-                         decoration: BoxDecoration(border:Border(bottom: BorderSide(color: AppColors.primarycolor,
-              ))),
-                      child: Text(
-                       "Descrption here",
-                        style: descriptionStyle.copyWith(color: Colors.black,fontWeight: FontWeight.bold),
+            child: InkWell(
+                onTap: () {
+                                         AppRoutes.push(context, ProductDetailPage());
+                                        
+                                      },
+                          child: DefaultTextStyle(
+                softWrap: false,
+                overflow: TextOverflow.ellipsis,
+                style: descriptionStyle,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    // This array contains the three line description on each card
+                    // demo.
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 1),
+                      child: Container(
+                        margin: EdgeInsets.only(left:6,right:6),
+                        width: MediaQuery.of(context).size.width/0.2,
+                        
+                           decoration: BoxDecoration(border:Border(bottom: BorderSide(color: AppColors.primarycolor,
+                ))),
+                        child: Text(
+                         "Descrption here",
+                          style: descriptionStyle.copyWith(color: Colors.black,fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text("Price:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
-                      SizedBox(width: 40,),
-                      Text("24,000 PKR",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),)
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text("Category:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
-                      SizedBox(width: 15,),
-                      Text("Vehicle",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
-                       SizedBox(width: 45,),
-                      Text("SubCategory:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
-                      SizedBox(width: 15,),
-                      Text("Bike",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),)
-                    ],
-                  ),
-                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text("in Stock:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
-                      SizedBox(width: 24,),
-                      Text("8",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),)
-                    ],
-                  ),
-                
-                ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("Price:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                        SizedBox(width: 40,),
+                        Text("24,000 PKR",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("Category:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                        SizedBox(width: 15,),
+                        Text("Vehicle",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                         SizedBox(width: 45,),
+                        Text("SubCategory:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                        SizedBox(width: 15,),
+                        Text("Bike",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("in Stock:",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),),
+                        SizedBox(width: 24,),
+                        Text("8",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                  
+                  ],
+                ),
               ),
             ),
           ),

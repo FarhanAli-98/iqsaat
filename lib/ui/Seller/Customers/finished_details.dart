@@ -261,13 +261,13 @@ class _finished_detailsState extends State<finished_details>
                 ),
                 Text(
                         "House no Nile street Township ,Lahore",
-                        style: TextStyle(fontSize: 20,color: Colors.blue),
+                        style: TextStyle(fontSize: 20,color: Colors.black),
                       ),
                 SizedBox(
                   height: 4,
                 ),
                 Card(
-                  color:Colors.cyan[50],
+                  color:Colors.white,
                     elevation: 2.0,
                     margin: EdgeInsets.all(4),
                     child: _maindetail()),
@@ -302,7 +302,7 @@ class _finished_detailsState extends State<finished_details>
             style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.indigo),
+                color: AppColors.primarycolor),
             //fontSize: 14,
           ),
         ),
@@ -364,8 +364,7 @@ class _finished_detailsState extends State<finished_details>
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.indigo,
-                   )
+                  color: AppColors.primarycolor,)
               // fontSize: 14,
               ),
         ),
@@ -398,7 +397,7 @@ class _finished_detailsState extends State<finished_details>
                 ),
                 Text(
                   "10 out of 10 Installments Recieved",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,color: Colors.green),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,color: AppColors.black),
                 ),
               ],
             ),
@@ -432,7 +431,7 @@ class _finished_detailsState extends State<finished_details>
             style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.blueAccent),
+                color: AppColors.primarycolor),
           ),
           SizedBox(
             height: 10,
@@ -451,7 +450,7 @@ class _finished_detailsState extends State<finished_details>
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blueAccent),
+                    color: AppColors.black),
               ),
               SizedBox(
               width:20
@@ -477,7 +476,7 @@ class _finished_detailsState extends State<finished_details>
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueAccent),
+                  color: AppColors.black,)
             ),
           ])
         ]);
@@ -496,7 +495,7 @@ class _finished_detailsState extends State<finished_details>
             style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.indigo),
+                color: AppColors.primarycolor),
             // fontSize: 14,
           ),
         ),
@@ -566,7 +565,7 @@ class _finished_detailsState extends State<finished_details>
           MaterialPageRoute(builder: (context) => CartScreen()),
         );
       },
-      backgroundColor: Colors.orange,
+      backgroundColor: AppColors.primarycolor,
       child: Icon(Icons.chat_bubble,
           color: Theme.of(context).floatingActionButtonTheme.backgroundColor),
     );
@@ -578,6 +577,7 @@ class _finished_detailsState extends State<finished_details>
       floatingActionButton: _flotingButton(),
       body: SafeArea(
         child: Container(
+          padding: EdgeInsets.only(right: 10,left:10),
           decoration: BoxDecoration(
               gradient: LinearGradient(
             colors: [

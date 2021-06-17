@@ -32,8 +32,9 @@ class _orderDetailsState extends State<orderDetails> {
                         ),
                       ],
                       ),
-      child: Padding(
-        padding: const EdgeInsets.all(2.0),
+      child: Container(
+
+        padding: const EdgeInsets.only(left:10),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -390,40 +391,16 @@ class _orderDetailsState extends State<orderDetails> {
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Flexible(child: Container(
-              padding: EdgeInsets.all(2),
-               
-                decoration: BoxDecoration(
-                  color:Colors.blue[600] ,
-                   boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(0.0, 1.0), //(x,y)
-                          blurRadius: 4.0,
-                        ),
-                      ],
-                ),
-                child: Text("Chat to buyer"
-                ,style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  
-                ),
-                ),))
-              ,
-              FloatingActionButton(
-                backgroundColor: Colors.blue[500],
-                    onPressed: () {
-                      // Add your onPressed code here!
-                    },
-                    child: Icon(Icons.chat_bubble),
-                  ),
-            ],
-          ),
+          FloatingActionButton(
+            
+            backgroundColor: AppColors.primarycolor,
+                onPressed: () {
+                  // Add your onPressed code here!
+                },
+                child: Icon(Icons.chat_bubble),
+              ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

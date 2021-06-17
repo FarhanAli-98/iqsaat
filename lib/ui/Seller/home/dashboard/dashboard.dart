@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/providers_listView_container.dart';
 import 'package:iqsaat/models/interest_item_model.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/styles.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -275,17 +276,8 @@ class _DashboardState extends State<Dashboard>
                           margin: EdgeInsets.only(left: 5),
                           padding: EdgeInsets.all(10),
                           // margin: EdgeInsets.only(le:70),
-                          decoration: BoxDecoration(
-                              color: AppColors.backgroundColor,
-                              borderRadius: BorderRadius.only(
-                                  bottomRight: Radius.circular(12)),
-                                     boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    offset: Offset(0.0, 1.0), //(x,y)
-                    blurRadius: 6.0,
-                  ),
-                                         ]    ),
+                    decoration: BoxStyles.deco,
+                                          
                           child: progress(),
                         ),
                         SizedBox(width: 5),
@@ -306,11 +298,9 @@ class _DashboardState extends State<Dashboard>
                                 height: 100,
                                 width: 100,
                                 margin: EdgeInsets.all(5),
-                                padding: EdgeInsets.all(0),
+                                padding: EdgeInsets.all(4),
                                 //margin: EdgeInsets.only(right:110),
-                                decoration: BoxDecoration(
-                                    color: AppColors.backgroundColor,
-                                    borderRadius:BorderRadius.circular(15) ),
+                                decoration: BoxStyles.deco,
                                 child: Column(
                                   children: [
                                     Text("Response Rate:",
