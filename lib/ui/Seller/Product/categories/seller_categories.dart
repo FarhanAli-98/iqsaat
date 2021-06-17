@@ -4,6 +4,7 @@ import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/ui/Seller/Product/Ads/Seller_Ads.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/categories.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
 import "package:intl/intl.dart";
 import 'package:iqsaat/Widget/categories_card.dart';
@@ -55,15 +56,20 @@ class _categoriesState extends State<sellerCategories> {
          child:InkWell(
 
            onTap:(){
-             Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>
-             SellerAds()
+             AppRoutes.push(context, SellerAds(
+               category: "Mobile Phones",
+               subcategory: "Subcategory",
              ));
-           }
-           ,
+           },
+             
+             
                     child: category_card(
              categories: categories[index],
-           ),
+           
+         )
          ));
+
+         
       
   }
             ),

@@ -46,7 +46,7 @@ class _AppDrawerState extends State<AppDrawer> {
           width: size.width,
           height: size.height,
           decoration: BoxDecoration(
-            color: Colors.blue.withOpacity(0.2),
+            color: Colors.grey.withOpacity(0.2),
           ),
           child: Row(
             children: <Widget>[
