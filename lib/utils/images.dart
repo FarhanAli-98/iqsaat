@@ -9,4 +9,8 @@ class Images {
   static const String moon = 'assets/images/moon.png';
   static const String spoon = 'assets/images/spoon.png';
   static const String smile = 'assets/images/smile.png';
+  static const String  appliance = 'assets/images/Appliances_update.png';
+  static const String  bikes = "assets/images/bike.png";
+  static const String  led= "assets/images/LED.jpg";
+  static const String  tech = "assets/images/technology.png";
 }
