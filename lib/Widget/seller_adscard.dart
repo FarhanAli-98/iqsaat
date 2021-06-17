@@ -2,8 +2,10 @@ import 'dart:ffi';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:iqsaat/ui/Seller/Product/product_detail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import '../product_detail.dart';
+import 'package:iqsaat/utils/routes.dart';
+import 'package:iqsaat/utils/styles.dart';
 
 
 
@@ -158,8 +160,9 @@ class CardContent extends StatelessWidget {
     final descriptionStyle = theme.textTheme.subtitle1;
 
     return Container(
-    
-      
+       
+ 
+     // decoration: BoxStyles.deco,
       height: MediaQuery.of(context).size.height,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,12 +214,7 @@ class CardContent extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(10, 8, 10, 0),
             child: InkWell(
                 onTap: () {
-                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                    ProductDetailPage() ));
+                                         AppRoutes.push(context, ProductDetailPage());
                                         
                                       },
                           child: DefaultTextStyle(

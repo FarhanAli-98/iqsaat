@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
+import 'package:iqsaat/ui/Seller/Orders/Acceptedorders.dart';
+import 'package:iqsaat/ui/Seller/Orders/orders_tab.dart';
 import 'package:iqsaat/ui/Seller/Product/Ads/Seller_Ads.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
 import 'package:iqsaat/ui/Seller/Reviews/reviewTablist.dart';
@@ -215,18 +217,19 @@ class _AppDrawerState extends State<AppDrawer> {
                                     ), */
                                     InkWell(
                                       onTap: () {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder:
-                                        //             (BuildContext context) =>
-                                        //                )
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                    ordersTab()
+                                                       )
                                                         
-                                        //                 );
+                                                        );
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
-                                          child: Text("Reviews")),
+                                          child: Text("Orders")),
                                     ),
                                     InkWell(
                                       // onTap: () {

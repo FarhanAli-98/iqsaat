@@ -5,7 +5,7 @@ import 'package:iqsaat/ui/Seller/Orders/ordersDetail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 
-class buyer_orders extends StatelessWidget {
+class accepted_orders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,10 +55,10 @@ itemBuilder: (context, index)
            }
            ,
                child:ordersCard(
-                 status: false,
-                 prodname: "Samsung A71",
+                 status: true,
+                 prodname: "Haeir 30",
                  personname: "Usama",
-                 price:47000,
+                 price:40000,
                  date: DateTime.now(),
                  plan:"Monthly"
                  

@@ -62,16 +62,16 @@ class _CustomersState extends State<Customers> {
         SizedBox(
           height: 10,
         ),
-        Container(
-          height: 170,
-          child: ListView.builder(
-            itemBuilder: (BuildContext context, int index) {
-              return Buyers_Order();
-            },
-            itemCount: 5,
-            scrollDirection: Axis.horizontal,
-          ),
-        ),
+        // Container(
+        //   height: 170,
+        //   child: ListView.builder(
+        //     itemBuilder: (BuildContext context, int index) {
+        //       return Buyers_Order();
+        //     },
+        //     itemCount: 5,
+        //     scrollDirection: Axis.horizontal,
+        //   ),
+        // ),
         SizedBox(
           height: 10,
         ),

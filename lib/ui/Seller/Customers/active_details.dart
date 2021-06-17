@@ -276,6 +276,7 @@ class _Active_detailsState extends State<Active_details>
                    color:AppColors.backgroundColor,
                     elevation: 4.0,
                     margin: EdgeInsets.all(4),
+                    
                     child: _maindetail()),
                 SizedBox(
                   height: 30,

@@ -76,6 +76,7 @@ class _FabState extends State<Fab>
   Widget edit() {
     return Container(
       child: FloatingActionButton(
+        backgroundColor: AppColors.primarycolor,
         onPressed: null,
         tooltip: 'Edit',
         child: Icon(Icons.edit),
@@ -86,6 +87,7 @@ class _FabState extends State<Fab>
   Widget image() {
     return Container(
       child: FloatingActionButton(
+        backgroundColor: AppColors.primarycolor,
         onPressed: ()=> packageview(context),
         tooltip: 'Image',
         child: Icon(Icons.image),
@@ -96,6 +98,8 @@ class _FabState extends State<Fab>
   Widget inbox() {
     return Container(
       child: FloatingActionButton(
+        backgroundColor: AppColors.primarycolor,
+        hoverColor: AppColors.black,
         onPressed: null,
         tooltip: 'Inbox',
         child: Icon(Icons.inbox),
