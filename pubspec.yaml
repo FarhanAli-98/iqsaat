@@ -21,6 +21,7 @@ dependencies:
   geocoding: ^1.0.5 
   badges: ^1.2.0
   provider: ^4.0.5+1
+  persistent_bottom_nav_bar: ^4.0.2
   bezier_chart:
   geolocator: ^5.3.1
   permission: ^0.1.7
@@ -40,12 +41,6 @@ dependencies:
   flutter_swiper: ^1.1.6
   timeago: ^2.0.26
   fl_chart: ^0.12.0
-  
-
-  
-
-  
-
   socket_io_client: ^0.9.12
 
   
@@ -57,7 +52,6 @@ dependencies:
   hive_generator: ^0.8.0
   build_test: ^0.10.3
   cached_network_image: ^2.0.0
- 
   zefyr: ^0.12.0
   quill_delta: ^1.0.0
   flutter_screenutil: ^0.5.3
@@ -66,7 +60,7 @@ dependencies:
   tuple: ^2.0.0
   select_form_field: ^2.0.0
   awesome_card: ^1.1.5
-
+  smooth_page_indicator: ^0.2.3
 dependency_overrides:
 
 dev_dependencies:
@@ -80,11 +74,11 @@ dev_dependencies:
   http:
 
 flutter:
-
-
   uses-material-design: true
 
   assets:
    - assets/appIcons/
    - assets/MapDesign/
    - assets/images/
+   - assets/images/cartImages/
+   - assets/images/brandImages/

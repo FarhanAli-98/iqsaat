@@ -1,12 +1,11 @@
-import 'dart:ffi';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
+import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:iqsaat/Widget/seller_adscard.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:iqsaat/Widget/home_screen_row_widget.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SellerAds extends StatefulWidget {
