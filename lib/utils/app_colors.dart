@@ -25,7 +25,8 @@ class AppColors {
   static const Color halfWhite = const Color(0xFFF3F3F3);
   static const Color ChatOneSideCOlor = const Color(0xFFF3F6FA);
   static const Color greyBackground = Color(0XFFF0F0F0);
-    static const Color black = Color(0Xff000000);
+  static const Color black = Color(0Xff000000);
+  static const Color secondaryColor = const Color(0xFF2b3894);
 
   static LinearGradient background = LinearGradient(
     begin: Alignment.topLeft,
@@ -51,4 +52,9 @@ class AppColors {
       Color(0XFFF6F6F6),
     ],
   );
+}
+
+sizeWidth(BuildContext context) {
+  double width = MediaQuery.of(context).size.width;
+  return width;
 }
