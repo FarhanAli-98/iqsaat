@@ -153,12 +153,23 @@ class _orderDetailsState extends State<orderDetails> {
                              SizedBox(
                            height: 10,
                        ),
-                            Text(
-                              "2Months:" + _advance.toString()+"/P/K/R",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primarycolor),
+                            Column(
+                              children: [
+                                Text(
+                                  "2Months:" + _advance.toString()+"/P/K/R",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.black),
+                                ),
+                                Text(
+                                   _advance.toString()+"/P/K/R",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.primarycolor),
+                                )
+                              ],
                             ),
                        
                       ],
@@ -450,7 +461,7 @@ Widget _buyerdetails()
     children: [
       
       Container(
-                      padding:EdgeInsets.all(5),
+                      padding:EdgeInsets.all(15),
                       decoration: BoxDecoration(
                       
                         color: AppColors.backgroundColor,
@@ -527,7 +538,7 @@ Widget _buyerdetails()
                                             color: AppColors.black, fontSize: 18,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      SizedBox(width: 65,),
+                                      SizedBox(width: 20,),
  Align(
                                     alignment: Alignment.centerRight,
                                     child: Row(
@@ -563,7 +574,7 @@ Widget _buyerdetails()
                                             
                                             color: AppColors.primarycolor,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 15),
+                                            fontSize: 12),
                                       ),
                                     ],
                                   )

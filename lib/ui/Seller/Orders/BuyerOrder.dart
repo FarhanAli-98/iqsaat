@@ -3,6 +3,7 @@ import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/orderscard.dart';
 import 'package:iqsaat/ui/Seller/Orders/ordersDetail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
 
 class buyer_orders extends StatelessWidget {
@@ -34,24 +35,11 @@ itemBuilder: (context, index)
      
        return Container(
          margin: EdgeInsets.only(right:20,left:20,top:13,bottom:13),
-         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: AppColors.backgroundColor,
-            boxShadow: [
-              BoxShadow(color: Colors.blueGrey,
-              offset: Offset(0.0,1.0),
-              blurRadius: 6.0,
-              
-              )
-            ]
-        ),
+         decoration: BoxStyles.deco,
          child:InkWell(
 
            onTap:(){
-            //  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>
-            //  SellerAds()
-            //  )
-            //  );
+            AppRoutes.push(context, orderDetails());
            }
            ,
                child:ordersCard(

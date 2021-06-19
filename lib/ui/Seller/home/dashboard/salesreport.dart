@@ -9,8 +9,9 @@
    @override
    Widget build(BuildContext context) {
      return Container(
-       margin: EdgeInsets.only(left: 15, right: 15),
-        padding: EdgeInsets.all(15.0),
+       //height: MediaQuery.of(context).size.height/1.5,
+       margin: EdgeInsets.only(left: 15, right: 10),
+        padding: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
             color: AppColors.backgroundColor,
             borderRadius: BorderRadius.only(

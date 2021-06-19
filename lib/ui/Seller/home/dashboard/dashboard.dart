@@ -248,14 +248,14 @@ class _DashboardState extends State<Dashboard>
                                 // ),
 
                                 Icon(Icons.star,
-                                    color: Colors.yellow, size: 19),
+                                    color: Colors.yellow, size: 16),
                                 Icon(Icons.star,
-                                    color: Colors.yellow, size: 19),
+                                    color: Colors.yellow, size: 16),
                                 Icon(Icons.star,
-                                    color: Colors.yellow, size: 19),
+                                    color: Colors.yellow, size: 16),
                                 Icon(Icons.star,
-                                    color: Colors.yellow, size: 19),
-                                Icon(Icons.star_border, size: 19),
+                                    color: Colors.yellow, size: 16),
+                                Icon(Icons.star_border, size: 16),
                               ],
                             ),
                           ],
@@ -286,8 +286,8 @@ class _DashboardState extends State<Dashboard>
                             Container(
                               height: 100,
                               width: 120,
-                              padding: EdgeInsets.all(0),
                               //margin: EdgeInsets.only(right:110),
+                              padding: EdgeInsets.all(0),
                               decoration: BoxDecoration(
                                   color: Colors.cyan[100],
                                   borderRadius: BorderRadius.only(
@@ -295,7 +295,7 @@ class _DashboardState extends State<Dashboard>
                               child: upOverview(),
                             ),
                             Container(
-                                height: 100,
+                                height: 104,
                                 width: 100,
                                 margin: EdgeInsets.all(5),
                                 padding: EdgeInsets.all(4),
