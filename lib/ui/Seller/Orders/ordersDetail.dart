@@ -1,18 +1,14 @@
-import 'dart:ffi';
 
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class orderDetails extends StatefulWidget {
+class OrderDetails extends StatefulWidget {
   @override
-  _orderDetailsState createState() => _orderDetailsState();
+  _OrderDetailsState createState() => _OrderDetailsState();
 }
 
-class _orderDetailsState extends State<orderDetails> {
+class _OrderDetailsState extends State<OrderDetails> {
   final double _price = 94000;
   final double _advance = 26800; //((price/7)*2)...///2months
   final double _permonth = 13428; //(_price - advance)/7months

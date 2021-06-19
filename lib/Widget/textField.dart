@@ -94,12 +94,10 @@ class TextFields {
     );
   }
 
-
   static Widget maskTextField(BuildContext context,
       {String hintText,
       TextEditingController controller,
       var inputFormatters,
-     
       String validaterMsg}) {
     return Container(
       height: 50,
@@ -110,10 +108,10 @@ class TextFields {
             color: Colors.grey[300],
           )),
       child: TextFormField(
-        inputFormatters:inputFormatters,
+          inputFormatters: inputFormatters,
           controller: controller,
           decoration: new InputDecoration(
-              contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+              
               hintText: hintText,
               fillColor: Colors.white,
               errorStyle: TextStyles.buttonFontText

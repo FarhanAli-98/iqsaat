@@ -22,7 +22,7 @@ class accepted_orders extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        orderDetails()));
+                                        OrderDetails()));
                           },
 
  child: Container(
