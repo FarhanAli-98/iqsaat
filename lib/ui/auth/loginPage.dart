@@ -7,11 +7,9 @@ import 'package:iqsaat/hive/user_box.dart';
 import 'package:iqsaat/models/postModels/user.dart';
 import 'package:iqsaat/provider/login_provider.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
-import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
 import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
-
-import 'package:iqsaat/ui/user/home/user_home.dart';
+import 'package:iqsaat/ui/buyer/home/home.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
