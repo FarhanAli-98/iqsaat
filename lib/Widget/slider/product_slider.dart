@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/slider/product_slider_card%20copy.dart';
 import 'package:iqsaat/Widget/slider/product_slider_card.dart';
+import 'package:iqsaat/models/getModels/getAllAds.dart';
+import 'package:iqsaat/ui/buyer/products/product_description.dart';
+import 'package:iqsaat/utils/routes.dart';
 
 import 'category_slider.dart';
 
 class ProductSlider extends StatefulWidget {
   final String heading;
   final List<ProdSliderCardModel> products;
+  final List<AllAds> allAds;
   ProductSlider({
     @required this.heading,
-    @required this.products,
+    @required this.products, this.allAds,
   });
   @override
   _ProductSliderState createState() => _ProductSliderState();
@@ -45,8 +49,9 @@ class _ProductSliderState extends State<ProductSlider> {
                       ? const EdgeInsets.only(left: 10)
                       : const EdgeInsets.only(left: 0.0),
                   child: ProductSliderCard(
-                    product: widget.products[i],
-                  ));
+                      product: widget.products[i],
+                      ads: widget.allAds[i],
+                    ));
             },
           ),
         )
