@@ -23,7 +23,6 @@ class HomePage extends StatefulWidget {
 double width, height;
 
 class _HomePageState extends State<HomePage> {
-  // variables
 
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -37,51 +36,31 @@ class _HomePageState extends State<HomePage> {
   double lat, long;
   bool locationConformed = false;
   bool isSearching = false;
-
+  AdsProvider adsProvider;
   double width, height;
 
-// //Functions
-//   getAllRendomAds() {
-//     Provider.of<AdsProvider>(context, listen: false)
-//         .fetchedAds()
-//         .then((value) => ({
-//               print("Ads fetch response" + value.message.toString()),
-//               // myAds.clear(),
-//             }));
-//   }
+//Functions
+  getAllRendomAds() {
+    Provider.of<AdsProvider>(context, listen: false)
+        .fetchedAds()
+        .then((value) => ({
+              print("Ads fetch response" + value.message.toString()),
+              // myAds.clear(),
+            }));
+  }
 
-//   void initState() {
-//     super.initState();
-//     getAllRendomAds();
-//   }
+  void initState() {
+    super.initState();
+    getAllRendomAds();
+  }
 
-  List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
-    StaggeredTile.extent(1, 100.0),
-    StaggeredTile.extent(1, 100.0),
-    StaggeredTile.extent(1, 100.0),
-    StaggeredTile.extent(1, 100.0),
-    StaggeredTile.extent(1, 100.0),
-    StaggeredTile.extent(1, 100.0),
-    StaggeredTile.extent(1, 100.0),
-    StaggeredTile.extent(1, 100.0),
-  ];
 
-  // List<Widget> _tiles = const <Widget>[
-  //   const _Example01Tile(Colors.green, Icons.category, "AllCategory"),
-  //   const _Example01Tile(Colors.amber, Icons.mobile_friendly, "mobile"),
-  //   const _Example01Tile(Colors.deepOrange, Icons.computer, "computer"),
-  //   const _Example01Tile(Colors.indigo, Icons.house, "house"),
-  //   const _Example01Tile(Colors.pink, Icons.home_repair_service, "home"),
-  //   const _Example01Tile(Colors.purple, Icons.business, "business"),
-  //   const _Example01Tile(Colors.blue, Icons.bike_scooter, "bike"),
-  //   const _Example01Tile(Colors.blue, Icons.room_service, "service"),
-  // ];
 
   @override
   Widget build(BuildContext context) {
     _body(BuildContext context) {
       return SingleChildScrollView(
-        child: Column(
+        child:  adsProvider.getAllAds.data==null? CircularProgressIndicator():Column(
           children: [
             CustomCarouselSlider(),
             SizedBox(
@@ -142,23 +121,31 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 15,
             ),
+<<<<<<< HEAD
             ProductSlider(
               heading: "New Products",
               products: newArrivals,
+=======
+            adsProvider.getAllAds.data==null? CircularProgressIndicator():ProductSlider(
+              heading: "New Phones",
+              products: phones,
+              allAds: adsProvider.getAllAds.data,
+>>>>>>> 348caba88af490776a8466f40e58e549cd0e5533
             ),
             SizedBox(
               height: 15,
             ),
-            ProductSlider(
-              heading: "Best Sellers",
-              products: newArrivals,
+            adsProvider.getAllAds.data==null? CircularProgressIndicator(): ProductSlider(
+              heading: "AUTOMOBILES",
+              products: vehicles,
+              allAds: adsProvider.getAllAds.data,
             ),
             SizedBox(
               height: 20,
             ),
             Container(
                 child: Image.asset(
-              "assets/images/ad.jpg",
+              "assets/images/banner2.jpg",
               width: sizeWidth(context),
               height: sizeWidth(context),
               fit: BoxFit.fill,
@@ -166,30 +153,22 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 20,
             ),
+<<<<<<< HEAD
             ProductSlider(
               heading: "Home Appliance",
+=======
+            adsProvider.getAllAds.data==null? CircularProgressIndicator(): ProductSlider(
+              heading: "Home Aplicense",
+>>>>>>> 348caba88af490776a8466f40e58e549cd0e5533
               products: newArrivals,
+              allAds: adsProvider.getAllAds.data,
             ),
             SizedBox(
               height: 15,
             ),
-            // ProductSlider(
-            //   heading: "Eve Pics",
-            //   products: evePics,
-            // ),
-            // SizedBox(
-            //   height: 20,
-            // ),
-            // CustomCarouselSlider(),
-            // SizedBox(
-            //   height: 20,
-            // ),
-            // EyeWorldSlider(
-            //   channels: eyeWorld,
-            // ),
-            // SizedBox(
-            //   height: 25,
-            // ),
+            
+
+           
           ],
         ),
       );
@@ -217,3 +196,26 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+  // List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
+  //   StaggeredTile.extent(1, 100.0),
+  //   StaggeredTile.extent(1, 100.0),
+  //   StaggeredTile.extent(1, 100.0),
+  //   StaggeredTile.extent(1, 100.0),
+  //   StaggeredTile.extent(1, 100.0),
+  //   StaggeredTile.extent(1, 100.0),
+  //   StaggeredTile.extent(1, 100.0),
+  //   StaggeredTile.extent(1, 100.0),
+  // ];
+
+  // List<Widget> _tiles = const <Widget>[
+  //   const _Example01Tile(Colors.green, Icons.category, "AllCategory"),
+  //   const _Example01Tile(Colors.amber, Icons.mobile_friendly, "mobile"),
+  //   const _Example01Tile(Colors.deepOrange, Icons.computer, "computer"),
+  //   const _Example01Tile(Colors.indigo, Icons.house, "house"),
+  //   const _Example01Tile(Colors.pink, Icons.home_repair_service, "home"),
+  //   const _Example01Tile(Colors.purple, Icons.business, "business"),
+  //   const _Example01Tile(Colors.blue, Icons.bike_scooter, "bike"),
+  //   const _Example01Tile(Colors.blue, Icons.room_service, "service"),
+  // ];

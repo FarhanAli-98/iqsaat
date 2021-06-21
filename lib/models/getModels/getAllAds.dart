@@ -16,12 +16,12 @@ class GetAllAds {
     });
 
     String message;
-    List<Datum> data;
+    List<AllAds> data;
     bool success;
 
     factory GetAllAds.fromJson(Map<String, dynamic> json) => GetAllAds(
         message: json["message"],
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+        data: List<AllAds>.from(json["data"].map((x) => AllAds.fromJson(x))),
         success: json["success"],
     );
 
@@ -32,8 +32,8 @@ class GetAllAds {
     };
 }
 
-class Datum {
-    Datum({
+class AllAds {
+    AllAds({
         this.name,
         this.products,
         this.packages,
@@ -65,7 +65,7 @@ class Datum {
     DateTime createdAt;
     DateTime updatedAt;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory AllAds.fromJson(Map<String, dynamic> json) => AllAds(
         name: json["name"],
         products: List<Product>.from(json["products"].map((x) => Product.fromJson(x))),
         packages: List<Package>.from(json["packages"].map((x) => Package.fromJson(x))),

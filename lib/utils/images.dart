@@ -11,10 +11,10 @@ class Images {
   static const String moon = 'assets/images/moon.png';
   static const String spoon = 'assets/images/spoon.png';
   static const String smile = 'assets/images/smile.png';
-  static const String  appliance = 'assets/images/Appliances_update.png';
-  static const String  bikes = "assets/images/bike.png";
-  static const String  led= "assets/images/LED.jpg";
-  static const String  tech = "assets/images/technology.png";
+  static const String appliance = 'assets/images/Appliances_update.png';
+  static const String bikes = "assets/images/bike.png";
+  static const String led = "assets/images/LED.jpg";
+  static const String tech = "assets/images/technology.png";
   static const String bow = 'assets/images/university_profile.png';
   static const String brand = 'assets/icons/brand.png';
   static const String breifcase = 'assets/icons/briefcase.png';
@@ -46,7 +46,6 @@ class Images {
   static const String chart = 'assets/icons/chart.png';
 }
 
-
 List<String> homeSliderlist = [
   "assets/images/banner.png",
   "assets/images/banner1.png",
@@ -64,28 +63,123 @@ List<String> allBrandsImages = [
   "assets/images/popularBrand2.jpg"
 ];
 
-
 List<ProdSliderCardModel> newArrivals = [
   ProdSliderCardModel(
-      prodName: "Al Mamlaka Perfeum",
-      prodDesc: "Gentle Fragnance 50ML",
-      prodPrice: 125.0,
-      prodImage: "assets/images/almamlakaperfuem.jpg"),
-  ProdSliderCardModel(
-      prodName: "Al Clausaz Abaya",
-      prodDesc: "Void Abaya-Black",
-      prodPrice: 250.0,
+      prodName: "Electric Hand Blender",
+      prodDesc: "Kenwood New Electric Hand Blender multi function 4 in 1",
+      prodPrice:"6598", 
       isFreeGift: true,
-      prodImage: "assets/images/newArrival2.jpg"),
+      prodImage: "assets/images/home1.jpg"),
   ProdSliderCardModel(
-      prodName: "Al Mamlaka Perfeum",
-      prodDesc: "Gentle Fragnance 50ML",
-      prodPrice: 125.0,
-      prodImage: "assets/images/almamlakaperfuem.jpg"),
+      prodName: "Electric Hand Blender",
+      prodDesc: "Kenwood New Electric Hand Blender multi function 4 in 1",
+      prodPrice:"6598",      prodImage: "assets/images/home1.jpg"),
   ProdSliderCardModel(
-      prodName: "Al Clausaz Abaya",
-      prodDesc: "Void Abaya-Black",
-      prodPrice: 250.0,
+      prodName: "Electric Hand Blender",
+      prodDesc: "Kenwood New Electric Hand Blender multi function 4 in 1",
+      prodPrice:"6598", 
       isOutOfStock: true,
-      prodImage: "assets/images/newArrival2.jpg"),
+      prodImage: "assets/images/home1.jpg"),
+  ProdSliderCardModel(
+      prodName: "Electric Hand Blender",
+      prodDesc: "Kenwood New Electric Hand Blender multi function 4 in 1",
+      prodPrice:"6598", 
+      prodImage: "assets/images/home1.jpg"),
+];
+
+List<ProdSliderCardModel> phones = [
+  ProdSliderCardModel(
+      prodName: "Samsung Galaxy A32",
+      prodDesc:
+          "Samsung Galaxy A32 price in Pakistan is Rs. 39,999. Official dealers and warranty providers regulate the retail price of Samsung mobile products in official warranty.",
+      prodPrice:"6598", 
+      prodImage: "assets/images/Phone1.jpg"),
+  ProdSliderCardModel(
+      prodName: "Samsung Galaxy A32",
+      prodDesc:
+          "Samsung Galaxy A32 price in Pakistan is Rs. 39,999. Official dealers and warranty providers regulate the retail price of Samsung mobile products in official warranty.",
+      prodPrice:"6598", 
+      isOutOfStock: true,
+      prodImage: "assets/images/Phone1.jpg"),
+  ProdSliderCardModel(
+      prodName: "Samsung Galaxy A32",
+      prodDesc:
+          "Samsung Galaxy A32 price in Pakistan is Rs. 39,999. Official dealers and warranty providers regulate the retail price of Samsung mobile products in official warranty.",
+      prodPrice:"6598", 
+      isFreeGift: true,
+      prodImage: "assets/images/Phone1.jpg"),
+  ProdSliderCardModel(
+      prodName: "Samsung Galaxy A32",
+      prodDesc:
+          "Samsung Galaxy A32 price in Pakistan is Rs. 39,999. Official dealers and warranty providers regulate the retail price of Samsung mobile products in official warranty.",
+      prodPrice:"6598", 
+      prodImage: "assets/images/Phone1.jpg"),
+];
+
+List<ProdSliderCardModel> vehicles = [
+  ProdSliderCardModel(
+      prodName: "Tez Raftar 200cc Auto Rickshaw",
+      prodDesc:
+          " DECA Beige Hood - Double Head Light with Ceiling (Lahore, Gujranwala, Sialkot, Faisalabad, Sargodha & Karachi Only)",
+      prodPrice:"6598", 
+      prodImage: "assets/images/vehicle1.jpg"),
+  ProdSliderCardModel(
+      prodName: "METRO 70cc Motorcycle",
+      prodDesc:
+          "MR70 Red Motorbike (Lahore , Gujranwala , Sialkot , Islamabad , Karachi & Faisalabad Only)",
+      prodPrice:"6598", 
+      isFreeGift: true,
+      prodImage: "assets/images/vehicle2.png"),
+  ProdSliderCardModel(
+      prodName: "Tez Raftar 200cc Auto Rickshaw",
+      prodDesc:
+          " DECA Beige Hood - Double Head Light with Ceiling (Lahore, Gujranwala, Sialkot, Faisalabad, Sargodha & Karachi Only)",
+      prodPrice:"6598", 
+      prodImage: "assets/images/vehicle1.jpg"),
+  ProdSliderCardModel(
+      prodName: "METRO 70cc Motorcycle",
+      prodDesc:
+          "MR70 Red Motorbike (Lahore , Gujranwala , Sialkot , Islamabad , Karachi & Faisalabad Only)",
+      prodPrice:"6598", 
+      isFreeGift: true,
+      prodImage: "assets/images/vehicle2.png"),
+  ProdSliderCardModel(
+      prodName: "Tez Raftar 200cc Auto Rickshaw",
+      prodDesc:
+          " DECA Beige Hood - Double Head Light with Ceiling (Lahore, Gujranwala, Sialkot, Faisalabad, Sargodha & Karachi Only)",
+      prodPrice:"6598", 
+      prodImage: "assets/images/vehicle1.jpg"),
+  ProdSliderCardModel(
+      prodName: "METRO 70cc Motorcycle",
+      prodDesc:
+          "MR70 Red Motorbike (Lahore , Gujranwala , Sialkot , Islamabad , Karachi & Faisalabad Only)",
+      prodPrice:"6598", 
+      isFreeGift: true,
+      prodImage: "assets/images/vehicle2.png"),
+];
+
+List<ProdSliderCardModel> bestSellers = [
+  ProdSliderCardModel(
+      prodName: "Perlona",
+      prodDesc: "Jasmain body Mist",
+      prodPrice:"6598", 
+      isFreeGift: true,
+      prodImage: "assets/images/bestSellers1.jpg"),
+  ProdSliderCardModel(
+      prodName: "FK Collection",
+      prodDesc: "FK Collection Candles Pack of",
+      prodPrice:"6598",
+      isOutOfStock: true,
+      prodImage: "assets/images/bestSellers2.jpg"),
+  ProdSliderCardModel(
+      prodName: "Perlona",
+      prodDesc: "Jasmain body Mist",
+      prodPrice:"6598", 
+      prodImage: "assets/images/bestSellers1.jpg"),
+  ProdSliderCardModel(
+      prodName: "FK Collection",
+      prodDesc: "FK Collection Candles Pack of",
+      prodPrice:"6598", 
+      isFreeGift: true,
+      prodImage: "assets/images/bestSellers2.jpg"),
 ];

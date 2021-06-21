@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 class ProdSliderCardModel {
   String prodName;
   String prodDesc;
-  double prodPrice;
+  String prodPrice;
   String prodImage;
   bool isFreeGift;
   bool isOutOfStock;

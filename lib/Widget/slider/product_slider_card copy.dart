@@ -1,31 +1,39 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/slider/product_slider_card.dart';
+import 'package:iqsaat/models/getModels/getAllAds.dart';
+import 'package:iqsaat/ui/buyer/products/product_description.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/nav_bar_icons_icons.dart';
+import 'package:iqsaat/utils/routes.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class ProductSliderCard extends StatelessWidget {
   final ProdSliderCardModel product;
   final bool isGridView;
-  ProductSliderCard({@required this.product, this.isGridView = false});
+  final AllAds ads;
+  ProductSliderCard({@required this.product, this.isGridView = false, this.ads});
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       color: Colors.white,
       child: InkWell(
         onTap: () {
-        
+          AppRoutes.push(
+              context,
+              ProdDescScreen(
+                name:ads.name,
+                des: ads.products[0].description,
+                price:  ads.products[0].price,
+                image: product.prodImage,
+              ));
         },
         borderRadius: BorderRadius.circular(10),
         child: Container(
           decoration: BoxDecoration(
               //color: Colors.red,
-              borderRadius:
-                  BorderRadius.circular(10)),
+              borderRadius: BorderRadius.circular(10)),
           width: 155,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,8 +41,8 @@ class ProductSliderCard extends StatelessWidget {
               Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(10)),
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(10)),
                     child: Image.asset(
                       product.prodImage,
                       height: 170,
@@ -97,7 +105,7 @@ class ProductSliderCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            product.prodName,
+                            ads.name,
                             maxLines: 1,
                             textAlign: TextAlign.left,
                             overflow: TextOverflow.ellipsis,
@@ -108,7 +116,7 @@ class ProductSliderCard extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            product.prodDesc,
+                            ads.products[0].description==null?"": ads.products[0].description,
                             maxLines: 1,
                             textAlign: TextAlign.left,
                             overflow: TextOverflow.ellipsis,
@@ -120,7 +128,7 @@ class ProductSliderCard extends StatelessWidget {
                           ),
                           Expanded(child: SizedBox()),
                           Text(
-                            product.prodPrice.toStringAsFixed(2) + " QAR",
+                           ads.products[0].price.toStringAsFixed(2) + " QAR",
                             maxLines: 1,
                             textAlign: TextAlign.left,
                             overflow: TextOverflow.ellipsis,
@@ -140,9 +148,8 @@ class ProductSliderCard extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                         color: AppColors.secondaryColor,
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(
-                                10)),
+                        borderRadius:
+                            BorderRadius.only(bottomLeft: Radius.circular(10)),
                       ),
                       child: Material(
                         color: Colors.transparent,
@@ -152,19 +159,17 @@ class ProductSliderCard extends StatelessWidget {
                             print("Buy now");
                           },
                           borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(
-                                  10)),
+                              bottomLeft: Radius.circular(10)),
                           child: Container(
                             height: 35,
                             width: 120,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(
-                                      10)),
+                                  bottomLeft: Radius.circular(10)),
                             ),
                             child: Text(
-                              "BUY NOW",
+                              "Datiles",
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600,
@@ -176,25 +181,24 @@ class ProductSliderCard extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {},
-                      borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(
-                              10)),
+                      borderRadius:
+                          BorderRadius.only(bottomRight: Radius.circular(10)),
                       child: Container(
-                          height: 35,
-                          width: 35,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: Colors.grey[300],
-                            borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(
-                                    10)),
-                          ),
-                          child: Icon(
-                            NavBarIcons.flashdeals,
-                            color: AppColors.primarycolor,
-                            size: 18,
-                          )),
-                    ),
+                        height: 35,
+                        width: 35,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(10)),
+                        ),
+                        child: Icon(
+                          CupertinoIcons.bag,
+                          size: 18,
+                          color: Colors.black,
+                        ),
+                      ),
+                    )
                   ],
                 ),
               )
