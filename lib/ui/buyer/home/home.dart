@@ -12,6 +12,9 @@ import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:provider/provider.dart';
+import 'package:iqsaat/models/postModels/adsModel.dart';
+import 'package:iqsaat/models/Images.dart';
+import 'package:iqsaat/models/getModels/getAllAds.dart';
 
 AdsProvider adsProvider;
 
@@ -60,7 +63,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     _body(BuildContext context) {
       return SingleChildScrollView(
-        child:  adsProvider.getAllAds.data==null? CircularProgressIndicator():Column(
+        child:
+        //:  adsProvider.getAllAds.data==null? CircularProgressIndicator():
+        Column(
           children: [
             CustomCarouselSlider(),
             SizedBox(
@@ -121,24 +126,20 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 15,
             ),
-<<<<<<< HEAD
+            // adsProvider.getAllAds.data==null? CircularProgressIndicator():
             ProductSlider(
-              heading: "New Products",
-              products: newArrivals,
-=======
-            adsProvider.getAllAds.data==null? CircularProgressIndicator():ProductSlider(
               heading: "New Phones",
               products: phones,
-              allAds: adsProvider.getAllAds.data,
->>>>>>> 348caba88af490776a8466f40e58e549cd0e5533
+             // allAds: adsProvider.getAllAds.data,
             ),
             SizedBox(
               height: 15,
             ),
-            adsProvider.getAllAds.data==null? CircularProgressIndicator(): ProductSlider(
+            // adsProvider.getAllAds.data==null? CircularProgressIndicator():
+             ProductSlider(
               heading: "AUTOMOBILES",
               products: vehicles,
-              allAds: adsProvider.getAllAds.data,
+             // allAds: adsProvider.getAllAds.data,
             ),
             SizedBox(
               height: 20,
@@ -153,15 +154,12 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 20,
             ),
-<<<<<<< HEAD
-            ProductSlider(
+            // adsProvider.getAllAds.data==null?
+            //  CircularProgressIndicator():
+             ProductSlider(
               heading: "Home Appliance",
-=======
-            adsProvider.getAllAds.data==null? CircularProgressIndicator(): ProductSlider(
-              heading: "Home Aplicense",
->>>>>>> 348caba88af490776a8466f40e58e549cd0e5533
               products: newArrivals,
-              allAds: adsProvider.getAllAds.data,
+            //  allAds: adsProvider.getAllAds.data,
             ),
             SizedBox(
               height: 15,

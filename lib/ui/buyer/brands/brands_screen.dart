@@ -54,7 +54,7 @@ class _BrandsScreenState extends State<BrandsScreen> {
       appBar: AppBar(
           backgroundColor: Colors.white,
           title: Text(
-            "All Brands",
+            "All Categories",
             style: TextStyle(color: Colors.black),
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
@@ -70,7 +70,7 @@ class _BrandsScreenState extends State<BrandsScreen> {
             SizedBox(
               height: 14,
             ),
-            Center(child: Text('All Brandes',style:TextStyle(color: Colors.black,fontSize: 30) ,)),
+            Center(child: Text('All Categories',style:TextStyle(color: Colors.black,fontSize: 30) ,)),
             SizedBox(
               height: 5,
             ),

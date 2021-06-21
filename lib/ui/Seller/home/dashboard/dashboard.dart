@@ -45,7 +45,7 @@ class _DashboardState extends State<Dashboard>
       padding: EdgeInsets.all(4),
       // margin: EdgeInsets.only(le:70),
       decoration: BoxDecoration(
-          color: AppColors.backgroundColor,
+          color: AppColors.white,
           
           borderRadius: BorderRadius.only(bottomRight: Radius.circular(12)),
           boxShadow: [
@@ -104,7 +104,7 @@ class _DashboardState extends State<Dashboard>
       ),
       Text("Road to lv 2:",
           style: TextStyle(
-              color: AppColors.primarycolor, fontWeight: FontWeight.bold)),
+              color: AppColors.black, fontWeight: FontWeight.bold)),
       SizedBox(
         height: 5,
       ),
@@ -117,10 +117,10 @@ class _DashboardState extends State<Dashboard>
         center: Text(
           lvPercent.toString() + "%",
           style: TextStyle(
-              fontSize: 12.0, fontWeight: FontWeight.w600, color: Colors.black),
+              fontSize: 12.0, fontWeight: FontWeight.w600, color: Colors.white),
         ),
         linearStrokeCap: LinearStrokeCap.roundAll,
-        progressColor: Colors.blue[400],
+        progressColor: AppColors.primarycolor,
         backgroundColor: Colors.grey[300],
       ),
       SizedBox(
@@ -128,7 +128,7 @@ class _DashboardState extends State<Dashboard>
       ),
       Text("Monthly sales Target:",
           style: TextStyle(
-              color: AppColors.primarycolor, fontWeight: FontWeight.bold)),
+              color: AppColors.black, fontWeight: FontWeight.bold)),
       SizedBox(
         height: 5,
       ),
@@ -141,10 +141,10 @@ class _DashboardState extends State<Dashboard>
         center: Text(
           salesTargetPercent.toString() + "%",
           style: TextStyle(
-              fontSize: 12.0, fontWeight: FontWeight.w600, color: Colors.black),
+              fontSize: 12.0, fontWeight: FontWeight.w600, color: Colors.white),
         ),
         linearStrokeCap: LinearStrokeCap.roundAll,
-        progressColor: Colors.blue[400],
+        progressColor: AppColors.primarycolor,
         backgroundColor: Colors.grey[300],
       ),
        SizedBox(
@@ -152,7 +152,7 @@ class _DashboardState extends State<Dashboard>
       ),
       Text("Collection:",
           style: TextStyle(
-              color: AppColors.primarycolor, fontWeight: FontWeight.bold)),
+              color: AppColors.black, fontWeight: FontWeight.bold)),
       SizedBox(
         height: 5,
       ),
@@ -165,10 +165,10 @@ class _DashboardState extends State<Dashboard>
         center: Text(
           salesTargetPercent.toString() + "%",
           style: TextStyle(
-              fontSize: 12.0, fontWeight: FontWeight.w600, color: Colors.black),
+              fontSize: 12.0, fontWeight: FontWeight.w600, color: Colors.white),
         ),
         linearStrokeCap: LinearStrokeCap.roundAll,
-        progressColor: Colors.blue[400],
+        progressColor: AppColors.primarycolor,
         backgroundColor: Colors.grey[300],
       ),
     ]);
@@ -298,7 +298,7 @@ class _DashboardState extends State<Dashboard>
                                   children: [
                                     Text("Response Rate:",
                                         style: TextStyle(
-                                            color: AppColors.primarycolor,
+                                            color: AppColors.black,
                                             fontWeight: FontWeight.bold)),
                                             SizedBox(height: 5,),
                                     CircularPercentIndicator(
@@ -316,7 +316,7 @@ class _DashboardState extends State<Dashboard>
                                       backgroundColor: Colors.grey[300],
                                       circularStrokeCap:
                                           CircularStrokeCap.round,
-                                      progressColor: Colors.redAccent,
+                                      progressColor: AppColors.primarycolor,
                                     ),
                                   ],
                                 )
@@ -343,6 +343,7 @@ class _DashboardState extends State<Dashboard>
             ),
           ),
           Container(
+       
             color: AppColors.backgroundColor,
             height: MediaQuery.of(context).size.height /2,
             width: MediaQuery.of(context).size.width,

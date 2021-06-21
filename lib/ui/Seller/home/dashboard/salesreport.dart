@@ -1,5 +1,6 @@
  import 'package:flutter/material.dart';
  import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/styles.dart';
  class salesReport extends StatefulWidget {
    @override
    _salesReportState createState() => _salesReportState();
@@ -15,12 +16,7 @@
        //height: MediaQuery.of(context).size.height/1.5,
        margin: EdgeInsets.only(left: 15, right: 10),
         padding: EdgeInsets.all(10.0),
-        decoration: BoxDecoration(
-            color: AppColors.backgroundColor,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(15),
-              topRight: Radius.circular(15),
-            )),
+        decoration:BoxStyles.deco,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
