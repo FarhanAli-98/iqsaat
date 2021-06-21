@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: SliderHeading(
-                  headingString: "Popular Brands",
+                  headingString: "Categories",
                   press: () {
                     AppRoutes.push(context, BrandsScreen());
                   },
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
               height: 15,
             ),
             ProductSlider(
-              heading: "New Arrivals",
+              heading: "New Products",
               products: newArrivals,
             ),
             SizedBox(
@@ -167,7 +167,7 @@ class _HomePageState extends State<HomePage> {
               height: 20,
             ),
             ProductSlider(
-              heading: "Home Aplicense",
+              heading: "Home Appliance",
               products: newArrivals,
             ),
             SizedBox(

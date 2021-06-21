@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/orderscard.dart';
 import 'package:iqsaat/ui/Seller/Orders/ordersDetail.dart';
+import 'package:iqsaat/ui/Seller/Orders/ordersDetail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
+
+import 'ordersDetail.dart';
 
 class buyer_orders extends StatelessWidget {
   @override
@@ -39,7 +42,7 @@ itemBuilder: (context, index)
          child:InkWell(
 
            onTap:(){
-            AppRoutes.push(context, orderDetails());
+            AppRoutes.push(context, OrderDetails());
            }
            ,
                child:ordersCard(

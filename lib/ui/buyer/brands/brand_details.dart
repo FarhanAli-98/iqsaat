@@ -27,7 +27,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          'Keshtban'.toUpperCase(),
+          'Category Name'.toUpperCase(),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),

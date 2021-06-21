@@ -3,9 +3,12 @@
  class salesReport extends StatefulWidget {
    @override
    _salesReportState createState() => _salesReportState();
+   final int report;
+   salesReport({Key key,this.report}):super(key: key);
  }
  
  class _salesReportState extends State<salesReport> {
+
    @override
    Widget build(BuildContext context) {
      return Container(
@@ -48,7 +51,7 @@
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "34:",
+                        widget.report.toString(),
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
@@ -74,7 +77,7 @@
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "34:",
+                        widget.report.toString(),
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
@@ -100,7 +103,7 @@
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "34:",
+                        widget.report.toString(),
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,

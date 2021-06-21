@@ -203,91 +203,84 @@ class _DashboardState extends State<Dashboard>
       body: Column(
         children: [
           Container(
+            
             height: MediaQuery.of(context).size.height / 2.6,
+           // decoration: BoxDecoration(border: Border()),
             child: SingleChildScrollView(
               padding: EdgeInsets.only(left: 5, right: 5),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.backgroundColor,
-                        border: Border.all(
-                          color: AppColors.backgroundColor,
-                          width: 9,
-                        ),
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.elliptical(15, 15),
-                            bottomRight: Radius.elliptical(15, 15)),
+                    // Container(
+                    //   decoration: BoxDecoration(
+                    //     color: AppColors.backgroundColor,
+                    //     border: Border.all(
+                    //       color: AppColors.backgroundColor,
+                    //       width: 9,
+                    //     ),
+                    //     borderRadius: BorderRadius.only(
+                    //         bottomLeft: Radius.elliptical(15, 15),
+                    //         bottomRight: Radius.elliptical(15, 15)),
                 
-                      ),
-                      child: Column(children: <Widget>[
-                        Text(
-                          "Welcome back,",
-                          style: Theme.of(context)
-                              .textTheme
-                              .display1
-                              .apply(color: AppColors.primarycolor),
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "Mr. Usama",
-                              style: Theme.of(context).textTheme.display1.apply(
-                                  color: AppColors.primarycolor,
-                                  fontWeightDelta: 2),
-                            ),
-                            SizedBox(
-                              width: 80,
-                            ),
-                            Row(
-                              children: <Widget>[
-                                // Text(
-                                //   "Overall review:",
-                                //   style:TextStyle(fontWeight: FontWeight.bold)
-                                // ),
+                    //   ),
+                    //   child: Column(children: <Widget>[
+                    //     Text(
+                    //       "Welcome back,",
+                    //       style: Theme.of(context)
+                    //           .textTheme
+                    //           .display1
+                    //           .apply(color: AppColors.primarycolor),
+                    //     ),
+                    //     Row(
+                    //       children: [
+                    //         Text(
+                    //           "Mr. Usama",
+                    //           style: Theme.of(context).textTheme.display1.apply(
+                    //               color: AppColors.primarycolor,
+                    //               fontWeightDelta: 2),
+                    //         ),
+                    //         SizedBox(
+                    //           width: 80,
+                    //         ),
+                    //         Row(
+                    //           children: <Widget>[
+                    //             // Text(
+                    //             //   "Overall review:",
+                    //             //   style:TextStyle(fontWeight: FontWeight.bold)
+                    //             // ),
 
-                                Icon(Icons.star,
-                                    color: Colors.yellow, size: 16),
-                                Icon(Icons.star,
-                                    color: Colors.yellow, size: 16),
-                                Icon(Icons.star,
-                                    color: Colors.yellow, size: 16),
-                                Icon(Icons.star,
-                                    color: Colors.yellow, size: 16),
-                                Icon(Icons.star_border, size: 16),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 4,
-                        ),
-                        //  Align(alignment: Alignment.bottomRight,
-                        //child:upOverview())
-                      ]),
-                    ),
-                    Row(
+                    //             Icon(Icons.star,
+                    //                 color: Colors.yellow, size: 16),
+                    //             Icon(Icons.star,
+                    //                 color: Colors.yellow, size: 16),
+                    //             Icon(Icons.star,
+                    //                 color: Colors.yellow, size: 16),
+                    //             Icon(Icons.star,
+                    //                 color: Colors.yellow, size: 16),
+                    //             Icon(Icons.star_border, size: 16),
+                    //           ],
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     SizedBox(
+                    //       height: 4,
+                    //     ),
+                    //     //  Align(alignment: Alignment.bottomRight,
+                    //     //child:upOverview())
+                    //   ]),
+                    // ),
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: 200,
-                          width: 250,
-                          margin: EdgeInsets.only(left: 5),
-                          padding: EdgeInsets.all(10),
-                          // margin: EdgeInsets.only(le:70),
-                    decoration: BoxStyles.deco,
-                                          
-                          child: progress(),
-                        ),
-                        SizedBox(width: 5),
-                        Column(
+                       
+                      //  SizedBox(width: 5),
+                        Row(
                           children: [
                             Container(
                               height: 100,
-                              width: 120,
+                              width: MediaQuery.of(context).size.width/2,
                               //margin: EdgeInsets.only(right:110),
-                              padding: EdgeInsets.all(0),
+                             margin: EdgeInsets.all(15),
                               decoration: BoxDecoration(
                                   color: Colors.cyan[100],
                                   borderRadius: BorderRadius.only(
@@ -296,8 +289,8 @@ class _DashboardState extends State<Dashboard>
                             ),
                             Container(
                                 height: 104,
-                                width: 100,
-                                margin: EdgeInsets.all(5),
+                                width: 120,
+                                margin: EdgeInsets.fromLTRB(18, 5, 5, 5),
                                 padding: EdgeInsets.all(4),
                                 //margin: EdgeInsets.only(right:110),
                                 decoration: BoxStyles.deco,
@@ -307,8 +300,9 @@ class _DashboardState extends State<Dashboard>
                                         style: TextStyle(
                                             color: AppColors.primarycolor,
                                             fontWeight: FontWeight.bold)),
+                                            SizedBox(height: 5,),
                                     CircularPercentIndicator(
-                                      radius: 58.0,
+                                      radius: 65.0,
                                       lineWidth: 10.0,
                                       animation: true,
                                       percent: 45.0 / 100,
@@ -330,8 +324,19 @@ class _DashboardState extends State<Dashboard>
 
 //                   )
                                 )
+                                
                           ],
-                        )
+                        ),
+                         Container(
+                          //height: MediaQuery.of(context).size.height/4,
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                          padding: EdgeInsets.fromLTRB(10, 2, 10, 5),
+                          // margin: EdgeInsets.only(le:70),
+                    decoration: BoxStyles.deco,
+                                          
+                          child: progress(),
+                        ),
                       ],
                     ),
                   ]),
@@ -362,7 +367,7 @@ class _DashboardState extends State<Dashboard>
                   children: [
                     Column(
                       children: [
-                        salesReport(),
+                        salesReport(report: 34,),
                         salesanalysis(),
                       ],
                     ),
