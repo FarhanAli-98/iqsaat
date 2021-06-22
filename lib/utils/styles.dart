@@ -29,36 +29,56 @@ class TextStyles {
       color: AppColors.primarycolor,
       fontWeight: FontWeight.w400,
       fontSize: 18.0);
-       static const TextStyle normalFontText2 = const TextStyle(
-      color: AppColors.primarycolor,
-      fontWeight: FontWeight.w400,
-      );
-      static const TextStyle normalHeading = const TextStyle(fontSize: 16,fontWeight:FontWeight.bold,color:AppColors.primarycolor
-          );
-          
-        
-}
-class BoxStyles
-{
-static   BoxDecoration deco=   BoxDecoration(
-                   
-                    color: AppColors.backgroundColor,
-                     borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(0.0, 1.0), //(x,y)
-                          blurRadius: 6.0,
-                        ),
-                      ],
-                );
-}
-class CircleAvatars
-{
-   static CircleAvatar profile= CircleAvatar(
-                radius:40.0,
-                child: ClipOval(child: Image.asset('assets/images/person.png', height: 150, width: 150, fit: BoxFit.cover,),),
-              );
+  static const TextStyle normalFontText2 = const TextStyle(
+    color: AppColors.primarycolor,
+    fontWeight: FontWeight.w400,
+  );
+  static const TextStyle normalHeading = const TextStyle(
+      fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.primarycolor);
+  static const TextStyle largeFontStyle = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  );
 
+  static const TextStyle smallTextStyle = TextStyle(
+    color: AppColors.primarycolor,
+    height: 1.5,
+  );
+  static const TextStyle homeLabelTextStyle = TextStyle(
+      color: Colors.black,
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
+      letterSpacing: 1);
+  static const TextStyle smallFontSize = TextStyle(
+    fontSize: 12,
+    height: 1.5,
+  );
+}
 
+class BoxStyles {
+  static BoxDecoration deco = BoxDecoration(
+    color: AppColors.backgroundColor,
+    borderRadius: BorderRadius.circular(10),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.grey,
+        offset: Offset(0.0, 1.0), //(x,y)
+        blurRadius: 6.0,
+      ),
+    ],
+  );
+}
+
+class CircleAvatars {
+  static CircleAvatar profile = CircleAvatar(
+    radius: 40.0,
+    child: ClipOval(
+      child: Image.asset(
+        'assets/images/person.png',
+        height: 150,
+        width: 150,
+        fit: BoxFit.cover,
+      ),
+    ),
+  );
 }
