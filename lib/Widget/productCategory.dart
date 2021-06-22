@@ -50,12 +50,12 @@ class _CategoriesState extends State<Categories> {
                 MaterialPageRoute(
                     builder: (BuildContext context) => HomePage()));
           } else if (index == 1) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => Allitems(
-                          title: "Consumer Electronics",
-                        )));
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //         builder: (BuildContext context) => Allitems(
+            //               title: "Consumer Electronics",
+            //             )));
           } else if (index == 2) {
             Navigator.push(
                 context,

@@ -199,10 +199,9 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         child: CustomButtom(
                           buttonWidth: sizeWidth(context),
                           buttonHeight: 50.0,
-                          // onPress: () =>
-                          //     pushNewScreen(context, screen: MyAppointment()),
+                          onPress: (){},
                           buttonColor: AppColors.primarycolor,
-                          text: "BOOK an Appointment",
+                          text: "BOOK an Order",
                         ),
                       ),
                       SizedBox(
