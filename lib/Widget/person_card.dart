@@ -1,10 +1,13 @@
   import 'package:flutter/material.dart';
+import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/shared/chat/chat.dart';
 
 import 'package:iqsaat/ui/shared/chat/chat_dash.dart';
 
+import '../ui/Seller/chat_tab/chat.dart';
+
   class Personcard extends StatelessWidget {
-    final Person person;
+    final Persondata person;
 
     Personcard({
       this.person,
@@ -17,10 +20,10 @@ import 'package:iqsaat/ui/shared/chat/chat_dash.dart';
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => ChatScreen(
+                    builder: (BuildContext context) => ChatPage(
                           //socketIO: advertiserSocket,
-                          receiverID: person.senderid,
-                          senderID: person.receverid,
+                          // receiverID: person.senderid,
+                          // senderID: person.receverid,
                         )));
           },
           child: Card(
@@ -67,7 +70,7 @@ import 'package:iqsaat/ui/shared/chat/chat_dash.dart';
                             children: <Widget>[
                               Padding(
                                 padding: EdgeInsets.fromLTRB(20.0, 2.0, 0.0, 0.0),
-                                child: Text(person.senderid,
+                                child: Text("farhan",
                                     style: TextStyle(
                                       fontSize: 12.0,
                                       color: Colors.grey,

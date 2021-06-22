@@ -16,6 +16,7 @@ import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/History/user_history.dart';
 import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
+import 'ui/Seller/chat_tab/chat_dash.dart';
 import 'ui/Seller/profile/profile_tab.dart';
 import 'ui/shared/chat/chat_dash.dart';
 
