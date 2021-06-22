@@ -121,18 +121,18 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 15,
             ),
-            adsProvider.getAllAds.data==null? CircularProgressIndicator():ProductSlider(
+            ProductSlider(
               heading: "New Phones",
               products: phones,
-              allAds: adsProvider.getAllAds.data,
+            
             ),
             SizedBox(
               height: 15,
             ),
-            adsProvider.getAllAds.data==null? CircularProgressIndicator(): ProductSlider(
+            ProductSlider(
               heading: "AUTOMOBILES",
               products: vehicles,
-              allAds: adsProvider.getAllAds.data,
+           
             ),
             SizedBox(
               height: 20,
@@ -147,10 +147,10 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 20,
             ),
-            adsProvider.getAllAds.data==null? CircularProgressIndicator(): ProductSlider(
+            ProductSlider(
               heading: "Home Aplicense",
               products: newArrivals,
-              allAds: adsProvider.getAllAds.data,
+           
             ),
             SizedBox(
               height: 15,
