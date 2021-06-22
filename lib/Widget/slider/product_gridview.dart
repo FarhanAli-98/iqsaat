@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/slider/product_model.dart';
 import 'package:iqsaat/ui/buyer/products/product_description.dart';
@@ -22,28 +21,26 @@ class ProductGridView extends StatelessWidget {
             crossAxisCount: 2),
         itemBuilder: (_, i) {
           return Card(
-            shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.circular(10)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             color: Colors.white,
             child: InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => ProdDescScreen(
-name: "product",
-des: "Des",
-price: "21321",
-image: "sds",
-
-                    )));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => ProdDescScreen(
+                            name: "product",
+                            des: "Des",
+                            price: "21321",
+                            image: "sds",
+                            package: [23, 34, 56])));
               },
-              borderRadius:
-                  BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10),
               child: Container(
                 decoration: BoxDecoration(
                     //      color: Colors.red,
-                    borderRadius: BorderRadius.circular(
-                       10)),
+                    borderRadius: BorderRadius.circular(10)),
                 // width: 155,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,9 +51,8 @@ image: "sds",
                           width: sizeWidth(context),
                           height: sizeWidth(context) / 2.5,
                           child: ClipRRect(
-                            borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(
-                                   10)),
+                            borderRadius:
+                                BorderRadius.vertical(top: Radius.circular(10)),
                             child: Image.asset(
                               products[i].prodImage,
                               // height: 170,
@@ -144,8 +140,7 @@ image: "sds",
                                 ),
                                 Expanded(child: SizedBox()),
                                 Text(
-                                  products[i].prodPrice +
-                                      " QAR",
+                                  products[i].prodPrice + " Rs",
                                   maxLines: 1,
                                   textAlign: TextAlign.left,
                                   overflow: TextOverflow.ellipsis,
@@ -167,8 +162,7 @@ image: "sds",
                               decoration: BoxDecoration(
                                 color: AppColors.secondaryColor,
                                 borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(
-                                       10)),
+                                    bottomLeft: Radius.circular(10)),
                               ),
                               child: Material(
                                 color: Colors.transparent,
@@ -178,16 +172,14 @@ image: "sds",
                                     print("Buy now");
                                   },
                                   borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(
-                                         10)),
+                                      bottomLeft: Radius.circular(10)),
                                   child: Container(
                                     height: 35,
                                     // width: 120,
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(
-                                              10)),
+                                          bottomLeft: Radius.circular(10)),
                                     ),
                                     child: Text(
                                       "BUY NOW",
@@ -200,27 +192,6 @@ image: "sds",
                                 ),
                               ),
                             ),
-                          ),
-                          InkWell(
-                            onTap: () {},
-                            borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(
-                                   10)),
-                            child: Container(
-                                height: 35,
-                                width: 35,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[300],
-                                  borderRadius: BorderRadius.only(
-                                      bottomRight: Radius.circular(
-                                         10)),
-                                ),
-                                child: Icon(
-                                  NavBarIcons.flashdeals,
-                                  color: AppColors.primarycolor,
-                                  size: 18,
-                                )),
                           ),
                         ],
                       ),

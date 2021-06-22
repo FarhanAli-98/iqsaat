@@ -23,11 +23,11 @@ class ProductSliderCard extends StatelessWidget {
           AppRoutes.push(
               context,
               ProdDescScreen(
-                name:product.prodName,
-                des: product.prodDesc,
-                price:  product.prodPrice,
-                image: product.prodImage,
-              ));
+                            name: "product",
+                            des: "Des",
+                            price: "21321",
+                            image: "sds",
+                            package: [23, 34, 56]));
         },
         borderRadius: BorderRadius.circular(10),
         child: Container(
