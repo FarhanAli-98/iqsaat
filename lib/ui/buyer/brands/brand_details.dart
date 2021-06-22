@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:iqsaat/Widget/slider/product_gridview.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/images.dart';
 
 class BrandDetailsScreen extends StatefulWidget {
   @override
@@ -234,11 +236,11 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
             SizedBox(
               height: 14,
             ),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(
-            //       horizontal: AppPaddings.bodyPadding),
-            //   child: ProductGridView(products: newArrivals),
-            // )
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 10),
+              child: ProductGridView(products: newArrivals),
+            )
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:iqsaat/Widget/slider/product_slider_card.dart';
+import 'package:iqsaat/Widget/slider/product_model.dart';
 
 class Images {
   static const String person = 'assets/images/temp.jpg';

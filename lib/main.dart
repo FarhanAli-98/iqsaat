@@ -1,4 +1,5 @@
 import 'package:iqsaat/provider/shopProvider.dart';
+import 'package:iqsaat/ui/buyer/brands/brand_details.dart';
 import 'package:iqsaat/ui/buyer/brands/brands_screen.dart';
 import 'package:iqsaat/ui/buyer/home/home.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
@@ -68,8 +69,8 @@ class _MyAppState extends State<MyApp> {
                 if (snapshot.hasError)
                   return Text(snapshot.error.toString());
                 else
-               // return HomePage();
-                 return SplashScreen(role: widget.role);
+                return BrandDetailsScreen();
+                // return SplashScreen(role: widget.role);
               } else
                 return Scaffold();
             },

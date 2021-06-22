@@ -13,7 +13,6 @@ import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:provider/provider.dart';
 
-AdsProvider adsProvider;
 
 class HomePage extends StatefulWidget {
   @override
@@ -36,23 +35,23 @@ class _HomePageState extends State<HomePage> {
   double lat, long;
   bool locationConformed = false;
   bool isSearching = false;
-  AdsProvider adsProvider;
+ // AdsProvider adsProvider;
   double width, height;
 
-//Functions
-  getAllRendomAds() {
-    Provider.of<AdsProvider>(context, listen: false)
-        .fetchedAds()
-        .then((value) => ({
-              print("Ads fetch response" + value.message.toString()),
-              // myAds.clear(),
-            }));
-  }
+// //Functions
+//   getAllRendomAds() {
+//     Provider.of<AdsProvider>(context, listen: false)
+//         .fetchedAds()
+//         .then((value) => ({
+//               print("Ads fetch response" + value.message.toString()),
+//               // myAds.clear(),
+//             }));
+//   }
 
-  void initState() {
-    super.initState();
-    getAllRendomAds();
-  }
+  // void initState() {
+  //   super.initState();
+  //   getAllRendomAds();
+  // }
 
 
 
@@ -60,7 +59,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     _body(BuildContext context) {
       return SingleChildScrollView(
-        child:  adsProvider.getAllAds.data==null? CircularProgressIndicator():Column(
+        child: // adsProvider.getAllAds.data==null? CircularProgressIndicator():
+        Column(
           children: [
             CustomCarouselSlider(),
             SizedBox(
@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> {
 
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-    adsProvider = Provider.of<AdsProvider>(context);
+  //  adsProvider = Provider.of<AdsProvider>(context);
     return SafeArea(
       key: scaffoldKey,
       child: Scaffold(
