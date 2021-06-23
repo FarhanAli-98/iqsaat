@@ -44,7 +44,7 @@ class ordersCard extends StatelessWidget {
                CircleAvatars.profile,
                
                   Container(
-                    margin: EdgeInsets.only(top:20),
+                    margin: EdgeInsets.only(top:20,bottom: 10),
                     child: Align(
                     
                       alignment: Alignment.bottomLeft,
@@ -101,7 +101,7 @@ class ordersCard extends StatelessWidget {
                     child: RichText(
                         text: TextSpan(children: [
                       TextSpan(
-                          text: 'Order By:      ',
+                          text: 'Order By:',
                           style: TextStyle(color: Colors.black.withOpacity(0.7),fontWeight: FontWeight.bold)),
                           
 
@@ -118,7 +118,7 @@ class ordersCard extends StatelessWidget {
                     height: 05,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
                         'Plan:',
@@ -136,9 +136,9 @@ class ordersCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        padding: EdgeInsets.only(top: 02),
+                        padding: EdgeInsets.only(top: 2,bottom: 2),
                         height: 25,
-                        width: 100,
+                        width: 110,
                         decoration:
                          BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
@@ -182,9 +182,9 @@ class ordersCard extends StatelessWidget {
                         ),
                       ),
                        Container(
-                        padding: EdgeInsets.only(top: 02),
+                        padding: EdgeInsets.only(top: 2,bottom: 2),
                         height: 25,
-                        width: 100,
+                        width: 115,
                         decoration: BoxStyles.deco,
                         
                         child: Column(

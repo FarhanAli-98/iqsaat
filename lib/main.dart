@@ -69,8 +69,10 @@ class _MyAppState extends State<MyApp> {
                 if (snapshot.hasError)
                   return Text(snapshot.error.toString());
                 else
-                return HomePage();
-                // return SplashScreen(role: widget.role);
+
+                //return BrandDetailsScreen();
+                return SplashScreen(role: widget.role);
+
               } else
                 return Scaffold();
             },

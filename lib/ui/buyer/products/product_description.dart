@@ -48,187 +48,190 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
       body: Stack(
         children: [
           SingleChildScrollView(
-            child: Column(
-              children: [
-                CustomCarouselSlider(
-                  autoPlay: false,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  widget.name,
-                                  //style: TextStyl.,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "5.0",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    RatingBar(
-                                      rating: 5,
-                                      size: 16,
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          ClipRRect(
-                            child: Image.asset(
-                              widget.image,
-                              height: 35,
-                              width: 35,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          Text("Brand\nKeshtban".toUpperCase())
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                     
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            "${widget.price} Rs",
-                            style: TextStyle(
-                              color: AppColors.primarycolor,
-                              fontSize: 19,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Text(
-                              "420.00 Rs",
-                              style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 13,
-                                  decoration: TextDecoration.lineThrough),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Divider(
-                        color: Colors.grey,
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        "DESCRIPTION",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(widget.des),
-
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Divider(
-                        color: Colors.grey,
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        "SPECIFICATION ",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      SizedBox(
-                        height: 10,
-                      ),
-
-                      Center(child: Packagetable(price:widget.package)),
-                      
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Divider(
-                        color: Colors.grey,
-                      ),
-
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Container(
-                        child: CustomButtom(
-                          buttonWidth: sizeWidth(context),
-                          buttonHeight: 50.0,
-                          onPress: () {},
-                          buttonColor: AppColors.primarycolor,
-                          text: "BOOK AN ORDER",
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Divider(
-                        color: Colors.grey,
-                      ),
-                      //  Row(
-                      //    children: [
-                      //      StepperBullet(),
-                      //       StepperBullet(),
-                      //        StepperBullet(),
-                      //         StepperBullet(),
-                      //    ],
-                      //  ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      ProductSlider(
-                          heading: "You may also like",
-                          products: bestSellers,
-                          package: widget.package),
-                      SizedBox(
-                        height: 70,
-                      ),
-                    ],
+            child: Container(
+              padding: EdgeInsets.all(12),
+              child: Column(
+                children: [
+                  CustomCarouselSlider(
+                    autoPlay: false,
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    widget.name,
+                                    //style: TextStyl.,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 2,
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "5.0",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      RatingBar(
+                                        rating: 5,
+                                        size: 16,
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            ClipRRect(
+                              child: Image.asset(
+                                widget.image,
+                                height: 35,
+                                width: 35,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            Text(widget.name.toUpperCase())
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                       
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              "${widget.price} Rs",
+                              style: TextStyle(
+                                color: AppColors.primarycolor,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              child: Text(
+                                "",
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 13,
+                                    decoration: TextDecoration.lineThrough),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Divider(
+                          color: Colors.grey,
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          "DESCRIPTION",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(widget.des),
+
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Divider(
+                          color: Colors.grey,
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          "PACKAGE",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+
+                        SizedBox(
+                          height: 10,
+                        ),
+
+                        Container(padding: EdgeInsets.only(top:20,left:MediaQuery.of(context).size.width/25), child: Packagetable(price:widget.package)),
+                        
+                        SizedBox(
+                          height: 25,
+                        ),
+                        Divider(
+                          color: Colors.grey,
+                        ),
+
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Container(
+                          child: CustomButtom(
+                            buttonWidth: sizeWidth(context),
+                            buttonHeight: 50.0,
+                            onPress: () {},
+                            buttonColor: AppColors.primarycolor,
+                            text: "BOOK AN ORDER",
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Divider(
+                          color: Colors.grey,
+                        ),
+                        //  Row(
+                        //    children: [
+                        //      StepperBullet(),
+                        //       StepperBullet(),
+                        //        StepperBullet(),
+                        //         StepperBullet(),
+                        //    ],
+                        //  ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        ProductSlider(
+                            heading: "You may also like",
+                            products: bestSellers,
+                            package: widget.package),
+                        SizedBox(
+                          height: 70,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Align(
