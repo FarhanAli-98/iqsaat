@@ -5,8 +5,9 @@ import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
+import 'package:iqsaat/ui/Seller/chat_tab/chat.dart';
 import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
-import 'package:iqsaat/ui/chat_tab/chat.dart';
+
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/nav_bar_icons_icons.dart';
