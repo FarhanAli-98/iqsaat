@@ -141,6 +141,92 @@ class _MapviewState extends State<Mapview> {
       ),
     );
   }
+  Future bounceShowDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+              backgroundColor: Colors.grey.withOpacity(0.5),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              content: new Container(
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: Column(
+                    children: [
+                      Container(
+                        // height: 100,
+                        // width: 130,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 70,
+                              width: 70,
+                              child: Image.asset(
+                                'assets/images/mapIcon.jpeg',
+                              ),
+                            ),
+                            Container(
+                              child: Text(
+                                'Set Location Perameters',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                          margin: EdgeInsets.only(top: 15),
+                          height: MediaQuery.of(context).size.height * 0.06,
+                          width: MediaQuery.of(context).size.width * .85,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(13),
+                            ),
+                            border: Border.all(color: Colors.grey, width: 0.95),
+                          ),
+                          child: TextFormField(
+                            decoration: new InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 4),
+                                hintText: "Set Area",
+                                fillColor: Colors.white,
+                               
+                                border: InputBorder.none),
+                          )),
+                              Container(
+                          margin: EdgeInsets.only(top: 15),
+                          height: MediaQuery.of(context).size.height * 0.06,
+                          width: MediaQuery.of(context).size.width * .85,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(13),
+                            ),
+                            border: Border.all(color: Colors.grey, width: 0.95),
+                          ),
+                          child: TextFormField(
+                            decoration: new InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 4),
+                                hintText: "Set Redius",
+                                fillColor: Colors.white,
+                               
+                                border: InputBorder.none),
+                          )),
+                   
+                 
+                 
+                    ],
+                  )));
+        });
+  }
 
   _getCurrentLocation() async {
     await _geolocator
@@ -232,6 +318,8 @@ class _MapviewState extends State<Mapview> {
   void initState() {
     super.initState();
     _getCurrentLocation();
+        //bounceShowDialog(context);
+
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/textField.dart';
-import 'package:iqsaat/ui/buyer/home/mapview.dart';
+import 'package:iqsaat/ui/buyer/map/mapview.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:badges/badges.dart';
