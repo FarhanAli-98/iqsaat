@@ -141,7 +141,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         ),
                         isCompanyTaped
                             ? Container(
-                                height: size.width * 0.7,
+                                height: size.width * 0.35,
                                 width: size.width,
                                 padding: EdgeInsets.only(left: size.width / 5),
                                 child: Column(
@@ -157,7 +157,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                                     AddAdvertisementPage()));
                                       },
                                       child: Container(
-                                          margin: EdgeInsets.only(top: 18),
+                                          margin: EdgeInsets.only(top: 0),
                                           child: Text("Create Ad")),
                                     ),
                                     InkWell(
@@ -213,27 +213,32 @@ class _AppDrawerState extends State<AppDrawer> {
                                           margin: EdgeInsets.only(top: 18),
                                           child: Text("Orders")),
                                     ),
-                                    InkWell(
-                                      // onTap: () {
-                                      //   Navigator.push(
-                                      //       context,
-                                      //       MaterialPageRoute(
-                                      //           builder:
-                                      //               (BuildContext context) =>
-                                      //                   ));
-                                      // },
-                                      child: Container(
-                                          margin: EdgeInsets.only(top: 18),
-                                          child: Text("Reviews")),
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                       
-                                      },
-                                      child: Container(
-                                          margin: EdgeInsets.only(top: 18),
-                                          child: Text("History")),
-                                    ),
+                                    // InkWell(
+                                    //   // onTap: () {
+                                    //   //   Navigator.push(
+                                    //   //       context,
+                                    //   //       MaterialPageRoute(
+                                    //   //           builder:
+                                    //   //               (BuildContext context) =>
+                                    //   //                   ));
+                                    //   // },
+                                    //   child: Container(
+                                    //       margin: EdgeInsets.only(top: 18),
+                                    //       child: Text("Reviews")),
+                                    // ),
+                                    // InkWell(
+                                    //   onTap: () {
+                                    //     Navigator.push(
+                                    //         context,
+                                    //         MaterialPageRoute(
+                                    //             builder:
+                                    //                 (BuildContext context) =>
+                                    //                     user_history()));
+                                    //   },
+                                    //   child: Container(
+                                    //       margin: EdgeInsets.only(top: 18),
+                                    //       child: Text("History")),
+                                    // ),
                                   ],
                                 ))
                             : Container(),
@@ -267,7 +272,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           // },
                         ),
                         SizedBox(
-                          height: isCompanyTaped ? 30 : size.width * 0.45,
+                          height: isCompanyTaped ? 10 : size.width * 0.45,
                         ),
                         Spacer(),
                         InkWell(
@@ -277,7 +282,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           },
                           child: Container(
                             // color: Colors.green,
-                            height: 40,
+                            height: 20,
                             margin: EdgeInsets.only(left: 32, bottom: 50),
                             child: Row(
                               children: <Widget>[

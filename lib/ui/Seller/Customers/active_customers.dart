@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/ui/Seller/Customers/finished_details.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/styles.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:intl/intl.dart';
 import './active_details.dart';
@@ -10,34 +11,31 @@ import './finished_details.dart';
 class active_customers extends StatelessWidget {
   bool ongoing = true;
   double percent = 45.0;
- active_customers(bool ongoing) {
+  active_customers(bool ongoing) {
     this.ongoing = ongoing;
   }
 
   DateTime now = DateTime.now();
   String installmentStDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
- 
+
   @override
   Widget build(BuildContext context) {
-    ongoing ? percent=45.0:
-    percent =100.0;
+    ongoing ? percent = 45.0 : percent = 100.0;
     return InkWell(
-       onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        ongoing ? Active_details():
-                                       finished_details() ));
-                          },
-          child: Container(
-          height: 175.0,
-          width: 350.0,
-          padding: EdgeInsets.all(08),
-          margin: EdgeInsets.all(08),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(18),
-              color: AppColors.greyColor.withOpacity(0.15)),
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    ongoing ? Active_details() : finished_details()));
+      },
+      child: Container(
+        //color: Colors.white,
+          height: MediaQuery.of(context).size.height / 3.9,
+          width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.all(12),
+          margin: EdgeInsets.all(12),
+          decoration: BoxStyles.deco,
           child: Row(children: [
             Expanded(
                 flex: 5,
@@ -45,7 +43,12 @@ class active_customers extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       child: ClipOval(
-                        child: Icon(Icons.person),
+                        child: Image.asset(
+                          'assets/images/person.png',
+                          height: 350,
+                          width: 150,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       radius: 55.0,
                     ),
@@ -73,7 +76,7 @@ class active_customers extends StatelessWidget {
                     Text(
                       installmentStDate,
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: AppColors.primarycolor,
                           fontSize: 14,
                           fontWeight: FontWeight.bold),
                     ),
@@ -97,10 +100,25 @@ class active_customers extends StatelessWidget {
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Text(
-                            '\R\S\:45,000',
-                            style: TextStyle(color: AppColors.primarycolor),
-                          )
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: CircularPercentIndicator(
+                              radius: 60.0,
+                              lineWidth: 8.0,
+                              animation: true,
+                              percent: percent / 100,
+                              center: Text(
+                                percent.toString() + "%",
+                                style: TextStyle(
+                                    fontSize: 10.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black),
+                              ),
+                              backgroundColor: Colors.black,
+                              circularStrokeCap: CircularStrokeCap.round,
+                              progressColor: Colors.greenAccent,
+                            ),
+                          ),
                         ],
                       ),
                       Padding(
@@ -126,12 +144,24 @@ class active_customers extends StatelessWidget {
                       SizedBox(
                         height: 05,
                       ),
-                      Text(
-                        'Plan:Monthly',
-                        style: TextStyle(
-                            color: AppColors.primarycolor,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+                      Row(
+                        children: [
+                          Text(
+                            'Plan:  ',
+                            style: TextStyle(
+                                color: AppColors.black.withOpacity(0.7),
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'Monthly',
+                            style: TextStyle(
+                                color: AppColors.black,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Icon(Icons.arrow_drop_down),
+                        ],
                       ),
                       SizedBox(
                         height: 10,
@@ -141,12 +171,12 @@ class active_customers extends StatelessWidget {
                         children: [
                           ongoing
                               ? Container(
-                                  padding: EdgeInsets.only(top: 02),
+                                  padding: EdgeInsets.only(top: 2,bottom: 2),
                                   height: 25,
-                                  width: 100,
+                                  width: 110,
                                   decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(25),
-                                      color: Colors.redAccent,
+                                      borderRadius: BorderRadius.circular(28),
+                                      color: Colors.black,
                                       boxShadow: [
                                         BoxShadow(
                                             color: AppColors.primarycolor,
@@ -157,10 +187,10 @@ class active_customers extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Status:Delayed',
+                                        'Delayed',
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 12,
+                                            fontSize: 15,
                                             fontWeight: FontWeight.bold),
                                       ),
 
@@ -201,30 +231,14 @@ class active_customers extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: CircularPercentIndicator(
-                              radius: 60.0,
-                              lineWidth: 8.0,
-                              animation: true,
-                              percent: percent / 100,
-                              center: Text(
-                                percent.toString() + "%",
-                                style: TextStyle(
-                                    fontSize: 10.0,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black),
-                              ),
-                              backgroundColor: Colors.black,
-                              circularStrokeCap: CircularStrokeCap.round,
-                              progressColor: Colors.greenAccent,
-                            ),
-                          ),
+                                 Text(
+                            '\R\S\:45,000',
+                            style: TextStyle(color: AppColors.primarycolor,fontWeight: FontWeight.bold),
+                          )
+                         
                         ],
                       ),
-                      SizedBox(
-                        height: 02,
-                      ),
+                     
                     ])),
           ])),
     );
