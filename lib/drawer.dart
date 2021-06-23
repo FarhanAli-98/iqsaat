@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/Seller/Orders/orders_tab.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
+import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/productsAds.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
@@ -12,7 +13,7 @@ import 'package:iqsaat/ui/buyer/profile/userProfile.dart';
 import 'package:iqsaat/ui/buyer/system/contactUs.dart';
 import 'package:iqsaat/ui/buyer/system/detailFAQS.dart';
 import 'package:iqsaat/ui/buyer/system/search.dart';
-import 'package:iqsaat/ui/chat_tab/chat_dash.dart';
+
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
