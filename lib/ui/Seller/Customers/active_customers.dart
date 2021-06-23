@@ -31,7 +31,7 @@ class active_customers extends StatelessWidget {
       },
       child: Container(
         //color: Colors.white,
-          height: MediaQuery.of(context).size.height / 3.9,
+          height: MediaQuery.of(context).size.height / 3.5,
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(12),
           margin: EdgeInsets.all(12),
