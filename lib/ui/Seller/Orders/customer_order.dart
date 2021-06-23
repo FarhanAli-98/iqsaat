@@ -9,37 +9,39 @@ import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/nav_bar_icons_icons.dart';
-import 'package:pluto_grid/pluto_grid.dart';
-import 'package:select_form_field/select_form_field.dart';
 
-class ProdDescScreen extends StatefulWidget {
+class OrderScreen extends StatefulWidget {
   final String name;
   final String des;
   final String price;
   final String image;
-  final List<int> package;
+  final String package;
+  final String month;
+  final String customername;
 
-  const ProdDescScreen(
+  const OrderScreen(
       {Key key,
       @required this.name,
       @required this.des,
       @required this.price,
       @required this.image,
-      this.package})
+      @required this.package,
+      @required this.customername,
+      @required this.month})
       : super(key: key);
 
   @override
-  _ProdDescScreenState createState() => _ProdDescScreenState();
+  _OrderScreenState createState() => _OrderScreenState();
 }
- 
-class _ProdDescScreenState extends State<ProdDescScreen> {
+
+class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
-          "Product Datile",
+          "Product Detail",
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
@@ -100,7 +102,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                             ),
                             ClipRRect(
                               child: Image.asset(
-                                widget.image,
+                                Images.bikes,
                                 height: 35,
                                 width: 35,
                                 fit: BoxFit.fill,
@@ -112,7 +114,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         SizedBox(
                           height: 10,
                         ),
-                       
+
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -125,7 +127,8 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
                               child: Text(
                                 "",
                                 style: TextStyle(
@@ -182,19 +185,31 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                           height: 10,
                         ),
 
-                        Container(padding: EdgeInsets.only(top:20,left:MediaQuery.of(context).size.width/25), child: Packagetable(price:widget.package)),
-                        
+                        Text(widget.price+" RS per "+widget.month + " Monthly installment"),
                         SizedBox(
                           height: 25,
                         ),
-                         
-                           
                         Divider(
                           color: Colors.grey,
+                        ),
+                        Text(
+                          "BUYER NOTE",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
 
                         SizedBox(
                           height: 15,
+                        ),
+
+                        Text("Here you write buyer"),
+                         SizedBox(
+                          height: 25,
+                        ),
+                        Divider(
+                          color: Colors.grey,
                         ),
                         Container(
                           child: CustomButtom(
@@ -202,7 +217,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                             buttonHeight: 50.0,
                             onPress: () {},
                             buttonColor: AppColors.primarycolor,
-                            text: "BOOK AN ORDER",
+                            text: "ACCEPT ORDER",
                           ),
                         ),
                         SizedBox(
@@ -221,13 +236,6 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         //  ),
                         SizedBox(
                           height: 15,
-                        ),
-                        ProductSlider(
-                            heading: "You may also like",
-                            products: bestSellers,
-                            package: widget.package),
-                        SizedBox(
-                          height: 70,
                         ),
                       ],
                     ),
