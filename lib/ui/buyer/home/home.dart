@@ -60,105 +60,108 @@ class _HomePageState extends State<HomePage> {
     _body(BuildContext context) {
       return SingleChildScrollView(
         child: // adsProvider.getAllAds.data==null? CircularProgressIndicator():
-        Column(
-          children: [
-            CustomCarouselSlider(),
-            SizedBox(
-              height: 15,
-            ),
-            Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: SliderHeading(
-                  headingString: "Popular Brands",
-                  press: () {
-                    AppRoutes.push(context, BrandsScreen());
-                  },
-                )),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              height: 70,
-              child: ListView.separated(
-                  separatorBuilder: (_, i) {
-                    return SizedBox(
-                      width: 15,
-                    );
-                  },
-                  itemCount: allBrandsImages.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (_, i) {
-                    return Padding(
-                      padding: i == 0
-                          ? const EdgeInsets.only(left: 10)
-                          : const EdgeInsets.only(left: 0.0),
-                      child: Card(
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(500),
-                        ),
-                        child: Container(
-                          height: 65,
-                          width: 65,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(500),
-                              color: Colors.grey[300]),
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(500),
-                              child: InkWell(
-                                onTap: () {},
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              CustomCarouselSlider(),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: SliderHeading(
+                    headingString: "All Category",
+                    press: () {
+                      AppRoutes.push(context, BrandsScreen());
+                    },
+                  )),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 70,
+                child: ListView.separated(
+                    separatorBuilder: (_, i) {
+                      return SizedBox(
+                        width: 15,
+                      );
+                    },
+                    itemCount: allBrandsImages.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (_, i) {
+                      return Padding(
+                        padding: i == 0
+                            ? const EdgeInsets.only(left: 10)
+                            : const EdgeInsets.only(left: 0.0),
+                        child: Card(
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(500),
+                          ),
+                          child: Container(
+                            height: 65,
+                            width: 65,
+                            decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(500),
-                                child: Image.asset(
-                                  allBrandsImages[i],
-                                  fit: BoxFit.fill,
-                                ),
-                              )),
+                                color: Colors.grey[300]),
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(500),
+                                child: InkWell(
+                                  onTap: () {},
+                                  borderRadius: BorderRadius.circular(500),
+                                  child: Image.asset(
+                                    allBrandsImages[i],
+                                    fit: BoxFit.fill,
+                                  ),
+                                )),
+                          ),
                         ),
-                      ),
-                    );
-                  }),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            ProductSlider(
-              heading: "New Phones",
-              products: phones,
-            
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            ProductSlider(
-              heading: "AUTOMOBILES",
-              products: vehicles,
-           
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-                child: Image.asset(
-              "assets/images/banner2.jpg",
-              width: sizeWidth(context),
-              height: sizeWidth(context),
-              fit: BoxFit.fill,
-            )),
-            SizedBox(
-              height: 20,
-            ),
-            ProductSlider(
-              heading: "Home Aplicense",
-              products: newArrivals,
-           
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            
+                      );
+                    }),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              ProductSlider(
+                heading: "New Phones",
+                products: phones,
+              
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              ProductSlider(
+                heading: "AUTOMOBILES",
+                products: vehicles,
+             
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                  child: Image.asset(
+                "assets/images/banner2.jpg",
+                width: sizeWidth(context),
+                height: sizeWidth(context),
+                fit: BoxFit.fill,
+              )),
+              SizedBox(
+                height: 20,
+              ),
+              ProductSlider(
+                heading: "Home Aplicense",
+                products: newArrivals,
+             
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              
 
-           
-          ],
+             
+            ],
+          ),
         ),
       );
     }
