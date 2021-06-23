@@ -91,7 +91,7 @@ class _BrandsScreenState extends State<BrandsScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => BrandDetailsScreen()));
+                            builder: (context) => BrandDetailsScreen(subcategories: ["bike",'cars','truck','airplane'],)));
                   },
                   child: Container(
                     width: 75,

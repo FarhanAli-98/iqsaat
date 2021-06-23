@@ -58,22 +58,23 @@ class _PackagetableState extends State<Packagetable> {
   }
 
   final TextEditingController _pricecontroller = TextEditingController();
-  final TextEditingController _monthcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
 
     return 
-        Container(
+        Center(
+          child: Container(
       height: MediaQuery.of(context).size.height / 4,
       width: MediaQuery.of(context).size.width / 0.3,
       color: Colors.white,
       child: Row(
-        children: [
-          SizedBox(child: package(context,0)),
-          SizedBox(child: package(context,1)),
-          SizedBox(child: package(context,2)),
-        ],
+          children: [
+            SizedBox(child: package(context,0)),
+            SizedBox(child: package(context,1)),
+            SizedBox(child: package(context,2)),
+          ],
       ),
-    );
+    ),
+        );
   }
 }
