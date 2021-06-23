@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/slider/product_gridview.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/categories.dart';
 import 'package:iqsaat/utils/app_colors.dart';
@@ -34,17 +35,8 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: Text(
-          'Subcategories'.toUpperCase(),
-          style: TextStyle(color: AppColors.primarycolor),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        
-      ),
+      appBar: appBarwithCenterTitle(context,"SubCategory"),
+
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
