@@ -57,7 +57,7 @@ class TextStyles {
 
 class BoxStyles {
   static BoxDecoration deco = BoxDecoration(
-    color: AppColors.backgroundColor,
+    color: Colors.white,//AppColors.backgroundColor,
     borderRadius: BorderRadius.circular(10),
     boxShadow: [
       BoxShadow(
