@@ -1,6 +1,8 @@
-  import 'package:flutter/material.dart';
-import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
-import '../ui/Seller/chat_tab/chat.dart';
+import 'package:flutter/material.dart';
+
+import 'package:iqsaat/ui/chat_tab/chat.dart';
+import 'package:iqsaat/ui/chat_tab/chat_dash.dart';
+
 
   class Personcard extends StatelessWidget {
     final Persondata person;
