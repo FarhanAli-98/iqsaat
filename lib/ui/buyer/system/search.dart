@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/routes.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -11,6 +12,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.navigate_before,color: Colors.grey,size: 30,),onPressed: ()=>AppRoutes.pop(context),),
         backwardsCompatibility: false,
         backgroundColor: Colors.transparent,
         elevation: 0,

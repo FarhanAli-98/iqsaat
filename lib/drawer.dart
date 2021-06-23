@@ -19,6 +19,7 @@ import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
 import 'ui/Seller/profile/profile_tab.dart';
+import 'ui/buyer/system/languagePage.dart';
 import 'ui/buyer/system/my_orders.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -447,7 +448,7 @@ class DrawerFull extends PreferredSize {
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
-                                                ContactUs()));
+                                                LanguagePage()));
                                   },
                                 ),
                                 CustomField(
