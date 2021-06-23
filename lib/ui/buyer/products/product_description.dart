@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/appbar_actions.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
@@ -38,15 +38,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text(
-          "Product Datile",
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        actions: appbarActions(context),
-      ),
+      appBar: appBarwithCenterTitle(context, "Product Datile"),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -224,7 +216,9 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                           child: CustomButtom(
                             buttonWidth: sizeWidth(context),
                             buttonHeight: 50.0,
-                            onPress: () {},
+                            onPress: () {
+                              bounceShowDialog(context);
+                            },
                             buttonColor: AppColors.primarycolor,
                             text: "BOOK AN ORDER",
                           ),
@@ -342,26 +336,84 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
     );
   }
 
+  Future bounceShowDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+              backgroundColor: Colors.white.withOpacity(0.9),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              content: new Container(
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        // height: 100,
+                        // width: 130,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 90,
+                              width: 90,
+                              child: Image.asset(
+                                'assets/images/successfully.png',
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Container(
+                              child: Text(
+                                'Order Successfully send',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            CustomButtom(
+                              buttonWidth: 70,
+                              buttonHeight: 50.0,
+                              onPress: () {
+                                AppRoutes.pop(context);
+                              },
+                              buttonColor: AppColors.primarycolor,
+                              text: "Ok",
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )));
+        });
+  }
+
   Widget buildShopCard(
       String name, String image, String profile, String status) {
     return Card(
-      clipBehavior:Clip.hardEdge ,
+      clipBehavior: Clip.hardEdge,
       elevation: 1,
-      borderOnForeground:false,
+      borderOnForeground: false,
       //shape:ShapeBorder(),
-      shadowColor:Colors.white,
+      shadowColor: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
-        
       ),
 
       child: ListTile(
         leading: ClipRRect(
-    borderRadius: BorderRadius.circular(20.0),
-    child: Image.asset(
-          image,
-        )
-  ),
+            borderRadius: BorderRadius.circular(20.0),
+            child: Image.asset(
+              image,
+            )),
         // Container(
         //     child: Image.asset(
         //   image,
@@ -374,7 +426,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
           ),
         ),
         subtitle: Container(
-          padding: const EdgeInsets.only(top: 5, right: 8, left: 28,bottom: 5),
+          padding: const EdgeInsets.only(top: 5, right: 8, left: 28, bottom: 5),
           child: Text(profile,
               style: TextStyle(
                 fontSize: 14,

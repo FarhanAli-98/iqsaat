@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/appbar_actions.dart';
-import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/Widget/appBar.dart';
+ import 'package:iqsaat/utils/app_colors.dart';
 
 import 'brand_details.dart';
 
@@ -51,16 +51,7 @@ class _BrandsScreenState extends State<BrandsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Text(
-            "All Brands",
-            style: TextStyle(color: Colors.black),
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-          ),
-          actions: appbarActions(context),
-        ),
+  appBar: appBarwithCenterTitle(context,"All Brands"),
         body: SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.only(left: 16, right: 16),

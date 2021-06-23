@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/appbar_actions.dart';
-import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/Widget/appBar.dart';
+ import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 
 import 'chat.dart';
@@ -16,50 +16,8 @@ class _ChatTabState extends State<ChatTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: AppColors.white,
-      appBar: AppBar(
-        elevation: 5,
-        titleSpacing: 0,
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        title: Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.pop(context,); 
-                  },
-                    child: Icon(
-                      Icons.chevron_left,
-                      color: Colors.black,
-                      size: 30,
-                    ),
-                   ),
-              ),
-            ),
-            Expanded(
-              flex: 10,
-              child: ListTile(
-               
-                title: Text(
-                  'Chat Manu',
-                 // style: Styles.heading,
-                ),
-              ),
-            ),
-            IconButton(
-                icon: Icon(
-                  Icons.more_vert,
-                  color: Colors.black,
-                  size: 30,
-                ),
-                onPressed: null)
-          ],
-        ),
-      ),
+         appBar: appBarwithOnlyTitle(context,"Chat DashBord"),
+
       body: Column(
         children: [
           InkWell(

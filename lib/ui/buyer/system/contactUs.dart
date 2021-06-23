@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 
@@ -14,19 +15,10 @@ class _ContactUsState extends State<ContactUs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0.2,
-        backgroundColor:  AppColors.primarycolor,
-        title: Text(
-          'Contact Us',
-          // style: Styles.heading,
-        ),
-      
-      ),
+    appBar: appBarwithCenterTitle(context,"Contact Us"),
       body: SingleChildScrollView(
         child: Container(
+          color:Colors.white,
           padding: EdgeInsets.only(left: 10,right: 10,top: 20),
           child: Column(
           
