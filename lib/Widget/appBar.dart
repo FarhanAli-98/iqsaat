@@ -1,14 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/textField.dart';
-import 'package:iqsaat/ui/buyer/home/mapview.dart';
+import 'package:iqsaat/ui/buyer/map/mapview.dart';
+import 'package:iqsaat/ui/buyer/system/notifications.dart';
+import 'package:iqsaat/ui/buyer/system/search.dart';
+import 'package:iqsaat/ui/buyer/system/vault.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:badges/badges.dart';
 Widget appBarwithbackIcon(BuildContext context,String titles) {
   return AppBar(
     title: Text(titles,style: TextStyle(color: Colors.black),),
-    elevation: 0.0,
+    elevation: 0.5,
     backgroundColor: Colors.white,
     leading: IconButton(
       icon: Icon(
@@ -20,10 +24,9 @@ Widget appBarwithbackIcon(BuildContext context,String titles) {
     
   );
 }
-
-Widget appBarwithCenterTitle(BuildContext context, String title) {
+Widget appBarwithOnlyTitle(BuildContext context, String title) {
   return AppBar(
-    elevation: 0.0,
+    elevation: 0.5,
     backgroundColor: Colors.white,
     leading: IconButton(
       icon: Icon(
@@ -32,14 +35,101 @@ Widget appBarwithCenterTitle(BuildContext context, String title) {
       ),
       onPressed: () => Navigator.pop(context),
     ),
-    centerTitle: true,
+   // centerTitle: true,
     title: Text(
       title,
-      style: GoogleFonts.poppins(textStyle: TextStyles.buttonFontText),
+      style: GoogleFonts.poppins(textStyle: TextStyles.buttonFontText, color: Colors.black)
     ),
+   
   );
 }
+Widget appBarwithCenterTitle(BuildContext context, String title) {
+  return AppBar(
+    elevation: 0.5,
+    backgroundColor: Colors.white,
+    leading: IconButton(
+      icon: Icon(
+        Icons.arrow_back_ios,
+        color: Colors.grey,
+      ),
+      onPressed: () => Navigator.pop(context),
+    ),
+   // centerTitle: true,
+    title: Text(
+      title,
+      style: GoogleFonts.poppins(textStyle: TextStyles.buttonFontText, color: Colors.black)
+    ),
+    actions: appbarActions(context),
+  );
+}
+List<Widget> appbarActions(BuildContext context) {
+  return [
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => SearchScreen()));
+        },
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey[300]),
+              borderRadius: BorderRadius.circular(10)),
+          child: Icon(
+            Icons.search_rounded,
+            color: Colors.black,
+            size: 18,
+          ),
+        ),
+      ),
+    ),
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => Notifications()));
+        },
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey[300]),
+              borderRadius: BorderRadius.circular(10)),
+          child: Icon(
+            Icons.notifications_outlined,
+            size: 18,
+            color: Colors.black,
+          ),
+        ),
+      ),
+    ),
 
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: InkWell(
+        onTap: () {
+                 Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => MyVault()));
+        },
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey[300]),
+              borderRadius: BorderRadius.circular(10)),
+          child: Icon(
+            CupertinoIcons.bag,
+            size: 18,
+            color: Colors.black,
+          ),
+        ),
+      ),
+    ),
+  ];
+}
 Widget appBarwithImageTitle(BuildContext context, String title) {
   return AppBar(
     elevation: 0.0,

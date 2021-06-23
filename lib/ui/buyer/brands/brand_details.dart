@@ -1,8 +1,15 @@
 
 import 'package:flutter/material.dart';
+import 'package:iqsaat/Widget/appBar.dart';
+import 'package:iqsaat/Widget/slider/product_gridview.dart';
+import 'package:iqsaat/ui/Seller/Product/categories/categories.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/images.dart';
 
 class BrandDetailsScreen extends StatefulWidget {
+  final List<String> subcategories;
+
+  const BrandDetailsScreen({Key key, this.subcategories}) : super(key: key);
   @override
   _BrandDetailsScreenState createState() => _BrandDetailsScreenState();
 }
@@ -22,17 +29,14 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
   ];
   bool showSubcat = true;
   @override
+  void initState() {
+    super.initState();
+    subCats=widget.subcategories;
+  }
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Category Name'.toUpperCase(),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        
-      ),
+      appBar: appBarwithCenterTitle(context,"SubCategory"),
+
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +45,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
               width: sizeWidth(context),
               height: 230,
               child: Image.asset(
-                'assets/images/brandImages/Bg.png',
+                categories[2].image,
                 fit: BoxFit.fill,
               ),
             ),
@@ -54,7 +58,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(200),
                       child: Image.asset(
-                        'assets/images/brandImages/brand1.png',
+                        categories[2].image,
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -66,7 +70,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'WD Style',
+                        'Vehicle',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
@@ -234,11 +238,11 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
             SizedBox(
               height: 14,
             ),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(
-            //       horizontal: AppPaddings.bodyPadding),
-            //   child: ProductGridView(products: newArrivals),
-            // )
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 10),
+             // child: ProductGridView(products: newArrivals),
+            )
           ],
         ),
       ),

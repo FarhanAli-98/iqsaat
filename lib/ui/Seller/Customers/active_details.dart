@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:iqsaat/ui/cart/cart_screen.dart';
+
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:intl/intl.dart';
 
@@ -631,12 +631,12 @@ class _Active_detailsState extends State<Active_details>
 
   FloatingActionButton _flotingButton() {
     return FloatingActionButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => CartScreen()),
-        );
-      },
+      // onPressed: () {
+      //   Navigator.push(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => CartScreen()),
+      //   );
+      // },
       backgroundColor: AppColors.primarycolor,
       child: Icon(Icons.chat_bubble,
           color: Theme.of(context).floatingActionButtonTheme.backgroundColor),

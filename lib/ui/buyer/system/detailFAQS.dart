@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iqsaat/Widget/appBar.dart';
+import 'package:iqsaat/utils/app_colors.dart';
 
 class FAQS1 extends StatefulWidget {
   const FAQS1({Key key}) : super(key: key);
@@ -11,42 +13,8 @@ class _FAQS1State extends State<FAQS1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Container(
-            child: Icon(
-              Icons.arrow_back,
-            ),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black12),
-            ),
-          ),
-        ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'FAQS',
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-            Container(
-              height: 30,
-              width: 30,
-              child: Icon(Icons.search),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black12),
-              ),
-            ),
-          ],
-        ),
-      ),
+     backgroundColor: Colors.white,
+    appBar: appBarwithCenterTitle(context,"FAQ's"),
       body: Column(
         children: [
           Container(

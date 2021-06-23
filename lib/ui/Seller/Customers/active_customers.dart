@@ -30,7 +30,8 @@ class active_customers extends StatelessWidget {
                     ongoing ? Active_details() : finished_details()));
       },
       child: Container(
-          height: MediaQuery.of(context).size.height / 4.2,
+        //color: Colors.white,
+          height: MediaQuery.of(context).size.height / 3.5,
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(12),
           margin: EdgeInsets.all(12),
@@ -44,7 +45,7 @@ class active_customers extends StatelessWidget {
                       child: ClipOval(
                         child: Image.asset(
                           'assets/images/person.png',
-                          height: 150,
+                          height: 350,
                           width: 150,
                           fit: BoxFit.cover,
                         ),
@@ -99,10 +100,25 @@ class active_customers extends StatelessWidget {
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Text(
-                            '\R\S\:45,000',
-                            style: TextStyle(color: AppColors.primarycolor),
-                          )
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: CircularPercentIndicator(
+                              radius: 60.0,
+                              lineWidth: 8.0,
+                              animation: true,
+                              percent: percent / 100,
+                              center: Text(
+                                percent.toString() + "%",
+                                style: TextStyle(
+                                    fontSize: 10.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black),
+                              ),
+                              backgroundColor: Colors.black,
+                              circularStrokeCap: CircularStrokeCap.round,
+                              progressColor: Colors.greenAccent,
+                            ),
+                          ),
                         ],
                       ),
                       Padding(
@@ -155,9 +171,9 @@ class active_customers extends StatelessWidget {
                         children: [
                           ongoing
                               ? Container(
-                                  padding: EdgeInsets.only(top: 02),
+                                  padding: EdgeInsets.only(top: 2,bottom: 2),
                                   height: 25,
-                                  width: 100,
+                                  width: 110,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(28),
                                       color: Colors.black,
@@ -215,30 +231,14 @@ class active_customers extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: CircularPercentIndicator(
-                              radius: 60.0,
-                              lineWidth: 8.0,
-                              animation: true,
-                              percent: percent / 100,
-                              center: Text(
-                                percent.toString() + "%",
-                                style: TextStyle(
-                                    fontSize: 10.0,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black),
-                              ),
-                              backgroundColor: Colors.black,
-                              circularStrokeCap: CircularStrokeCap.round,
-                              progressColor: Colors.greenAccent,
-                            ),
-                          ),
+                                 Text(
+                            '\R\S\:45,000',
+                            style: TextStyle(color: AppColors.primarycolor,fontWeight: FontWeight.bold),
+                          )
+                         
                         ],
                       ),
-                      SizedBox(
-                        height: 02,
-                      ),
+                     
                     ])),
           ])),
     );

@@ -40,21 +40,8 @@ void getUserProfileInfo()
       userProvider = Provider.of<UserProvider>(context);
 
     return Scaffold(
-      // appBar: AppBar(
-      //   centerTitle: true,
-      //   elevation: 0.0,
-      //   title: Text(
-      //     "User Profile",
-      //     textAlign: TextAlign.center,
-      //     style: TextStyle(
-      //         fontSize: 20.0,
-      //         color: Colors.cyan[900],
-      //         fontWeight: FontWeight.bold),
-      //   ),
-      //   backgroundColor: Colors.white,
-      // ),
+    
       appBar: AppBar(
-        //centerTitle: true,
         elevation: 0.0,
         backgroundColor: AppColors.primarycolor,
         title: Text(
@@ -90,34 +77,14 @@ void getUserProfileInfo()
                           elevation: 5,
                           margin: EdgeInsets.all(10),
                         )
-                      // : Card(
-                      //     semanticContainer: true,
-                      //     clipBehavior: Clip.antiAliasWithSaveLayer,
-                      //     child: Image.asset(Images.tind),
-                      //     shape: RoundedRectangleBorder(
-                      //       borderRadius: BorderRadius.circular(10.0),
-                      //     ),
-                      //     elevation: 5,
-                      //     margin: EdgeInsets.all(10),
-                      //   ),
+                  
                 ),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                // Padding(
-                //   padding: EdgeInsets.fromLTRB(20.0, 10.0, 95.0, 5.0),
-                //   child: Text(
-                //     userProvider.getUser.data.firstName+" "+ userProvider.getUser.data.lastName,
-                //     textAlign: TextAlign.right,
-                //     style: TextStyle(
-                //       fontSize: 17.0,
-                //       fontWeight: FontWeight.bold,
-                //       color: Colors.black,
-                //     ),
-                //   ),
-                // ),
+               
                 Padding(
                   padding: EdgeInsets.fromLTRB(10.0, 10.0, 30.0, 5.0),
                   // ignore: deprecated_member_use
@@ -139,7 +106,7 @@ void getUserProfileInfo()
                           ),
                         ),
                         Text(
-                           userProvider.getUser.data.email.toString(),
+                          " userProvider.getUser.data.email.toString()",
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w700,
@@ -168,7 +135,7 @@ void getUserProfileInfo()
                         color: Colors.black,
                       ),
                       Text(
-                         userProvider.getUser.data.contactNumber.toString(),
+                        " userProvider.getUser.data.contactNumber.toString()",
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w700,
@@ -180,48 +147,7 @@ void getUserProfileInfo()
                 ),
               ),
             ),
-            // Container(
-            //   height: 120,
-            //   child: Padding(
-            //     padding: EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 10.0),
-            //     child: ListView.builder(
-            //       shrinkWrap: true,
-            //       scrollDirection: Axis.horizontal,
-            //       itemBuilder: (BuildContext context, int index) {
-            //         return Container(
-            //           height: MediaQuery.of(context).size.height * 0.1,
-            //           width: MediaQuery.of(context).size.width * 0.3,
-            //           child: Card(
-            //                   semanticContainer: true,
-            //               lastname    clipBehavior: Clip.antiAliasWithSaveLayer,
-            //                   child: Image.network(
-            //                     "https://i.pinimg.com/736x/35/4a/59/354a59f73d62ffde38c0eada0177f164.jpg",
-            //                     fit: BoxFit.fill,
-            //                   ),
-            //                   shape: RoundedRectangleBorder(
-            //                     borderRadius: BorderRadius.circular(10.0),
-            //                   ),
-            //                   elevation: 5,
-            //                   margin: EdgeInsets.all(10),
-            //                 )
-            //               // : Card(
-            //               //     semanticContainer: true,
-            //               //     clipBehavior: Clip.antiAliasWithSaveLayer,
-            //               //     child: Image.asset(Images.tind,
-            //               //     fit: BoxFit.fill,
-            //               //     ),
-            //               //     shape: RoundedRectangleBorder(
-            //               //       borderRadius: BorderRadius.circular(10.0),
-                                
-            //               //     ),
-            //               //     elevation: 5,
-            //               //     margin: EdgeInsets.all(10),
-            //               //   ),
-            //         );
-            //       },
-            //     ),
-            //   ),
-            // ),
+          
             Padding(
               padding: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 5.0),
               child: Text(
@@ -261,7 +187,7 @@ void getUserProfileInfo()
             Padding(
               padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 10.0),
               child: Text(
-               userProvider.getUser.data.firstName,
+              " userProvider.getUser.data.firstName",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 15.0,
@@ -286,7 +212,7 @@ void getUserProfileInfo()
             Padding(
               padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 10.0),
               child: Text(
-               userProvider.getUser.data.lastName,
+              " userProvider.getUser.data.lastName,",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 15.0,
@@ -319,68 +245,7 @@ void getUserProfileInfo()
                 ),
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 0.0),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: <Widget>[
-            //       Text(
-            //         "Ethnicity ",
-            //         textAlign: TextAlign.right,
-            //         style: TextStyle(
-            //           fontSize: 15.0,
-            //           color: Colors.grey[600],
-            //         ),
-            //       ),
-            //       Text(
-            //         "Religion ",
-            //         textAlign: TextAlign.right,
-            //         style: TextStyle(
-            //           fontSize: 15.0,
-            //           color: Colors.grey[600],
-            //         ),
-            //       ),
-            //       Text(
-            //         "Politics ",
-            //         textAlign: TextAlign.right,
-            //         style: TextStyle(
-            //           fontSize: 15.0,
-            //           color: Colors.grey[600],
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            // Padding(
-            //  padding: const EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 30.0),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: <Widget>[
-            //       Text(
-            //        " profileProvider.u",
-            //         style: TextStyle(
-            //           fontSize: 15.0,
-            //           color: Colors.black,
-            //         ),
-            //       ),
-            //       Text(
-            //         "profileProvider.u",
-            //         style: TextStyle(
-            //           fontSize: 15.0,
-            //           color: Colors.black,
-            //         ),
-            //       ),
-            //       Text(
-            //         //profileProvider.,
-            //        " profileProvider.",
-            //         style: TextStyle(
-            //           fontSize: 15.0,
-            //           color: Colors.black,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
+          
           ],
         )
         

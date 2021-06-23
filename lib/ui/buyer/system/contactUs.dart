@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 
@@ -14,20 +15,11 @@ class _ContactUsState extends State<ContactUs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor:  AppColors.primarycolor,
-        title: Text(
-          'Contact Us',
-          // style: Styles.heading,
-        ),
-      
-      ),
+    appBar: appBarwithCenterTitle(context,"Contact Us"),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(left: 10,right: 10),
+          color:Colors.white,
+          padding: EdgeInsets.only(left: 10,right: 10,top: 20),
           child: Column(
           
 
@@ -53,7 +45,7 @@ class _ContactUsState extends State<ContactUs> {
                                           'assets/appIcons/googleLogo.png'))),
                               Container(
                                 margin: EdgeInsets.only(left: 15),
-                                child: Text('info@eveandco.qa'),
+                                child: Text('IQsaat@gmail.com'),
                               ),
                             ],
                           ),

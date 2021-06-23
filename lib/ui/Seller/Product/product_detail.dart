@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iqsaat/Widget/fab.dart';
 import 'package:iqsaat/ui/Seller/Reviews/reviewTablist.dart';
 import 'package:iqsaat/ui/Seller/Reviews/reviews.dart';
-import 'package:iqsaat/ui/cart/cart_screen.dart';
+
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 
@@ -473,12 +473,12 @@ class _ProductDetailPageState extends State<ProductDetailPage>
 
   FloatingActionButton _flotingButton() {
     return FloatingActionButton(
-      onPressed: () {
-       Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => CartScreen()),
-  );
-      },
+    //   onPressed: () {
+    //    Navigator.push(
+    // context,
+   // MaterialPageRoute(builder: (context) => CartScreen()),
+  //);
+      //},
       backgroundColor: Colors.orange,
       child: Icon(Icons.shopping_basket,
           color: Theme.of(context).floatingActionButtonTheme.backgroundColor),

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/Seller/Orders/orders_tab.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
+import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/productsAds.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
+import 'package:iqsaat/ui/buyer/map/mapview.dart';
 import 'package:iqsaat/ui/buyer/profile/userProfile.dart';
 import 'package:iqsaat/ui/buyer/system/contactUs.dart';
 import 'package:iqsaat/ui/buyer/system/detailFAQS.dart';
@@ -14,10 +16,10 @@ import 'package:iqsaat/ui/buyer/system/search.dart';
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
-import 'package:iqsaat/ui/History/user_history.dart';
 import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
 import 'ui/Seller/profile/profile_tab.dart';
-import 'ui/shared/chat/chat_dash.dart';
+import 'ui/buyer/system/languagePage.dart';
+import 'ui/buyer/system/my_orders.dart';
 
 class AppDrawer extends StatefulWidget {
   @override
@@ -55,7 +57,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       children: <Widget>[
                         Container(
                           width: double.infinity,
-                          height: size.width * 0.4,
+                          height: size.width * 0.4 ,
                           child: Container(
                             margin: EdgeInsets.symmetric(
                                 horizontal: 32, vertical: 28),
@@ -88,22 +90,16 @@ class _AppDrawerState extends State<AppDrawer> {
                           iconData: AppIcons.termCondation,
                           text: 'Home',
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        SellerHomePage()));
+                             AppRoutes.push(context, 
+                                        SellerHomePage());
                           },
                         ),
                         CustomField(
                           iconData: AppIcons.termCondation,
                           text: 'Profile',
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        ProfileTab()));
+                             AppRoutes.push(context, 
+                                        ProfileTab());
                           },
                         ),
                         InkWell(
@@ -113,7 +109,7 @@ class _AppDrawerState extends State<AppDrawer> {
                             });
                           },
                           child: Container(
-                            margin: EdgeInsets.only(left: 32, bottom: 18),
+                            margin: EdgeInsets.only(left: 32, bottom: 28),
                             child: Row(
                               children: <Widget>[
                                 Image.asset('assets/appIcons/company.png'),
@@ -140,7 +136,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         ),
                         isCompanyTaped
                             ? Container(
-                                height: size.width * 0.7,
+                                height: size.width * 0.35,
                                 width: size.width,
                                 padding: EdgeInsets.only(left: size.width / 5),
                                 child: Column(
@@ -156,7 +152,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                                     AddAdvertisementPage()));
                                       },
                                       child: Container(
-                                          margin: EdgeInsets.only(top: 18),
+                                          margin: EdgeInsets.only(top: 0),
                                           child: Text("Create Ad")),
                                     ),
                                     InkWell(
@@ -212,32 +208,32 @@ class _AppDrawerState extends State<AppDrawer> {
                                           margin: EdgeInsets.only(top: 18),
                                           child: Text("Orders")),
                                     ),
-                                    InkWell(
-                                      // onTap: () {
-                                      //   Navigator.push(
-                                      //       context,
-                                      //       MaterialPageRoute(
-                                      //           builder:
-                                      //               (BuildContext context) =>
-                                      //                   ));
-                                      // },
-                                      child: Container(
-                                          margin: EdgeInsets.only(top: 18),
-                                          child: Text("Reviews")),
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder:
-                                                    (BuildContext context) =>
-                                                        user_history()));
-                                      },
-                                      child: Container(
-                                          margin: EdgeInsets.only(top: 18),
-                                          child: Text("History")),
-                                    ),
+                                    // InkWell(
+                                    //   // onTap: () {
+                                    //   //   Navigator.push(
+                                    //   //       context,
+                                    //   //       MaterialPageRoute(
+                                    //   //           builder:
+                                    //   //               (BuildContext context) =>
+                                    //   //                   ));
+                                    //   // },
+                                    //   child: Container(
+                                    //       margin: EdgeInsets.only(top: 18),
+                                    //       child: Text("Reviews")),
+                                    // ),
+                                    // InkWell(
+                                    //   onTap: () {
+                                    //     Navigator.push(
+                                    //         context,
+                                    //         MaterialPageRoute(
+                                    //             builder:
+                                    //                 (BuildContext context) =>
+                                    //                     user_history()));
+                                    //   },
+                                    //   child: Container(
+                                    //       margin: EdgeInsets.only(top: 18),
+                                    //       child: Text("History")),
+                                    // ),
                                   ],
                                 ))
                             : Container(),
@@ -249,14 +245,11 @@ class _AppDrawerState extends State<AppDrawer> {
                           },
                         ),
                         CustomField(
-                          iconData: AppIcons.world,
+                          iconData: "assets/appIcons/chatboxes.png",
                           text: 'Chat',
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        ChatTab()));
+                             AppRoutes.push(context,
+                                        ChatTab());
                           },
                         ),
                         CustomField(
@@ -271,7 +264,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           // },
                         ),
                         SizedBox(
-                          height: isCompanyTaped ? 30 : size.width * 0.45,
+                          height: isCompanyTaped ? 10 : size.width * 0.45,
                         ),
                         Spacer(),
                         InkWell(
@@ -281,7 +274,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           },
                           child: Container(
                             // color: Colors.green,
-                            height: 40,
+                            height: 20,
                             margin: EdgeInsets.only(left: 32, bottom: 50),
                             child: Row(
                               children: <Widget>[
@@ -381,6 +374,10 @@ class DrawerFull extends PreferredSize {
                                       Container(
                                         height: 80,
                                         width: 80,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(80),
+                                        ),
                                         child: CircleAvatar(
                                           backgroundColor:
                                               AppColors.greyBackColor,
@@ -390,26 +387,47 @@ class DrawerFull extends PreferredSize {
                                           ),
                                         ),
                                       ),
-                                      Container(
-                                          margin: EdgeInsets.only(left: 21),
-                                          child: Text(
-                                            'Farhan ALi',
-                                            style: TextStyle(
-                                                color: AppColors.blackTextColor,
-                                                fontWeight: FontWeight.w600),
-                                          ))
+                                      InkWell(
+                                        onTap: () {
+                                          AppRoutes.push(
+                                              context, ProfilePage());
+                                        },
+                                        child: Container(
+                                            margin: EdgeInsets.only(left: 21),
+                                            child: Text(
+                                              'Farhan ALi',
+                                              style: TextStyle(
+                                                  color:
+                                                      AppColors.blackTextColor,
+                                                  fontWeight: FontWeight.w600),
+                                            )),
+                                      )
                                     ],
                                   ),
                                 ),
                                 CustomField(
-                                  iconData: AppIcons.person,
-                                  text: 'Profile',
+                                  iconData: "assets/appIcons/squares.png",
+                                  text: 'Search Nearby Shops',
+                                  onTap: () {
+                                    AppRoutes.push(context, Mapview());
+                                  },
+                                ),
+                                CustomField(
+                                  iconData: "assets/appIcons/briefcase.png",
+                                  text: 'My Order',
+                                  onTap: () {
+                                    AppRoutes.push(context, MyOrders());
+                                  },
+                                ),
+                                CustomField(
+                                  iconData: AppIcons.setting,
+                                  text: 'FAQS',
                                   onTap: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
-                                                ProfilePage()));
+                                                FAQS1()));
                                   },
                                 ),
                                 CustomField(
@@ -420,7 +438,7 @@ class DrawerFull extends PreferredSize {
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
-                                                ContactUs()));
+                                                LanguagePage()));
                                   },
                                 ),
                                 CustomField(
@@ -436,24 +454,13 @@ class DrawerFull extends PreferredSize {
                                 ),
                                 CustomField(
                                   iconData: AppIcons.help,
-                                  text: 'Help',
+                                  text: 'Contact us',
                                   onTap: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
                                                ContactUs() ));
-                                  },
-                                ),
-                                CustomField(
-                                  iconData: AppIcons.setting,
-                                  text: 'Settings',
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                                FAQS1()));
                                   },
                                 ),
                                 CustomField(
@@ -468,10 +475,12 @@ class DrawerFull extends PreferredSize {
                                   },
                                 ),
                                 CustomField(
-                                  iconData: AppIcons.wicRate,
-                                  text: 'My reviews',
+                                  iconData: "assets/appIcons/chatboxes.png",
+                                  text: 'Chat With us',
                                   //Image.asset('assets/appIcons/icon_reviews.png'),
-                                  onTap: () {},
+                                  onTap: () {
+                                    AppRoutes.push(context, ChatTab());
+                                  },
                                 ),
                                 Spacer(),
                                 CustomField(
