@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
  import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/routes.dart';
 
 import 'checkout.dart';
 
@@ -10,15 +11,14 @@ import 'checkout.dart';
 class MyVault extends StatelessWidget {
   final List<Map> myBagData = [
     {
-      "itemImage": "assets/images/cartImages/cartImage1.png",
-      "itemName": "G1 EAU DE Perfume (100 ml)",
-      "itemCode": "SKU: HV-250031013",
+      "itemImage": "assets/images/vehicle1.jpg",
+      "itemName": "honda 70",
+
       "itemPrice": "12.50",
     },
     {
-      "itemImage": "assets/images/cartImages/cartImage2.png",
-      "itemName": "Ciyoyo Combo(Straightener, Comb, Hair...",
-      "itemCode": "SKU: HV-2500310221",
+      "itemImage": "assets/images/vehicle1.jpg",
+      "itemName": "honda 125",
       "itemPrice": "12.50",
     },
   ];
@@ -35,9 +35,12 @@ class MyVault extends StatelessWidget {
                   shrinkWrap: true,
                   primary: false,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(14.0),
-                      child: Container(
+                    return InkWell(
+                      onTap: (){
+
+                      },
+                        child: Container(
+                        padding: const EdgeInsets.all(14.0),
                         child: Column(
                           children: [
                             Row(
@@ -70,86 +73,95 @@ class MyVault extends StatelessWidget {
                                     SizedBox(
                                       height: 10,
                                     ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 20,
-                                          width: 20,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Colors.grey[300],
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: Colors.white,
-                                          ),
-                                          child: Center(
-                                              child: Align(
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              "-",
-                                            ),
-                                          )),
-                                        ),
-                                        SizedBox(
-                                          width: 2,
-                                        ),
-                                        Container(
-                                          height: 20,
-                                          width: 28,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Colors.grey[300],
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: Colors.white,
-                                          ),
-                                          child: Center(
-                                              child: Align(
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              "1",
-                                              style: TextStyle(
-                                                fontSize: 12,
-                                              ),
-                                            ),
-                                          )),
-                                        ),
-                                        SizedBox(
-                                          width: 2,
-                                        ),
-                                        Container(
-                                          height: 20,
-                                          width: 20,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                              color: AppColors.primarycolor),
-                                          child: Center(
-                                              child: Align(
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              "+",
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                          )),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
+                                    // Row(
+                                    //   children: [
+                                        // Container(
+                                        //   height: 20,
+                                        //   width: 20,
+                                        //   decoration: BoxDecoration(
+                                        //     border: Border.all(
+                                        //       color: Colors.grey[300],
+                                        //     ),
+                                        //     borderRadius:
+                                        //         BorderRadius.circular(5),
+                                        //     color: Colors.white,
+                                        //   ),
+                                        //   child: Center(
+                                        //       child: Align(
+                                        //     alignment: Alignment.center,
+                                        //     child: Text(
+                                        //       "-",
+                                        //     ),
+                                        //   )),
+                                        // ),
+                                        // SizedBox(
+                                        //   width: 2,
+                                        // ),
+                                        // Container(
+                                        //   height: 20,
+                                        //   width: 28,
+                                        //   decoration: BoxDecoration(
+                                        //     border: Border.all(
+                                        //       color: Colors.grey[300],
+                                        //     ),
+                                        //     borderRadius:
+                                        //         BorderRadius.circular(5),
+                                        //     color: Colors.white,
+                                        //   ),
+                                        //   child: Center(
+                                        //       child: Align(
+                                        //     alignment: Alignment.center,
+                                        //     child: Text(
+                                        //       "1",
+                                        //       style: TextStyle(
+                                        //         fontSize: 12,
+                                        //       ),
+                                        //     ),
+                                        //   )),
+                                        // ),
+                                        // SizedBox(
+                                        //   width: 2,
+                                        // ),
+                                        // Container(
+                                        //   height: 20,
+                                        //   width: 20,
+                                        //   decoration: BoxDecoration(
+                                        //       borderRadius:
+                                        //           BorderRadius.circular(5),
+                                        //       color: AppColors.primarycolor),
+                                        //   child: Center(
+                                        //       child: Align(
+                                        //     alignment: Alignment.center,
+                                        //     child: Text(
+                                        //       "+",
+                                        //       style: TextStyle(
+                                        //           color: Colors.white),
+                                        //     ),
+                                        //   )),
+                                        // ),
+                                    //   ],
+                                    // ),
+                                    // SizedBox(
+                                    //   height: 5,
+                                    // ),
+                                    // Text(
+                                    //   myBagData[index]['itemCode'],
+                                    //   style: TextStyle(fontSize: 10),
+                                    // ),
+                                
                                     Text(
-                                      myBagData[index]['itemCode'],
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    SizedBox(
+                                      "${myBagData[index]["itemPrice"]} Rs",
+                                      style: TextStyle(
+                                          color: AppColors.primarycolor,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                      // ),
+                                      ,
+                                          SizedBox(
                                       height: 10,
                                     ),
                                     Text(
-                                      "${myBagData[index]["itemPrice"]} QAR",
+                                      "3 monthly installment",
                                       style: TextStyle(
                                           color: AppColors.primarycolor,
                                           fontWeight: FontWeight.bold),
@@ -170,7 +182,10 @@ class MyVault extends StatelessWidget {
                                       buttonWidth: sizeWidth(context) / 2.25,
                                       buttonHeight: 45,
                                       buttonColor: AppColors.primarycolor,
-                                      onPress: () {},
+                                      onPress: () {
+
+                                        bounceShowDialog( context,'Order Successfully send');
+                                      },
                                       text: "Order",
                                     ),
                                   ),
@@ -188,6 +203,7 @@ class MyVault extends StatelessWidget {
                                         //     MaterialPageRoute(
                                         //         builder: (context) =>
                                         //             SignUpScreen()));
+                                        bounceShowDialog( context,'Remove From Bag');
                                       },
                                       text: "Remove",
                                     ),
@@ -242,7 +258,7 @@ class MyVault extends StatelessWidget {
                                 style: TextStyle(),
                               ),
                               Text(
-                                '37.50 QAR',
+                                '37.50 Rs',
                                 style: TextStyle(
                                     fontSize: 17, fontWeight: FontWeight.bold),
                               )
@@ -282,5 +298,65 @@ class MyVault extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future bounceShowDialog(BuildContext context,title) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+              // backgroundColor: Colors.white.withOpacity(0.9),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              content: new Container(
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        // height: 100,
+                        // width: 130,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 90,
+                              width: 90,
+                              child: Image.asset(
+                                'assets/images/successfully.png',
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Container(
+                              child: Text(
+                                title,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            CustomButtom(
+                              buttonWidth: 70,
+                              buttonHeight: 50.0,
+                              onPress: () {
+                                AppRoutes.pop(context);
+                              },
+                              buttonColor: AppColors.primarycolor,
+                              text: "Ok",
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )));
+        });
   }
 }

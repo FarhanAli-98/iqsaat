@@ -9,6 +9,7 @@ import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/nav_bar_icons_icons.dart';
+import 'package:iqsaat/utils/routes.dart';
 
 class OrderScreen extends StatefulWidget {
   final String name;
@@ -207,7 +208,9 @@ class _OrderScreenState extends State<OrderScreen> {
                           child: CustomButtom(
                             buttonWidth: sizeWidth(context),
                             buttonHeight: 50.0,
-                            onPress: () {},
+                            onPress: () {
+                              bounceShowDialog(context,"Order Accepted");
+                            },
                             buttonColor: AppColors.primarycolor,
                             text: "ACCEPT ORDER",
                           ),
@@ -316,5 +319,64 @@ class _OrderScreenState extends State<OrderScreen> {
         ],
       ),
     );
+  }
+  Future bounceShowDialog(BuildContext context,title) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+              // backgroundColor: Colors.white.withOpacity(0.9),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              content: new Container(
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        // height: 100,
+                        // width: 130,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 90,
+                              width: 90,
+                              child: Image.asset(
+                                'assets/images/successfully.png',
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Container(
+                              child: Text(
+                                title,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            CustomButtom(
+                              buttonWidth: 70,
+                              buttonHeight: 50.0,
+                              onPress: () {
+                                AppRoutes.pop(context);
+                              },
+                              buttonColor: AppColors.primarycolor,
+                              text: "Ok",
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )));
+        });
   }
 }
