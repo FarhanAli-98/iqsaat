@@ -1,91 +1,199 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/person_card.dart';
+import 'package:iqsaat/Widget/appbar_actions.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:iqsaat/utils/routes.dart';
+
+import 'chat.dart';
 
 class ChatTab extends StatefulWidget {
+  const ChatTab({Key key}) : super(key: key);
+
   @override
-  _ChatTabState createState() => _ChatTabState();
+  State<ChatTab> createState() => _ChatTabState();
 }
 
 class _ChatTabState extends State<ChatTab> {
-
-// IO.Socket consumerSocket = IO.io(
-//     'http://192.168.43.189/chat',
-//     // 'http://192.168.1.180/chat',
-//     IO.OptionBuilder()
-//         .setPath('/lilac')
-//         .setTransports(['websocket'])
-//         .setExtraHeaders({"Authorization": "New Token"})
-//         .enableAutoConnect()
-//         .build());
-
-
-  List<Persondata> list = [
-     Persondata(
-        name: 'Farhan Ali',
-        status: 'This is getting some description of Profile'),
-          Persondata(
-        name: 'Farhan Ali',
-        status: 'This is getting some description of Profile'),
-          Persondata(
-        name: 'Farhan Ali',
-        status: 'This is getting some description of Profile'),
-          Persondata(
-        name: 'Farhan Ali',
-        status: 'This is getting some description of Profile'),
-          Persondata(
-        name: 'Farhan Ali',
-        status: 'This is getting some description of Profile'),
-          Persondata(
-        name: 'Farhan Ali',
-        status: 'This is getting some description of Profile'),
-        
-  ];
-   @override
-  void initState() {
-    super.initState();
-
-  }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+       backgroundColor: AppColors.white,
       appBar: AppBar(
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor: AppColors.primarycolor,
-        title: Text(
-          'Chat',
-          // style: Styles.heading,
+        elevation: 5,
+        titleSpacing: 0,
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context,); 
+                  },
+                    child: Icon(
+                      Icons.chevron_left,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+                   ),
+              ),
+            ),
+            Expanded(
+              flex: 10,
+              child: ListTile(
+               
+                title: Text(
+                  'Chat Manu',
+                 // style: Styles.heading,
+                ),
+              ),
+            ),
+            IconButton(
+                icon: Icon(
+                  Icons.more_vert,
+                  color: Colors.black,
+                  size: 30,
+                ),
+                onPressed: null)
+          ],
         ),
       ),
       body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 5.0),
-              child: Text("Messages",
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.primarycolor,
-                  )),
+        children: [
+          InkWell(
+            onTap: () {
+              AppRoutes.push(context, ChatPage());
+            },
+            child: buildChatDash(
+              'Name',
+              'assets/images/profile1.jpeg',
+              '03:46 PM',
+              'placed order this weekend?',
             ),
-            Column(
-              children:
-                  list.map((person) => Personcard(person: person)).toList(),
-            ),
-          ]),
+          ),
+          InkWell(
+            onTap: () {
+              AppRoutes.push(context, ChatPage());
+            },
+            child: buildChatDash(
+                "Name", 'assets/images/profile2.jpeg', "09:41 AM", 'placed order this weekend?'),
+          ),
+           InkWell(
+            onTap: () {
+              AppRoutes.push(context, ChatPage());
+            },
+            child: buildChatDash(
+                "Name", 'assets/images/profile2.jpeg', "09:41 AM", 'placed order this weekend?'),
+          ),
+           InkWell(
+            onTap: () {
+              AppRoutes.push(context, ChatPage());
+            },
+            child: buildChatDash(
+                "Name", 'assets/images/profile2.jpeg', "09:41 AM", 'placed order this weekend?'),
+          ),
+          //  InkWell(
+          //   onTap: () {
+          //     AppRoutes.push(context, ChatPage());
+          //   },
+          //   child: buildShopCard(
+          //       "Shop Name", 'assets/images/eyeWorld1.jpg', "See Profile", 'Sense from'),
+          // ),
+        ],
+      ),
     );
   }
-}
+  
 
-class Persondata {
-  String name;
-  String status;
-  Persondata({this.name, this.status});
+
+//   Widget buildShopCard(String name, String image, String profile, String status) {
+//     return Container(
+//     padding: EdgeInsets.only(top: 10),
+//       height: 100,
+//       child: Card(
+//         child: ListTile(
+//           leading: Container(
+//             child: Container(
+//                 height: 90,
+//                 width: 90,
+//                 child: Image.asset(
+//                   image,
+//                 )),
+//           ),
+//           title: Padding(
+//             padding: const EdgeInsets.only(top:8.0),
+//             child: Text(
+//               name,
+//               style: TextStyle(fontSize: 18),
+//             ),
+//           ),
+//           subtitle: Column(
+//             mainAxisAlignment: MainAxisAlignment.start,
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               Text(
+//                 status,
+//                 style: TextStyle(fontSize: 14),
+//               ),
+//               Text(
+//                 profile,
+//                 style: TextStyle(fontSize: 14,color: AppColors.primarycolor,)
+//               ),
+              
+//             ],
+//           ),
+       
+        
+//         ),
+//       ),
+//     );
+  
+// }
+
+  Widget buildChatDash(String name, String image, String time, String status) {
+    return Card(
+      child: ListTile(
+        leading: Container(
+          child: Container(
+              height: 40,
+              width: 40,
+              child: Image.asset(
+                image,
+              )),
+        ),
+        title: Text(
+          name,
+          style: TextStyle(fontSize: 16),
+        ),
+        subtitle: Text(
+          status,
+          style: TextStyle(fontSize: 10),
+        ),
+        trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.only(left: 5),
+              child: Text(
+                time,
+                style: TextStyle(
+                  fontSize: 11,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            Container(
+              child: Icon(
+                Icons.done_all,
+                color: Colors.green,
+                size: 20,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }

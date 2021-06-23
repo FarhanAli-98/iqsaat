@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appbar_actions.dart';
 import 'package:iqsaat/utils/images.dart';
+import 'package:iqsaat/utils/routes.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({Key key}) : super(key: key);
@@ -14,6 +15,7 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.navigate_before,color: Colors.black,), onPressed: ()=>AppRoutes.pop(context)),
           backgroundColor: Colors.white,
           title: Text(
            'NOTIFICAIONS',

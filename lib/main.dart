@@ -1,7 +1,4 @@
 import 'package:iqsaat/provider/shopProvider.dart';
-import 'package:iqsaat/ui/buyer/brands/brand_details.dart';
-import 'package:iqsaat/ui/buyer/brands/brands_screen.dart';
-import 'package:iqsaat/ui/buyer/home/home.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -70,7 +67,7 @@ class _MyAppState extends State<MyApp> {
                   return Text(snapshot.error.toString());
                 else
 
-                //return BrandDetailsScreen();
+               // return MapIntegration();
                 return SplashScreen(role: widget.role);
 
               } else

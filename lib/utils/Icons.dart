@@ -1,6 +1,6 @@
 class AppIcons {
   static const String search = 'assets/appIcons/icon_search.png';
-  static const String world = 'assets/appIcons/world.png';
+  static const String world = 'assets/appIcons/globe.png';
   static const String getPayment = 'asset/Images/ic_get_payment.png';
   static const String transaction = 'asset/Images/ic_transactions.png';
   static const String recharge = 'asset/Images/ic_recharge.png';
@@ -10,7 +10,7 @@ class AppIcons {
   static const String setting = 'assets/appIcons/settings.png';
   static const String icRate = 'asset/Images/ic_rate.png';
   static const String invite = 'asset/Images/ic_invite.png';
-  static const String help = 'assets/appIcons/icon_help services.png';
+  static const String help = 'assets/appIcons/phonecopy.png';
   static const String guideline = 'asset/Images/ic_guideline.png';
   static const String person = 'assets/appIcons/icon_profile.png';
   static const String icperson = 'asset/Images/ic_person.png';
