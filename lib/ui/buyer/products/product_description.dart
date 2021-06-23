@@ -341,7 +341,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
         context: context,
         builder: (BuildContext context) {
           return new AlertDialog(
-              backgroundColor: Colors.white.withOpacity(0.9),
+              // backgroundColor: Colors.white.withOpacity(0.9),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
               content: new Container(

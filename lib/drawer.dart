@@ -56,7 +56,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       children: <Widget>[
                         Container(
                           width: double.infinity,
-                          height: size.width * 0.4,
+                          height: size.width * 0.4 ,
                           child: Container(
                             margin: EdgeInsets.symmetric(
                                 horizontal: 32, vertical: 28),
