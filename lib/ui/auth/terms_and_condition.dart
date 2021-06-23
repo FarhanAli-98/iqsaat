@@ -10,51 +10,45 @@ class TermsAndConditionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-        //centerTitle: true,
-        elevation: 0.0,
-        backgroundColor: AppColors.primarycolor,
-        title: Text(
-          'Terms & Conditions',
-          style: TextStyle(fontWeight: FontWeight.w400),
-          // style: Styles.heading,
-        ),
-      ),
-    
+       appBar: appBarwithOnlyTitle( context,  'Terms & Conditions',),
+  
     
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(height: 12),
-              Text(
-                "Terms & Conditions For Incoming Users",
-                style: TextStyle(
-                  fontSize: 24,
-                ),
-              ),
-              SizedBox(height: 12),
-              Expanded(
-                flex: 10,
-                child: ListView(
-                  children: <Widget>[Text(terms)],
-                ),
-              ),
-              SizedBox(height: 12),
-               Button(
-                    buttonText: 'Ok',
-                    buttonColor: AppColors.primarycolor,
-                    onTap: () {
-
-                    AppRoutes.pop(context);
-                    },
-                    buttonTextStyle: TextStyles.buttonFontText,
-                    widthPercent: 0.8,
+        child: Container(
+          color: Colors.white,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(height: 12),
+                Text(
+                  "Terms & Conditions For Incoming Users",
+                  style: TextStyle(
+                    fontSize: 24,
                   ),
-              SizedBox(height: 12),
-            ],
+                ),
+                SizedBox(height: 12),
+                Expanded(
+                  flex: 10,
+                  child: ListView(
+                    children: <Widget>[Text(terms)],
+                  ),
+                ),
+                SizedBox(height: 12),
+                 Button(
+                      buttonText: 'Ok',
+                      buttonColor: AppColors.primarycolor,
+                      onTap: () {
+
+                      AppRoutes.pop(context);
+                      },
+                      buttonTextStyle: TextStyles.buttonFontText,
+                      widthPercent: 0.8,
+                    ),
+                SizedBox(height: 12),
+              ],
+            ),
           ),
         ),
       ),

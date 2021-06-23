@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/appbar_actions.dart';
-import 'package:iqsaat/Widget/button/custom_button.dart';
+import 'package:iqsaat/Widget/appBar.dart';
+ import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
@@ -9,6 +9,7 @@ import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/nav_bar_icons_icons.dart';
+import 'package:iqsaat/utils/routes.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:select_form_field/select_form_field.dart';
 
@@ -31,20 +32,12 @@ class ProdDescScreen extends StatefulWidget {
   @override
   _ProdDescScreenState createState() => _ProdDescScreenState();
 }
- 
+
 class _ProdDescScreenState extends State<ProdDescScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text(
-          "Product Datile",
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        actions: appbarActions(context),
-      ),
+      appBar: appBarwithCenterTitle(context,"Product Datile"),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -112,7 +105,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         SizedBox(
                           height: 10,
                         ),
-                       
+
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -125,7 +118,8 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
                               child: Text(
                                 "",
                                 style: TextStyle(
@@ -182,13 +176,16 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                           height: 10,
                         ),
 
-                        Container(padding: EdgeInsets.only(top:20,left:MediaQuery.of(context).size.width/25), child: Packagetable(price:widget.package)),
-                        
+                        Container(
+                            padding: EdgeInsets.only(
+                                top: 20,
+                                left: MediaQuery.of(context).size.width / 25),
+                            child: Packagetable(price: widget.package)),
+
                         SizedBox(
                           height: 25,
                         ),
-                         
-                           
+
                         Divider(
                           color: Colors.grey,
                         ),
@@ -200,7 +197,9 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                           child: CustomButtom(
                             buttonWidth: sizeWidth(context),
                             buttonHeight: 50.0,
-                            onPress: () {},
+                            onPress: () {
+                              bounceShowDialog(context);
+                            },
                             buttonColor: AppColors.primarycolor,
                             text: "BOOK AN ORDER",
                           ),
@@ -316,5 +315,65 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
         ],
       ),
     );
+  }
+
+  Future bounceShowDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+              backgroundColor: Colors.white.withOpacity(0.9),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              content: new Container(
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        // height: 100,
+                        // width: 130,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 90,
+                              width: 90,
+                              child: Image.asset(
+                                'assets/images/successfully.png',
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Container(
+                              child: Text(
+                                'Order Successfully send',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            CustomButtom(
+                              buttonWidth: 70,
+                              buttonHeight: 50.0,
+                              onPress: () {
+                                AppRoutes.pop(context);
+                              },
+                              buttonColor: AppColors.primarycolor,
+                              text: "Ok",
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )));
+        });
   }
 }

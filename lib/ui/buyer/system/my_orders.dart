@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/appbar_actions.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 
@@ -33,17 +33,7 @@ class MyOrders extends StatelessWidget {
       },
     ];
     return Scaffold(
-     backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0.2,
-        backgroundColor:  AppColors.primarycolor,
-        title: Text(
-          'My Order',
-          // style: Styles.heading,
-        ),
-      
-      ),
+    appBar: appBarwithCenterTitle(context,"My Order"),
       body: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),

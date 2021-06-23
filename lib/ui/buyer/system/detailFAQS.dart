@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 
 class FAQS1 extends StatefulWidget {
@@ -13,16 +14,7 @@ class _FAQS1State extends State<FAQS1> {
   Widget build(BuildContext context) {
     return Scaffold(
      backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0.2,
-        backgroundColor:  AppColors.primarycolor,
-        title: Text(
-          "FAQ's",
-          // style: Styles.heading,
-        ),
-      
-      ),
+    appBar: appBarwithCenterTitle(context,"FAQ's"),
       body: Column(
         children: [
           Container(

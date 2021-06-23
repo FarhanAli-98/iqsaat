@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/appbar_actions.dart';
-import 'package:iqsaat/Widget/button/custom_button.dart';
+import 'package:iqsaat/Widget/appBar.dart';
+ import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 
 import 'checkout.dart';
@@ -25,17 +25,7 @@ class MyVault extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Text(
-            "Add To Card",
-            style: TextStyle(color: Colors.black),
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-          ),
-          actions: appbarActions(context),
-        ),
-      backgroundColor: Colors.white,
+        appBar: appBarwithCenterTitle(context,"My Valut"),
       body: Stack(
         children: [
           SingleChildScrollView(

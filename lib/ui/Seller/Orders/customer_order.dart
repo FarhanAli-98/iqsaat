@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/appbar_actions.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
@@ -38,15 +38,7 @@ class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text(
-          "Product Detail",
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        actions: appbarActions(context),
-      ),
+    appBar:appBarwithCenterTitle(context,"Product Detail"),
       body: Stack(
         children: [
           SingleChildScrollView(

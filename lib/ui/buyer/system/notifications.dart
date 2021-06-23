@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/appbar_actions.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/routes.dart';
 
@@ -14,17 +14,7 @@ class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.navigate_before,color: Colors.black,), onPressed: ()=>AppRoutes.pop(context)),
-          backgroundColor: Colors.white,
-          title: Text(
-           'NOTIFICAIONS',
-            style: TextStyle(color: Colors.black),
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-          ),
-          actions: appbarActions(context),
-        ),
+  appBar: appBarwithCenterTitle(context,"Notifications"),
   
       body: ListView.builder(
           itemCount: 8,
