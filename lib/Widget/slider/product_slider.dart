@@ -13,7 +13,8 @@ class ProductSlider extends StatefulWidget {
   final List<AllAds> allAds;
   ProductSlider({
     @required this.heading,
-    @required this.products, this.allAds,
+    @required this.products, 
+    this.allAds,
   });
   @override
   _ProductSliderState createState() => _ProductSliderState();

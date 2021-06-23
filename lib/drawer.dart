@@ -245,7 +245,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           iconData: AppIcons.help,
                           text: 'Help',
                           onTap: () {
-                            //Image.asset('assets/appIcons/icon_help services.png'),
+                            AppRoutes.push(context, ContactUs() );
                           },
                         ),
                         CustomField(
@@ -442,7 +442,7 @@ class DrawerFull extends PreferredSize {
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
-                                                ContactUs()));
+                                               ContactUs() ));
                                   },
                                 ),
                                 CustomField(
