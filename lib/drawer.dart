@@ -7,6 +7,7 @@ import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/productsAds.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
+import 'package:iqsaat/ui/buyer/home/mapview.dart';
 import 'package:iqsaat/ui/buyer/profile/userProfile.dart';
 import 'package:iqsaat/ui/buyer/system/contactUs.dart';
 import 'package:iqsaat/ui/buyer/system/detailFAQS.dart';
@@ -19,6 +20,10 @@ import 'package:iqsaat/ui/History/user_history.dart';
 import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
 
 import 'ui/Seller/profile/profile_tab.dart';
+
+
+
+import 'ui/buyer/system/my_orders.dart';
 
 
 class AppDrawer extends StatefulWidget {
@@ -414,7 +419,33 @@ class DrawerFull extends PreferredSize {
                                                 ProfilePage()));
                                   },
                                 ),
+                                  CustomField(
+                                  iconData: AppIcons.help,
+                                  text: 'Shop by filter',
+                                  onTap: () {
+                                   AppRoutes.push(context, Mapview());
+                                  },
+                                ),
+                                 CustomField(
+                                  iconData: AppIcons.help,
+                                  text: 'My Order',
+                                  onTap: () {
+                                   AppRoutes.push(context, MyOrders());
+                                  },
+                                ),
+                            
                                 CustomField(
+                                  iconData: AppIcons.setting,
+                                  text: 'FAQS',
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                FAQS1()));
+                                  },
+                                ),
+                                    CustomField(
                                   iconData: AppIcons.world,
                                   text: 'Language',
                                   onTap: () {
@@ -438,7 +469,7 @@ class DrawerFull extends PreferredSize {
                                 ),
                                 CustomField(
                                   iconData: AppIcons.help,
-                                  text: 'Help',
+                                  text: 'Contact us',
                                   onTap: () {
                                     Navigator.push(
                                         context,
@@ -447,17 +478,7 @@ class DrawerFull extends PreferredSize {
                                                 ContactUs()));
                                   },
                                 ),
-                                CustomField(
-                                  iconData: AppIcons.setting,
-                                  text: 'Settings',
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                                FAQS1()));
-                                  },
-                                ),
+                              
                                 CustomField(
                                   iconData: AppIcons.search,
                                   text: 'Search',
@@ -471,7 +492,7 @@ class DrawerFull extends PreferredSize {
                                 ),
                                 CustomField(
                                   iconData: AppIcons.wicRate,
-                                  text: 'My reviews',
+                                  text: 'Chat With us',
                                   //Image.asset('assets/appIcons/icon_reviews.png'),
                                   onTap: () {},
                                 ),

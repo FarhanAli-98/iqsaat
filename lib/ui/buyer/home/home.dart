@@ -167,10 +167,11 @@ class _HomePageState extends State<HomePage> {
     height = MediaQuery.of(context).size.height;
   //  adsProvider = Provider.of<AdsProvider>(context);
     return SafeArea(
-      key: scaffoldKey,
       child: Scaffold(
-        drawer: DrawerFull(context, MediaQuery.of(context).size),
+      key: scaffoldKey,
+         drawer: DrawerFull(context, MediaQuery.of(context).size),
         appBar: AppBar(
+          leading: IconButton(icon: Icon(Icons.format_list_bulleted,color: Colors.black,), onPressed: ()=> scaffoldKey.currentState.openDrawer()),
           backgroundColor: Colors.white,
           title: Text(
             "Buyer",

@@ -17,7 +17,7 @@ class _ContactUsState extends State<ContactUs> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        elevation: 0.0,
+        elevation: 0.2,
         backgroundColor:  AppColors.primarycolor,
         title: Text(
           'Contact Us',
@@ -27,7 +27,7 @@ class _ContactUsState extends State<ContactUs> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(left: 10,right: 10),
+          padding: EdgeInsets.only(left: 10,right: 10,top: 20),
           child: Column(
           
 
@@ -53,7 +53,7 @@ class _ContactUsState extends State<ContactUs> {
                                           'assets/appIcons/googleLogo.png'))),
                               Container(
                                 margin: EdgeInsets.only(left: 15),
-                                child: Text('info@eveandco.qa'),
+                                child: Text('IQsaat@gmail.com'),
                               ),
                             ],
                           ),
