@@ -13,7 +13,6 @@ import 'package:iqsaat/ui/buyer/profile/userProfile.dart';
 import 'package:iqsaat/ui/buyer/system/contactUs.dart';
 import 'package:iqsaat/ui/buyer/system/detailFAQS.dart';
 import 'package:iqsaat/ui/buyer/system/search.dart';
-
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
@@ -91,22 +90,16 @@ class _AppDrawerState extends State<AppDrawer> {
                           iconData: AppIcons.termCondation,
                           text: 'Home',
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        SellerHomePage()));
+                             AppRoutes.push(context, 
+                                        SellerHomePage());
                           },
                         ),
                         CustomField(
                           iconData: AppIcons.termCondation,
                           text: 'Profile',
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        ProfileTab()));
+                             AppRoutes.push(context, 
+                                        ProfileTab());
                           },
                         ),
                         InkWell(
@@ -255,11 +248,8 @@ class _AppDrawerState extends State<AppDrawer> {
                           iconData: "assets/appIcons/chatboxes.png",
                           text: 'Chat',
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        ChatTab()));
+                             AppRoutes.push(context,
+                                        ChatTab());
                           },
                         ),
                         CustomField(
