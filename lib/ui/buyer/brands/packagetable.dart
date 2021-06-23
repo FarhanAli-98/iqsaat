@@ -39,15 +39,17 @@ class _PackagetableState extends State<Packagetable> {
 
   Widget package(BuildContext context, count) {
     return Container(
+      // padding: EdgeInsets.all(5),
       width: MediaQuery.of(context).size.width / 3.7,
       height: MediaQuery.of(context).size.height / 2,
       decoration:
-          BoxDecoration(border: Border.all(color: AppColors.primarycolor)),
+          BoxDecoration(border: Border.all(color: AppColors.primarycolor),borderRadius: BorderRadius.circular(10),),
       child: Column(
         children: [
           Row(
             children: [
               Container(
+                
                 child: Checkbox(
                   checkColor:  this.values[count]==true?Colors.black:Colors.white,
                   activeColor: Colors.white,
@@ -105,7 +107,7 @@ class _PackagetableState extends State<Packagetable> {
                   shrinkWrap: true,
                   itemCount: widget.price.length,
                   itemBuilder: (context, index) {
-                    return SizedBox(child: package(context, index));
+                    return Container(padding: EdgeInsets.all(1.9),child: SizedBox(child: package(context, index)));
                   }),
             ),
             // SizedBox(child: package(context,0)),

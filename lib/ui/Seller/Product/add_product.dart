@@ -28,12 +28,12 @@ class _AdProductState extends State<AdProduct> {
   TextEditingController _itemNameController = TextEditingController();
   TextEditingController _productPriceController = TextEditingController();
   TextEditingController _descrptionController = TextEditingController();
-  TextEditingController _noteController= TextEditingController();
+  TextEditingController _noteController = TextEditingController();
 
   int selectedRadio;
 //images
   Dio dio = new Dio();
-    File _image;
+  File _image;
   final picker = ImagePicker();
   bool _isloading = false;
   String imageUrl;
@@ -44,7 +44,6 @@ class _AdProductState extends State<AdProduct> {
   final _formKey = GlobalKey<FormState>();
   final dateFormat = DateFormat('dd-MM-yyyy');
 
-
   @override
   void initState() {
     super.initState();
@@ -54,185 +53,153 @@ class _AdProductState extends State<AdProduct> {
   }
 
   Widget _body(BuildContext context) {
-   // registerProvider = Provider.of<RegisterProvider>(context);
-    return ListView(
-      children: <Widget>[
-        Container(
+    // registerProvider = Provider.of<RegisterProvider>(context);
+    return ListView(children: <Widget>[
+      Container(
           margin: EdgeInsets.only(top: 15),
-          child: Stack(
-            children: <Widget>[
-              Container(
-                height: 40,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          bottom: 10,
-                        ),
-                        child: GestureDetector(
-                          onTap: () => Navigator.pop(context),
-                          child: Icon(
-                            Icons.chevron_left,
-                            color: Colors.blueAccent,
-                            size: 40,
-                          ),
+          child: Stack(children: <Widget>[
+            Container(
+              height: 40,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        bottom: 10,
+                      ),
+                      child: GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: Icon(
+                          Icons.chevron_left,
+                          color: Colors.blueAccent,
+                          size: 40,
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Container(
-                  margin: EdgeInsets.only(top: 32, left: 16, right: 16),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(60),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 2,
-                          blurRadius: 10,
-                        )
-                      ]),
-                  child: Form(
+            ),
+            Container(
+                margin: EdgeInsets.only(top: 32, left: 16, right: 16),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(60),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        spreadRadius: 2,
+                        blurRadius: 10,
+                      )
+                    ]),
+                child: Form(
                     key: _formKey,
                     child: Card(
-                      // elevation: 9.0,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide.none,
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                          top: 45.0,
+                        // elevation: 9.0,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide.none,
+                          borderRadius: BorderRadius.circular(40),
                         ),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              textFieldHeader(
-                                'Product Name',
-                              ),
-                              Center(
-                                  child: TextFields.normalTextField(context,
-                                      // fieldValue: _firstName,
-                                      controller: _itemNameController,
-                                      validaterMsg:
-                                          'ProductName cannot be empty')),
-                              textFieldHeader('Product Price'),
-                              Center(
-                                
-                                  child: TextFields.normalTextField(context,
-                                      // fieldValue: _lastName,
-                                      controller: _productPriceController,
-                                      validaterMsg:
-                                          ' cannot be empty'))
-                                          ,
-                               textFieldHeader('Descrption'),
-                              Center(
-                                child:Container(
-                                  height:120,
-                                  child: TextFields.normalTextField(context,
-                                      // fieldValue: _lastName,
-                                      controller: _descrptionController,
-                                      validaterMsg:
-                                          ' cannot be empty'
-                                         )
-                                         ),
-                                        
-                                          
-
-                                          ),
-                                           textFieldHeader('Any note'),
-                                           
-                              Center(
-                                 child:Container(
-                                  height:80,
-                                  child: TextFields.normalTextField(context,
-                                      // fieldValue: _lastName,
-                                      controller: _noteController,
-                                      validaterMsg:
-                                          ' cannot be empty'))
-                              ),
-                                           Align(
-                alignment: Alignment.topCenter,
-                child: Container(
-                    height: 80,
-                    width: 80,
-                    decoration: BoxDecoration(
-                        // color: Colors.red,
-                        shape: BoxShape.circle),
-                    child: GestureDetector(
-                      onTap: () {
-                        _image = _showPicker(context);
-                      },
-                      child: CircleAvatar(
-                        radius: 35,
-                        backgroundColor: Color(0xffFDCF09),
-                        child: _image != null
-                            ? ClipOval(
-                                child: Image.file(
-                                  _image,
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
-                                ),
-                              )
-                            : Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.grey[200],
-                                    borderRadius: BorderRadius.circular(50)),
-                                width: 100,
-                                height: 100,
-                                child: Icon(
-                                  Icons.camera_alt,
-                                  color: Colors.grey[800],
-                                ),
-                              ),
-                      ),
-                    )
-                )
-                                           ),
-
-                                           Container(
-                                             margin : EdgeInsets.all(10),
-                                                          child: Button(
-                buttonText: 'Add item',
-                 buttonColor:Colors.blueGrey,
-                 onTap:(){
-
-                 } ,
-                  buttonTextStyle: TextStyles.buttonFontText,
-                    widthPercent: 0.8,
-              )
-                                           )
-                                           
-              
-                            ]
-                                          )
-                                          )
-                    )
-                  )
-
-
-              ),
-             
-              
-            ]
-          )
-        )
-      ]
-    );
-                                   
-            
-            
-            
-          
-        
-       
-              }
+                        child: Padding(
+                            padding: const EdgeInsets.only(
+                              top: 45.0,
+                            ),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  textFieldHeader(
+                                    'Product Name',
+                                  ),
+                                  Center(
+                                      child: TextFields.normalTextField(context,
+                                          // fieldValue: _firstName,
+                                          controller: _itemNameController,
+                                          validaterMsg:
+                                              'ProductName cannot be empty')),
+                                  textFieldHeader('Product Price'),
+                                  Center(
+                                      child: TextFields.normalTextField(context,
+                                          // fieldValue: _lastName,
+                                          controller: _productPriceController,
+                                          validaterMsg: ' cannot be empty')),
+                                  textFieldHeader('Descrption'),
+                                  Center(
+                                    child: Container(
+                                        height: 120,
+                                        child: TextFields.normalTextField(
+                                            context,
+                                            // fieldValue: _lastName,
+                                            controller: _descrptionController,
+                                            validaterMsg: ' cannot be empty')),
+                                  ),
+                                  textFieldHeader('Any note'),
+                                  Center(
+                                      child: Container(
+                                          height: 80,
+                                          child: TextFields.normalTextField(
+                                              context,
+                                              // fieldValue: _lastName,
+                                              controller: _noteController,
+                                              validaterMsg:
+                                                  ' cannot be empty'))),
+                                  Align(
+                                      alignment: Alignment.topCenter,
+                                      child: Container(
+                                          height: 80,
+                                          width: 80,
+                                          decoration: BoxDecoration(
+                                              // color: Colors.red,
+                                              shape: BoxShape.circle),
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              _image = _showPicker(context);
+                                            },
+                                            child: CircleAvatar(
+                                              radius: 35,
+                                              backgroundColor:
+                                                  Color(0xffFDCF09),
+                                              child: _image != null
+                                                  ? ClipOval(
+                                                      child: Image.file(
+                                                        _image,
+                                                        width: 100,
+                                                        height: 100,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    )
+                                                  : Container(
+                                                      decoration: BoxDecoration(
+                                                          color:
+                                                              Colors.grey[200],
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50)),
+                                                      width: 100,
+                                                      height: 100,
+                                                      child: Icon(
+                                                        Icons.camera_alt,
+                                                        color: Colors.grey[800],
+                                                      ),
+                                                    ),
+                                            ),
+                                          ))),
+                                  Container(
+                                      margin: EdgeInsets.all(10),
+                                      child: Button(
+                                        buttonText: 'Add item',
+                                        buttonColor: Colors.blueGrey,
+                                        onTap: () {},
+                                        buttonTextStyle:
+                                            TextStyles.buttonFontText,
+                                        widthPercent: 0.8,
+                                      ))
+                                ]))))),
+          ]))
+    ]);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -242,11 +209,10 @@ class _AdProductState extends State<AdProduct> {
       child: Container(
         decoration: BoxDecoration(gradient: AppColors.background),
         child: Scaffold(
-          appBar:AppBar
-          (
-            title:Text("Add Products"),
+          appBar: AppBar(
+            title: Text("Add Products"),
             backgroundColor: Colors.blueAccent,
-          ) ,
+          ),
           backgroundColor: Colors.transparent,
           //appBar: appBarwithbackIcon(context),
           body: Container(
