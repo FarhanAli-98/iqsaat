@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
- import 'package:iqsaat/Widget/button/custom_button.dart';
+import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
 import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
+import 'package:iqsaat/ui/chat_tab/chat.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/nav_bar_icons_icons.dart';
@@ -37,7 +38,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarwithCenterTitle(context,"Product Datile"),
+      appBar: appBarwithCenterTitle(context, "Product Datile"),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -185,7 +186,25 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         SizedBox(
                           height: 25,
                         ),
-
+                        Divider(
+                          color: Colors.grey,
+                        ),
+                        SizedBox(
+                          height: 25,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            AppRoutes.push(context, ChatPage());
+                          },
+                          child: buildShopCard(
+                              "Shop Name",
+                              'assets/images/brandImages/brand1.png',
+                              "See Profile",
+                              'Sense from'),
+                        ),
+                        SizedBox(
+                          height: 25,
+                        ),
                         Divider(
                           color: Colors.grey,
                         ),
@@ -375,5 +394,46 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                     ],
                   )));
         });
+  }
+
+  Widget buildShopCard(
+      String name, String image, String profile, String status) {
+    return Card(
+      clipBehavior: Clip.hardEdge,
+      elevation: 1,
+      borderOnForeground: false,
+      //shape:ShapeBorder(),
+      shadowColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+
+      child: ListTile(
+        leading: ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Image.asset(
+              image,
+            )),
+        // Container(
+        //     child: Image.asset(
+        //   image,
+        // )),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 10.0, right: 8, left: 28),
+          child: Text(
+            name,
+            style: TextStyle(fontSize: 18),
+          ),
+        ),
+        subtitle: Container(
+          padding: const EdgeInsets.only(top: 5, right: 8, left: 28, bottom: 5),
+          child: Text(profile,
+              style: TextStyle(
+                fontSize: 14,
+                color: AppColors.primarycolor,
+              )),
+        ),
+      ),
+    );
   }
 }

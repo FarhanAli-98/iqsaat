@@ -12,13 +12,13 @@ import 'package:iqsaat/ui/buyer/profile/userProfile.dart';
 import 'package:iqsaat/ui/buyer/system/contactUs.dart';
 import 'package:iqsaat/ui/buyer/system/detailFAQS.dart';
 import 'package:iqsaat/ui/buyer/system/search.dart';
+import 'package:iqsaat/ui/chat_tab/chat_dash.dart';
 import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
 import 'ui/Seller/profile/profile_tab.dart';
 import 'ui/buyer/system/my_orders.dart';
-import 'ui/chat_tab/chat_dash.dart';
 
 class AppDrawer extends StatefulWidget {
   @override
@@ -114,7 +114,7 @@ class _AppDrawerState extends State<AppDrawer> {
                             });
                           },
                           child: Container(
-                            margin: EdgeInsets.only(left: 32, bottom: 18),
+                            margin: EdgeInsets.only(left: 32, bottom: 28),
                             child: Row(
                               children: <Widget>[
                                 Image.asset('assets/appIcons/company.png'),
