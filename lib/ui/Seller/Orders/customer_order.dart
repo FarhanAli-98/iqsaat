@@ -5,7 +5,9 @@ import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
+import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
+import 'package:iqsaat/ui/buyer/system/vault.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/nav_bar_icons_icons.dart';
@@ -241,78 +243,80 @@ class _OrderScreenState extends State<OrderScreen> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              child: Row(
-                children: [
-                  Container(
-                    width: sizeWidth(context) / 2.6,
-                    height: 60,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: AppColors.primarycolor,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            NavBarIcons.home,
-                            color: Colors.white,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            'Order',
-                            style: TextStyle(
-                              fontSize: 17,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          // Text(
-                          //   'Total',
-                          //   style: AppTextStyles.smallFontSize.copyWith(color: Colors.white),
-                          // )
-                        ],
+            child: GestureDetector(
+              onTap: (){
+                AppRoutes.push(context, ChatTab());
+              },
+                          child: Container(
+                child: Row(
+                  children: [
+                    Container(
+                      width: sizeWidth(context) / 2.6,
+                      height: 60,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: AppColors.primarycolor,
                       ),
-                    ),
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {},
-                      child: Container(
-                        height: 60,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: AppColors.black,
-                        ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 18, 8, 8),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(
-                              CupertinoIcons.bag,
-                              color: Colors.white,
-                            ),
+                           Image.asset("assets/appIcons/chatboxes.png",scale: 1,),
                             SizedBox(
                               width: 10,
                             ),
                             Text(
-                              'ADD TO BAG',
+                              'Chat',
                               style: TextStyle(
-                                fontSize: 19,
+                                fontSize: 20,
                                 color: Colors.white,
-                                // fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
+
+                     
                           ],
                         ),
                       ),
                     ),
-                  )
-                ],
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+
+                          AppRoutes.push(context,  MyVault());
+                        },
+                        child: Container(
+                          height: 60,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: AppColors.black,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                CupertinoIcons.bag,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'ADD TO VAULT',
+                                style: TextStyle(
+                                  fontSize: 19,
+                                  color: Colors.white,
+                                  // fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           )

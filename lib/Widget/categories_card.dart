@@ -20,7 +20,7 @@ class category_card extends StatelessWidget {
     return Material(
       type: MaterialType.transparency,
       child: Container(
-        height: MediaQuery.of(context).size.height / 4.5,
+        height: MediaQuery.of(context).size.height / 3.9,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: AppColors.backgroundColor,
@@ -28,8 +28,9 @@ class category_card extends StatelessWidget {
         child: Column(
           children: [
             Container(
-                margin: EdgeInsets.only(top: 2, right: 2, left: 2, bottom: 0),
-                width: double.infinity,
+              height: MediaQuery.of(context).size.height / 3.9,
+                margin: EdgeInsets.only( right: 2, left: 2, bottom: 0),
+                width: sizeWidth(context),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   image: DecorationImage(
@@ -46,8 +47,9 @@ class category_card extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(
                             20)), //color:Colors.amber[100]),
-
+                       
                     child: Column(
+
                       children: [
                         Text(
                           categories.title,
@@ -84,7 +86,7 @@ class category_card extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height: 5,
+                          height: 0,
                         ),
                         Row(
                           children: [

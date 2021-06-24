@@ -181,11 +181,20 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                           height: 10,
                         ),
 
-                        Container(
-                            padding: EdgeInsets.only(
-                                top: 20,
-                                left: MediaQuery.of(context).size.width / 25),
-                            child: Packagetable(price: widget.package)),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                                                  child: Container(
+                                                     height: MediaQuery.of(context)
+                                                  .size
+                                                  .height /
+                                              3,
+                                          width: sizeWidth(context)*1.2,
+                          //  height: MediaQuery.of(context).size.height /2 ,
+                              // padding: EdgeInsets.only(
+                              //     top: 20,),
+                                  //left: MediaQuery.of(context).size.width ),
+                              child: Packagetable(price: widget.package)),
+                        ),
 
                         SizedBox(
                           height: 25,
@@ -275,7 +284,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         color: AppColors.primarycolor,
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+                        padding: const EdgeInsets.fromLTRB(16, 18, 8, 8),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

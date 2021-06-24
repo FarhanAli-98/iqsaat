@@ -32,7 +32,7 @@ class ordersCard extends StatelessWidget {
     return InkWell(
       onTap: func,
           child: Container(
-        height: MediaQuery.of(context).size.height/4.4,
+        height: MediaQuery.of(context).size.height/3.9,
        // width: DS.mq.width,
         padding: EdgeInsets.all(08),
         margin: EdgeInsets.all(08),
@@ -49,7 +49,7 @@ class ordersCard extends StatelessWidget {
                  CircleAvatars.profile,
                  
                     Container(
-                      margin: EdgeInsets.only(top:20,bottom: 10),
+                      margin: EdgeInsets.only(top:15,bottom: 5,left: 10),
                       child: Align(
                       
                         alignment: Alignment.bottomLeft,
@@ -136,14 +136,14 @@ class ordersCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                  SizedBox(height: 30,),
+                  SizedBox(height: 20,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          padding: EdgeInsets.only(top: 2,bottom: 2),
-                          height: 25,
-                          width: 110,
+                         padding: EdgeInsets.only(top: 2,bottom: 2),
+                            width: sizeWidth(context)/3,
+                            //height: MediaQuery.of(context).size.width*.07,
                           decoration:
                            BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
@@ -168,11 +168,11 @@ class ordersCard extends StatelessWidget {
                               status ?
                               Text(
                                 'Accepted',
-                                style: TextStyle(color: AppColors.black, fontSize: 14,fontWeight: FontWeight.bold),
+                                style: TextStyle(color: AppColors.black, fontSize: 16,fontWeight: FontWeight.bold),
                               ):
                               Text(
                                 'Ongoing',
-                                style: TextStyle(color: AppColors.black, fontSize: 14,fontWeight: FontWeight.bold),
+                                style: TextStyle(color: AppColors.black, fontSize: 16,fontWeight: FontWeight.bold),
                               )
 
                               // SizedBox(
@@ -186,35 +186,7 @@ class ordersCard extends StatelessWidget {
                             ],
                           ),
                         ),
-                         Container(
-                          padding: EdgeInsets.only(top: 2,bottom: 2),
-                          height: 25,
-                          width: 115,
-                          decoration: BoxStyles.deco,
-                          
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              status ?
-                              Text(
-                                'Add Customer',
-                                style: TextStyle(color: AppColors.primarycolor, fontSize: 14,fontWeight: FontWeight.bold),
-                              ):
-                                Text(
-                                'View Details',
-                                style: TextStyle(color: AppColors.primarycolor, fontSize: 14,fontWeight: FontWeight.bold),
-                              )
-                              // SizedBox(
-                              //   height: 03,
-                              // ),
-                              // Container(
-                              //   height: 03,
-                              //   width: 60,
-                              //   color: Color(0xff6AB5D5),
-                              // )
-                            ],
-                          ),
-                        ),
+                        
                       ],
                     ),
                   ])),
