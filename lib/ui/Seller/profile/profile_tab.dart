@@ -1,22 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/chip_container.dart';
 import 'package:iqsaat/Widget/rounded_outline_button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'about_tab.dart';
 import 'pervious_ads.dart';
-import 'profile_timeline_bar.dart';
 
 class ProfileTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
-        elevation: 0,
-      ),
+    appBar:appBarwithbackIcon(context,"Shop Profile"),
       body: Container(
+        color: Colors.white,
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -25,7 +22,7 @@ class ProfileTab extends StatelessWidget {
               SizedBox(height: 12),
               Expanded(
                 child: DefaultTabController(
-        length: 3,
+        length: 2,
         child: Column(
           children: <Widget>[
             Material(
@@ -34,7 +31,6 @@ class ProfileTab extends StatelessWidget {
                 indicatorColor: AppColors.primarycolor,
                 labelColor: Colors.black,
                 tabs: <Widget>[
-                  Tab(child: Text("Timeline Ads")),
                   Tab(child: Text("About Shop")),
                   Tab(child: Text("Vault Ads"))
                 ],
@@ -43,7 +39,6 @@ class ProfileTab extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 children: <Widget>[
-                  TimeLineBar(),
                   AboutTab(),
                   PerviousAds(),
                 ],
@@ -79,22 +74,25 @@ class ProfileInfoColumn extends StatelessWidget {
           ),
         ),
         SizedBox(height: 12),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            ChipContainer(
-              leading: "Receved oders",
-              trailing: "13",
-            ),
-            ChipContainer(
-              leading: "Daliver orders",
-              trailing: "7",
-            ),
-            ChipContainer(
-              leading: "Ads",
-              trailing: "70",
-            ),
-          ],
+        Container(
+          width: MediaQuery.of(context).size.width,
+                  child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              ChipContainer(
+                leading: "Receved oders",
+                trailing: "13",
+              ),
+              ChipContainer(
+                leading: "Daliver orders",
+                trailing: "7",
+              ),
+              ChipContainer(
+                leading: "Ads",
+                trailing: "70",
+              ),
+            ],
+          ),
         ),
       ],
     );
