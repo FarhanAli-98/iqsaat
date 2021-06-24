@@ -31,7 +31,7 @@ class active_customers extends StatelessWidget {
       },
       child: Container(
         //color: Colors.white,
-          height: MediaQuery.of(context).size.height / 3.5,
+          height: MediaQuery.of(context).size.height / 3,
           width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(12),
           margin: EdgeInsets.all(12),
@@ -45,15 +45,15 @@ class active_customers extends StatelessWidget {
                       child: ClipOval(
                         child: Image.asset(
                           'assets/images/person.png',
-                          height: 350,
-                          width: 150,
+                          height: 340,
+                          width: 140,
                           fit: BoxFit.cover,
                         ),
                       ),
                       radius: 55.0,
                     ),
                     SizedBox(
-                      height: 5.0,
+                      height: 20.0,
                     ),
                     ongoing
                         ? Text(
@@ -122,7 +122,7 @@ class active_customers extends StatelessWidget {
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 8.0, bottom: 05),
+                        padding: const EdgeInsets.only(top: 5.0, bottom: 05),
                         child: RichText(
                             text: TextSpan(children: [
                           TextSpan(
@@ -142,7 +142,7 @@ class active_customers extends StatelessWidget {
                         ])),
                       ),
                       SizedBox(
-                        height: 05,
+                        height: 03,
                       ),
                       Row(
                         children: [
@@ -164,16 +164,16 @@ class active_customers extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ongoing
                               ? Container(
-                                  padding: EdgeInsets.only(top: 2,bottom: 2),
-                                  height: 25,
-                                  width: 110,
+                                  padding: EdgeInsets.only(top: 3,bottom: 3),
+                                  width: sizeWidth(context)/3.7,
+                                  //height: MediaQuery.of(context).size.width*0.05,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(28),
                                       color: Colors.black,
@@ -206,9 +206,8 @@ class active_customers extends StatelessWidget {
                                   ),
                                 )
                               : Container(
-                                  padding: EdgeInsets.only(top: 02),
-                                  height: 25,
-                                  width: 100,
+                                 padding: EdgeInsets.only(top: 3,bottom: 3),
+                                  width: sizeWidth(context)/3.7,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(25),
                                       color: Colors.greenAccent,

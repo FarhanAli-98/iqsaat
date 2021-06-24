@@ -169,7 +169,7 @@ class ProductSliderCard extends StatelessWidget {
                                   bottomLeft: Radius.circular(10)),
                             ),
                             child: Text(
-                              "Detaile",
+                              "Detail",
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600,

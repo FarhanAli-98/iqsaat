@@ -23,69 +23,77 @@ class _PackagetableState extends State<Packagetable> {
   }
 
   Widget pricefield(count) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-      child: TextField(
-        controller: _pricecontroller..text = widget.price[count].toString(),
-        keyboardType: TextInputType.number,
-        enabled: false,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          labelText: 'Price\p\k\r',
-        ),
+    return Expanded(
+      flex: 1,
+          child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+        child: TextField(
+            controller: _pricecontroller..text = widget.price[count].toString(),
+            keyboardType: TextInputType.number,
+            enabled: false,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Price\p\k\r',
+            ),
+          ),
       ),
     );
   }
 
   Widget package(BuildContext context, count) {
-    return Container(
-      // padding: EdgeInsets.all(5),
-      width: MediaQuery.of(context).size.width / 3.7,
-      height: MediaQuery.of(context).size.height / 2,
-      decoration:
-          BoxDecoration(border: Border.all(color: AppColors.primarycolor),borderRadius: BorderRadius.circular(10),),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                
-                child: Checkbox(
-                  checkColor:  this.values[count]==true?Colors.black:Colors.white,
-                  activeColor: Colors.white,
-                  //  value:,
-                  onChanged: (bool value) {
-                    print(value);
-                    setState(() {
-                      this.values[count] = !values[count];
-                    });
-                  },
-                  value: true,
-                ),
-              ),
-              Center(
-                child: Text("Package",
-                    style: TextStyle(
-                      color: AppColors.primarycolor,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    )),
-              ),
-            ],
-          ),
-          // SizedBox(height: MediaQuery.of(context).size.height/8,),
+    return Expanded(
+      flex:3,
+          child: Container(
+          // padding: EdgeInsets.all(5),
+          //height: MediaQuery.of(context).size.width / 3,
 
-          SizedBox(
-              width: MediaQuery.of(context).size.width / 3,
-              child: Container(
-                  padding: EdgeInsets.all(4),
-                  child: Text("${months[count]} Month",
-                      textAlign: TextAlign.center))),
-          SizedBox(
-              width: MediaQuery.of(context).size.width / 3,
-              child: pricefield(count)),
-        ],
-      ),
+          
+          decoration:
+        BoxDecoration(border: Border.all(color: AppColors.primarycolor),borderRadius: BorderRadius.circular(10),),
+          child: Column(
+      children: [
+        Row(
+          children: [
+            Container(
+            
+              child: Checkbox(
+                checkColor:  this.values[count]==true?Colors.black:Colors.white,
+                activeColor: Colors.white,
+                //  value:,
+                onChanged: (bool value) {
+                  print(value);
+                  setState(() {
+                    this.values[count] = !values[count];
+                  });
+                },
+                value: true,
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(left :5),
+              child: Text("Package",
+                  style: TextStyle(
+                    color: AppColors.primarycolor,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+          ],
+        ),
+        // SizedBox(height: MediaQuery.of(context).size.height/8,),
+
+        SizedBox(
+            width: MediaQuery.of(context).size.width / 3,
+            child: Container(
+                padding: EdgeInsets.all(4),
+                child: Text("${months[count]} Month",
+                    textAlign: TextAlign.center))),
+        SizedBox(
+            width: MediaQuery.of(context).size.width / 3,
+            child: Container(height: MediaQuery.of(context).size.height*.118, child: pricefield(count))),
+      ],
+          ),
+        ),
     );
   }
 
@@ -94,14 +102,14 @@ class _PackagetableState extends State<Packagetable> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: MediaQuery.of(context).size.height / 4,
+        height: MediaQuery.of(context).size.height / 3.5,
         width: MediaQuery.of(context).size.width / 0.3,
         color: Colors.white,
         child: Row(
           children: [
             Container(
-              height: 340,
-              width: sizeWidth(context) / 1.2,
+              // height: 340,
+              // width: sizeWidth(context) / 1.2,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,

@@ -136,7 +136,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         ),
                         isCompanyTaped
                             ? Container(
-                                height: size.width * 0.35,
+                                height: size.width * 0.40,
                                 width: size.width,
                                 padding: EdgeInsets.only(left: size.width / 5),
                                 child: Column(
@@ -205,9 +205,10 @@ class _AppDrawerState extends State<AppDrawer> {
                                                         ordersTab()));
                                       },
                                       child: Container(
-                                          margin: EdgeInsets.only(top: 18),
+                                          margin: EdgeInsets.only(bottom: 18,top:18),
                                           child: Text("Orders")),
                                     ),
+                                    
                                     // InkWell(
                                     //   // onTap: () {
                                     //   //   Navigator.push(
@@ -237,12 +238,15 @@ class _AppDrawerState extends State<AppDrawer> {
                                   ],
                                 ))
                             : Container(),
-                        CustomField(
-                          iconData: AppIcons.help,
-                          text: 'Help',
-                          onTap: () {
-                            //Image.asset('assets/appIcons/icon_help services.png'),
-                          },
+                        Padding(
+                          padding: const EdgeInsets.only(top:0.0),
+                          child: CustomField(
+                            iconData: AppIcons.help,
+                            text: 'Help',
+                            onTap: () {
+                              //Image.asset('assets/appIcons/icon_help services.png'),
+                            },
+                          ),
                         ),
                         CustomField(
                           iconData: "assets/appIcons/chatboxes.png",
@@ -255,13 +259,13 @@ class _AppDrawerState extends State<AppDrawer> {
                         CustomField(
                           iconData: AppIcons.termCondation,
                           text: 'Terms of use',
-                          // onTap: () {
-                          //  Navigator.push(
-                          //               context,
-                          //               MaterialPageRoute(
-                          //                   builder: (BuildContext context) =>
-                          //                       CartScreen()));
-                          // },
+                          onTap: () {
+                           Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                TermsAndConditionScreen()));
+                          },
                         ),
                         SizedBox(
                           height: isCompanyTaped ? 10 : size.width * 0.45,

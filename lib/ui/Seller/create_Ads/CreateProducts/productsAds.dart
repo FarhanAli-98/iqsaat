@@ -154,15 +154,13 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                                             MediaQuery.of(context).size.width /
                                                 29),
                                     child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
                                       child: Container(
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height /
-                                              4.2,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              0.2,
+                                              3,
+                                          width: sizeWidth(context)*1.2,
                                           child: createPackages()),
                                     ),
                                   ),

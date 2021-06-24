@@ -45,46 +45,52 @@ class _createPackagesState extends State<createPackages> {
     },
   ];
   Widget monthField(count) {
-    return SelectFormField(
-      //controller: _monthcontroller[count],
-    
-      type: SelectFormFieldType.dropdown,
-      labelText: 'Months',
-      items: _items,
-      onChanged: (val) =>print(val),
-      onSaved: (val) => print(val),
+    return Expanded(
+      flex:1,
+          child: SelectFormField(
+        //controller: _monthcontroller[count],
+      
+        type: SelectFormFieldType.dropdown,
+        labelText: 'Months',
+        items: _items,
+        onChanged: (val) =>print(val),
+        onSaved: (val) => print(val),
+      ),
     );
   }
 
   Widget package(BuildContext context,count) {
-    return Container(
-      padding: EdgeInsets.all(5),
-      width: MediaQuery.of(context).size.width / 3.7,
-      height: MediaQuery.of(context).size.height / 2,
-      decoration:
-          BoxDecoration(border: Border.all(color: AppColors.primarycolor),borderRadius: BorderRadius.circular(10),),
-      child: Column(
-        children: [
-          
-          // SizedBox(height: MediaQuery.of(context).size.height/8,),
-          Center(
-            child: Text("Package",
-                style: TextStyle(
-                  color: AppColors.primarycolor,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
+    return Expanded(
+      flex: 3,
+          child: Container(
+        padding: EdgeInsets.all(5),
+        //width: MediaQuery.of(context).size.width / 3,
+        height: MediaQuery.of(context).size.width / 2,
+        decoration:
+            BoxDecoration(border: Border.all(color: AppColors.primarycolor),borderRadius: BorderRadius.circular(10),),
+        child: Column(
+          children: [
+            
+            // SizedBox(height: MediaQuery.of(context).size.height/8,),
+            Center(
+              child: Text("Package",
+                  style: TextStyle(
+                    color: AppColors.primarycolor,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+            SizedBox(
+                width: MediaQuery.of(context).size.width / 3,
+                child: Padding(
+                  padding: const EdgeInsets.only(left:8.0),
+                  child: Container(child: monthField(count)),
                 )),
-          ),
-          SizedBox(
-              width: MediaQuery.of(context).size.width / 3,
-              child: Padding(
-                padding: const EdgeInsets.only(left:8.0),
-                child: monthField(count),
-              )),
-          SizedBox(
-              width: MediaQuery.of(context).size.width / 3,
-              child: pricefield(count)),
-        ],
+            SizedBox(
+                width: MediaQuery.of(context).size.width / 3,
+                child: Container(height: MediaQuery.of(context).size.height*.118 ,child: pricefield(count))),
+          ],
+        ),
       ),
     );
   }
@@ -107,7 +113,7 @@ class _createPackagesState extends State<createPackages> {
 
     return Scaffold(
         body: Container(
-      height: MediaQuery.of(context).size.height / 4,
+      height: MediaQuery.of(context).size.height / 3,
       width: MediaQuery.of(context).size.width / 0.3,
       color: Colors.white,
       child: Row(

@@ -1,14 +1,7 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/providers_listView_container.dart';
-import 'package:iqsaat/models/interest_item_model.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/material.dart';
-import 'package:bezier_chart/bezier_chart.dart';
-import 'package:intl/intl.dart';
 import './salesreport.dart';
 import './shopreport.dart';
 import './Statistics/analysisshop.dart';
@@ -222,17 +215,17 @@ class _DashboardState extends State<Dashboard>
                 
                       ),
                       child: Column(children: <Widget>[
-                        Text(
-                          "Welcome back,",
-                          style: Theme.of(context)
-                              .textTheme
-                              .display1
-                              .apply(color: AppColors.primarycolor),
-                        ),
+                        // Text(
+                        //   "Welcome back,",
+                        //   style: Theme.of(context)
+                        //       .textTheme
+                        //       .display1
+                        //       .apply(color: AppColors.primarycolor),
+                        // ),
                         Row(
                           children: [
                             Text(
-                              "Mr. Usama",
+                              "Afzal electronics",
                               style: Theme.of(context).textTheme.display1.apply(
                                   color: AppColors.primarycolor,
                                   fontWeightDelta: 2),
@@ -240,24 +233,7 @@ class _DashboardState extends State<Dashboard>
                             SizedBox(
                               width: 80,
                             ),
-                            Row(
-                              children: <Widget>[
-                                // Text(
-                                //   "Overall review:",
-                                //   style:TextStyle(fontWeight: FontWeight.bold)
-                                // ),
-
-                                Icon(Icons.star,
-                                    color: Colors.yellow, size: 19),
-                                Icon(Icons.star,
-                                    color: Colors.yellow, size: 19),
-                                Icon(Icons.star,
-                                    color: Colors.yellow, size: 19),
-                                Icon(Icons.star,
-                                    color: Colors.yellow, size: 19),
-                                Icon(Icons.star_border, size: 19),
-                              ],
-                            ),
+                           
                           ],
                         ),
                         SizedBox(
