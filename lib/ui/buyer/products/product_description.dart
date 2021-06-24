@@ -9,14 +9,10 @@ import 'package:iqsaat/ui/Seller/chat_tab/chat.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
 import 'package:iqsaat/ui/buyer/system/vault.dart';
-
-
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
-import 'package:iqsaat/utils/nav_bar_icons_icons.dart';
 import 'package:iqsaat/utils/routes.dart';
-import 'package:pluto_grid/pluto_grid.dart';
-import 'package:select_form_field/select_form_field.dart';
+
 
 class ProdDescScreen extends StatefulWidget {
   final String name;
