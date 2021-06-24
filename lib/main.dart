@@ -1,4 +1,6 @@
 import 'package:iqsaat/provider/shopProvider.dart';
+import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
+import 'package:iqsaat/ui/buyer/map/mapview.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -67,7 +69,7 @@ class _MyAppState extends State<MyApp> {
                   return Text(snapshot.error.toString());
                 else
 
-               // return MapIntegration();
+               // return ProfileTab();
                 return SplashScreen(role: widget.role);
 
               } else

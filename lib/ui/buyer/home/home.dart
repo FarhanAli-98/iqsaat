@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                                 child: InkWell(
                                   onTap: () {},
                                   borderRadius: BorderRadius.circular(500),
-                           =>       child: Image.asset(
+                                  child: Image.asset(
                                     allBrandsImages[i],
                                     fit: BoxFit.fill,
                                   ),
