@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/providers_listView_container.dart';
 import 'package:iqsaat/models/interest_item_model.dart';
+import 'package:iqsaat/Widget/reportview.dart';
+import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -304,16 +306,61 @@ class _DashboardState extends State<Dashboard>
                   children: [
                     Column(
                       children: [
-                        salesReport(
-                          report: 34,
+                        Row(mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          reportCard(
+                            title:"Installments",
+                            subtitle:"Active",
+                            imgurl: AppIcons.inst,
+                            stat: 34,
+                          ),
+                          reportCard(
+                            title:"Orders",
+                            subtitle:"New",
+                            imgurl: AppIcons.order2,
+                            stat: 15,
+                          ),
+                          reportCard(
+                            title:"Customers",
+                            subtitle:"Active",
+                            imgurl: AppIcons.cust,
+                            stat: 20,
+                          ),
+                           
+                          
+
+                        ],
                         ),
+
                         salesanalysis(),
                       ],
                     ),
                     Column(
                       children: [
-                        shopReport(
-                          report:45
+                         Row(mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          reportCard(
+                            title:"Inventory",
+                            subtitle:"Products",
+                            imgurl: AppIcons.inventory,
+                            stat: 25,
+                          ),
+                          reportCard(
+                            title:"Sold ",
+                            subtitle:"Completed",
+                            imgurl: AppIcons.sold,
+                            stat: 12,
+                          ),
+                          reportCard(
+                            title:"Categories",
+                            subtitle:"All",
+                            imgurl: AppIcons.categ,
+                            stat: 6,
+                          ),
+                           
+                          
+
+                        ],
                         ),
                         shopanalysis(),
                       ],

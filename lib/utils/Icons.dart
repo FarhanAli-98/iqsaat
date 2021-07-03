@@ -26,5 +26,11 @@ class AppIcons {
   static const String wicRate = 'assets/appIcons/icon_reviews.png';
   static const String winvite = 'asset/Images/ic_invite.png';
     static const String logout = 'assets/appIcons/icon_logout.png';
+    static const String cust = 'assets/images/customers.png';
+    static const String order2 = 'assets/images/ord2.png';
+    static const String inst = 'assets/images/installments.png';
+    static const String categ = 'assets/images/categories2.png';
+    static const String sold = 'assets/images/sold.png';
+    static const String inventory = 'assets/images/inventory2.png';
 
 }

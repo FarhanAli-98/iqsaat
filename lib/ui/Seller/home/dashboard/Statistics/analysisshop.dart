@@ -37,7 +37,7 @@ Widget _analysisline(BuildContext context) {
             children: <Widget>[
               Expanded(
                 child: Text(
-                  "Analysis",
+                  "Category Analysis",
                   style: Theme.of(context)
                       .textTheme
                       .title
