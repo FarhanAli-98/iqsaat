@@ -1,29 +1,30 @@
  import 'package:flutter/material.dart';
  import 'package:iqsaat/utils/app_colors.dart';
- class shopreport extends StatefulWidget {
+import 'package:iqsaat/utils/styles.dart';
+ class shopReport extends StatefulWidget {
    @override
-   _shopreportState createState() => _shopreportState();
+   _shopReportState createState() => _shopReportState();
+   final int report;
+   shopReport({Key key,this.report}):super(key: key);
  }
  
- class _shopreportState extends State<shopreport> {
+ class _shopReportState extends State<shopReport> {
+
    @override
    Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.only(left: 15, right: 15),
-        padding: EdgeInsets.all(15.0),
-        decoration: BoxDecoration(
-            color: AppColors.backgroundColor,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(15),
-              topRight: Radius.circular(15),
-            )),
+     return Container(
+       //height: MediaQuery.of(context).size.height/1.5,
+        
+       margin: EdgeInsets.only(top:15,left: 15, right: 10),
+        padding: EdgeInsets.fromLTRB(10, 10, 20, 10),
+        decoration:BoxStyles.deco,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Shop Report",
+              "Sales Report",
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: AppColors.primarycolor,
               ),
@@ -33,25 +34,24 @@
             ),
             Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Products Sold:",
+                    "Installments",
                     style: TextStyle(
                         color: Colors.grey[900],
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
-                    width: 190,
-                  ),
+                 
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "34:",
+                        widget.report.toString(),
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600),
                       ))
                 ]),
             SizedBox(
@@ -59,58 +59,54 @@
             ),
             Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Active Products:",
+                    "Active Customers",
                     style: TextStyle(
                         color: Colors.grey[900],
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
-                    width: 176,
-                  ),
+                  
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "34:",
+                        widget.report.toString(),
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600),
                       ))
                 ]),
             SizedBox(
               height: 11.0,
             ),
             Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Total Products:",
+                    "New Orders",
                     style: TextStyle(
                         color: Colors.grey[900],
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
-                    width: 190,
-                  ),
+                 
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "34:",
+                        widget.report.toString(),
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600),
                       ))
                 ]),
+           
             SizedBox(
-              height: 11.0,
-            ),
-            SizedBox(
-              height: 11.0,
+              height: 15.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,7 +118,7 @@
                     color:  AppColors.primarycolor,
                     onPressed: () {},
                     child: Text(
-                      'Shop',
+                      'Customers',
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
@@ -154,7 +150,7 @@
                     color:  AppColors.primarycolor,
                     onPressed: () {},
                     child: Text(
-                      'Ads',
+                      'Orders',
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
@@ -170,5 +166,7 @@
             ),
           ],
         ));
-  }
+    
+   }
  }
+  

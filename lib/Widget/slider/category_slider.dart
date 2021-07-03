@@ -1,4 +1,4 @@
-
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';

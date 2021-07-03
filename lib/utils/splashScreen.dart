@@ -9,7 +9,7 @@ import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatefulWidget {
   final String role;
-  SplashScreen({@required this.role});
+  SplashScreen({ this.role});
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }

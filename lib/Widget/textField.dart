@@ -6,7 +6,7 @@ import 'package:iqsaat/utils/styles.dart';
 class TextFields {
   static Widget emailTextField(BuildContext context,
       {String hintText,
-      TextEditingController controller,
+     TextEditingController controller,
       String validaterMsg}) {
     return Container(
       decoration: BoxDecoration(

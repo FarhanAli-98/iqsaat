@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:iqsaat/utils/app_colors.dart';
@@ -5,6 +6,7 @@ import 'package:iqsaat/utils/app_colors.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class finished_details extends StatefulWidget {
+ 
   finished_details({Key key}) : super(key: key);
 
   @override

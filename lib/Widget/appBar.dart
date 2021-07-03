@@ -27,14 +27,14 @@ Widget appBarwithbackIcon(BuildContext context,String titles) {
 Widget appBarwithOnlyTitle(BuildContext context, String title) {
   return AppBar(
     elevation: 0.5,
-    backgroundColor: Colors.white,
-    leading: IconButton(
-      icon: Icon(
-        Icons.arrow_back_ios,
-        color: Colors.grey,
-      ),
-      onPressed: () => Navigator.pop(context),
-    ),
+    backgroundColor: Colors.lightBlue[50],
+    // leading: IconButton(
+    //   // icon: Icon(
+    //   //   Icons.arrow_back_ios,
+    //   //   color: Colors.grey,
+    //   // ),
+    //   onPressed: () => Navigator.pop(context),
+    // ),
    // centerTitle: true,
     title: Text(
       title,

@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/providers_listView_container.dart';
@@ -13,7 +14,7 @@ import './salesreport.dart';
 import './shopreport.dart';
 import './Statistics/analysisshop.dart';
 import './Statistics/analysisSale.dart';
-
+import 'dashcard.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -30,13 +31,6 @@ class _DashboardState extends State<Dashboard>
     super.dispose();
   }
 
-  
-  
-
- 
-
- 
-
   Widget upOverview() {
     // bool isSwitched = false;
     return Container(
@@ -45,19 +39,16 @@ class _DashboardState extends State<Dashboard>
       padding: EdgeInsets.all(4),
       // margin: EdgeInsets.only(le:70),
       decoration: BoxDecoration(
-          color: AppColors.white,
-          
-          borderRadius: BorderRadius.only(bottomRight: Radius.circular(12)),
-          boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    offset: Offset(0.0, 1.0), //(x,y)
-                    blurRadius: 6.0,
-                  ),
-                ],
-          
-
+        color: AppColors.white,
+        borderRadius: BorderRadius.only(bottomRight: Radius.circular(12)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            offset: Offset(0.0, 1.0), //(x,y)
+            blurRadius: 6.0,
           ),
+        ],
+      ),
 
       child: Column(children: [
         Text(
@@ -103,8 +94,8 @@ class _DashboardState extends State<Dashboard>
         height: 10,
       ),
       Text("Road to lv 2:",
-          style: TextStyle(
-              color: AppColors.black, fontWeight: FontWeight.bold)),
+          style:
+              TextStyle(color: AppColors.black, fontWeight: FontWeight.bold)),
       SizedBox(
         height: 5,
       ),
@@ -127,8 +118,8 @@ class _DashboardState extends State<Dashboard>
         height: 5,
       ),
       Text("Monthly sales Target:",
-          style: TextStyle(
-              color: AppColors.black, fontWeight: FontWeight.bold)),
+          style:
+              TextStyle(color: AppColors.black, fontWeight: FontWeight.bold)),
       SizedBox(
         height: 5,
       ),
@@ -147,12 +138,12 @@ class _DashboardState extends State<Dashboard>
         progressColor: AppColors.primarycolor,
         backgroundColor: Colors.grey[300],
       ),
-       SizedBox(
+      SizedBox(
         height: 5,
       ),
       Text("Collection:",
-          style: TextStyle(
-              color: AppColors.black, fontWeight: FontWeight.bold)),
+          style:
+              TextStyle(color: AppColors.black, fontWeight: FontWeight.bold)),
       SizedBox(
         height: 5,
       ),
@@ -196,156 +187,101 @@ class _DashboardState extends State<Dashboard>
     );
   }
 
+  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: AppColors.backgroundColor,
       body: Column(
         children: [
-          Container(
-            
-            height: MediaQuery.of(context).size.height / 2.6,
-           // decoration: BoxDecoration(border: Border()),
-            child: SingleChildScrollView(
-              padding: EdgeInsets.only(left: 5, right: 5),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    // Container(
-                    //   decoration: BoxDecoration(
-                    //     color: AppColors.backgroundColor,
-                    //     border: Border.all(
-                    //       color: AppColors.backgroundColor,
-                    //       width: 9,
-                    //     ),
-                    //     borderRadius: BorderRadius.only(
-                    //         bottomLeft: Radius.elliptical(15, 15),
-                    //         bottomRight: Radius.elliptical(15, 15)),
-                
-                    //   ),
-                    //   child: Column(children: <Widget>[
-                    //     Text(
-                    //       "Welcome back,",
-                    //       style: Theme.of(context)
-                    //           .textTheme
-                    //           .display1
-                    //           .apply(color: AppColors.primarycolor),
-                    //     ),
-                    //     Row(
-                    //       children: [
-                    //         Text(
-                    //           "Mr. Usama",
-                    //           style: Theme.of(context).textTheme.display1.apply(
-                    //               color: AppColors.primarycolor,
-                    //               fontWeightDelta: 2),
-                    //         ),
-                    //         SizedBox(
-                    //           width: 80,
-                    //         ),
-                    //         Row(
-                    //           children: <Widget>[
-                    //             // Text(
-                    //             //   "Overall review:",
-                    //             //   style:TextStyle(fontWeight: FontWeight.bold)
-                    //             // ),
+          maindash(),
+//           Container(
+//             height: MediaQuery.of(context).size.height / 2.6,
+//             // decoration: BoxDecoration(border: Border()),
+//             child: SingleChildScrollView(
+//               padding: EdgeInsets.only(left: 5, right: 5),
+//               child: Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: <Widget>[
+//                     Column(
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: [
+//                         //  SizedBox(width: 5),
+//                         Row(
+//                           children: [
+//                             Container(
+//                               height: MediaQuery.of(context).size.height / 8,
+//                               width: MediaQuery.of(context).size.width / 2,
+//                               //margin: EdgeInsets.only(right:110),
+//                               margin: EdgeInsets.all(15),
+//                               decoration: BoxDecoration(
+//                                   color: Colors.cyan[100],
+//                                   borderRadius: BorderRadius.only(
+//                                       bottomLeft: Radius.circular(12))),
+//                               child: upOverview(),
+//                             ),
+//                             Container(
+//                                 height: 104,
+//                                 width: 120,
+//                                 margin: EdgeInsets.fromLTRB(18, 5, 5, 5),
+//                                 padding: EdgeInsets.all(4),
+//                                 //margin: EdgeInsets.only(right:110),
+//                                 decoration: BoxStyles.deco,
+//                                 child: Column(
+//                                   children: [
+//                                     Text("Response Rate:",
+//                                         style: TextStyle(
+//                                             color: AppColors.black,
+//                                             fontWeight: FontWeight.bold)),
+//                                     SizedBox(
+//                                       height: 5,
+//                                     ),
+//                                     FittedBox(
+//                                       child: CircularPercentIndicator(
+//                                         radius: 65.0,
+//                                         lineWidth: 10.0,
+//                                         animation: true,
+//                                         percent: 45.0 / 100,
+//                                         center: Text(
+//                                           "45.0" + "%",
+//                                           style: TextStyle(
+//                                               fontSize: 12.0,
+//                                               fontWeight: FontWeight.w600,
+//                                               color: Colors.black),
+//                                         ),
+//                                         backgroundColor: Colors.grey[300],
+//                                         circularStrokeCap:
+//                                             CircularStrokeCap.round,
+//                                         progressColor: AppColors.primarycolor,
+//                                       ),
+//                                     ),
+//                                   ],
+//                                 )
+// //
 
-                    //             Icon(Icons.star,
-                    //                 color: Colors.yellow, size: 16),
-                    //             Icon(Icons.star,
-                    //                 color: Colors.yellow, size: 16),
-                    //             Icon(Icons.star,
-                    //                 color: Colors.yellow, size: 16),
-                    //             Icon(Icons.star,
-                    //                 color: Colors.yellow, size: 16),
-                    //             Icon(Icons.star_border, size: 16),
-                    //           ],
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     SizedBox(
-                    //       height: 4,
-                    //     ),
-                    //     //  Align(alignment: Alignment.bottomRight,
-                    //     //child:upOverview())
-                    //   ]),
-                    // ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                       
-                      //  SizedBox(width: 5),
-                        Row(
-                          children: [
-                            Container(
-                              height: 100,
-                              width: MediaQuery.of(context).size.width/2,
-                              //margin: EdgeInsets.only(right:110),
-                             margin: EdgeInsets.all(15),
-                              decoration: BoxDecoration(
-                                  color: Colors.cyan[100],
-                                  borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(12))),
-                              child: upOverview(),
-                            ),
-                            Container(
-                                height: 104,
-                                width: 120,
-                                margin: EdgeInsets.fromLTRB(18, 5, 5, 5),
-                                padding: EdgeInsets.all(4),
-                                //margin: EdgeInsets.only(right:110),
-                                decoration: BoxStyles.deco,
-                                child: Column(
-                                  children: [
-                                    Text("Response Rate:",
-                                        style: TextStyle(
-                                            color: AppColors.black,
-                                            fontWeight: FontWeight.bold)),
-                                            SizedBox(height: 5,),
-                                    CircularPercentIndicator(
-                                      radius: 65.0,
-                                      lineWidth: 10.0,
-                                      animation: true,
-                                      percent: 45.0 / 100,
-                                      center: Text(
-                                        "45.0" + "%",
-                                        style: TextStyle(
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.w600,
-                                            color: Colors.black),
-                                      ),
-                                      backgroundColor: Colors.grey[300],
-                                      circularStrokeCap:
-                                          CircularStrokeCap.round,
-                                      progressColor: AppColors.primarycolor,
-                                    ),
-                                  ],
-                                )
-//
+// //                   )
+//                                 )
+//                           ],
+//                         ),
+//                         Container(
+//                           //height: MediaQuery.of(context).size.height/4,
+//                           width: MediaQuery.of(context).size.width,
+//                           margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+//                           padding: EdgeInsets.fromLTRB(10, 2, 10, 5),
+//                           // margin: EdgeInsets.only(le:70),
+//                           decoration: BoxStyles.deco,
 
-//                   )
-                                )
-                                
-                          ],
-                        ),
-                         Container(
-                          //height: MediaQuery.of(context).size.height/4,
-                          width: MediaQuery.of(context).size.width,
-                          margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                          padding: EdgeInsets.fromLTRB(10, 2, 10, 5),
-                          // margin: EdgeInsets.only(le:70),
-                    decoration: BoxStyles.deco,
-                                          
-                          child: progress(),
-                        ),
-                      ],
-                    ),
-                  ]),
-            ),
-          ),
+//                           child: progress(),
+//                         ),
+//                       ],
+//                     ),
+//                   ]),
+//             ),
+//           ),
           Container(
-       
             color: AppColors.backgroundColor,
-            height: MediaQuery.of(context).size.height /2,
+            height: MediaQuery.of(context).size.height / 2,
             width: MediaQuery.of(context).size.width,
             child: DefaultTabController(
               length: 2,
@@ -368,14 +304,18 @@ class _DashboardState extends State<Dashboard>
                   children: [
                     Column(
                       children: [
-                        salesReport(report: 34,),
+                        salesReport(
+                          report: 34,
+                        ),
                         salesanalysis(),
                       ],
                     ),
                     Column(
                       children: [
-                         shopreport(),
-                          shopanalysis(),
+                        shopReport(
+                          report:45
+                        ),
+                        shopanalysis(),
                       ],
                     ),
                   ],

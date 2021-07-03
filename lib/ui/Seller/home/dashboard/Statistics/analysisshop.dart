@@ -66,7 +66,7 @@ Widget _analysisline(BuildContext context) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Products Analysis",
+                      "Sales Analysis",
                       style: Theme.of(context)
                           .textTheme
                           .title

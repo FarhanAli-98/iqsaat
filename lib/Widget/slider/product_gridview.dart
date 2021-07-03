@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/slider/product_model.dart';
 import 'package:iqsaat/ui/buyer/products/product_description.dart';

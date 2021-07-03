@@ -5,6 +5,7 @@ import 'package:iqsaat/ui/Seller/Orders/orders_tab.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/productsAds.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/maincard/maincard.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
@@ -255,13 +256,9 @@ class _AppDrawerState extends State<AppDrawer> {
                         CustomField(
                           iconData: AppIcons.termCondation,
                           text: 'Terms of use',
-                          // onTap: () {
-                          //  Navigator.push(
-                          //               context,
-                          //               MaterialPageRoute(
-                          //                   builder: (BuildContext context) =>
-                          //                       CartScreen()));
-                          // },
+                          //  onTap: () {
+                          // AppRoutes.push(context, MediterranesnDietView());
+                          //  },
                         ),
                         SizedBox(
                           height: isCompanyTaped ? 10 : size.width * 0.45,

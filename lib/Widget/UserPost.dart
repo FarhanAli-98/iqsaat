@@ -10,10 +10,10 @@ class UserPost extends StatelessWidget {
   final String imageUrl;
   const UserPost({
     Key key,
-    @required this.profileimageUrl,
+     this.profileimageUrl,
     @required this.title,
-    @required this.description,
-    @required this.imageUrl,
+     this.description,
+     this.imageUrl,
   }) : super(key: key);
 
   @override

@@ -14,8 +14,9 @@ import 'package:iqsaat/utils/styles.dart';
    Widget build(BuildContext context) {
      return Container(
        //height: MediaQuery.of(context).size.height/1.5,
-       margin: EdgeInsets.only(left: 15, right: 10),
-        padding: EdgeInsets.all(10.0),
+        
+       margin: EdgeInsets.only(top:15,left: 15, right: 10),
+        padding: EdgeInsets.fromLTRB(10, 10, 20, 10),
         decoration:BoxStyles.deco,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +24,7 @@ import 'package:iqsaat/utils/styles.dart';
             Text(
               "Sales Report",
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: AppColors.primarycolor,
               ),
@@ -33,25 +34,24 @@ import 'package:iqsaat/utils/styles.dart';
             ),
             Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Installments:    ",
+                    "Installments",
                     style: TextStyle(
                         color: Colors.grey[900],
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
-                    width: 190,
-                  ),
+                 
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
                         widget.report.toString(),
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600),
                       ))
                 ]),
             SizedBox(
@@ -59,58 +59,54 @@ import 'package:iqsaat/utils/styles.dart';
             ),
             Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Active Customers:",
+                    "Active Customers",
                     style: TextStyle(
                         color: Colors.grey[900],
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
-                    width: 165,
-                  ),
+                  
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
                         widget.report.toString(),
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600),
                       ))
                 ]),
             SizedBox(
               height: 11.0,
             ),
             Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
                     "New Orders",
                     style: TextStyle(
                         color: Colors.grey[900],
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(
-                    width: 213,
-                  ),
+                 
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
                         widget.report.toString(),
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600),
                       ))
                 ]),
+           
             SizedBox(
-              height: 11.0,
-            ),
-            SizedBox(
-              height: 11.0,
+              height: 15.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
