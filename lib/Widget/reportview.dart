@@ -30,7 +30,7 @@ class reportCard extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(
-                        top: 25, left: 0, right: 0, bottom: 16),
+                        top: 25, left: 4, right: 4, bottom: 16),
                     child: Container(
                       decoration: BoxDecoration(
                         boxShadow: <BoxShadow>[
@@ -82,7 +82,7 @@ class reportCard extends StatelessWidget {
                             Expanded(
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.only(top: 8, bottom: 8),
+                                    const EdgeInsets.only(top: 8, bottom: 4),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,14 +105,15 @@ class reportCard extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: <Widget>[
-                                      FittedBox(
+                                      Flexible(
+                                        flex: 0,
                                                                               child: Text(
                                           stat.toString(),
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             //fontFamily: FitnessAppTheme.fontName,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 25,
+                                            fontSize: 17,
                                             letterSpacing: 0.2,
                                             color: AppColors.primarycolor,
                                           ),
