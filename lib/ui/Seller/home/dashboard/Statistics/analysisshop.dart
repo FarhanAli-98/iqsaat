@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import '../piechart.dart';
 
-class shopanalysis extends StatefulWidget {
+class Shopanalysis extends StatefulWidget {
   @override
-  _shopanalysisState createState() => _shopanalysisState();
+  _ShopanalysisState createState() => _ShopanalysisState();
 }
 
-class _shopanalysisState extends State<shopanalysis> {
+class _ShopanalysisState extends State<Shopanalysis> {
   @override
   Widget build(BuildContext context) {
     return _analysisline(context);
@@ -17,12 +17,13 @@ class _shopanalysisState extends State<shopanalysis> {
 
 Widget _analysisline(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 25, right: 25),
-      padding: EdgeInsets.all(5),
+             margin: EdgeInsets.only(left: 15, right: 15),
+
+     padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: AppColors.backgroundColor,
-        borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
+        borderRadius: BorderRadius.all(
+           Radius.circular(15)),
                         boxShadow: [
                   BoxShadow(
                     color: Colors.grey,
@@ -105,7 +106,7 @@ Widget _analysisline(BuildContext context) {
                         //Navigator.pushNamed(context, 'transaction');
                         showDialog(
                             context: context,
-                            builder: (BuildContext context) => categorychart()  );
+                            builder: (BuildContext context) => Categorychart()  );
                       },
                     )
                   ],

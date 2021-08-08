@@ -199,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
                   'Forget Password?',
                   style: GoogleFonts.poppins(
                       textStyle: TextStyles.buttonFontText.copyWith(
-                    color: AppColors.greyTextColor,
+                    color: AppColors.secondaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   )),

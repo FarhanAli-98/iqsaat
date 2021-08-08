@@ -161,7 +161,7 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                                                   .height /
                                               3,
                                           width: sizeWidth(context)*1.2,
-                                          child: createPackages()),
+                                          child: CreatePackages()),
                                     ),
                                   ),
                                   textFieldHeader('Description'),

@@ -14,7 +14,7 @@ class AppColors {
   static const Color white = const Color(0xFFFFFFFF);
   static const Color lightgrey = const Color(0xFF9F9F9);
   static const Color whiteColor = const Color(0xFFFFFFFF);
-  static const Color greyTextColor = const Color(0xFF828FAE);
+  static const Color secondayTextColor = const Color(0xFF828FAE);
   static const Color greyBackColor = const Color(0xFFF3F3F3);
   static const Color greyLocationIconColor = const Color(0xFFAAAAAA);
   static const Color chatAppBarColor = const Color(0xFFE6E6E6);

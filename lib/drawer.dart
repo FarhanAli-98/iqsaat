@@ -162,7 +162,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                             MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                        sellerCategories()));
+                                                        SellerCategories()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
@@ -242,9 +242,9 @@ class _AppDrawerState extends State<AppDrawer> {
                           padding: const EdgeInsets.only(top:0.0),
                           child: CustomField(
                             iconData: AppIcons.help,
-                            text: 'Help',
+                            text: 'Contact Us',
                             onTap: () {
-                              //Image.asset('assets/appIcons/icon_help services.png'),
+                              AppRoutes.push(context, ContactUs());
                             },
                           ),
                         ),
@@ -475,7 +475,7 @@ class DrawerFull extends PreferredSize {
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
-                                                SearchScreen()));
+                                                Search()));
                                   },
                                 ),
                                 CustomField(

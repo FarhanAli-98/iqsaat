@@ -47,7 +47,7 @@
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "34:",
+                        "34",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
@@ -73,7 +73,7 @@
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "34:",
+                        "34",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
@@ -99,7 +99,7 @@
                   Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "34:",
+                        "34",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,

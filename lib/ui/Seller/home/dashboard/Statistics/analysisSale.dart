@@ -18,12 +18,13 @@ class _salesanalysisState extends State<salesanalysis> {
  
  Widget _analysisline(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 25, right: 25),
-      padding: EdgeInsets.all(5),
+             margin: EdgeInsets.only(left: 15, right: 15),
+
+     // margin: EdgeInsets.only(left: 25, right: 25),
+      padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: AppColors.backgroundColor,
-        borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15)),
+        borderRadius: BorderRadius.all( Radius.circular(15)),
                         boxShadow: [
                   BoxShadow(
                     color: Colors.grey,

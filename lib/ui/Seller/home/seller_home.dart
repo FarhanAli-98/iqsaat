@@ -33,7 +33,7 @@ class _SellerHomePageState extends State<SellerHomePage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
-        elevation: 0,
+        elevation: 5,
         leading: Builder(
             builder: (context) => InkWell(
                   onTap: () {
@@ -61,18 +61,18 @@ class _SellerHomePageState extends State<SellerHomePage> {
                   ),
                 )),
 
-        actions: <Widget>[
-          GestureDetector(
-              onTap: (){}, 
-              child: Container(
-                margin: EdgeInsets.only(right: 13),
-                child: Image.asset(
-                  'assets/appIcons/offlineVector.png',
-                  width: 33,
-                  height: 24,
-                ),
-              ))
-        ],
+        // actions: <Widget>[
+        //   GestureDetector(
+        //       onTap: (){}, 
+        //       child: Container(
+        //         margin: EdgeInsets.only(right: 13),
+        //         child: Image.asset(
+        //           'assets/appIcons/offlineVector.png',
+        //           width: 33,
+        //           height: 24,
+        //         ),
+        //       ))
+        // ],
         title: Row(
           children: <Widget>[
             CircleAvatar(

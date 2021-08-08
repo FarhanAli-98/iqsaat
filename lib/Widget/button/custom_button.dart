@@ -12,7 +12,7 @@ class CustomButtom extends StatelessWidget {
       @required this.text,
       @required this.buttonColor,
       this.buttonWidth,
-      this.textSize = 16,
+      this.textSize = 14,
       this.textColor = Colors.white,
       this.buttonHeight = 45.0})
       : super(key: key);

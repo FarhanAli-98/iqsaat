@@ -1,6 +1,5 @@
 import 'package:iqsaat/provider/shopProvider.dart';
-import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
-import 'package:iqsaat/ui/buyer/map/mapview.dart';
+import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -43,7 +42,7 @@ class MyApp extends StatefulWidget {
   MyApp(this.role);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  _MyAppState createState() => _MyAppState(); 
 }
 
 class _MyAppState extends State<MyApp> {
@@ -64,13 +63,13 @@ class _MyAppState extends State<MyApp> {
             future: Hive.openBox("user"),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                print(snapshot.data.toString());
+               
                 if (snapshot.hasError)
                   return Text(snapshot.error.toString());
                 else
 
-               // return ProfileTab();
-                return SplashScreen(role: widget.role);
+               //return SellerCategories();
+               return SplashScreen(role: widget.role);
 
               } else
                 return Scaffold();

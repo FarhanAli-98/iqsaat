@@ -8,6 +8,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:iqsaat/models/place.dart';
+import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
 import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
@@ -250,7 +251,7 @@ class _MapviewState extends State<Mapview> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
                               onPressed: () {
-                                AppRoutes.push(context, ShopProfile());
+                                AppRoutes.push(context, ProfileTab());
                               },
                               color: AppColors.greenColor,
                               child: Text(

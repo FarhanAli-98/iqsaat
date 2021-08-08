@@ -7,14 +7,14 @@ import './pie/sections.dart';
 /// !!Step1: prepare the data to plot.
 
 
-class categorychart extends StatefulWidget {
-  const categorychart({Key key}) : super(key: key);
+class Categorychart extends StatefulWidget {
+  const Categorychart({Key key}) : super(key: key);
 
   @override
-  _categorychartState createState() => _categorychartState();
+  _CategorychartState createState() => _CategorychartState();
 }
 
-class _categorychartState extends State<categorychart> {
+class _CategorychartState extends State<Categorychart> {
   int _touchedIdx = -1;
   bool _showBorder = true;
   double _radius = 100;
@@ -53,42 +53,42 @@ class _categorychartState extends State<categorychart> {
     // );
     return Scaffold(
       body: Dialog(
-              child: Center(
-          child: Column(
-                   children:<Widget>[
-                     SizedBox(height:150,),
-                    PieChart(
-                      
-                      PieChartData(
-                        pieTouchData: PieTouchData(
-                          touchCallback: (pieTouchResponse) {
-                            setState(() {
-                              if (pieTouchResponse.touchInput is FlLongPressEnd ||
-                                  pieTouchResponse.touchInput is FlPanEnd) {
-                                _touchedIdx = -1;
-                              } else {
-                                _touchedIdx = pieTouchResponse.touchedSectionIndex;
-                              }
-                            });
-                          },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                       children:[
+                         
+                        PieChart(
+                          
+                          PieChartData(
+                            pieTouchData: PieTouchData(
+                              touchCallback: (pieTouchResponse) {
+                                setState(() {
+                                  if (pieTouchResponse.touchInput is FlLongPressEnd ||
+                                      pieTouchResponse.touchInput is FlPanEnd) {
+                                    _touchedIdx = -1;
+                                  } else {
+                                    _touchedIdx = pieTouchResponse.touchedSectionIndex;
+                                  }
+                                });
+                              },
+                            ),
+                            borderData: FlBorderData(show: false),
+                            sectionsSpace: 0,
+                            centerSpaceRadius: 40,
+                            sections: getSections(_touchedIdx),
+                          ),
                         ),
-                        borderData: FlBorderData(show: false),
-                        sectionsSpace: 0,
-                        centerSpaceRadius: 40,
-                        sections: getSections(_touchedIdx),
-                      ),
-                    ),
-                    SizedBox(height: 100,),
-               
-              Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: IndicatorsWidget(),
-                      ),
-                    ]),]),
-        ),
+                        SizedBox(height: 100,),
+                   
+                  Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: IndicatorsWidget(),
+                          ),
+                        ]),]),
       )
      // bottomNavigationBar: _buildControlWidgets(),
     );

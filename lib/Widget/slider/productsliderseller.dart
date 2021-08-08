@@ -9,7 +9,7 @@ import 'category_slider.dart';
 
 class ProductSlider extends StatefulWidget {
   final String heading;
-  final List<shopCategories> products;
+  final List<ShopCategories> products;
 
   ProductSlider({
     @required this.heading,

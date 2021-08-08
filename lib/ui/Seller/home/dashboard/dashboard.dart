@@ -23,24 +23,17 @@ class _DashboardState extends State<Dashboard>
     super.dispose();
   }
 
-  
-  
-
- 
-
- 
-
   Widget upOverview() {
     // bool isSwitched = false;
     return Container(
       height: MediaQuery.of(context).size.height,
       width: 100,
-      padding: EdgeInsets.all(4),
+      padding: EdgeInsets.all(10),
       // margin: EdgeInsets.only(le:70),
       decoration: BoxDecoration(
-          color: AppColors.backgroundColor,
+          color: AppColors.white,
           
-          borderRadius: BorderRadius.only(bottomRight: Radius.circular(12)),
+          borderRadius: BorderRadius.all( Radius.circular(12)),
           boxShadow: [
                   BoxShadow(
                     color: Colors.grey,
@@ -52,7 +45,9 @@ class _DashboardState extends State<Dashboard>
 
           ),
 
-      child: Column(children: [
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
         Text(
           "Balance",
           style: TextStyle(
@@ -193,56 +188,23 @@ class _DashboardState extends State<Dashboard>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      body: Column(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height / 2.6,
-            child: SingleChildScrollView(
-              padding: EdgeInsets.only(left: 5, right: 5),
+      body: 
+      SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height / 2.6,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.backgroundColor,
-                        border: Border.all(
-                          color: AppColors.backgroundColor,
-                          width: 9,
-                        ),
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.elliptical(15, 15),
-                            bottomRight: Radius.elliptical(15, 15)),
-                
-                      ),
-                      child: Column(children: <Widget>[
-                        // Text(
-                        //   "Welcome back,",
-                        //   style: Theme.of(context)
-                        //       .textTheme
-                        //       .display1
-                        //       .apply(color: AppColors.primarycolor),
-                        // ),
-                        Row(
-                          children: [
-                            Text(
-                              "Afzal electronics",
-                              style: Theme.of(context).textTheme.display1.apply(
-                                  color: AppColors.primarycolor,
-                                  fontWeightDelta: 2),
-                            ),
-                            SizedBox(
-                              width: 80,
-                            ),
-                           
-                          ],
-                        ),
-                        SizedBox(
-                          height: 4,
-                        ),
-                        //  Align(alignment: Alignment.bottomRight,
-                        //child:upOverview())
-                      ]),
-                    ),
+                    Center(
+                         child: Text(
+                                "Afzal electronics",
+                                style: Theme.of(context).textTheme.display1.apply(
+                                    color: AppColors.primarycolor,
+                                    fontWeightDelta: 2),
+                              ),
+                       ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -265,7 +227,7 @@ class _DashboardState extends State<Dashboard>
                               padding: EdgeInsets.all(0),
                               //margin: EdgeInsets.only(right:110),
                               decoration: BoxDecoration(
-                                  color: Colors.cyan[100],
+                                 // color: Colors.cyan[100],
                                   borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(12))),
                               child: upOverview(),
@@ -312,64 +274,67 @@ class _DashboardState extends State<Dashboard>
                     ),
                   ]),
             ),
-          ),
-          Container(
-            color: AppColors.backgroundColor,
-            height: MediaQuery.of(context).size.height /2,
-            width: MediaQuery.of(context).size.width,
-            child: DefaultTabController(
-              length: 2,
-              child: Scaffold(
-                backgroundColor: AppColors.backgroundColor,
-                appBar: PreferredSize(
-                  //automaticallyImplyLeading: false,
-                  preferredSize: const Size.fromHeight(40.0),
-                  child: TabBar(
-                    labelColor: AppColors.primarycolor,
-                    labelStyle:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    tabs: [
-                      Tab(text: "Sales"),
-                      Tab(text: "Shop"),
+            Container(
+              color: AppColors.backgroundColor,
+              height: MediaQuery.of(context).size.height /2,
+              width: MediaQuery.of(context).size.width,
+              child: DefaultTabController(
+                length: 2,
+                child: Scaffold(
+                  backgroundColor: AppColors.backgroundColor,
+                  appBar: PreferredSize(
+                    //automaticallyImplyLeading: false,
+                    preferredSize: const Size.fromHeight(40.0),
+                    child: TabBar(
+                      labelColor: AppColors.primarycolor,
+                      labelStyle:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      tabs: [
+                        Tab(text: "Sales"),
+                        Tab(text: "Shop"),
+                      ],
+                    ),
+                  ),
+                  body: TabBarView(
+                    children: [
+                      Column(
+                        children: [
+                          salesReport(),
+                          salesanalysis(),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                           shopreport(),
+                            Shopanalysis(),
+                        ],
+                      ),
                     ],
                   ),
                 ),
-                body: TabBarView(
-                  children: [
-                    Column(
-                      children: [
-                        salesReport(),
-                        salesanalysis(),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                         shopreport(),
-                          shopanalysis(),
-                      ],
-                    ),
-                  ],
-                ),
               ),
-            ),
-            //               child: Scaffold(
-            //                 backgroundColor: AppColors.backgroundColor,
-            //                 body:TabBarView(
-            //   controller: _tabController,
-            //   children: _analysisline(),
+              //               child: Scaffold(
+              //                 backgroundColor: AppColors.backgroundColor,
+              //                 body:TabBarView(
+              //   controller: _tabController,
+              //   children: _analysisline(),
 
-            // ),
-            // bottomNavigationBar: Material(
-            //   color: Colors.cyan[200],
-            //   child: TabBar(
-            //     tabs: _kTabs,
-            //     controller: _tabController,
-            //   ),
-            // ),
-            //             ),
-          )
-        ],
+              // ),
+              // bottomNavigationBar: Material(
+              //   color: Colors.cyan[200],
+              //   child: TabBar(
+              //     tabs: _kTabs,
+              //     controller: _tabController,
+              //   ),
+              // ),
+              //             ),
+            )
+          ],
+        ),
       ),
+   
+   
+   
     );
   }
 }

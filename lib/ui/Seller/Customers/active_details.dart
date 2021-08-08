@@ -631,12 +631,12 @@ class _Active_detailsState extends State<Active_details>
 
   FloatingActionButton _flotingButton() {
     return FloatingActionButton(
-      // onPressed: () {
-      //   Navigator.push(
-      //     context,
-      //     MaterialPageRoute(builder: (context) => CartScreen()),
-      //   );
-      // },
+      onPressed: () {
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => CartScreen()),
+        // );
+      },
       backgroundColor: AppColors.primarycolor,
       child: Icon(Icons.chat_bubble,
           color: Theme.of(context).floatingActionButtonTheme.backgroundColor),

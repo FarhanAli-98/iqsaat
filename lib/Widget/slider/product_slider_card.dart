@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/slider/product_model.dart';
-import 'package:iqsaat/models/getModels/getAllAds.dart';
 import 'package:iqsaat/ui/buyer/products/product_description.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:iqsaat/utils/nav_bar_icons_icons.dart';
 import 'package:iqsaat/utils/routes.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class ProductSliderCard extends StatelessWidget {
   final ProdSliderCardModel product;

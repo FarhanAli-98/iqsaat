@@ -6,11 +6,13 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/button.dart';
+import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/provider/signup_provider.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:provider/provider.dart';
 import 'loginPage.dart';
@@ -42,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   File _image;
   final picker = ImagePicker();
-  bool _isloading = false;
+  bool _isloading, isCreate = false;
   String imageUrl;
   String role = 'buyer';
   String advertiser;
@@ -61,7 +63,6 @@ class _SignUpPageState extends State<SignUpPage> {
     }
   }
 
-
   void validateAndSubmit(context) {
     if (validateAndSave()) {
       Provider.of<RegisterProvider>(context, listen: false)
@@ -76,14 +77,11 @@ class _SignUpPageState extends State<SignUpPage> {
               _image)
           .then((value) {
         try {
-          print(registerProvider.signUpModel.success);
-          print(registerProvider.signUpModel.data.id.toString());
-          print(value.success);
           if (registerProvider.signUpModel.success == true) {
-            print("Seccessfullly Account Create");
             showMessage("Seccessfully Account Created");
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (c) => LoginPage()));
+            setState(() {
+              isCreate = true;
+            });
           } else {
             showDialog(
                 context: context,
@@ -108,44 +106,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 );
               });
         }
-
-        /* if (_image != null) {
-            uploadImage(_image, context);
-          }
-          if (value) {
-            Fluttertoast.showToast(
-                msg: "Successfully Create Account",
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
-                );
-            showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    title: Text(''),
-                    content: Text(
-                        "An email has been sent to you, kindly click on the link to verfiy your email."),
-                  );
-                });
-            _emailController.text = "";
-            _firstNameController.text = "";
-            honorificValue = "Mr.";
-            _lastNameController.text = "";
-            _passwordController.text = "";
-            _confirmPassController.text = "";
-            role = "Consumer";
-            isAdvertiser = false;
-            selectedRadio = 1;
-            _image = null;
-          } else {
-            Fluttertoast.showToast(
-                msg: "Failed to Create an Account",
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.BOTTOM // also possible "TOP" and "CENTER"
-                );
-          } */
       });
     } else {
       showDialog(
@@ -221,7 +181,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               textFieldHeader('Phone Number'),
                               Center(
                                   child: TextFields.maskTextField(context,
-                                     // inputFormatters: [phonemaskFormatter],
+                                      inputFormatters: [phonemaskFormatter],
                                       controller: _phoneController,
                                       validaterMsg:
                                           'Phone Number cannot be empty')),
@@ -431,8 +391,6 @@ class _SignUpPageState extends State<SignUpPage> {
                   buttonColor: AppColors.primarycolor,
                   onTap: () {
                     validateAndSubmit(context);
-
-              
                   },
                   buttonTextStyle: TextStyles.buttonFontText,
                   widthPercent: 0.8,
@@ -442,6 +400,66 @@ class _SignUpPageState extends State<SignUpPage> {
         displayEmptySpace(),
       ],
     );
+  }
+
+  Future bounceShowDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              content: new Container(
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        // height: 100,
+                        // width: 130,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 90,
+                              width: 90,
+                              child: Image.asset(
+                                'assets/images/successfully.png',
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Container(
+                              child: Text(
+                                'Order Successfully send',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            CustomButtom(
+                              buttonWidth: 70,
+                              buttonHeight: 50.0,
+                              onPress: () {
+                                AppRoutes.push(context, LoginPage());
+                              },
+                              buttonColor: AppColors.primarycolor,
+                              text: "Ok",
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )));
+        });
   }
 
   @override

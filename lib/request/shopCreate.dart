@@ -2,8 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
-import 'package:async/async.dart';
-import 'package:iqsaat/api/api.dart';
+import 'package:iqsaat/api/apis.dart';
 import '../main.dart';
 
 final tokens = Hive.box('tokens');
@@ -32,9 +31,9 @@ class ShopApi {
     };
     //print("ID = "+.toString());
     print("Adds Data getten is = = = = " + json.encode(body));
-    print("Signup create At ?? this link${API.CREATESHOP_API}");
+    print("Signup create At ?? this link${API_URLS.CREATESHOP_API}");
     return http.post(
-      "${API.CREATESHOP_API}",
+      "${API_URLS.CREATESHOP_API}",
       headers: customHeaders,
       body: json.encode(body),
     );

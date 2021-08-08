@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
-import 'package:iqsaat/api/api.dart';
+import 'package:iqsaat/api/apis.dart';
 import 'package:iqsaat/models/user_info.dart';
 
 import '../main.dart';
@@ -60,9 +60,9 @@ class AdsApi {
 
     //print("ID = "+.toString());
     print("Adds Data getten is = = = = " + json.encode(body));
-    print("Adds create At this link${API.CREATEADS_API}");
+    print("Adds create At this link${API_URLS.CREATEADS_API}");
     return http.post(
-      "${API.CREATEADS_API}",
+      "${API_URLS.CREATEADS_API}",
       headers: customHeaders,
       body: json.encode(body),
     );

@@ -7,32 +7,18 @@ import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
 
 class BrandDetailsScreen extends StatefulWidget {
+  final String imagebanner;
   final List<String> subcategories;
 
-  const BrandDetailsScreen({Key key, this.subcategories}) : super(key: key);
+  const BrandDetailsScreen({Key key, this.subcategories, this.imagebanner}) : super(key: key);
   @override
   _BrandDetailsScreenState createState() => _BrandDetailsScreenState();
 }
 
 class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
-  List<String> subCats = [
-    "Shefon Dress",
-    "Butterfly Dress",
-    "Trendy Dress",
-    "Galabiya Dress",
-    "Jalabiya",
-    "Jumpsuit",
-    "Exclusive",
-    "Price: Low to High",
-    "Price: High to Low",
-    "Best Sellers",
-  ];
+ 
   bool showSubcat = true;
-  @override
-  void initState() {
-    super.initState();
-    subCats=widget.subcategories;
-  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarwithCenterTitle(context,"SubCategory"),
@@ -45,7 +31,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
               width: sizeWidth(context),
               height: 230,
               child: Image.asset(
-                categories[2].image,
+                widget.imagebanner,
                 fit: BoxFit.fill,
               ),
             ),
@@ -58,7 +44,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(200),
                       child: Image.asset(
-                        categories[2].image,
+                        widget.imagebanner,
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -126,7 +112,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
                             child: GridView.builder(
                                 shrinkWrap: true,
                                 primary: false,
-                                itemCount: subCats.length,
+                                itemCount: widget.subcategories.length,
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisSpacing: 10,
@@ -158,7 +144,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
                                             ),
                                             // color: Colors.white,
                                             child: Text(
-                                              subCats[i],
+                                              widget.subcategories[i],
                                               style: TextStyle(
                                                   // color: Colors.white,
                                                   ),

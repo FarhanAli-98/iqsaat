@@ -162,6 +162,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
     ));
   }
 
+  // ignore: unused_element
   Widget _thumbnail(String image) {
     return AnimatedBuilder(
       animation: animation,

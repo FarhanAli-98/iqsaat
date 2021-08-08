@@ -69,7 +69,7 @@ List<Widget> appbarActions(BuildContext context) {
       child: InkWell(
         onTap: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => SearchScreen()));
+              .push(MaterialPageRoute(builder: (context) => Search()));
         },
         borderRadius: BorderRadius.circular(10),
         child: Container(

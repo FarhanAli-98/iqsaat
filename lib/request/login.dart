@@ -1,7 +1,6 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-import 'package:iqsaat/api/api.dart';
+import 'package:iqsaat/api/apis.dart';
 
 class LoginApi {
   final String email;
@@ -22,7 +21,7 @@ class LoginApi {
     };
 
     print(body.toString());
-    return http.post("${API.LOGIN_API}",
+    return http.post("${API_URLS.LOGIN_API}",
         body: json.encode(body), headers: customHeaders);
   }
 }

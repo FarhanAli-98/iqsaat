@@ -60,7 +60,7 @@ class LanguagePage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Divider(
-        color: AppColors.greyTextColor,
+        color: AppColors.secondayTextColor,
         height: 2,
       ),
     );
