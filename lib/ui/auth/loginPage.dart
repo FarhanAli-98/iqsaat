@@ -7,6 +7,7 @@ import 'package:iqsaat/hive/user_box.dart';
 import 'package:iqsaat/models/postModels/user.dart';
 import 'package:iqsaat/provider/login_provider.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
+import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
 import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
 import 'package:iqsaat/ui/buyer/home/home.dart';
@@ -67,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
           print(res.shopId);
           print('shopId id null');
 
-          AppRoutes.push(context, SellerHomePage());
+          AppRoutes.push(context, ShopProfile());
 
            }
            else{

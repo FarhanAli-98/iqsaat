@@ -1,5 +1,4 @@
 import 'package:iqsaat/provider/shopProvider.dart';
-import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -18,7 +17,6 @@ Box<dynamic> boxUser;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
- 
   Hive.init(appDocumentDir.path);
   Hive.registerAdapter(UserBoxAdapter());
   boxUser = await Hive.openBox("user");
@@ -31,18 +29,17 @@ Future<void> main() async {
     res = boxUser.get(0) as UserBox;
     print(res.role);
     role = res.role;
+    print(role);
   }
   runApp(MyApp(role));
 }
-
-
 
 class MyApp extends StatefulWidget {
   final String role;
   MyApp(this.role);
 
   @override
-  _MyAppState createState() => _MyAppState(); 
+  _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -50,12 +47,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-       ChangeNotifierProvider(create: (_) => RegisterProvider()),
-       ChangeNotifierProvider(create: (_) => LoginProvider()),
-       ChangeNotifierProvider(create: (_) => ShopProvider()),
-       ChangeNotifierProvider(create: (_) => AdsProvider()),
-       ChangeNotifierProvider(create: (_) => UserProvider()),
-       ChangeNotifierProvider(create: (_) => CategoryProvider()),
+        ChangeNotifierProvider(create: (_) => RegisterProvider()),
+        ChangeNotifierProvider(create: (_) => LoginProvider()),
+        ChangeNotifierProvider(create: (_) => ShopProvider()),
+        ChangeNotifierProvider(create: (_) => AdsProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => CategoryProvider()),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false, //home: CompanyProfile()
@@ -63,14 +60,12 @@ class _MyAppState extends State<MyApp> {
             future: Hive.openBox("user"),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-               
                 if (snapshot.hasError)
                   return Text(snapshot.error.toString());
                 else
 
-               //return SellerCategories();
-               return SplashScreen(role: widget.role);
-
+                 // return ShopProfile();
+                  return SplashScreen(role: widget.role);
               } else
                 return Scaffold();
             },
@@ -84,4 +79,3 @@ class _MyAppState extends State<MyApp> {
     super.dispose();
   }
 }
-

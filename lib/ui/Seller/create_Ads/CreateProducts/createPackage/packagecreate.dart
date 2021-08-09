@@ -1,4 +1,4 @@
-import 'package:pluto_grid/pluto_grid.dart';
+import 'package:iqsaat/utils/images.dart';
 import 'package:flutter/material.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:iqsaat/utils/app_colors.dart';
@@ -14,7 +14,7 @@ class _CreatePackagesState extends State<CreatePackages> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
       child: TextField(
-        controller: _pricecontroller[count],
+        controller: pricecontroller[count],
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
@@ -98,15 +98,12 @@ class _CreatePackagesState extends State<CreatePackages> {
     );
   }
 
-  final List<TextEditingController> _pricecontroller = List(3);
-
-  final List<TextEditingController> _monthcontroller = List(3);
   @override
   void initState() {
     super.initState();
     for (int i = 0; i < 3; i++) {
-      _pricecontroller[i] = TextEditingController();
-      _monthcontroller[i] = TextEditingController();
+      pricecontroller[i] = TextEditingController();
+      monthcontroller[i] = TextEditingController();
     }
   }
 

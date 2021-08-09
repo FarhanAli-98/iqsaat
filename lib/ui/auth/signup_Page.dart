@@ -41,14 +41,15 @@ class _SignUpPageState extends State<SignUpPage> {
   int selectedRadio;
 //images
   Dio dio = new Dio();
-
   File _image;
   final picker = ImagePicker();
-  bool _isloading, isCreate = false;
+  bool _isloading=false;
+  bool isCreate = false;
   String imageUrl;
   String role = 'buyer';
   String advertiser;
-  bool isAdvertiser, isClicked = false;
+  bool isSeller=false;
+  bool isClicked = false;
   String getid;
   final _formKey = GlobalKey<FormState>();
   final dateFormat = DateFormat('dd-MM-yyyy');
@@ -79,6 +80,7 @@ class _SignUpPageState extends State<SignUpPage> {
         try {
           if (registerProvider.signUpModel.success == true) {
             showMessage("Seccessfully Account Created");
+            AppRoutes.push(context,LoginPage());
             setState(() {
               isCreate = true;
             });
@@ -125,7 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
   void initState() {
     super.initState();
     selectedRadio = 0;
-    isAdvertiser = false;
+    isSeller = false;
   }
 
   Widget _body(BuildContext context) {
@@ -270,14 +272,19 @@ class _SignUpPageState extends State<SignUpPage> {
                                   children: <Widget>[
                                     Checkbox(
                                       activeColor: Colors.green,
-                                      value: isAdvertiser,
+                                      value: isSeller,
                                       onChanged: (value) {
                                         setState(() {
-                                          isAdvertiser = value;
-                                          if (isAdvertiser) {
-                                            role = "buyer";
+                                          isSeller = value;
+                                          if (isSeller) {
+                                            
+                                             role = "seller";
+                                             print(role);
+                                            
                                           } else {
-                                            role = "seller";
+                                           role = "buyer";
+                                                                                        print(role);
+
                                           }
                                         });
                                       },

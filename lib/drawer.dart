@@ -1,10 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
 import 'package:iqsaat/ui/Seller/Orders/orders_tab.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
-import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/productsAds.dart';
+import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/create_new_ads.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
@@ -153,7 +154,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 0),
-                                          child: Text("Create Ad")),
+                                          child: Text("Create Ads")),
                                     ),
                                     InkWell(
                                       onTap: () {
@@ -274,6 +275,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         InkWell(
                           onTap: () {
                             print("Logout");
+                            Hive.box('user').clear();
                             AppRoutes.makeFirst(context, LoginPage());
                           },
                           child: Container(
@@ -491,6 +493,7 @@ class DrawerFull extends PreferredSize {
                                   iconData: AppIcons.logout,
                                   text: 'Logout User',
                                   onTap: () {
+                                    Hive.box('user').clear();
                                     AppRoutes.makeFirst(context, LoginPage());
                                     //Image.asset('assets/appIcons/icon_logout.png'),
                                   },

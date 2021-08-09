@@ -27,7 +27,7 @@ class ShopProvider with ChangeNotifier {
       _companyNameController,
       _addressController,
       _aboutcontroller,
-    ).createShop().then((data) {
+    ).createShop().then((data){
       print("createShop Creating" + data.statusCode.toString());
       print("createShop = = =  " + data.body.toString());
 
@@ -47,7 +47,7 @@ class ShopProvider with ChangeNotifier {
   }
 
   void createShopMethod(value) {
-    shopModel = value;
+   shopModel = value;
     print("Message Updated = " + shopModel.message.toString());
     notifyListeners();
   }

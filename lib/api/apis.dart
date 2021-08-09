@@ -29,7 +29,7 @@ class API_URLS {
   static const SENDREVIEWS_API = "$API_URL/rating";
 
   //Images
-  static const PROFILE_IMAGE_API = "$API_URL/image/profile";
+  static const PROFILE_IMAGE_API = "$API_URL/images/profile";
   static const CNIC_IMAGE_API = "$API_URL/image/cnic";
   static const VEHICLE_IMAGE_API = "$API_URL/image/vehicle";
   static const WORKPERMIT_IMAGE_API = "$API_URL/image/workpermit";

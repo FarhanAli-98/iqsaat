@@ -327,117 +327,117 @@
 //                                             setState(() {
 //                                               category = category;
 
-// //                                               category = newValue;
-// //                                               print(category);
-// //                                               index = categoryList
-// //                                                   .indexOf(newValue);
-// //                                               print(index);
+//                                               category = newValue;
+//                                               print(category);
+//                                               index = categoryList
+//                                                   .indexOf(newValue);
+//                                               print(index);
 
-// //                                               if (index == 0) {
-// //                                                 subCategory = mobile;
-// //                                               } else if (index == 1) {
-// //                                                 subCategory = vehicle;
-// //                                               } else if (index == 2) {
-// //                                                 subCategory = homeApplicances;
-// //                                               }
+//                                               if (index == 0) {
+//                                                 subCategory = mobile;
+//                                               } else if (index == 1) {
+//                                                 subCategory = vehicle;
+//                                               } else if (index == 2) {
+//                                                 subCategory = homeApplicances;
+//                                               }
 
-// //                                               isVisible = true;
-// //                                             });
-// //                                           },
-// //                                           items: categoryList.map((document) {
-// //                                             return new DropdownMenuItem<String>(
-// //                                                 value: document,
-// //                                                 child: new Text(document,
-// //                                                     style: TextStyle(
-// //                                                         color: Colors.black,
-// //                                                         fontSize: 16,
-// //                                                         fontWeight:
-// //                                                             FontWeight.bold)));
-// //                                           }).toList(),
-// //                                         ),
-// //                                       ),
-// //                                     ),
-// //                                   ),
-// //                                 ),
-// //                               ),
-// //                               Visibility(
-// //                                   visible: isVisible,
-// //                                   child: Column(
-// //                                     mainAxisAlignment: MainAxisAlignment.start,
-// //                                     crossAxisAlignment:
-// //                                         CrossAxisAlignment.start,
-// //                                     children: [
-// //                                       textFieldHeader(
-// //                                         "Select SubCategory",
-// //                                       ),
-// //                                       Padding(
-// //                                         padding: const EdgeInsets.symmetric(
-// //                                             vertical: 8.0),
-// //                                         child: Center(
-// //                                           child: Container(
-// //                                             margin: EdgeInsets.only(top: 10),
-// //                                             height: height * 0.07,
-// //                                             width: width * 0.8,
-// //                                             padding: EdgeInsets.symmetric(
-// //                                                 horizontal: 20, vertical: 5),
-// //                                             decoration: ShapeDecoration(
-// //                                               // borderRadius: BorderRadius.circular(25),
-// //                                               shape: RoundedRectangleBorder(
-// //                                                 side: BorderSide(
-// //                                                     width: 1.0,
-// //                                                     color: Colors.grey[300],
-// //                                                     style: BorderStyle.solid),
-// //                                                 borderRadius: BorderRadius.all(
-// //                                                     Radius.circular(25.0)),
-// //                                               ),
-// //                                             ),
-// //                                             child: InputDecorator(
-// //                                               decoration: const InputDecoration(
-// //                                                 hintText:
-// //                                                     'Choose an Subcategory',
-// //                                                 hintStyle: TextStyle(
-// //                                                   color: AppColors.primarycolor,
-// //                                                   fontSize: 16.0,
-// //                                                   fontFamily: "OpenSans",
-// //                                                   fontWeight: FontWeight.normal,
-// //                                                 ),
-// //                                               ),
-// //                                               // isEmpty: category == null,
-// //                                               child:
-// //                                                   DropdownButtonHideUnderline(
-// //                                                 child: DropdownButton(
-// //                                                   value: subValue,
-// //                                                   isDense: true,
-// //                                                   isExpanded: true,
-// //                                                   onChanged: (String newValue) {
-// //                                                     setState(() {
-// //                                                       subValue = newValue;
-// //                                                       print(subValue);
-// //                                                     });
-// //                                                   },
-// //                                                   items: subCategory
-// //                                                       .map((document) {
-// //                                                     return new DropdownMenuItem<
-// //                                                             String>(
-// //                                                         value: document,
-// //                                                         child: new Text(
-// //                                                             document,
-// //                                                             style: TextStyle(
-// //                                                                 color: Colors
-// //                                                                     .black,
-// //                                                                 fontSize: 16,
-// //                                                                 fontWeight:
-// //                                                                     FontWeight
-// //                                                                         .bold)));
-// //                                                   }).toList(),
-// //                                                 ),
-// //                                               ),
-// //                                             ),
-// //                                           ),
-// //                                         ),
-// //                                       ),
-// //                                     ],
-// //                                   )),
+//                                               isVisible = true;
+//                                             });
+//                                           },
+//                                           items: categoryList.map((document) {
+//                                             return new DropdownMenuItem<String>(
+//                                                 value: document,
+//                                                 child: new Text(document,
+//                                                     style: TextStyle(
+//                                                         color: Colors.black,
+//                                                         fontSize: 16,
+//                                                         fontWeight:
+//                                                             FontWeight.bold)));
+//                                           }).toList(),
+//                                         ),
+//                                       ),
+//                                     ),
+//                                   ),
+//                                 ),
+//                               ),
+//                               Visibility(
+//                                   visible: isVisible,
+//                                   child: Column(
+//                                     mainAxisAlignment: MainAxisAlignment.start,
+//                                     crossAxisAlignment:
+//                                         CrossAxisAlignment.start,
+//                                     children: [
+//                                       textFieldHeader(
+//                                         "Select SubCategory",
+//                                       ),
+//                                       Padding(
+//                                         padding: const EdgeInsets.symmetric(
+//                                             vertical: 8.0),
+//                                         child: Center(
+//                                           child: Container(
+//                                             margin: EdgeInsets.only(top: 10),
+//                                             height: height * 0.07,
+//                                             width: width * 0.8,
+//                                             padding: EdgeInsets.symmetric(
+//                                                 horizontal: 20, vertical: 5),
+//                                             decoration: ShapeDecoration(
+//                                               // borderRadius: BorderRadius.circular(25),
+//                                               shape: RoundedRectangleBorder(
+//                                                 side: BorderSide(
+//                                                     width: 1.0,
+//                                                     color: Colors.grey[300],
+//                                                     style: BorderStyle.solid),
+//                                                 borderRadius: BorderRadius.all(
+//                                                     Radius.circular(25.0)),
+//                                               ),
+//                                             ),
+//                                             child: InputDecorator(
+//                                               decoration: const InputDecoration(
+//                                                 hintText:
+//                                                     'Choose an Subcategory',
+//                                                 hintStyle: TextStyle(
+//                                                   color: AppColors.primarycolor,
+//                                                   fontSize: 16.0,
+//                                                   fontFamily: "OpenSans",
+//                                                   fontWeight: FontWeight.normal,
+//                                                 ),
+//                                               ),
+//                                               // isEmpty: category == null,
+//                                               child:
+//                                                   DropdownButtonHideUnderline(
+//                                                 child: DropdownButton(
+//                                                   value: subValue,
+//                                                   isDense: true,
+//                                                   isExpanded: true,
+//                                                   onChanged: (String newValue) {
+//                                                     setState(() {
+//                                                       subValue = newValue;
+//                                                       print(subValue);
+//                                                     });
+//                                                   },
+//                                                   items: subCategory
+//                                                       .map((document) {
+//                                                     return new DropdownMenuItem<
+//                                                             String>(
+//                                                         value: document,
+//                                                         child: new Text(
+//                                                             document,
+//                                                             style: TextStyle(
+//                                                                 color: Colors
+//                                                                     .black,
+//                                                                 fontSize: 16,
+//                                                                 fontWeight:
+//                                                                     FontWeight
+//                                                                         .bold)));
+//                                                   }).toList(),
+//                                                 ),
+//                                               ),
+//                                             ),
+//                                           ),
+//                                         ),
+//                                       ),
+//                                     ],
+//                                   )),
 // //                               textFieldHeader('Photos'),
 
 // //                               Row(

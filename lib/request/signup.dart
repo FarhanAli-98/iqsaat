@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:iqsaat/api/apis.dart';
+import 'package:iqsaat/ui/auth/image_upload.dart';
+import 'package:iqsaat/ui/auth/loginPage.dart';
 
 class RegisterApi {
   final String firstName;
@@ -30,6 +32,13 @@ class RegisterApi {
       "password": "$password",
       "role": "$role",
     };
+    try{
+            ImagesUpload.uploadImage(
+                file,  API_URLS.PROFILE_IMAGE_API,);
+
+    }catch(e){
+      showMessage(e.toString());
+    }
     //print("ID = "+.toString());
     print("Adds Data getten is = = = = " + json.encode(body));
     print("Signup create At ?? this link${API_URLS.SIGNUP_API}");
