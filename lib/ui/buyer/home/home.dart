@@ -147,7 +147,8 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20,
               ),
-             adsProvider ==null ? CircularProgressIndicator(): SliderForProduct(
+            // adsProvider ==null ? CircularProgressIndicator():
+              SliderForProduct(
                 heading: "Home Aplicense",
                 products: adsProvider.getAllAds.data//newArrivals,
               ),
