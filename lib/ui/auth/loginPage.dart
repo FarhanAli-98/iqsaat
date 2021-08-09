@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/button.dart';
@@ -58,6 +59,7 @@ class _LoginPageState extends State<LoginPage> {
       print("User box =  = " + res.email.toString());
       print("User box =  = " + res.userId);
       try {
+         EasyLoading.dismiss();
         if (res.role == null) {
           print("roll null Store");
           AppRoutes.replace(context, LoginPage());
@@ -209,6 +211,8 @@ class _LoginPageState extends State<LoginPage> {
               buttonText: 'Login',
               buttonColor: AppColors.primarycolor,
               onTap: () {
+                                EasyLoading.show(status: 'Loading..');
+
                 validateAndSubmit(context);
               },
               buttonTextStyle: TextStyles.buttonFontText,

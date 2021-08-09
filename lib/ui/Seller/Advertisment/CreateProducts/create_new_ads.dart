@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:iqsaat/Widget/button.dart';
 import 'package:iqsaat/Widget/headerText.dart';
@@ -16,7 +17,7 @@ import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:provider/provider.dart';
 import '../../../../main.dart';
-import 'createPackage/packagecreate.dart';
+import 'packagecreate.dart';
 
 class AddAdvertisementPage extends StatefulWidget {
   @override
@@ -89,31 +90,28 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
       )
           .then((value) {
         print("Time to change image work because image code is commints");
-  
-          try {
-            print("adds chek${res.shopId}");
-            var url =
-                "${API_URLS.UPLOAD_IMAGE_ADS_API}/6110e2b6c2ed8f001a5e62d9";
-          
-              
-            ImagesUpload.uploadImage(
-                _image1,
-                url,
-              );
-                ImagesUpload.uploadImage(
-                _image2,
-                url,
-              );
-                ImagesUpload.uploadImage(
-                _image3,
-                url,
-              );
-              AppRoutes.pop(context);
 
-          } catch (e) {
-            print("Exception found in images " + e.toString());
-          }
-        
+        try {
+          print("adds chek${res.shopId}");
+          var url = "${API_URLS.UPLOAD_IMAGE_ADS_API}/${res.shopId}";
+
+          ImagesUpload.uploadImage(
+            _image1,
+            url,
+          );
+          ImagesUpload.uploadImage(
+            _image2,
+            url,
+          );
+          ImagesUpload.uploadImage(
+            _image3,
+            url,
+          );
+          EasyLoading.dismiss();
+          AppRoutes.pop(context);
+        } catch (e) {
+          print("Exception found in images " + e.toString());
+        }
       });
     } else {
       showMessage("Please Fill all blanks");
@@ -568,6 +566,7 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
               buttonText: 'Save and Exit',
               buttonColor: AppColors.primarycolor,
               onTap: () async {
+                EasyLoading.show(status: 'Creating..');
                 validateAndSubmit();
               },
               buttonTextStyle: TextStyles.buttonFontText,

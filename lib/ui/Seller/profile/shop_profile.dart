@@ -12,7 +12,6 @@ import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:provider/provider.dart';
-
 import '../../../main.dart';
 
 class ShopProfile extends StatefulWidget {
@@ -26,11 +25,8 @@ class _ShopProfileState extends State<ShopProfile> {
   String imageurl;
   bool _isloading = false;
   UserBox updateResBox;
-
   TextEditingController _shopNameController = TextEditingController();
-
   TextEditingController _aboutController = TextEditingController();
-
   TextEditingController _addressController = TextEditingController();
   ShopProvider shopProvider;
   FocusNode focusNode;
@@ -54,30 +50,20 @@ class _ShopProfileState extends State<ShopProfile> {
         _aboutController.text,
       )
           .then((data) {
-        try {
-          print(shopProvider.shopModel.success);
-          print(shopProvider.shopModel.details.id.toString());
-
-          if (data.success == true) {
-            print("Seccessfullly Account Create");
-            showMessage("Seccessfully Account Created");
-            updateUserBox();
-          } else {
-            showMessage("Data Saving error");
-          }
-        } catch (e) {
-          showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  title: Text(e.toString()),
-                  content: Text("Please Enter Valid info"),
-                );
-              });
-        }
+        showMessage("Successfullly Account Create");
+        updateUserBox();
       });
+    } else {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              title: Text("Error"),
+              content: Text("Please Enter Valid info"),
+            );
+          });
     }
   }
 
@@ -350,7 +336,7 @@ class _ShopProfileState extends State<ShopProfile> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-    // shopProvider = Provider.of<ShopProvider>(context);
+    shopProvider = Provider.of<ShopProvider>(context);
 
     return SafeArea(
       child: Container(

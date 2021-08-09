@@ -2,8 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/drawer.dart';
-
-
+import '../../../main.dart';
 import 'dashboard/dashboard.dart';
 
 class SellerHomePage extends StatefulWidget {
@@ -24,6 +23,8 @@ class _SellerHomePageState extends State<SellerHomePage> {
   String selectedUid;
   PageController pageController;
   int page = 0;
+
+
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -61,18 +62,7 @@ class _SellerHomePageState extends State<SellerHomePage> {
                   ),
                 )),
 
-        // actions: <Widget>[
-        //   GestureDetector(
-        //       onTap: (){}, 
-        //       child: Container(
-        //         margin: EdgeInsets.only(right: 13),
-        //         child: Image.asset(
-        //           'assets/appIcons/offlineVector.png',
-        //           width: 33,
-        //           height: 24,
-        //         ),
-        //       ))
-        // ],
+    
         title: Row(
           children: <Widget>[
             CircleAvatar(
@@ -86,7 +76,7 @@ class _SellerHomePageState extends State<SellerHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Farhan Ali',
+                 res.firstName +" "+ res.lastName,
                   textAlign: TextAlign.start,
                   style: TextStyle(
                       fontSize: 13,
@@ -94,7 +84,7 @@ class _SellerHomePageState extends State<SellerHomePage> {
                       color: Colors.black),
                 ),
                 Text(
-                  'Seller',
+                  res.role.toUpperCase(),
                   style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,

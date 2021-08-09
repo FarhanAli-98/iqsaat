@@ -1,3 +1,4 @@
+import 'package:iqsaat/models/getModels/getAllAds.dart';
 import 'package:iqsaat/provider/shopProvider.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ import 'hive/user_box.dart';
 import 'provider/adsProvider.dart';
 import 'provider/categoryProvider.dart';
 import 'provider/userProvider.dart';
-
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 String role;
 UserBox res;
 Box<dynamic> boxUser;
@@ -53,9 +54,12 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (_) => AdsProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
+    
+
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false, //home: CompanyProfile()
+          builder: EasyLoading.init(),
           home: FutureBuilder(
             future: Hive.openBox("user"),
             builder: (context, snapshot) {
@@ -64,7 +68,7 @@ class _MyAppState extends State<MyApp> {
                   return Text(snapshot.error.toString());
                 else
 
-                 // return ShopProfile();
+                //  return ShopProfile();
                   return SplashScreen(role: widget.role);
               } else
                 return Scaffold();

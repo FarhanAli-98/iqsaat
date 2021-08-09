@@ -2,10 +2,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
+import 'package:iqsaat/ui/Seller/Advertisment/CreateProducts/create_new_ads.dart';
 import 'package:iqsaat/ui/Seller/Orders/orders_tab.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
-import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/create_new_ads.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
@@ -18,6 +18,7 @@ import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
+import 'main.dart';
 import 'ui/Seller/profile/profile_tab.dart';
 import 'ui/buyer/system/languagePage.dart';
 import 'ui/buyer/system/my_orders.dart';
@@ -78,7 +79,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                 Container(
                                     margin: EdgeInsets.only(left: 21),
                                     child: Text(
-                                      'Farhan Ali',
+                                     res.firstName +" "+ res.lastName,
                                       style: TextStyle(
                                           color: AppColors.blackTextColor,
                                           fontWeight: FontWeight.w600),
