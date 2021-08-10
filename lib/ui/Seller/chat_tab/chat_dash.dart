@@ -1,6 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
- import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/api/apis.dart';
+import 'package:iqsaat/hive/utils.dart';
+import 'package:iqsaat/models/postModels/user.dart';
+import 'package:iqsaat/models/userlist.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
+import 'package:http/http.dart' as http;
 import 'package:iqsaat/utils/routes.dart';
 
 import 'chat.dart';
@@ -13,58 +20,82 @@ class ChatTab extends StatefulWidget {
 }
 
 class _ChatTabState extends State<ChatTab> {
+  UserListObj user;
+  emitrequest() {
+    var data = {
+      "userID": Utils.getUserid(),
+    };
+    chatSocket.emit("friendlist", data);
+  }
+
+  getfriends() {
+    chatSocket.on("friendlist", (data) async {
+      var resultChat = json.decode(data.body);
+
+      var body = {
+        "users": "$resultChat",
+      };
+      Map<String, String> customHeaders = {
+        "Content-Type": "application/json",
+        "Authorization": "${Utils.getAuthentication()}",
+      };
+      var userlist = await http.post("${API_URLS.FRIEND}",
+          body: json.encode(body), headers: customHeaders);
+      if (userlist.statusCode == 200) {
+        var jResult = json.decode(userlist.body);
+        setState(() {
+          user = UserListObj.fromJson(jResult);
+        });
+      }
+
+      // var chatfriend = json.decode(userlist);
+    });
+  }
+
   @override
+  void initState() {
+    super.initState();
+    emitrequest();
+    getfriends();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
-         appBar: appBarwithOnlyTitle(context,"Chat DashBord"),
-
-      body: Column(
-        children: [
-          InkWell(
-            onTap: () {
-              AppRoutes.push(context, ChatPage());
-            },
-            child: buildChatDash(
-              'Name',
-              'assets/images/profile1.jpeg',
-              '03:46 PM',
-              'placed order this weekend?',
+      appBar: appBarwithOnlyTitle(context, "Chat DashBord"),
+      body: user == null
+          ? Center(
+              child: Text("NO Chat"),
+            )
+          : Container(
+              height: MediaQuery.of(context).size.height * 0.9,
+              child: ListView.builder(
+                itemCount: user.data.length,
+                itemBuilder: (context, i) {
+                  return InkWell(
+                    onTap: () {
+                      AppRoutes.push(
+                          context,
+                          ChatPage(
+                            name: user.data[i].firstName +
+                                " " +
+                                user.data[i].lastName,
+                            receiverID: user.data[i].id,
+                            senderID: Utils.getUserid(),
+                            photo: user.data[i].displayPictureId,
+                          ));
+                    },
+                    child: buildChatDash(
+                      user.data[i].firstName + " " + user.data[i].lastName,
+                      user.data[i].displayPictureId==null?"assets/images/profile.jpeg": user.data[i].displayPictureId,
+                      '03:46 PM',
+                      'placed order this weekend?',
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-          InkWell(
-            onTap: () {
-              AppRoutes.push(context, ChatPage());
-            },
-            child: buildChatDash(
-                "Name", 'assets/images/profile2.jpeg', "09:41 AM", 'placed order this weekend?'),
-          ),
-           InkWell(
-            onTap: () {
-              AppRoutes.push(context, ChatPage());
-            },
-            child: buildChatDash(
-                "Name", 'assets/images/profile2.jpeg', "09:41 AM", 'placed order this weekend?'),
-          ),
-           InkWell(
-            onTap: () {
-              AppRoutes.push(context, ChatPage());
-            },
-            child: buildChatDash(
-                "Name", 'assets/images/profile2.jpeg', "09:41 AM", 'placed order this weekend?'),
-          ),
-          //  InkWell(
-          //   onTap: () {
-          //     AppRoutes.push(context, ChatPage());
-          //   },
-          //   child: buildShopCard(
-          //       "Shop Name", 'assets/images/eyeWorld1.jpg', "See Profile", 'Sense from'),
-          // ),
-        ],
-      ),
     );
   }
-  
-
 
 //   Widget buildShopCard(String name, String image, String profile, String status) {
 //     return Container(
@@ -99,15 +130,14 @@ class _ChatTabState extends State<ChatTab> {
 //                 profile,
 //                 style: TextStyle(fontSize: 14,color: AppColors.primarycolor,)
 //               ),
-              
+
 //             ],
 //           ),
-       
-        
+
 //         ),
 //       ),
 //     );
-  
+
 // }
 
   Widget buildChatDash(String name, String image, String time, String status) {
