@@ -7,6 +7,7 @@ import 'config.dart';
 class API_URLS {
   //auth
   static const String LOGIN_API = "$API_URL/auth/login";
+  static const String FRIEND = "$API_URL/friendlist";
   static const String INVITE_API = "$API_URL/price/estimate";
   static const String SIGNUP_API = "$API_URL/auth/signup";
   static const String VERIFICATION_API = "$API_URL/auth/users/activation_code/";

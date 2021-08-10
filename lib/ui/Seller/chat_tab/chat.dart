@@ -1,9 +1,9 @@
 import 'dart:async';
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:iqsaat/hive/utils.dart';
 import 'package:iqsaat/models/usermessages.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
@@ -11,9 +11,9 @@ import 'package:socket_io_client/socket_io_client.dart';
 
 class ChatPage extends StatefulWidget {
    final String receiverID, senderID, name,photo;
-  final Socket socketIO;
+  //final Socket socketIO;
 
-  const ChatPage({Key key, @required this.receiverID, @required this.senderID, @required this.name,@required this.socketIO, this.photo}) : super(key: key);
+  const ChatPage({Key key, @required this.receiverID, @required this.senderID, @required this.name, this.photo}) : super(key: key);
  
  
   @override
@@ -22,19 +22,20 @@ class ChatPage extends StatefulWidget {
 
 
 class _ChatPageState extends State<ChatPage> {
-
+UserMessages msg;
    List<Messages> messages;
    ScrollController _chatLVController;
   @override
   void initState() {
     super.initState();
-
+    emitgetmsg();
+    getMessages();
     listenMessages();
     // widget.socketIO.on('disconnect',
     //     (data) => print("I have disconnected from consumer side"));
   }
   listenMessages() {
-    widget.socketIO.on("message", (data) {
+    chatSocket.on("message", (data) {
       if (data['senderID'] == widget.senderID) {
         print('saving messages to list');
         if (this.mounted) {
@@ -50,10 +51,32 @@ class _ChatPageState extends State<ChatPage> {
       }
     });
   }
+  emitgetmsg()  {
+    var data={
+      "receiverID":widget.receiverID,
+      "senderID":widget.senderID
+    };
+    chatSocket.emit("getmessage",data);
+  }
+  getMessages() {
+   chatSocket.on("getmessage", (data) {
+     var resultChat= json.decode(data.body);
+      setState(() {
+              msg=UserMessages.fromJson(resultChat);
+              msg.data.forEach((element) {
+              messages.add(Messages(
+                text: data['text'],
+                senderID: data['senderID'],
+                receiverID: data['receiverID'],
+                createdAt: data['createdAt']));
+              });
+          });
+    });
+  }
     var date = DateTime.now().toIso8601String();
   buildChatList() {
     //await checkrefreshtoken();
-    return ListView.builder(
+    return messages.length>0?ListView.builder(
         controller: _chatLVController,
         reverse: false,
         itemCount: messages.length ?? 0,
@@ -119,7 +142,8 @@ class _ChatPageState extends State<ChatPage> {
               ],
             ),
           );
-        });
+        }):
+        Container();
   }
   
   @override
@@ -154,7 +178,7 @@ class _ChatPageState extends State<ChatPage> {
               child: ListTile(
                 leading: CircleAvatar(
                   radius: 20.0,
-                  backgroundImage: AssetImage(widget.photo),
+                  backgroundImage: AssetImage(widget.photo==null?Images.person:widget.photo),
                 ),
                 title: Text(
                   widget.name,
