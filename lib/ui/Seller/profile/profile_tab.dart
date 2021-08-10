@@ -1,8 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/chip_container.dart';
-import 'package:iqsaat/Widget/rounded_outline_button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'about_tab.dart';
 import 'pervious_ads.dart';
@@ -87,10 +85,7 @@ class ProfileInfoColumn extends StatelessWidget {
                 leading: "Daliver orders",
                 trailing: "7",
               ),
-              ChipContainer(
-                leading: "Ads",
-                trailing: "70",
-              ),
+            
             ],
           ),
         ),
@@ -110,19 +105,10 @@ class ProfileRow extends StatelessWidget {
       padding: const EdgeInsets.all(24.0),
       child: Row(
         children: <Widget>[
-          Expanded(
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: CachedNetworkImage(
-                  imageUrl:
-                      "https://i.pinimg.com/originals/2c/40/b2/2c40b20db36393c6df7bf5ac32b1f08b.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
+        Container(
+          height: 80,
+          width: 80,
+          child: Image.asset("assets/images/afzal.png")),
           Expanded(
             flex: 2,
             child: Padding(
@@ -158,19 +144,7 @@ class ProfileRow extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: RoundedOutlineButton(
-              text: "Edit",
-              fontSize: 7,
-              onTap: () {
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (_) => ProfileDetails(),
-                //   ),
-                // );
-              },
-            ),
-          ),
+    
         ],
       ),
     );

@@ -1,6 +1,5 @@
+import 'package:iqsaat/models/getModels/getAllAds.dart';
 import 'package:iqsaat/provider/shopProvider.dart';
-import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
-import 'package:iqsaat/ui/buyer/map/mapview.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -12,14 +11,13 @@ import 'hive/user_box.dart';
 import 'provider/adsProvider.dart';
 import 'provider/categoryProvider.dart';
 import 'provider/userProvider.dart';
-
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 String role;
 UserBox res;
 Box<dynamic> boxUser;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
- 
   Hive.init(appDocumentDir.path);
   Hive.registerAdapter(UserBoxAdapter());
   boxUser = await Hive.openBox("user");
@@ -32,11 +30,10 @@ Future<void> main() async {
     res = boxUser.get(0) as UserBox;
     print(res.role);
     role = res.role;
+    print(role);
   }
   runApp(MyApp(role));
 }
-
-
 
 class MyApp extends StatefulWidget {
   final String role;
@@ -51,27 +48,28 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-       ChangeNotifierProvider(create: (_) => RegisterProvider()),
-       ChangeNotifierProvider(create: (_) => LoginProvider()),
-       ChangeNotifierProvider(create: (_) => ShopProvider()),
-       ChangeNotifierProvider(create: (_) => AdsProvider()),
-       ChangeNotifierProvider(create: (_) => UserProvider()),
-       ChangeNotifierProvider(create: (_) => CategoryProvider()),
+        ChangeNotifierProvider(create: (_) => RegisterProvider()),
+        ChangeNotifierProvider(create: (_) => LoginProvider()),
+        ChangeNotifierProvider(create: (_) => ShopProvider()),
+        ChangeNotifierProvider(create: (_) => AdsProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => CategoryProvider()),
+    
+
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false, //home: CompanyProfile()
+          builder: EasyLoading.init(),
           home: FutureBuilder(
             future: Hive.openBox("user"),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                print(snapshot.data.toString());
                 if (snapshot.hasError)
                   return Text(snapshot.error.toString());
                 else
 
-               // return ProfileTab();
-                return SplashScreen(role: widget.role);
-
+                //  return ShopProfile();
+                  return SplashScreen(role: widget.role);
               } else
                 return Scaffold();
             },
@@ -85,4 +83,3 @@ class _MyAppState extends State<MyApp> {
     super.dispose();
   }
 }
-

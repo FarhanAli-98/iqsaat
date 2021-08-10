@@ -1,20 +1,20 @@
-import 'package:pluto_grid/pluto_grid.dart';
+import 'package:iqsaat/utils/images.dart';
 import 'package:flutter/material.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 
-class createPackages extends StatefulWidget {
+class CreatePackages extends StatefulWidget {
   @override
-  _createPackagesState createState() => _createPackagesState();
+  _CreatePackagesState createState() => _CreatePackagesState();
 }
 
-class _createPackagesState extends State<createPackages> {
+class _CreatePackagesState extends State<CreatePackages> {
   @override
   Widget pricefield(count) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
       child: TextField(
-        controller: _pricecontroller[count],
+        controller: pricecontroller[count],
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
@@ -46,31 +46,32 @@ class _createPackagesState extends State<createPackages> {
   ];
   Widget monthField(count) {
     return Expanded(
-      flex:1,
-          child: SelectFormField(
+      flex: 1,
+      child: SelectFormField(
         //controller: _monthcontroller[count],
-      
+
         type: SelectFormFieldType.dropdown,
         labelText: 'Months',
         items: _items,
-        onChanged: (val) =>print(val),
+        onChanged: (val) => print(val),
         onSaved: (val) => print(val),
       ),
     );
   }
 
-  Widget package(BuildContext context,count) {
+  Widget package(BuildContext context, count) {
     return Expanded(
       flex: 3,
-          child: Container(
+      child: Container(
         padding: EdgeInsets.all(5),
         //width: MediaQuery.of(context).size.width / 3,
         height: MediaQuery.of(context).size.width / 2,
-        decoration:
-            BoxDecoration(border: Border.all(color: AppColors.primarycolor),borderRadius: BorderRadius.circular(10),),
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.primarycolor),
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: Column(
           children: [
-            
             // SizedBox(height: MediaQuery.of(context).size.height/8,),
             Center(
               child: Text("Package",
@@ -83,31 +84,29 @@ class _createPackagesState extends State<createPackages> {
             SizedBox(
                 width: MediaQuery.of(context).size.width / 3,
                 child: Padding(
-                  padding: const EdgeInsets.only(left:8.0),
+                  padding: const EdgeInsets.only(left: 8.0),
                   child: Container(child: monthField(count)),
                 )),
             SizedBox(
                 width: MediaQuery.of(context).size.width / 3,
-                child: Container(height: MediaQuery.of(context).size.height*.118 ,child: pricefield(count))),
+                child: Container(
+                    height: MediaQuery.of(context).size.height * .118,
+                    child: pricefield(count))),
           ],
         ),
       ),
     );
   }
 
-  final List <TextEditingController> _pricecontroller = List(3);
-  
-  final List<TextEditingController> _monthcontroller = List(3);
   @override
-  void initState()
-  {
+  void initState() {
     super.initState();
-    for(int i=0;i<3;i++)
-    {
-      _pricecontroller[i]=TextEditingController();
-      _monthcontroller[i]=TextEditingController();
+    for (int i = 0; i < 3; i++) {
+      pricecontroller[i] = TextEditingController();
+      monthcontroller[i] = TextEditingController();
     }
   }
+
   Widget build(BuildContext context) {
     // TODO: implement buil
 
@@ -118,12 +117,17 @@ class _createPackagesState extends State<createPackages> {
       color: Colors.white,
       child: Row(
         children: [
-          SizedBox(child: Container(padding: EdgeInsets.all(1.9),child: package(context,0))),
-          SizedBox(child: Padding(
+          SizedBox(
+              child: Container(
+                  padding: EdgeInsets.all(1.9), child: package(context, 0))),
+          SizedBox(
+              child: Padding(
             padding: EdgeInsets.all(1.9),
-            child: package(context,1),
+            child: package(context, 1),
           )),
-          Container(padding: EdgeInsets.all(1.9),child: SizedBox(child: package(context,2))),
+          Container(
+              padding: EdgeInsets.all(1.9),
+              child: SizedBox(child: package(context, 2))),
         ],
       ),
     ));

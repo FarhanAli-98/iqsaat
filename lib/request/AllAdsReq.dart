@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import 'package:iqsaat/api/api.dart';
+import 'package:iqsaat/api/apis.dart';
 import 'package:iqsaat/hive/utils.dart';
 
 class GetAdsApi {
@@ -13,7 +13,7 @@ class GetAdsApi {
     };
 
     // print(body.toString());
-    return http.get("${API.GETADS_API}", headers: customHeaders);
+    return http.get("${API_URLS.GETADS_API}", headers: customHeaders);
   }
 
 
@@ -24,9 +24,9 @@ class GetAdsApi {
       "Content-Type": "application/json",
       "Authorization": "${Utils.getAuthentication()}",
     };
-    print("${API.ADS_API}/${Utils.getUserid()}");
+    print("${API_URLS.ADS_API}/${Utils.getUserid()}");
     // print(body.toString());
-    return http.get("${API.ADS_API}/all", headers: customHeaders);
+    return http.get("${API_URLS.ADS_API}/all", headers: customHeaders);
   }
 
     Future<http.Response> getUser() {
@@ -34,9 +34,9 @@ class GetAdsApi {
       "Content-Type": "application/json",
       "Authorization": "${Utils.getAuthentication()}",
     };
-    print("${API.GET_USER}/${Utils.getUserid}");
+    print("${API_URLS.GET_USER}/${Utils.getUserid}");
     // print(body.toString());
-    return http.get("${API.GET_USER}/${Utils.getUserid}", headers: customHeaders);
+    return http.get("${API_URLS.GET_USER}/${Utils.getUserid}", headers: customHeaders);
   }
 
   
@@ -48,6 +48,6 @@ class GetAdsApi {
     };
 
     print("Sending iD =? " + id.toString());
-    return http.get("${API.MYAD_API}/$id", headers: customHeaders);
+    return http.get("${API_URLS.ADS_API}/$id", headers: customHeaders);
   }
 }

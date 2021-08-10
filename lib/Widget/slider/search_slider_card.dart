@@ -3,33 +3,31 @@ import 'package:iqsaat/Widget/slider/product_slider_card.dart';
 import 'package:iqsaat/Widget/slider/product_model.dart';
 import 'category_slider.dart';
 
-class ProductSlider extends StatefulWidget {
+class SearchSlider extends StatefulWidget {
   final String heading;
   final List<int> package;
-    final List<ProdSliderCardModel> products;
-  
-  ProductSlider({
+  final List<ProdSliderCardModel> products;
+
+  SearchSlider({
     @required this.heading,
-    @required this.products, this.package, 
+    @required this.products,
+    this.package,
   });
   @override
-  _ProductSliderState createState() => _ProductSliderState();
+  _SearchSliderState createState() => _SearchSliderState();
 }
 
-class _ProductSliderState extends State<ProductSlider> {
+class _SearchSliderState extends State<SearchSlider> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: SliderHeading(headingString: widget.heading)),
         SizedBox(
           height: 15,
         ),
         Container(
-          height: 270,
+           height: MediaQuery.of(context).size.height*.40,
           child: ListView.separated(
             itemCount: widget.products.length,
             primary: false,
@@ -42,17 +40,13 @@ class _ProductSliderState extends State<ProductSlider> {
             },
             itemBuilder: (context, i) {
               return Padding(
-                  padding: i == 0
-                      ? const EdgeInsets.only(left: 10)
-                      : const EdgeInsets.only(left: 0.0),
-                  child: 
-     
-                  
-                  ProductSliderCard(
-                      product: widget.products[i],
-                      
-                    )
-                    );
+                padding: i == 0
+                    ? const EdgeInsets.only(left: 10)
+                    : const EdgeInsets.only(left: 0.0),
+                child: ProductSliderCard(
+                  product: widget.products[i],
+                ),
+              );
             },
           ),
         )

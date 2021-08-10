@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/slider/product_model.dart';
 
 class Images {
@@ -45,6 +46,28 @@ class Images {
   static const String abya = 'assets/images/abya.png';
   static const String chart = 'assets/icons/chart.png';
 }
+
+
+   
+
+
+
+  final List<TextEditingController> pricecontroller = List(3);
+
+  final List<TextEditingController> monthcontroller = List(3);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 List<String> homeSliderlist = [
   "assets/images/banner.png",

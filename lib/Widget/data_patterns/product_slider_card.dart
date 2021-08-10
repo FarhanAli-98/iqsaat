@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/slider/product_model.dart';
+import 'package:iqsaat/models/getModels/getAllAds.dart';
 import 'package:iqsaat/ui/buyer/products/product_description.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 
-class ProductSliderCard extends StatelessWidget {
-  final ProdSliderCardModel product;
+class ProductCardDesign extends StatelessWidget {
+  final Datum product;
   final bool isGridView;
+  final int count;
 
-  ProductSliderCard({@required this.product, this.isGridView = false,});
+  ProductCardDesign({@required this.product, this.isGridView = false, this.count,});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -37,17 +38,11 @@ class ProductSliderCard extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  ClipRRect(
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(10)),
-                    child: Image.asset(
-                      product.prodImage,
-                      height: 170,
-                      width: 155,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  product.isFreeGift == true
+                  CircleAvatar(
+                                      backgroundImage: NetworkImage(
+                                          "https://img.flaticon.com/icons/png/512/906/906343.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF"),
+                                    ),
+                  count%2 == 0
                       ? Positioned(
                           top: 5,
                           left: 5,
@@ -69,7 +64,7 @@ class ProductSliderCard extends StatelessWidget {
                           ),
                         )
                       : Container(),
-                  product.isOutOfStock
+                  count%2 !=0
                       ? Align(
                           alignment: Alignment.center,
                           child: Container(
@@ -80,13 +75,10 @@ class ProductSliderCard extends StatelessWidget {
                                     topLeft: Radius.circular(10),
                                     bottomRight: Radius.circular(10))),
                             alignment: Alignment.center,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomRight: Radius.circular(10)),
-                              child:
-                                  Image.asset("assets/images/outOfStock.png"),
-                            ),
+                            child: CircleAvatar(
+                                      backgroundImage: NetworkImage(
+                                          "https://img.flaticon.com/icons/png/512/906/906343.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF"),
+                                    ),
                           ),
                         )
                       : Container()
@@ -102,7 +94,7 @@ class ProductSliderCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            product.prodName,
+                            product.name,
                             maxLines: 1,
                             textAlign: TextAlign.left,
                             overflow: TextOverflow.ellipsis,
@@ -113,7 +105,7 @@ class ProductSliderCard extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            product.prodDesc,
+                            product.products[0].description,
                             maxLines: 1,
                             textAlign: TextAlign.left,
                             overflow: TextOverflow.ellipsis,
@@ -125,7 +117,7 @@ class ProductSliderCard extends StatelessWidget {
                           ),
                           Expanded(child: SizedBox()),
                           Text(
-                          product.prodPrice+ " RS",
+                          product.products[0].price+ " RS",
                             maxLines: 1,
                             textAlign: TextAlign.left,
                             overflow: TextOverflow.ellipsis,

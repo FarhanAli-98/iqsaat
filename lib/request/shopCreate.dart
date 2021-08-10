@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:hive/hive.dart';
-import 'package:http/http.dart' as http;
-import 'package:async/async.dart';
-import 'package:iqsaat/api/api.dart';
+import 'package:http/http.dart' as https;
+import 'package:iqsaat/api/apis.dart';
+import 'package:iqsaat/ui/auth/loginPage.dart';
 import '../main.dart';
 
 final tokens = Hive.box('tokens');
@@ -15,26 +15,23 @@ class ShopApi {
   final File file;
   ShopApi(this.file, this.companyName, this.address, this.about);
 
-
-  Future<http.Response> createShop() {
+  Future<https.Response> createShop() {
     Map<String, String> customHeaders = {
       "Content-Type": "application/json",
-       "Authorization": "Bearer ${res.accessToken} ",
-     
+      "Authorization": "Bearer ${res.accessToken}",
+      //"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTEzOGM2YzJlZDhmMDAxYTVlNjMwNSIsInJvbGUiOiJidXllciIsImlhdCI6MTYyODUxODc0OSwiZXhwIjoxNjMxMTEwNzQ5fQ.kRD5rffJvK-NFsjWctEIu7tAFwkzBfy6PQJgEZmgljY",
     };
     print(customHeaders);
     var body = {
       "name": "$companyName",
       "address": "$address",
       "about": "$about",
-     
-   
     };
-    //print("ID = "+.toString());
+    print("ID = " + customHeaders.toString());
     print("Adds Data getten is = = = = " + json.encode(body));
-    print("Signup create At ?? this link${API.CREATESHOP_API}");
-    return http.post(
-      "${API.CREATESHOP_API}",
+    print("Signup create At ?? this link = ${API_URLS.CREATESHOP_API}");
+    return https.post(
+      "${API_URLS.CREATESHOP_API}",
       headers: customHeaders,
       body: json.encode(body),
     );

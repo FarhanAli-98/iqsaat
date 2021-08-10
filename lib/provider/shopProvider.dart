@@ -6,7 +6,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:iqsaat/models/postModels/shop.dart';
 import 'package:iqsaat/request/shopCreate.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-
 class ShopProvider with ChangeNotifier {
   String sAbout;
   String sName;
@@ -34,6 +33,7 @@ class ShopProvider with ChangeNotifier {
       if (data.statusCode == 201) {
         jResult = json.decode(data.body);
         createShopMethod(ShopModel.fromJson(jResult));
+        return shopModel;
       } else if (data.statusCode == 404) {
         showMessage(data.statusCode);
       } else if (data.statusCode == 403) {
@@ -43,11 +43,13 @@ class ShopProvider with ChangeNotifier {
         print("Errors = " + result.toString());
         showMessage(data.statusCode);
       }
+      return shopModel;
     });
   }
 
   void createShopMethod(value) {
     shopModel = value;
+    //golobalShopId=shopModel.details.id;
     print("Message Updated = " + shopModel.message.toString());
     notifyListeners();
   }

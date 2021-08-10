@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iqsaat/Widget/appBar.dart';
+import 'package:iqsaat/Widget/data_patterns/product_slider.dart';
 import 'package:iqsaat/Widget/slider/category_slider.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
@@ -13,6 +14,7 @@ import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:provider/provider.dart';
 
+import '../../../main.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,7 +24,6 @@ class HomePage extends StatefulWidget {
 double width, height;
 
 class _HomePageState extends State<HomePage> {
-
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
   // TextEditingController _searchController = TextEditingController();
@@ -35,32 +36,31 @@ class _HomePageState extends State<HomePage> {
   double lat, long;
   bool locationConformed = false;
   bool isSearching = false;
- // AdsProvider adsProvider;
+  AdsProvider adsProvider;
   double width, height;
 
-// //Functions
-//   getAllRendomAds() {
-//     Provider.of<AdsProvider>(context, listen: false)
-//         .fetchedAds()
-//         .then((value) => ({
-//               print("Ads fetch response" + value.message.toString()),
-//               // myAds.clear(),
-//             }));
-//   }
+//Functions
+  getAllRendomAds() {
+    Provider.of<AdsProvider>(context, listen: false)
+        .fetchedAds()
+        .then((value) => ({
+              print("Ads fetch response" +
+                  adsProvider.getAllAds.message.toString()),
+            }));
+  }
 
-  // void initState() {
-  //   super.initState();
-  //   getAllRendomAds();
-  // }
-
-
+  void initState() {
+    super.initState();
+    getAllRendomAds();
+  }
 
   @override
   Widget build(BuildContext context) {
+    adsProvider = Provider.of<AdsProvider>(context);
     _body(BuildContext context) {
       return SingleChildScrollView(
         child: // adsProvider.getAllAds.data==null? CircularProgressIndicator():
-        Padding(
+            Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
@@ -126,7 +126,6 @@ class _HomePageState extends State<HomePage> {
               ProductSlider(
                 heading: "New Phones",
                 products: phones,
-              
               ),
               SizedBox(
                 height: 15,
@@ -134,7 +133,6 @@ class _HomePageState extends State<HomePage> {
               ProductSlider(
                 heading: "AUTOMOBILES",
                 products: vehicles,
-             
               ),
               SizedBox(
                 height: 20,
@@ -149,17 +147,14 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20,
               ),
-              ProductSlider(
+            // adsProvider ==null ? CircularProgressIndicator():
+              SliderForProduct(
                 heading: "Home Aplicense",
-                products: newArrivals,
-             
+                products: adsProvider.getAllAds.data//newArrivals,
               ),
               SizedBox(
                 height: 15,
               ),
-              
-
-             
             ],
           ),
         ),
@@ -168,16 +163,21 @@ class _HomePageState extends State<HomePage> {
 
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-  //  adsProvider = Provider.of<AdsProvider>(context);
+    //  adsProvider = Provider.of<AdsProvider>(context);
     return SafeArea(
       child: Scaffold(
-      key: scaffoldKey,
-         drawer: DrawerFull(context, MediaQuery.of(context).size),
+        key: scaffoldKey,
+        drawer: DrawerFull(context, MediaQuery.of(context).size),
         appBar: AppBar(
-          leading: IconButton(icon: Icon(Icons.format_list_bulleted,color: Colors.black,), onPressed: ()=> scaffoldKey.currentState.openDrawer()),
+          leading: IconButton(
+              icon: Icon(
+                Icons.format_list_bulleted,
+                color: Colors.black,
+              ),
+              onPressed: () => scaffoldKey.currentState.openDrawer()),
           backgroundColor: Colors.white,
           title: Text(
-            "Buyer",
+            res.firstName + " " + res.lastName,
             style: TextStyle(color: Colors.black),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -189,26 +189,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-  // List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
-  //   StaggeredTile.extent(1, 100.0),
-  //   StaggeredTile.extent(1, 100.0),
-  //   StaggeredTile.extent(1, 100.0),
-  //   StaggeredTile.extent(1, 100.0),
-  //   StaggeredTile.extent(1, 100.0),
-  //   StaggeredTile.extent(1, 100.0),
-  //   StaggeredTile.extent(1, 100.0),
-  //   StaggeredTile.extent(1, 100.0),
-  // ];
-
-  // List<Widget> _tiles = const <Widget>[
-  //   const _Example01Tile(Colors.green, Icons.category, "AllCategory"),
-  //   const _Example01Tile(Colors.amber, Icons.mobile_friendly, "mobile"),
-  //   const _Example01Tile(Colors.deepOrange, Icons.computer, "computer"),
-  //   const _Example01Tile(Colors.indigo, Icons.house, "house"),
-  //   const _Example01Tile(Colors.pink, Icons.home_repair_service, "home"),
-  //   const _Example01Tile(Colors.purple, Icons.business, "business"),
-  //   const _Example01Tile(Colors.blue, Icons.bike_scooter, "bike"),
-  //   const _Example01Tile(Colors.blue, Icons.room_service, "service"),
-  // ];

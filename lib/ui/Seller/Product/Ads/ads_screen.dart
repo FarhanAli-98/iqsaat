@@ -5,7 +5,7 @@ import 'package:iqsaat/utils/app_colors.dart';
 
 
 class ProductSliderCard extends StatelessWidget {
-  final shopCategories product;
+  final ShopCategories product;
 
   ProductSliderCard({@required this.product});
   @override

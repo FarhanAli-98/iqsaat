@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -9,34 +8,28 @@ import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/hive/user_box.dart';
 import 'package:iqsaat/provider/shopProvider.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
+import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
-
+import 'package:provider/provider.dart';
 import '../../../main.dart';
 
-
-
-class  ShopProfile extends StatefulWidget {
-
-
+class ShopProfile extends StatefulWidget {
   @override
   _ShopProfileState createState() => _ShopProfileState();
 }
 
-class _ShopProfileState extends State< ShopProfile> {
+class _ShopProfileState extends State<ShopProfile> {
   double width, height;
   final _formKey = GlobalKey<FormState>();
   String imageurl;
   bool _isloading = false;
-   UserBox updateResBox;
-
+  UserBox updateResBox;
   TextEditingController _shopNameController = TextEditingController();
-  
-   TextEditingController _aboutController = TextEditingController();
-  
+  TextEditingController _aboutController = TextEditingController();
   TextEditingController _addressController = TextEditingController();
   ShopProvider shopProvider;
-  FocusNode _focusNode;
+  FocusNode focusNode;
   int index = 0;
   String category, selectServicSubeCategory;
   File _image;
@@ -47,117 +40,65 @@ class _ShopProfileState extends State< ShopProfile> {
   var queryCat;
   var dropDown;
 
-
-
-
-
-
-
-  // void validateAndSubmit(context) {
-  //   if (validateAndSave()) {
-  //     Provider.of<ShopProvider>(context, listen: false)
-  //         .createShop(
-  //             _image,
-  //             _shopNameController.text,
-  //             _addressController.text,
-  //             _aboutController.text,
-            
-  //             )
-  //         .then((data) {
-  // try {
-  //         print(shopProvider.shopModel.success);
-  //         print(shopProvider.shopModel.details.id.toString());
-          
-  //         if (shopProvider.shopModel.success== true) {
-  //           print("Seccessfullly Account Create");
-  //           showMessage("Seccessfully Account Created");
-  //           Navigator.pushReplacement(
-  //               context, MaterialPageRoute(builder: (c) => AddAdvertisementPage()));
-  //         } else {
-  //           showDialog(
-  //               context: context,
-  //               builder: (BuildContext context) {
-  //                 return AlertDialog(
-  //                   shape: RoundedRectangleBorder(
-  //                       borderRadius: BorderRadius.circular(30)),
-  //                   title: Text('User Account Creation Failed'),
-  //                   content: Text("Please Enter Valid info"),
-  //                 );
-  //               });
-  //         }
-  //       } catch (e) {
-  //         showDialog(
-  //             context: context,
-  //             builder: (BuildContext context) {
-  //               return AlertDialog(
-  //                 shape: RoundedRectangleBorder(
-  //                     borderRadius: BorderRadius.circular(30)),
-  //                 title: Text(e.toString()),
-  //                 content: Text("Please Enter Valid info"),
-  //               );
-  //             });
-  //       }
-  //     });
-  //   }
-  // }
-
-
-
- updateUserBox(value) {
-   try{
-       updateResBox = res;
-    print(updateResBox.role);
-    res = UserBox(
-       email: updateResBox.email,
-                          firstName: updateResBox.firstName,
-                          lastName: updateResBox.lastName,
-                          photo: updateResBox.photo,
-                          accessToken:updateResBox.accessToken,
-                          refreshToken:updateResBox.refreshToken,
-                          userId: updateResBox.userId,
-                          shopId: shopProvider.shopModel.details.id,
-                          role: updateResBox.role,
-                          cnic: updateResBox.cnic,
-                          phone: updateResBox.phone,
-
-    );
-    boxUser.putAt(0, res);
-    res = boxUser.get(0) as UserBox;
-    setState(() {});
-       Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (c) => SellerHomePage()));
-
-   }catch(e)
-   {
-    print(e);
-   }
-  
+  void validateAndSubmit(context) {
+    if (validateAndSave()) {
+      Provider.of<ShopProvider>(context, listen: false)
+          .createShop(
+        _image,
+        _shopNameController.text,
+        _addressController.text,
+        _aboutController.text,
+      )
+          .then((data) {
+        showMessage("Successfullly Account Create");
+        updateUserBox();
+      });
+    } else {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              title: Text("Error"),
+              content: Text("Please Enter Valid info"),
+            );
+          });
+    }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  updateUserBox() {
+    try {
+      updateResBox = res;
+      print(updateResBox.role);
+      res = UserBox(
+        email: updateResBox.email,
+        firstName: updateResBox.firstName,
+        lastName: updateResBox.lastName,
+        photo: updateResBox.photo,
+        accessToken: updateResBox.accessToken,
+        refreshToken: updateResBox.refreshToken,
+        userId: updateResBox.userId,
+        shopId: shopProvider.shopModel.details.id,
+        role: updateResBox.role,
+        cnic: updateResBox.cnic,
+        phone: updateResBox.phone,
+      );
+      boxUser.putAt(0, res);
+      res = boxUser.get(0) as UserBox;
+      setState(() {});
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (c) => SellerHomePage()));
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   void initState() {
     super.initState();
-    _focusNode = FocusNode();
-
+    focusNode = FocusNode();
   }
-
-
-
-
 
   bool validateAndSave() {
     final form = _formKey.currentState;
@@ -168,9 +109,6 @@ class _ShopProfileState extends State< ShopProfile> {
       return false;
     }
   }
-
-
-
 
   _imgFromCamera() async {
     // ignore: deprecated_member_use
@@ -289,52 +227,49 @@ class _ShopProfileState extends State< ShopProfile> {
                               textFieldHeader('about'),
                               Center(
                                 child: GestureDetector(
-                                  onTap: () async {
-                                
-                                  },
+                                  onTap: () async {},
                                   child: Container(
-                                    margin: EdgeInsets.only(
-                                      bottom: 10,
-                                    ),
-                                    padding: EdgeInsets.only(top: 10, left: 10),
-                                    height: MediaQuery.of(context).size.height *
-                                        0.15,
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.8,
-                                   
-                                    child: TextFields.largeTextField(context,
-                                      controller: _aboutController,
-                                     )
-                                          
-                                       
-                                  ),
+                                      margin: EdgeInsets.only(
+                                        bottom: 10,
+                                      ),
+                                      padding:
+                                          EdgeInsets.only(top: 10, left: 10),
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.15,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.8,
+                                      child: TextFields.largeTextField(
+                                        context,
+                                        controller: _aboutController,
+                                      )),
                                 ),
                               ),
-                          
-                            //  SizedBox(height: 20),
-                            // textFieldHeader('Required things'),
-                            //   Center(
-                            //       child: TextFields.normalTextField(context,
-                            //           controller: _shopNameController,
-                            //           validaterMsg:
-                            //               ' Shop Name cannot be empty')),
 
-                            //  textFieldHeader('Required things'),
-                            //   Center(
-                            //       child: TextFields.normalTextField(context,
-                            //           controller: _shopNameController,
-                            //           validaterMsg:
-                            //               ' Shop Name cannot be empty')),
+                              //  SizedBox(height: 20),
+                              // textFieldHeader('Required things'),
+                              //   Center(
+                              //       child: TextFields.normalTextField(context,
+                              //           controller: _shopNameController,
+                              //           validaterMsg:
+                              //               ' Shop Name cannot be empty')),
 
-                            //               textFieldHeader('Required things'),
-                            //   Center(
-                            //       child: TextFields.normalTextField(context,
-                            //           controller: _shopNameController,
-                            //           validaterMsg:
-                            //               ' Shop Name cannot be empty')),
-                                          SizedBox(height: 20,)
-                            
-                            
+                              //  textFieldHeader('Required things'),
+                              //   Center(
+                              //       child: TextFields.normalTextField(context,
+                              //           controller: _shopNameController,
+                              //           validaterMsg:
+                              //               ' Shop Name cannot be empty')),
+
+                              //               textFieldHeader('Required things'),
+                              //   Center(
+                              //       child: TextFields.normalTextField(context,
+                              //           controller: _shopNameController,
+                              //           validaterMsg:
+                              //               ' Shop Name cannot be empty')),
+                              SizedBox(
+                                height: 20,
+                              )
                             ]),
                       ),
                     )),
@@ -377,17 +312,16 @@ class _ShopProfileState extends State< ShopProfile> {
             ],
           ),
         ),
-        SizedBox(height:20),
+        SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Button(
             buttonText: 'Submit',
             buttonColor: AppColors.primarycolor,
             onTap: () {
-              //validateAndSubmit(context);
+              validateAndSubmit(context);
               //  Navigator.push(context,
               //       MaterialPageRoute(builder: (c) => SellerHomePage()));
-            
             },
             buttonTextStyle: TextStyles.buttonFontText,
             widthPercent: 0.8,
@@ -402,7 +336,7 @@ class _ShopProfileState extends State< ShopProfile> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-   // shopProvider = Provider.of<ShopProvider>(context);
+    shopProvider = Provider.of<ShopProvider>(context);
 
     return SafeArea(
       child: Container(
@@ -414,25 +348,25 @@ class _ShopProfileState extends State< ShopProfile> {
           //     ? Center(
           //         child: CircularProgressIndicator(),
           //       )
-          //     : 
-          body:Container(
-                  margin: EdgeInsets.all(5),
-                  child: Stack(
-                    children: <Widget>[
-                      Container(
-                        child: _body(context),
-                      ),
-                      _isloading
-                          ? Container(
-                              color: Colors.white.withOpacity(0.6),
-                              child: Center(
-                                child: CircularProgressIndicator(),
-                              ),
-                            )
-                          : Container(),
-                    ],
-                  ),
+          //     :
+          body: Container(
+            margin: EdgeInsets.all(5),
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  child: _body(context),
                 ),
+                _isloading
+                    ? Container(
+                        color: Colors.white.withOpacity(0.6),
+                        child: Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      )
+                    : Container(),
+              ],
+            ),
+          ),
         ),
       ),
     );

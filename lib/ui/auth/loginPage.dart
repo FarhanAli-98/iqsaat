@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/button.dart';
@@ -7,6 +8,7 @@ import 'package:iqsaat/hive/user_box.dart';
 import 'package:iqsaat/models/postModels/user.dart';
 import 'package:iqsaat/provider/login_provider.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
+import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
 import 'package:iqsaat/ui/auth/password_reset.dart';
 import 'package:iqsaat/ui/auth/signup_Page.dart';
 import 'package:iqsaat/ui/buyer/home/home.dart';
@@ -57,6 +59,7 @@ class _LoginPageState extends State<LoginPage> {
       print("User box =  = " + res.email.toString());
       print("User box =  = " + res.userId);
       try {
+         EasyLoading.dismiss();
         if (res.role == null) {
           print("roll null Store");
           AppRoutes.replace(context, LoginPage());
@@ -67,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
           print(res.shopId);
           print('shopId id null');
 
-          AppRoutes.push(context, SellerHomePage());
+          AppRoutes.push(context, ShopProfile());
 
            }
            else{
@@ -199,7 +202,7 @@ class _LoginPageState extends State<LoginPage> {
                   'Forget Password?',
                   style: GoogleFonts.poppins(
                       textStyle: TextStyles.buttonFontText.copyWith(
-                    color: AppColors.greyTextColor,
+                    color: AppColors.secondaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   )),
@@ -208,6 +211,8 @@ class _LoginPageState extends State<LoginPage> {
               buttonText: 'Login',
               buttonColor: AppColors.primarycolor,
               onTap: () {
+                                EasyLoading.show(status: 'Loading..');
+
                 validateAndSubmit(context);
               },
               buttonTextStyle: TextStyles.buttonFontText,

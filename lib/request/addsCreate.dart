@@ -1,10 +1,11 @@
 import 'dart:convert';
-
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
-import 'package:iqsaat/api/api.dart';
+import 'package:iqsaat/api/apis.dart';
+import 'package:iqsaat/hive/data/list_class.dart';
 import 'package:iqsaat/models/user_info.dart';
-
+import 'package:iqsaat/provider/adsProvider.dart';
 import '../main.dart';
 
 final tokens = Hive.box('tokens');
@@ -13,56 +14,44 @@ class AdsApi {
   String name;
   String price;
   String description;
-  bool cod;
-  bool jazz;
-  List<Package> packagesList = [];
+  String unit;
   String category;
   String subCategory;
 
-  AdsApi(this.name, this.price, this.description, this.cod, this.jazz,
-      this.packagesList, this.category, this.subCategory);
+  AdsApi(this.name, this.price, this.unit, this.description, this.category,
+      this.subCategory);
 
   Future<http.Response> createAdds() {
+    List<Packages> packages = [
+      //Packages(pricecontroller.toList(), monthcontroller.toList()),
+    ];
     Map<String, String> customHeaders = {
       "Content-Type": "application/json",
       "Authorization": "Bearer ${res.accessToken}",
+      
     };
     print(customHeaders);
-    // var catBody = {
-    //   "categoryType": "$category",
-    // };
-    
-    // //create category
-    // var cate = http.post(
-    //   "${API.CATAGORY_API}",
-    //   headers: customHeaders,
-    //   body: json.encode(catBody),
-    // );
-    // cate.whenComplete(() {
-    //   cate.then((value){
-    //     print("Status Code"+  value.statusCode.toString());
-    //     print(value.body.toString());
-    //   });
 
-    // });
-    
+
     var body = {
       "name": "$name",
-      "shopID": "${res.shopId}",
-      "categoryID": "60b08a3a9375be0015ce1eb1",
-      "subcategoryID": "60b0a05d9375be0015ce1eba",
-      "payment_modes": ["$cod", "$jazz"],
+      "shopID": "6110e2b6c2ed8f001a5e62d9",//"${res.shopId}",
       "products": [
         {"price": "$price", "description": "$description"}
       ],
-      "packages": packagesList,
+      "packages": [
+        {"price": 232, "monthyinstallment": 22},
+        {"price": 232, "monthyinstallment": 232},
+        {"price": 232, "monthyinstallment": 232}
+      ]
     };
 
     //print("ID = "+.toString());
     print("Adds Data getten is = = = = " + json.encode(body));
-    print("Adds create At this link${API.CREATEADS_API}");
+    print(
+        "Adds create At this link== ${API_URLS.CREATEADS_API}?catagoryName=$category&subcatagoryName=$subCategory");
     return http.post(
-      "${API.CREATEADS_API}",
+      "${API_URLS.CREATEADS_API}?catagoryName=$category&subcatagoryName=$subCategory",
       headers: customHeaders,
       body: json.encode(body),
     );

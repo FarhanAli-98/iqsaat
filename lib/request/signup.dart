@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-import 'package:iqsaat/api/api.dart';
+import 'package:iqsaat/api/apis.dart';
+import 'package:iqsaat/ui/auth/image_upload.dart';
+import 'package:iqsaat/ui/auth/loginPage.dart';
 
 class RegisterApi {
-
   final String firstName;
   final String lastName;
   final String phone;
@@ -14,12 +15,12 @@ class RegisterApi {
   final String role;
   final File file;
 
-  RegisterApi(this.firstName, this.lastName,  this.phone, this.cnic, this.email, this.password, this.role, this.file);
+  RegisterApi(this.firstName, this.lastName, this.phone, this.cnic, this.email,
+      this.password, this.role, this.file);
 
   Future<http.Response> createUser() {
     Map<String, String> customHeaders = {
       "Content-Type": "application/json",
-     
     };
     print(customHeaders);
     var body = {
@@ -30,13 +31,19 @@ class RegisterApi {
       "email": "$email",
       "password": "$password",
       "role": "$role",
-   
     };
+    try{
+            ImagesUpload.uploadImage(
+                file,  API_URLS.PROFILE_IMAGE_API,);
+
+    }catch(e){
+      showMessage(e.toString());
+    }
     //print("ID = "+.toString());
     print("Adds Data getten is = = = = " + json.encode(body));
-    print("Signup create At ?? this link${API.SIGNUP_API}");
+    print("Signup create At ?? this link${API_URLS.SIGNUP_API}");
     return http.post(
-      "${API.SIGNUP_API}",
+      "${API_URLS.SIGNUP_API}",
       headers: customHeaders,
       body: json.encode(body),
     );
@@ -85,6 +92,6 @@ class RegisterApi {
 
   //   // send
   //   return await request.send();
-  
+
   // }
 }

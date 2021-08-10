@@ -1,10 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
+import 'package:iqsaat/ui/Seller/Advertisment/CreateProducts/create_new_ads.dart';
 import 'package:iqsaat/ui/Seller/Orders/orders_tab.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
-import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/productsAds.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
@@ -17,6 +18,7 @@ import 'package:iqsaat/utils/Icons.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/ui/Seller/Customers/customer_tabs.dart';
+import 'main.dart';
 import 'ui/Seller/profile/profile_tab.dart';
 import 'ui/buyer/system/languagePage.dart';
 import 'ui/buyer/system/my_orders.dart';
@@ -77,7 +79,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                 Container(
                                     margin: EdgeInsets.only(left: 21),
                                     child: Text(
-                                      'Farhan Ali',
+                                     res.firstName +" "+ res.lastName,
                                       style: TextStyle(
                                           color: AppColors.blackTextColor,
                                           fontWeight: FontWeight.w600),
@@ -153,7 +155,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 0),
-                                          child: Text("Create Ad")),
+                                          child: Text("Create Ads")),
                                     ),
                                     InkWell(
                                       onTap: () {
@@ -162,7 +164,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                             MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                        sellerCategories()));
+                                                        SellerCategories()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),
@@ -242,9 +244,9 @@ class _AppDrawerState extends State<AppDrawer> {
                           padding: const EdgeInsets.only(top:0.0),
                           child: CustomField(
                             iconData: AppIcons.help,
-                            text: 'Help',
+                            text: 'Contact Us',
                             onTap: () {
-                              //Image.asset('assets/appIcons/icon_help services.png'),
+                              AppRoutes.push(context, ContactUs());
                             },
                           ),
                         ),
@@ -274,6 +276,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         InkWell(
                           onTap: () {
                             print("Logout");
+                            Hive.box('user').clear();
                             AppRoutes.makeFirst(context, LoginPage());
                           },
                           child: Container(
@@ -475,7 +478,7 @@ class DrawerFull extends PreferredSize {
                                         context,
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
-                                                SearchScreen()));
+                                                Search()));
                                   },
                                 ),
                                 CustomField(
@@ -491,6 +494,7 @@ class DrawerFull extends PreferredSize {
                                   iconData: AppIcons.logout,
                                   text: 'Logout User',
                                   onTap: () {
+                                    Hive.box('user').clear();
                                     AppRoutes.makeFirst(context, LoginPage());
                                     //Image.asset('assets/appIcons/icon_logout.png'),
                                   },

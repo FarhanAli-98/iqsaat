@@ -1,8 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
+
+import 'manage_address.dart';
 
 class CheckoutScreen extends StatelessWidget {
   final List<Map> myOrderSummary = [
@@ -16,13 +20,21 @@ class CheckoutScreen extends StatelessWidget {
       "itemName": "Ciyoyo Combo(Straightener, Comb, Hair...",
       "itemPrice": "12.50",
     },
+     {
+      "itemImage": "assets/images/cartImages/cartImage2.png",
+      "itemName": "Ciyoyo Combo(Straightener, Comb, Hair...",
+      "itemPrice": "12.50",
+    },
+     {
+      "itemImage": "assets/images/cartImages/cartImage2.png",
+      "itemName": "Ciyoyo Combo(Straightener, Comb, Hair...",
+      "itemPrice": "12.50",
+    },
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Checkout Screen".toUpperCase()),
-      ),
+    appBar: appBarwithCenterTitle(context, "Checkout"),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -47,7 +59,7 @@ class CheckoutScreen extends StatelessWidget {
                         buttonColor: AppColors.secondaryColor,
                         buttonWidth: 25,
                         buttonHeight: 25,
-                        textSize: 10, onPress: null,
+                        textSize: 10, onPress: (){AppRoutes.push(context,ManageAddressScreen());},
                       )
                     ],
                   ),
@@ -81,11 +93,11 @@ class CheckoutScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Jelly Grande',
+                            'Farhan ali',
                             style: TextStyles.smallFontSize,
                           ),
                           Text(
-                            '+974 8125-4569',
+                            '+974 85125-4569',
                             style: TextStyles.smallFontSize,
                           ),
                           SizedBox(
@@ -94,7 +106,7 @@ class CheckoutScreen extends StatelessWidget {
                           Container(
                             width: sizeWidth(context) / 1.4,
                             child: Text(
-                              '871 Kenangan Street (between Jones & Leavenworth St), San Francisco',
+                              'Shah Jilani Road, Township Commercial Area Twp Commercial Area Lahore, Punjab 54770, Pakistan',
                               style: TextStyles.smallFontSize,
                             ),
                           )
@@ -378,7 +390,7 @@ class CheckoutScreen extends StatelessWidget {
                       buttonHeight: 50,
                       text: "Continue",
                       buttonColor: AppColors.secondaryColor,
-                      buttonWidth: sizeWidth(context),
+                      buttonWidth: sizeWidth(context), onPress: null,
                     ),
                   ),
                 ],

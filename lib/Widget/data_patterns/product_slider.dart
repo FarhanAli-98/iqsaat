@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
-
+import 'package:iqsaat/Widget/data_patterns/product_slider_card.dart';
+import 'package:iqsaat/Widget/slider/category_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider_card.dart';
+import 'package:iqsaat/Widget/slider/product_model.dart';
+import 'package:iqsaat/models/getModels/getAllAds.dart';
 
-import 'package:iqsaat/ui/Seller/Product/Ads/ads_screen.dart';
-import 'package:iqsaat/ui/Seller/Product/categories/categories.dart';
-
-import 'category_slider.dart';
-
-class ProductSlider extends StatefulWidget {
+class SliderForProduct extends StatefulWidget {
   final String heading;
-  final List<ShopCategories> products;
-
-  ProductSlider({
+ 
+    final List<Datum> products;
+  
+  SliderForProduct({
     @required this.heading,
-    @required this.products
+    @required this.products, 
   });
   @override
-  _ProductSliderState createState() => _ProductSliderState();
+  _SliderForProductState createState() => _SliderForProductState();
 }
 
-class _ProductSliderState extends State<ProductSlider> {
+class _SliderForProductState extends State<SliderForProduct> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -48,11 +47,14 @@ class _ProductSliderState extends State<ProductSlider> {
                   padding: i == 0
                       ? const EdgeInsets.only(left: 10)
                       : const EdgeInsets.only(left: 0.0),
-                  // child: 
+                  child: 
+     
                   
-                  // ProductSliderCard(
-                  //     product: categories[i],
-                  //   )
+                  ProductCardDesign(
+                      product: widget.products[i],
+                      count: i,
+                      
+                    )
                     );
             },
           ),

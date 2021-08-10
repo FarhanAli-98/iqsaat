@@ -13,9 +13,8 @@ class AdsProvider with ChangeNotifier {
   var jResult;
 
   Future<AdsModel> createadds(
-      name, price, description, cod, jazz, packagesList, cata, subcata) async {
-    await AdsApi(
-            name, price, description, cod, jazz, packagesList, cata, subcata)
+      name, price, unit, description, cata, subcata) async {
+    await AdsApi(name, price, unit, description, cata, subcata)
         .createAdds()
         .then((data) {
       print("Adds Provide Creating" + data.statusCode.toString());
@@ -51,7 +50,6 @@ class AdsProvider with ChangeNotifier {
       } else {
         Map<String, dynamic> result = json.decode(data.body);
         showMessage("Errors = " + result.toString());
-
       }
     });
     return getAllAds;

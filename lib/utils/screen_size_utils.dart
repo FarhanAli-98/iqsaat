@@ -19,7 +19,7 @@ class DS {
 
   static setWidthRatio(double width) =>
       ScreenUtil.instance.setWidth(DS.getWidth * width);
-
+  static const String golobalShopId = "";
   static double getWidth = ScreenUtil.instance.width;
   static double getHeight = ScreenUtil.instance.height;
   static setSP(double size) => ScreenUtil.instance.setSp(size);
