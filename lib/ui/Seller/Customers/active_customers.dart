@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/ui/Seller/Customers/finished_details.dart';
+import 'package:iqsaat/ui/Seller/Orders/customer_order.dart';
+import 'package:iqsaat/ui/Seller/Product/Ads/productDetail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -8,10 +10,10 @@ import 'package:intl/intl.dart';
 import './active_details.dart';
 import './finished_details.dart';
 
-class active_customers extends StatelessWidget {
+class Active_customers extends StatelessWidget {
   bool ongoing = true;
   double percent = 45.0;
-  active_customers(bool ongoing) {
+  Active_customers(bool ongoing) {
     this.ongoing = ongoing;
   }
 
@@ -27,7 +29,25 @@ class active_customers extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (BuildContext context) =>
-                    ongoing ? Active_details() : finished_details()));
+                    ongoing ? ProductDetail(
+                                 
+                                  des: 'discride about project',
+                                  image: 'ASD',
+                                  price: '4000',
+                                  name: 'Haeir 30',
+                                  customername: 'Usama',
+                                  month: '3',
+                                  package: '23',
+                                ) : OrderScreen(
+                                 
+                                  des: 'discride about project',
+                                  image: 'ASD',
+                                  price: '4000',
+                                  name: 'Haeir 30',
+                                  customername: 'Usama',
+                                  month: '3',
+                                  package: '23',
+                                )));
       },
       child: Container(
         //color: Colors.white,

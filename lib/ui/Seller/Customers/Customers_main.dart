@@ -77,7 +77,7 @@ class _CustomersState extends State<Customers> {
             
             child:ListView.builder(
               itemBuilder: (BuildContext context, int inedx) {
-               return  active_customers(true);
+               return  Active_customers(true);
                
 
               },
@@ -90,7 +90,7 @@ class _CustomersState extends State<Customers> {
             height: MediaQuery.of(context).size.height/1.4,
             child:ListView.builder(
               itemBuilder: (BuildContext context, int inedx) {
-               return  active_customers(false);
+               return  Active_customers(false);
                
 
               },

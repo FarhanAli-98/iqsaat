@@ -9,7 +9,7 @@ import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'add_image_page.dart';
-import 'createPackage/packagecreate.dart';
+import 'packagecreate.dart';
 
 class AddAdvertisementPage extends StatefulWidget {
   @override
@@ -161,7 +161,7 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                                                   .height /
                                               3,
                                           width: sizeWidth(context)*1.2,
-                                          child: createPackages()),
+                                          child: CreatePackages()),
                                     ),
                                   ),
                                   textFieldHeader('Description'),

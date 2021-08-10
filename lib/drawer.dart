@@ -1,10 +1,10 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/custom_field.dart';
+import 'package:iqsaat/ui/Seller/CreateProducts/productsAds.dart';
 import 'package:iqsaat/ui/Seller/Orders/orders_tab.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/seller_categories.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
-import 'package:iqsaat/ui/Seller/create_Ads/CreateProducts/productsAds.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/auth/terms_and_condition.dart';
@@ -175,7 +175,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                             MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                        customersTab()));
+                                                        CustomersTab()));
                                       },
                                       child: Container(
                                           margin: EdgeInsets.only(top: 18),

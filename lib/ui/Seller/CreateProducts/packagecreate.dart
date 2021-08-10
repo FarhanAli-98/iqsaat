@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 
-class createPackages extends StatefulWidget {
+class CreatePackages extends StatefulWidget {
   @override
-  _createPackagesState createState() => _createPackagesState();
+  _CreatePackagesState createState() => _CreatePackagesState();
 }
 
-class _createPackagesState extends State<createPackages> {
+class _CreatePackagesState extends State<CreatePackages> {
   @override
   Widget pricefield(count) {
     return Padding(

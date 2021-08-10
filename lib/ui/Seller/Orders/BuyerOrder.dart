@@ -45,9 +45,12 @@ class buyer_orders extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (BuildContext context) => OrderScreen(
+                            builder: (BuildContext context) => 
+                            
+                            
+                            OrderScreen(
                                  
-                                  des: 'DESDESDES',
+                                  des: 'discride about project',
                                   image: 'ASD',
                                   price: '4000',
                                   name: 'Haeir 30',

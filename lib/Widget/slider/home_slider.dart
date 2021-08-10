@@ -6,8 +6,9 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class CustomCarouselSlider extends StatefulWidget {
   final bool autoPlay;
+  final Image image;
   CustomCarouselSlider(
-      {this.autoPlay = true,});
+      {this.autoPlay = true, this.image,});
   @override
   _CustomCarouselSliderState createState() => _CustomCarouselSliderState();
 }
@@ -38,7 +39,7 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
               autoPlayInterval: Duration(seconds: 3),
               autoPlayAnimationDuration: Duration(milliseconds: 800),
             ),
-            items: [1, 2, 3, 4, 5].map((i) {
+            items: [1].map((i) {
               return Builder(
                 builder: (BuildContext context) {
                   return Container(
@@ -46,7 +47,7 @@ class _CustomCarouselSliderState extends State<CustomCarouselSlider> {
                     width: sizeWidth(context),
                     child: 
                          Image.asset(
-                            homeSliderlist[activeIndex],
+                            newArrivals[activeIndex].prodImage,
                             fit: BoxFit.fill,
                           )
                        

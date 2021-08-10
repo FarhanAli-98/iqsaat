@@ -1,13 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
-import 'package:iqsaat/ui/Seller/Product/Ads/Seller_Ads.dart';
 import 'package:iqsaat/ui/Seller/Product/categories/categories.dart';
 import 'package:iqsaat/ui/buyer/brands/brand_details.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
-import 'package:iqsaat/utils/styles.dart';
-import "package:intl/intl.dart";
+
 import 'package:iqsaat/Widget/categories_card.dart';
 import './categories.dart';
 
