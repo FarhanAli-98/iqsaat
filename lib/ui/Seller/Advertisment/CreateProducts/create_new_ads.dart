@@ -161,398 +161,398 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                           )
                         ]),
                     child: SingleChildScrollView(
-                      child: Expanded(
-                        child: Card(
-                          // elevation: 9.0,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide.none,
-                            borderRadius: BorderRadius.circular(40),
+                      child: Card(
+                        // elevation: 9.0,
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide.none,
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            top: 45.0,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              top: 45.0,
-                            ),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  textFieldHeader(
-                                    'Product Name',
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                textFieldHeader(
+                                  'Product Name',
+                                ),
+                                Center(
+                                    child: TextFields.normalTextField(context,
+                                        // fieldValue: _firstName,
+                                        controller: _nameController,
+                                        validaterMsg:
+                                            ' Name cannot be empty')),
+                                textFieldHeader(
+                                  'Price',
+                                ),
+                                Center(
+                                    child: TextFields.normalTextField(context,
+                                        // fieldValue: _firstName,
+                                        controller: priceController,
+                                        validaterMsg:
+                                            ' Price cannot be empty')),
+                                textFieldHeader(
+                                  'Unit',
+                                ),
+                                Center(
+                                    child: TextFields.normalTextField(context,
+                                        // fieldValue: _firstName,
+                                        controller: unitController,
+                                        validaterMsg:
+                                            ' Unit cannot be empty')),
+                                textFieldHeader(
+                                  'Subscription Package',
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(
+                                      top: 10,
+                                      left:
+                                          MediaQuery.of(context).size.width /
+                                              29),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Container(
+                                        height: MediaQuery.of(context)
+                                                .size
+                                                .height /
+                                            3,
+                                        width: sizeWidth(context) * 1.2,
+                                        child: CreatePackages()
+                                        
+                                        ),
                                   ),
-                                  Center(
-                                      child: TextFields.normalTextField(context,
-                                          // fieldValue: _firstName,
-                                          controller: _nameController,
-                                          validaterMsg:
-                                              ' Name cannot be empty')),
-                                  textFieldHeader(
-                                    'Price',
-                                  ),
-                                  Center(
-                                      child: TextFields.normalTextField(context,
-                                          // fieldValue: _firstName,
-                                          controller: priceController,
-                                          validaterMsg:
-                                              ' Price cannot be empty')),
-                                  textFieldHeader(
-                                    'Unit',
-                                  ),
-                                  Center(
-                                      child: TextFields.normalTextField(context,
-                                          // fieldValue: _firstName,
-                                          controller: unitController,
-                                          validaterMsg:
-                                              ' Unit cannot be empty')),
-                                  textFieldHeader(
-                                    'Subscription Package',
-                                  ),
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                        top: 20,
-                                        left:
-                                            MediaQuery.of(context).size.width /
-                                                29),
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Container(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height /
-                                              3,
-                                          width: sizeWidth(context) * 1.2,
-                                          child: CreatePackages()),
-                                    ),
-                                  ),
-                                  textFieldHeader(
-                                    "Select Category",
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 8.0),
-                                    child: Center(
-                                      child: Container(
-                                        margin: EdgeInsets.only(top: 10),
-                                        height: height * 0.07,
-                                        width: width * 0.8,
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 5),
-                                        decoration: ShapeDecoration(
-                                          // borderRadius: BorderRadius.circular(25),
-                                          shape: RoundedRectangleBorder(
-                                            side: BorderSide(
-                                                width: 1.0,
-                                                color: Colors.grey[300],
-                                                style: BorderStyle.solid),
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(25.0)),
+                                ),
+                                textFieldHeader(
+                                  "Select Category",
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 8.0),
+                                  child: Center(
+                                    child: Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      height: height * 0.07,
+                                      width: width * 0.8,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 5),
+                                      decoration: ShapeDecoration(
+                                        // borderRadius: BorderRadius.circular(25),
+                                        shape: RoundedRectangleBorder(
+                                          side: BorderSide(
+                                              width: 1.0,
+                                              color: Colors.grey[300],
+                                              style: BorderStyle.solid),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(25.0)),
+                                        ),
+                                      ),
+                                      child: InputDecorator(
+                                        decoration: const InputDecoration(
+                                          hintText: 'Choose an category',
+                                          hintStyle: TextStyle(
+                                            color: AppColors.primarycolor,
+                                            fontSize: 16.0,
+                                            fontFamily: "OpenSans",
+                                            fontWeight: FontWeight.normal,
                                           ),
                                         ),
-                                        child: InputDecorator(
-                                          decoration: const InputDecoration(
-                                            hintText: 'Choose an category',
-                                            hintStyle: TextStyle(
-                                              color: AppColors.primarycolor,
-                                              fontSize: 16.0,
-                                              fontFamily: "OpenSans",
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                          ),
-                                          isEmpty: category == null,
-                                          child: DropdownButtonHideUnderline(
-                                            child: DropdownButton(
-                                              value: category,
-                                              isDense: true,
-                                              isExpanded: true,
-                                              onChanged: (String newValue) {
-                                                setState(() {
-                                                  category = category;
+                                        isEmpty: category == null,
+                                        child: DropdownButtonHideUnderline(
+                                          child: DropdownButton(
+                                            value: category,
+                                            isDense: true,
+                                            isExpanded: true,
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                category = category;
 
-                                                  category = newValue;
-                                                  print(category);
-                                                  index = categoryList
-                                                      .indexOf(newValue);
-                                                  print(index);
+                                                category = newValue;
+                                                print(category);
+                                                index = categoryList
+                                                    .indexOf(newValue);
+                                                print(index);
 
-                                                  if (index == 0) {
-                                                    subCategory = mobile;
-                                                  } else if (index == 1) {
-                                                    subCategory = vehicle;
-                                                  } else if (index == 2) {
-                                                    subCategory =
-                                                        homeApplicances;
-                                                  }
+                                                if (index == 0) {
+                                                  subCategory = mobile;
+                                                } else if (index == 1) {
+                                                  subCategory = vehicle;
+                                                } else if (index == 2) {
+                                                  subCategory =
+                                                      homeApplicances;
+                                                }
 
-                                                  isVisible = true;
-                                                });
-                                              },
-                                              items:
-                                                  categoryList.map((document) {
-                                                return new DropdownMenuItem<
-                                                        String>(
-                                                    value: document,
-                                                    child: new Text(document,
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontSize: 16,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold)));
-                                              }).toList(),
-                                            ),
+                                                isVisible = true;
+                                              });
+                                            },
+                                            items:
+                                                categoryList.map((document) {
+                                              return new DropdownMenuItem<
+                                                      String>(
+                                                  value: document,
+                                                  child: new Text(document,
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight
+                                                                  .bold)));
+                                            }).toList(),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                  Visibility(
-                                      visible: isVisible,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          textFieldHeader(
-                                            "Select SubCategory",
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 8.0),
-                                            child: Center(
-                                              child: Container(
-                                                margin:
-                                                    EdgeInsets.only(top: 10),
-                                                height: height * 0.07,
-                                                width: width * 0.8,
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 20,
-                                                    vertical: 5),
-                                                decoration: ShapeDecoration(
-                                                  // borderRadius: BorderRadius.circular(25),
-                                                  shape: RoundedRectangleBorder(
-                                                    side: BorderSide(
-                                                        width: 1.0,
-                                                        color: Colors.grey[300],
-                                                        style:
-                                                            BorderStyle.solid),
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                25.0)),
+                                ),
+                                Visibility(
+                                    visible: isVisible,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        textFieldHeader(
+                                          "Select SubCategory",
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 8.0),
+                                          child: Center(
+                                            child: Container(
+                                              margin:
+                                                  EdgeInsets.only(top: 10),
+                                              height: height * 0.07,
+                                              width: width * 0.8,
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 20,
+                                                  vertical: 5),
+                                              decoration: ShapeDecoration(
+                                                // borderRadius: BorderRadius.circular(25),
+                                                shape: RoundedRectangleBorder(
+                                                  side: BorderSide(
+                                                      width: 1.0,
+                                                      color: Colors.grey[300],
+                                                      style:
+                                                          BorderStyle.solid),
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(
+                                                              25.0)),
+                                                ),
+                                              ),
+                                              child: InputDecorator(
+                                                decoration:
+                                                    const InputDecoration(
+                                                  hintText:
+                                                      'Choose an Subcategory',
+                                                  hintStyle: TextStyle(
+                                                    color: AppColors
+                                                        .primarycolor,
+                                                    fontSize: 16.0,
+                                                    fontFamily: "OpenSans",
+                                                    fontWeight:
+                                                        FontWeight.normal,
                                                   ),
                                                 ),
-                                                child: InputDecorator(
-                                                  decoration:
-                                                      const InputDecoration(
-                                                    hintText:
-                                                        'Choose an Subcategory',
-                                                    hintStyle: TextStyle(
-                                                      color: AppColors
-                                                          .primarycolor,
-                                                      fontSize: 16.0,
-                                                      fontFamily: "OpenSans",
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                    ),
-                                                  ),
-                                                  // isEmpty: category == null,
-                                                  child:
-                                                      DropdownButtonHideUnderline(
-                                                    child: DropdownButton(
-                                                      value: subValue,
-                                                      isDense: true,
-                                                      isExpanded: true,
-                                                      onChanged:
-                                                          (String newValue) {
-                                                        setState(() {
-                                                          subValue = newValue;
-                                                          print(subValue);
-                                                        });
-                                                      },
-                                                      items: subCategory
-                                                          .map((document) {
-                                                        return new DropdownMenuItem<
-                                                                String>(
-                                                            value: document,
-                                                            child: new Text(
-                                                                document,
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    fontSize:
-                                                                        16,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold)));
-                                                      }).toList(),
-                                                    ),
+                                                // isEmpty: category == null,
+                                                child:
+                                                    DropdownButtonHideUnderline(
+                                                  child: DropdownButton(
+                                                    value: subValue,
+                                                    isDense: true,
+                                                    isExpanded: true,
+                                                    onChanged:
+                                                        (String newValue) {
+                                                      setState(() {
+                                                        subValue = newValue;
+                                                        print(subValue);
+                                                      });
+                                                    },
+                                                    items: subCategory
+                                                        .map((document) {
+                                                      return new DropdownMenuItem<
+                                                              String>(
+                                                          value: document,
+                                                          child: new Text(
+                                                              document,
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontSize:
+                                                                      16,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold)));
+                                                    }).toList(),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ],
-                                      )),
-                                  textFieldHeader('Description'),
-                                  Center(
-                                    child: Container(
-                                      margin: EdgeInsets.only(
-                                        bottom: 10,
-                                      ),
-                                      padding:
-                                          EdgeInsets.only(top: 10, left: 10),
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.15,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.8,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          border: Border.all(
-                                            color: Colors.grey[300],
-                                          )),
-                                      child: TextFormField(
-                                        validator: (value) {
-                                          return (value.isEmpty)
-                                              ? "Please Enter Description"
-                                              : null;
-                                        },
-                                        controller: descriptionController,
-                                        keyboardType: TextInputType.multiline,
-                                        maxLines: null,
-                                        decoration: new InputDecoration(
-                                            border: InputBorder.none,
-                                            focusedBorder: InputBorder.none,
-                                            enabledBorder: InputBorder.none,
-                                            hintText: "Type here"),
-                                      ),
+                                        ),
+                                      ],
+                                    )),
+                                textFieldHeader('Description'),
+                                Center(
+                                  child: Container(
+                                    margin: EdgeInsets.only(
+                                      bottom: 10,
+                                    ),
+                                    padding:
+                                        EdgeInsets.only(top: 10, left: 10),
+                                    height:
+                                        MediaQuery.of(context).size.height *
+                                            0.15,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.8,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(20),
+                                        border: Border.all(
+                                          color: Colors.grey[300],
+                                        )),
+                                    child: TextFormField(
+                                      validator: (value) {
+                                        return (value.isEmpty)
+                                            ? "Please Enter Description"
+                                            : null;
+                                      },
+                                      controller: descriptionController,
+                                      keyboardType: TextInputType.multiline,
+                                      maxLines: null,
+                                      decoration: new InputDecoration(
+                                          border: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          enabledBorder: InputBorder.none,
+                                          hintText: "Type here"),
                                     ),
                                   ),
-                                  textFieldHeader('Photos'),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: <Widget>[
-                                      DottedBorder(
-                                        color: Colors.green,
-                                        strokeWidth: 1,
-                                        dashPattern: [8, 4],
-                                        padding: EdgeInsets.zero,
-                                        radius: Radius.circular(5),
-                                        child: Container(
-                                          margin: EdgeInsets.only(top: 5),
-                                          height: 52,
-                                          width: width * 0.27,
-                                          child: _image1 == null
-                                              ? Container(
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      _image1 = _showPicker(
-                                                          context, 1);
-                                                    },
-                                                    child: Center(
-                                                      child: CircleAvatar(
-                                                        radius: 15,
-                                                        backgroundColor:
-                                                            Colors.grey[200],
-                                                        child: Icon(
-                                                          Icons.add,
-                                                          color: Colors.grey,
-                                                          size: 20,
-                                                        ),
+                                ),
+                                textFieldHeader('Photos'),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    DottedBorder(
+                                      color: Colors.green,
+                                      strokeWidth: 1,
+                                      dashPattern: [8, 4],
+                                      padding: EdgeInsets.zero,
+                                      radius: Radius.circular(5),
+                                      child: Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        height: 52,
+                                        width: width * 0.27,
+                                        child: _image1 == null
+                                            ? Container(
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    _image1 = _showPicker(
+                                                        context, 1);
+                                                  },
+                                                  child: Center(
+                                                    child: CircleAvatar(
+                                                      radius: 15,
+                                                      backgroundColor:
+                                                          Colors.grey[200],
+                                                      child: Icon(
+                                                        Icons.add,
+                                                        color: Colors.grey,
+                                                        size: 20,
                                                       ),
                                                     ),
                                                   ),
-                                                )
-                                              : Container(
-                                                  child: InkWell(
-                                                    onTap: () async {
-                                                      _image1 = _showPicker(
-                                                          context, 1);
-                                                    },
-                                                    child: Image.file(
-                                                      _image1,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ),
-                                        ),
-                                      ),
-
-                                      //imagepicker 2
-
-                                      Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        height: 52,
-                                        width: width * 0.27,
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color: Colors.grey
-                                                    .withOpacity(0.3)),
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
-                                        child: _image2 == null
-                                            ? Container(
-                                                child: InkWell(
-                                                  onTap: () async {
-                                                    _image2 =
-                                                        _showPicker(context, 2);
-                                                  },
                                                 ),
                                               )
                                             : Container(
                                                 child: InkWell(
                                                   onTap: () async {
-                                                    _image2 =
-                                                        _showPicker(context, 2);
+                                                    _image1 = _showPicker(
+                                                        context, 1);
                                                   },
                                                   child: Image.file(
-                                                    _image2,
+                                                    _image1,
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),
                                               ),
                                       ),
+                                    ),
 
-                                      //imagePicker 3
+                                    //imagepicker 2
 
-                                      Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        height: 52,
-                                        width: width * 0.27,
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color: Colors.grey
-                                                    .withOpacity(0.3)),
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
-                                        child: _image3 == null
-                                            ? Container(
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    _image3 =
-                                                        _showPicker(context, 3);
-                                                  },
-                                                ),
-                                              )
-                                            : Container(
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    _image3 =
-                                                        _showPicker(context, 3);
-                                                  },
-                                                  child: Image.file(
-                                                    _image3,
-                                                    fit: BoxFit.cover,
-                                                  ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5),
+                                      height: 52,
+                                      width: width * 0.27,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.grey
+                                                  .withOpacity(0.3)),
+                                          borderRadius:
+                                              BorderRadius.circular(5)),
+                                      child: _image2 == null
+                                          ? Container(
+                                              child: InkWell(
+                                                onTap: () async {
+                                                  _image2 =
+                                                      _showPicker(context, 2);
+                                                },
+                                              ),
+                                            )
+                                          : Container(
+                                              child: InkWell(
+                                                onTap: () async {
+                                                  _image2 =
+                                                      _showPicker(context, 2);
+                                                },
+                                                child: Image.file(
+                                                  _image2,
+                                                  fit: BoxFit.cover,
                                                 ),
                                               ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 20),
-                                ]),
-                          ),
+                                            ),
+                                    ),
+
+                                    //imagePicker 3
+
+                                    Container(
+                                      margin: EdgeInsets.only(top: 5),
+                                      height: 52,
+                                      width: width * 0.27,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.grey
+                                                  .withOpacity(0.3)),
+                                          borderRadius:
+                                              BorderRadius.circular(5)),
+                                      child: _image3 == null
+                                          ? Container(
+                                              child: InkWell(
+                                                onTap: () {
+                                                  _image3 =
+                                                      _showPicker(context, 3);
+                                                },
+                                              ),
+                                            )
+                                          : Container(
+                                              child: InkWell(
+                                                onTap: () {
+                                                  _image3 =
+                                                      _showPicker(context, 3);
+                                                },
+                                                child: Image.file(
+                                                  _image3,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 20),
+                              ]),
                         ),
                       ),
                     )),

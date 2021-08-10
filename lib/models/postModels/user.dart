@@ -3,11 +3,16 @@
 //     final LoginModel = LoginModelFromJson(jsonString);
 
 
+import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 part 'user.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+//flutter pub run build_runner build --delete-conflicting-outputs
 
+LoginModel welcomeFromJson(String str) => LoginModel.fromJson(json.decode(str));
+
+String welcomeToJson(LoginModel data) => json.encode(data.toJson());
+@JsonSerializable(explicitToJson: true)
 class LoginModel {
     LoginModel({
         this.success,
@@ -54,6 +59,7 @@ class Data {
 @JsonSerializable(explicitToJson: true)
 class User {
     User({
+        this.shopId,
         this.role,
         this.banned,
         this.bannedTill,
@@ -62,16 +68,17 @@ class User {
         this.displayPictureUrl,
         this.likedAd,
         this.id,
-        this.email,
         this.firstName,
         this.lastName,
         this.contactNumber,
         this.cnic,
+        this.email,
         this.createdAt,
         this.updatedAt,
         this.refreshToken,
     });
 
+    String shopId;
     String role;
     bool banned;
     dynamic bannedTill;
@@ -80,16 +87,17 @@ class User {
     dynamic displayPictureUrl;
     List<dynamic> likedAd;
     String id;
-    String email;
     String firstName;
     String lastName;
     String contactNumber;
     String cnic;
+    String email;
     DateTime createdAt;
     DateTime updatedAt;
     String refreshToken;
 
     factory User.fromJson(Map<String, dynamic> json) => User(
+        shopId: json["shopID"],
         role: json["role"],
         banned: json["banned"],
         bannedTill: json["bannedTill"],
@@ -98,17 +106,18 @@ class User {
         displayPictureUrl: json["displayPictureURL"],
         likedAd: List<dynamic>.from(json["likedAd"].map((x) => x)),
         id: json["_id"],
-        email: json["email"],
         firstName: json["firstName"],
         lastName: json["lastName"],
         contactNumber: json["contactNumber"],
         cnic: json["cnic"],
+        email: json["email"],
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
         refreshToken: json["refreshToken"],
     );
 
     Map<String, dynamic> toJson() => {
+        "shopID": shopId,
         "role": role,
         "banned": banned,
         "bannedTill": bannedTill,
@@ -117,11 +126,11 @@ class User {
         "displayPictureURL": displayPictureUrl,
         "likedAd": List<dynamic>.from(likedAd.map((x) => x)),
         "_id": id,
-        "email": email,
         "firstName": firstName,
         "lastName": lastName,
         "contactNumber": contactNumber,
         "cnic": cnic,
+        "email": email,
         "createdAt": createdAt.toIso8601String(),
         "updatedAt": updatedAt.toIso8601String(),
         "refreshToken": refreshToken,

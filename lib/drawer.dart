@@ -272,7 +272,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         SizedBox(
                           height: isCompanyTaped ? 10 : size.width * 0.45,
                         ),
-                        Spacer(),
+                       // Spacer(),
                         InkWell(
                           onTap: () {
                             print("Logout");
@@ -402,7 +402,7 @@ class DrawerFull extends PreferredSize {
                                         child: Container(
                                             margin: EdgeInsets.only(left: 21),
                                             child: Text(
-                                              'Farhan ALi',
+                                             res.firstName +" "+ res.lastName,
                                               style: TextStyle(
                                                   color:
                                                       AppColors.blackTextColor,
@@ -489,7 +489,7 @@ class DrawerFull extends PreferredSize {
                                     AppRoutes.push(context, ChatTab());
                                   },
                                 ),
-                                Spacer(),
+                               // Spacer(),
                                 CustomField(
                                   iconData: AppIcons.logout,
                                   text: 'Logout User',

@@ -21,11 +21,11 @@ class ProductCardDesign extends StatelessWidget {
           AppRoutes.push(
               context,
               ProdDescScreen(
-                            name: "product",
-                            des: "Des",
-                            price: "21321",
-                            image: "sds",
-                            package: [23, 34, 56]));
+                            name: product.name,
+                            des: product.products[0].description,
+                            price:  product.products[0].price,
+                            image:  product.images[0],
+                            package: product.packages));
         },
         borderRadius: BorderRadius.circular(10),
         child: Container(

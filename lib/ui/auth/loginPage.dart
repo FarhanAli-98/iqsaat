@@ -59,38 +59,32 @@ class _LoginPageState extends State<LoginPage> {
       print("User box =  = " + res.email.toString());
       print("User box =  = " + res.userId);
       try {
-         EasyLoading.dismiss();
+        EasyLoading.dismiss();
         if (res.role == null) {
           print("roll null Store");
           AppRoutes.replace(context, LoginPage());
         } else if (res.role == "buyer") {
           AppRoutes.push(context, HomePage());
         } else if (res.role == "seller") {
-           if (res.shopId == null) {  
-          print(res.shopId);
-          print('shopId id null');
-
-          AppRoutes.push(context, ShopProfile());
-
-           }
-           else{
-             AppRoutes.push(context, SellerHomePage());
-           }
+          if (res.shopId == null) {
+            print(res.shopId);
+            print('shopId id null');
+            AppRoutes.push(context, ShopProfile());
+          } else {
+            AppRoutes.push(context, SellerHomePage());
+          }
           //   else if (res.adLength == null || res.adLength <= 0) {
           //   print(res.adLength);
           //   print('ad was null');
           //   AppRoutes.replace(context, AddAdvertisementPage());
-          // } 
+          // }
           // else if (res.paid == false) {
           //   print(res.paid);
           //   print('not paid');
           //   AppRoutes.replace(context, SubscriptionPage());
-         
-        }
-        
-        else{
 
-           showMessage("Role not verified");
+        } else {
+          showMessage("Role not verified");
         }
         showMessage("Seccessfully login");
       } catch (error) {
@@ -104,43 +98,48 @@ class _LoginPageState extends State<LoginPage> {
 
   void validateAndSubmit(BuildContext context) async {
     if (validateAndSave()) {
+        EasyLoading.show(status: 'Loading..');
       await Provider.of<LoginProvider>(context, listen: false)
           .loginResponse(_emailController.text, _passwordController.text)
           .then((value) => ({
-                if (loginProvider.loginModel != null)
-                  {
-                    showMessage("Login Seccessfully"),
-                    print("Add check"),
+            EasyLoading.dismiss(),
+               
                     if (loginProvider.loginModel != null)
                       {
-                        setState(() {
-                          user = loginProvider.loginModel.data.user;
-                        }),
-                        print('my id is ' + user.id),
-                        print(
-                            "Get response" + user.displayPictureUrl.toString()),
-                        userBox = UserBox(
-                          email: user.email,
-                          firstName: user.firstName,
-                          lastName: user.lastName,
-                          photo: user.displayPictureUrl,
-                          accessToken:
-                              loginProvider.loginModel.data.accessToken,
-                          refreshToken:
-                              loginProvider.loginModel.data.user.refreshToken,
-                          userId: user.id,
-                          shopId: null,
-                          role: user.role,
-                          cnic: user.cnic,
-                          phone: user.contactNumber,
-                        ),
-                        print("---Email before save---->" +
-                            userBox.email.toString()),
-                        addUserToHive(userBox),
+                        showMessage("Login Seccessfully"),
+                        print("Add check"),
+                        if (loginProvider.loginModel != null)
+                          {
+                            setState(() {
+                              user = loginProvider.loginModel.data.user;
+                            }),
+                          //  print('my id is ' + loginProvider.loginModel.data.user.shopId.toString()),
+                            print("Get response" +
+                                user.displayPictureUrl.toString()),
+                            userBox = UserBox(
+                              email: user.email,
+                              firstName: user.firstName,
+                              lastName: user.lastName,
+                              photo: user.displayPictureUrl,
+                              accessToken:
+                                  loginProvider.loginModel.data.accessToken,
+                              refreshToken: loginProvider
+                                  .loginModel.data.user.refreshToken,
+                              userId: user.id,
+                              shopId: loginProvider.loginModel.data.user.shopId,
+                              role: user.role,
+                              cnic: user.cnic,
+                              phone: user.contactNumber,
+                            ),
+                            print("---Email before save---->" +
+                                userBox.email.toString()),
+                            addUserToHive(userBox),
+                          }
                       }
-                  }
-                else
-                  {showMessage("Login Model face null")}
+                    else
+                      {showMessage("Login Model face null")}
+                  
+                
               }));
     } else {
       showMessage("Faild to Login Attempet");
@@ -211,7 +210,7 @@ class _LoginPageState extends State<LoginPage> {
               buttonText: 'Login',
               buttonColor: AppColors.primarycolor,
               onTap: () {
-                                EasyLoading.show(status: 'Loading..');
+              
 
                 validateAndSubmit(context);
               },
@@ -242,52 +241,20 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                AppRoutes.replace(context, SellerHomePage());
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Text(
-                    "Login as a Seller? :  ",
-                    textAlign: TextAlign.end,
-                    style: TextStyle(color: Colors.black38),
-                  ),
-                  Text(
-                    "For ForentEnd! ",
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      color: AppColors.primarycolor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-             GestureDetector(
-              onTap: () {
-                AppRoutes.replace(context, HomePage());
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Text(
-                    "Login as a buyer? :  ",
-                    textAlign: TextAlign.end,
-                    style: TextStyle(color: Colors.black38),
-                  ),
-                  Text(
-                    "For Forentend ",
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      color: AppColors.primarycolor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+
+            // Align(
+            //   alignment: Alignment.bottomRight,
+            //   child: GestureDetector(
+            //     onTap: () {
+            //       AppRoutes.replace(context, HomePage());
+            //     },
+            //     child: Text(
+            //       "Skip",
+            //       textAlign: TextAlign.end,
+            //       style: TextStyle(color: Colors.black),
+            //     ),
+            //   ),
+            // ),
             // GestureDetector(
             //   onTap: () {
 
@@ -352,9 +319,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-  void showMessage(msg) {
-    Fluttertoast.showToast(
-        msg: msg,
-        textColor: AppColors.greyColor,
-        backgroundColor: Colors.white);
-  }
+void showMessage(msg) {
+  Fluttertoast.showToast(
+      msg: msg, textColor: AppColors.greyColor, backgroundColor: Colors.white);
+}

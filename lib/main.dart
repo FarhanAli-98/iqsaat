@@ -1,4 +1,3 @@
-import 'package:iqsaat/models/getModels/getAllAds.dart';
 import 'package:iqsaat/provider/shopProvider.dart';
 import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +23,6 @@ Future<void> main() async {
   print("Length  = = " + boxUser.length.toString());
   if (boxUser.length == 0) {
     print('saving role to 0');
-
     role = boxUser.length.toString();
   } else {
     res = boxUser.get(0) as UserBox;
@@ -54,8 +52,6 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (_) => AdsProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
-    
-
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false, //home: CompanyProfile()
