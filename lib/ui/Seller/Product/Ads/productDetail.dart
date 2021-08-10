@@ -38,7 +38,7 @@ class _ProductDetailState extends State<ProductDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar:appBarwithCenterTitle(context,"Product Detail"),
+    appBar:appBaroncustomers(context,"Product Detail"),
       body: Stack(
         children: [
           SingleChildScrollView(

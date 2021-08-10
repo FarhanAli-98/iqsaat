@@ -47,7 +47,7 @@ class _CreatePackagesState extends State<CreatePackages> {
     return Expanded(
       flex:1,
           child: SelectFormField(
-        controller: _monthcontroller[count],
+        //controller: _monthcontroller[count],
       
         type: SelectFormFieldType.dropdown,
         labelText: 'Months',

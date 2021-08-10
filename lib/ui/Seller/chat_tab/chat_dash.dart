@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
- import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 
 import 'chat.dart';

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:iqsaat/ui/Seller/Customers/finished_details.dart';
 import 'package:iqsaat/ui/Seller/Orders/customer_order.dart';
 import 'package:iqsaat/ui/Seller/Product/Ads/productDetail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
+import 'package:iqsaat/utils/routes.dart';
 import 'package:iqsaat/utils/styles.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:intl/intl.dart';
-import './active_details.dart';
-import './finished_details.dart';
 
-class Active_customers extends StatelessWidget {
+
+
+// ignore: must_be_immutable
+class Activecustomers extends StatelessWidget {
   bool ongoing = true;
   double percent = 45.0;
-  Active_customers(bool ongoing) {
+  Activecustomers(bool ongoing) {
     this.ongoing = ongoing;
   }
 
@@ -25,11 +25,7 @@ class Active_customers extends StatelessWidget {
     ongoing ? percent = 45.0 : percent = 100.0;
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (BuildContext context) =>
-                    ongoing ? ProductDetail(
+        AppRoutes.push(context,ongoing? ProductDetail(
                                  
                                   des: 'discride about project',
                                   image: 'ASD',
@@ -38,7 +34,7 @@ class Active_customers extends StatelessWidget {
                                   customername: 'Usama',
                                   month: '3',
                                   package: '23',
-                                ) : OrderScreen(
+                                ):OrderScreen(
                                  
                                   des: 'discride about project',
                                   image: 'ASD',
@@ -47,7 +43,30 @@ class Active_customers extends StatelessWidget {
                                   customername: 'Usama',
                                   month: '3',
                                   package: '23',
-                                )));
+                                ));
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (BuildContext context) =>
+        //             ongoing ? ProductDetail(
+                                 
+        //                           des: 'discride about project',
+        //                           image: 'ASD',
+        //                           price: '4000',
+        //                           name: 'Haeir 30',
+        //                           customername: 'Usama',
+        //                           month: '3',
+        //                           package: '23',
+        //                         ) : OrderScreen(
+                                 
+        //                           des: 'discride about project',
+        //                           image: 'ASD',
+        //                           price: '4000',
+        //                           name: 'Haeir 30',
+        //                           customername: 'Usama',
+        //                           month: '3',
+        //                           package: '23',
+        //                         )));
       },
       child: Container(
         //color: Colors.white,

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/request/getMymsg.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
-import 'package:socket_io_client/socket_io_client.dart';
 
 class ChatPage extends StatefulWidget {
   //  final String receiverID, senderID, name;
@@ -169,6 +168,7 @@ class _ChatPageState extends State<ChatPage> {
       ),
     );
   }
+   // ignore: unused_element
    _chatListScrollToBottom() {
     Timer(Duration(milliseconds: 100), () {
       if (_chatLVController.hasClients) {

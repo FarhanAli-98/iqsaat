@@ -118,6 +118,7 @@ class _AddAdvertisementPageState extends State<AddAdvertisementPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   textFieldHeader(
+                                 
                                     'Product Name',
                                   ),
                                   Center(

@@ -1,10 +1,9 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
-import 'package:iqsaat/utils/app_colors.dart';
-import 'package:flutter/material.dart';
-import '../Orders/BuyerOrder.dart';
+
 import './active_customers.dart';
 
+// ignore: must_be_immutable
 class Customers extends StatefulWidget {
   @override
   bool ongoing=true;
@@ -77,7 +76,7 @@ class _CustomersState extends State<Customers> {
             
             child:ListView.builder(
               itemBuilder: (BuildContext context, int inedx) {
-               return  Active_customers(true);
+               return  Activecustomers(true);
                
 
               },
@@ -90,7 +89,7 @@ class _CustomersState extends State<Customers> {
             height: MediaQuery.of(context).size.height/1.4,
             child:ListView.builder(
               itemBuilder: (BuildContext context, int inedx) {
-               return  Active_customers(false);
+               return  Activecustomers(false);
                
 
               },

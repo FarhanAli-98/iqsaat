@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqsaat/Widget/textField.dart';
+import 'package:iqsaat/ui/Seller/installment/installmentTable.dart';
 import 'package:iqsaat/ui/buyer/map/mapview.dart';
 import 'package:iqsaat/ui/buyer/system/notifications.dart';
 import 'package:iqsaat/ui/buyer/system/search.dart';
@@ -62,6 +63,97 @@ Widget appBarwithCenterTitle(BuildContext context, String title) {
     actions: appbarActions(context),
   );
 }
+
+Widget appBaroncustomers(BuildContext context, String title) {
+  return AppBar(
+    elevation: 0.5,
+    backgroundColor: Colors.white,
+    leading: IconButton(
+      icon: Icon(
+        Icons.arrow_back_ios,
+        color: Colors.grey,
+      ),
+      onPressed: () => Navigator.pop(context),
+    ),
+   // centerTitle: true,
+    title: Text(
+      title,
+      style: GoogleFonts.poppins(textStyle: TextStyles.buttonFontText, color: Colors.black)
+    ),
+    actions: appbarCustomer(context),
+  );
+}
+
+
+List<Widget> appbarCustomer(BuildContext context) {
+  return [
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => SearchScreen()));
+        },
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey[300]),
+              borderRadius: BorderRadius.circular(10)),
+          child: Icon(
+            Icons.search_rounded,
+            color: Colors.black,
+            size: 18,
+          ),
+        ),
+      ),
+    ),
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => Notifications()));
+        },
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey[300]),
+              borderRadius: BorderRadius.circular(10)),
+          child: Icon(
+            Icons.notifications_outlined,
+            size: 18,
+            color: Colors.black,
+          ),
+        ),
+      ),
+    ),
+
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: InkWell(
+        onTap: () {
+                 Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => InstallmentTable()));
+        },
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey[300]),
+              borderRadius: BorderRadius.circular(10)),
+          child: Icon(
+            CupertinoIcons.divide,
+            size: 18,
+            color: Colors.black,
+          ),
+        ),
+      ),
+    ),
+  ];
+}
+
 List<Widget> appbarActions(BuildContext context) {
   return [
     Padding(

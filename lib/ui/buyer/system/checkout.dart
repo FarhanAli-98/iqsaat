@@ -378,7 +378,7 @@ class CheckoutScreen extends StatelessWidget {
                       buttonHeight: 50,
                       text: "Continue",
                       buttonColor: AppColors.secondaryColor,
-                      buttonWidth: sizeWidth(context),
+                      buttonWidth: sizeWidth(context), onPress: null,
                     ),
                   ),
                 ],

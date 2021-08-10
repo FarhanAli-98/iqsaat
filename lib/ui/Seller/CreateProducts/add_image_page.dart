@@ -21,7 +21,7 @@ class _AddImagePageState extends State<AddImagePage> {
   double width, height;
   bool _isloading = false;
   TextEditingController _titleController = TextEditingController();
-  TextEditingController _descriptionController = TextEditingController();
+ // TextEditingController _descriptionController = TextEditingController();
   String imageUrl;
   ImageModel myImageModel;
   File myFile;

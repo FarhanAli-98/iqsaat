@@ -5,8 +5,8 @@ import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
-import 'package:iqsaat/ui/Seller/chat_tab/chat.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
+import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
 import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
 import 'package:iqsaat/ui/buyer/system/vault.dart';
 import 'package:iqsaat/utils/app_colors.dart';
@@ -203,7 +203,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         ),
                         InkWell(
                           onTap: () {
-                            AppRoutes.push(context, ChatPage());
+                            AppRoutes.push(context, ProfileTab());
                           },
                           child: buildShopCard(
                               "Shop Name",
@@ -238,14 +238,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         Divider(
                           color: Colors.grey,
                         ),
-                        //  Row(
-                        //    children: [
-                        //      StepperBullet(),
-                        //       StepperBullet(),
-                        //        StepperBullet(),
-                        //         StepperBullet(),
-                        //    ],
-                        //  ),
+                      
                         SizedBox(
                           height: 15,
                         ),
