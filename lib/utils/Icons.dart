@@ -21,10 +21,15 @@ class AppIcons {
   static const String home = 'assets/images/Home.png';
   static const String shop = 'assets/appIcons/company.png';
   static const String order = 'asset/Images/ic_orders.png';
-   static const String wpay = 'asset/Images/ic_pay.png';
+  static const String wpay = 'asset/Images/ic_pay.png';
   static const String wsetting = 'asset/Images/ic_settings.png';
   static const String wicRate = 'assets/appIcons/icon_reviews.png';
   static const String winvite = 'asset/Images/ic_invite.png';
-    static const String logout = 'assets/appIcons/icon_logout.png';
-
+  static const String logout = 'assets/appIcons/icon_logout.png';
+  static const String cust = 'assets/images/tvicon.png';
+  static const String order2 = 'assets/images/tvicon.png';
+  static const String inst = 'assets/images/tvicon.png';
+  static const String categ = 'assets/images/tvicon.png';
+  static const String sold = 'assets/images/tvicon.png';
+  static const String inventory = 'assets/images/tvicon.png';
 }

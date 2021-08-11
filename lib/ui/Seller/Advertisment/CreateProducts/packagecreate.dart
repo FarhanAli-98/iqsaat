@@ -60,40 +60,37 @@ class _CreatePackagesState extends State<CreatePackages> {
   }
 
   Widget package(BuildContext context, count) {
-    return Expanded(
-      flex: 3,
-      child: Container(
-        padding: EdgeInsets.all(5),
-        //width: MediaQuery.of(context).size.width / 3,
-        height: MediaQuery.of(context).size.width / 2,
-        decoration: BoxDecoration(
-          border: Border.all(color: AppColors.primarycolor),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          children: [
-            // SizedBox(height: MediaQuery.of(context).size.height/8,),
-            Center(
-              child: Text("Package",
-                  style: TextStyle(
-                    color: AppColors.primarycolor,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ),
-            SizedBox(
-                width: MediaQuery.of(context).size.width / 3,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Container(child: monthField(count)),
+    return Container(
+      padding: EdgeInsets.all(5),
+      //width: MediaQuery.of(context).size.width / 3,
+      height: MediaQuery.of(context).size.width / 2,
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColors.primarycolor),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        children: [
+          // SizedBox(height: MediaQuery.of(context).size.height/8,),
+          Center(
+            child: Text("Package",
+                style: TextStyle(
+                  color: AppColors.primarycolor,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
                 )),
-            SizedBox(
-                width: MediaQuery.of(context).size.width / 3,
-                child: Container(
-                    height: MediaQuery.of(context).size.height * .118,
-                    child: pricefield(count))),
-          ],
-        ),
+          ),
+          SizedBox(
+              width: MediaQuery.of(context).size.width / 3,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Container(child: monthField(count)),
+              )),
+          SizedBox(
+              width: MediaQuery.of(context).size.width / 3,
+              child: Container(
+                  height: MediaQuery.of(context).size.height * .118,
+                  child: pricefield(count))),
+        ],
       ),
     );
   }

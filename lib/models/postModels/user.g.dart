@@ -39,6 +39,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
 
 User _$UserFromJson(Map<String, dynamic> json) {
   return User(
+    shopId: json['shopId'] as String,
     role: json['role'] as String,
     banned: json['banned'] as bool,
     bannedTill: json['bannedTill'],
@@ -47,11 +48,11 @@ User _$UserFromJson(Map<String, dynamic> json) {
     displayPictureUrl: json['displayPictureUrl'],
     likedAd: json['likedAd'] as List,
     id: json['id'] as String,
-    email: json['email'] as String,
     firstName: json['firstName'] as String,
     lastName: json['lastName'] as String,
     contactNumber: json['contactNumber'] as String,
     cnic: json['cnic'] as String,
+    email: json['email'] as String,
     createdAt: json['createdAt'] == null
         ? null
         : DateTime.parse(json['createdAt'] as String),
@@ -63,6 +64,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+      'shopId': instance.shopId,
       'role': instance.role,
       'banned': instance.banned,
       'bannedTill': instance.bannedTill,
@@ -71,11 +73,11 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'displayPictureUrl': instance.displayPictureUrl,
       'likedAd': instance.likedAd,
       'id': instance.id,
-      'email': instance.email,
       'firstName': instance.firstName,
       'lastName': instance.lastName,
       'contactNumber': instance.contactNumber,
       'cnic': instance.cnic,
+      'email': instance.email,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'refreshToken': instance.refreshToken,

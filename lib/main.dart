@@ -1,6 +1,6 @@
-import 'package:iqsaat/models/getModels/getAllAds.dart';
 import 'package:iqsaat/provider/shopProvider.dart';
-import 'package:iqsaat/utils/splashScreen.dart';
+
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:iqsaat/provider/login_provider.dart';
@@ -24,7 +24,6 @@ Future<void> main() async {
   print("Length  = = " + boxUser.length.toString());
   if (boxUser.length == 0) {
     print('saving role to 0');
-
     role = boxUser.length.toString();
   } else {
     res = boxUser.get(0) as UserBox;
@@ -54,8 +53,6 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (_) => AdsProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => CategoryProvider()),
-    
-
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false, //home: CompanyProfile()
@@ -68,8 +65,8 @@ class _MyAppState extends State<MyApp> {
                   return Text(snapshot.error.toString());
                 else
 
-                //  return ShopProfile();
-                  return SplashScreen(role: widget.role);
+                  return SellerHomePage();
+                  //return SplashScreen(role: widget.role);
               } else
                 return Scaffold();
             },

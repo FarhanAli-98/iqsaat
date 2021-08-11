@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/ui/buyer/home/home.dart';
 import '../ui/auth/loginPage.dart';
 import 'package:page_transition/page_transition.dart';

@@ -7,7 +7,7 @@ import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/hive/user_box.dart';
 import 'package:iqsaat/provider/shopProvider.dart';
-import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/styles.dart';

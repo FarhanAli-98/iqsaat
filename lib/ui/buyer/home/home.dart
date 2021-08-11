@@ -44,8 +44,7 @@ class _HomePageState extends State<HomePage> {
     Provider.of<AdsProvider>(context, listen: false)
         .fetchedAds()
         .then((value) => ({
-              print("Ads fetch response" +
-                  adsProvider.getAllAds.message.toString()),
+     
             }));
   }
 
@@ -147,14 +146,19 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20,
               ),
-            // adsProvider ==null ? CircularProgressIndicator():
+              ProductSlider(
+                heading: "Home Aplicense",
+                products: newArrivals,
+              ),
+               SizedBox(
+                height: 15,
+              ),
+            adsProvider ==null ? Center(child: CircularProgressIndicator()):
               SliderForProduct(
                 heading: "Home Aplicense",
                 products: adsProvider.getAllAds.data//newArrivals,
               ),
-              SizedBox(
-                height: 15,
-              ),
+             
             ],
           ),
         ),
@@ -163,7 +167,7 @@ class _HomePageState extends State<HomePage> {
 
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-    //  adsProvider = Provider.of<AdsProvider>(context);
+      adsProvider = Provider.of<AdsProvider>(context);
     return SafeArea(
       child: Scaffold(
         key: scaffoldKey,
@@ -184,7 +188,7 @@ class _HomePageState extends State<HomePage> {
           ),
           actions: appbarActions(context),
         ),
-        body: _body(context),
+        body: adsProvider == null ? Center(child: CircularProgressIndicator()): _body(context),
       ),
     );
   }
