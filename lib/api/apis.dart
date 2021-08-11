@@ -1,10 +1,13 @@
 // ignore: camel_case_types
+import 'package:iqsaat/ui/buyer/system/notifications.dart';
+
 import 'config.dart';
 
 // ignore: camel_case_types
 class API_URLS {
   //auth
   static const String LOGIN_API = "$API_URL/auth/login";
+  static const String FRIEND = "$API_URL/friendlist";
   static const String INVITE_API = "$API_URL/price/estimate";
   static const String SIGNUP_API = "$API_URL/auth/signup";
   static const String VERIFICATION_API = "$API_URL/auth/users/activation_code/";
@@ -23,6 +26,8 @@ class API_URLS {
   static const LIVE_AD = "$API_URL/live";
   static const CONTACT = "$API_URL/contact";
   static const CHAT = "$API_URL/message";
+  static const CHATSEND = "$API_URL/CHAT";
+  static const NOTIFY = "$API_URL/notify";
   static const JOB_REQUEST = "$API_URL/job";
   static const GETACOMPANY_API = "$API_URL/company";
   static const GETMYREVIEWS_API = "$API_URL/rating/my";

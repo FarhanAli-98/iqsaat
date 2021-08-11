@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:iqsaat/models/usermessages.dart';
 import 'package:iqsaat/request/getMymsg.dart';
 import 'package:iqsaat/request/my_chat.dart';
 
 class ChatProvider with ChangeNotifier {
-  ChatModel messageModel;
+  UserMessages messageModel;
   var jResult;
 
   Future<void> myChat(senderID) async {
@@ -18,7 +19,7 @@ class ChatProvider with ChangeNotifier {
         if (jResult['data'] == null || jResult['data'] == []) {
           print('mydata is null ');
         } else {
-          setCate(ChatModel.fromJson(jResult));
+          setCate(UserMessages.fromJson(jResult));
         }
       } else if (data.statusCode == 400) {
         Fluttertoast.showToast(
@@ -41,7 +42,7 @@ class ChatProvider with ChangeNotifier {
         if (jResult['data'] == null || jResult['data'] == []) {
           print('mydata is null ');
         } else {
-          setCate(ChatModel.fromJson(jResult));
+          setCate(UserMessages.fromJson(jResult));
         }
       } else if (data.statusCode == 400) {
         Fluttertoast.showToast(

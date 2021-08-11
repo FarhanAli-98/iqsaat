@@ -13,6 +13,7 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
+
 class _SplashScreenState extends State<SplashScreen> {
   check(String role) {
     print("splash screen = " + role);

@@ -1,11 +1,9 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:iqsaat/api/apis.dart';
 import 'package:iqsaat/hive/data/list_class.dart';
-import 'package:iqsaat/models/user_info.dart';
-import 'package:iqsaat/provider/adsProvider.dart';
+
 import '../main.dart';
 
 final tokens = Hive.box('tokens');
