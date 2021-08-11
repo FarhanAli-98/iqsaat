@@ -7,6 +7,7 @@ import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
+import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
 import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
 import 'package:iqsaat/ui/buyer/system/vault.dart';
 import 'package:iqsaat/utils/app_colors.dart';
@@ -185,10 +186,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                                                   .height /
                                               3,
                                           width: sizeWidth(context)*1.2,
-                          //  height: MediaQuery.of(context).size.height /2 ,
-                              // padding: EdgeInsets.only(
-                              //     top: 20,),
-                                  //left: MediaQuery.of(context).size.width ),
+     
                               child: Packagetable(price: widget.package)),
                         ),
 
@@ -201,16 +199,11 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         SizedBox(
                           height: 25,
                         ),
-                        InkWell(
-                          onTap: () {
-                            AppRoutes.push(context, ChatPage());
-                          },
-                          child: buildShopCard(
-                              "Shop Name",
-                              'assets/images/brandImages/brand1.png',
-                              "See Profile",
-                              'Sense from'),
-                        ),
+                        buildShopCard(
+                            "Shop Name",
+                            'assets/images/brandImages/brand1.png',
+                            "See Profile",
+                            'Sense from'),
                         SizedBox(
                           height: 25,
                         ),
@@ -227,6 +220,9 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                             buttonHeight: 50.0,
                             onPress: () {
                               bounceShowDialog(context);
+                              setState(() {
+                               // message=true;
+                              });
                             },
                             buttonColor: AppColors.primarycolor,
                             text: "BOOK AN ORDER",
@@ -238,14 +234,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         Divider(
                           color: Colors.grey,
                         ),
-                        //  Row(
-                        //    children: [
-                        //      StepperBullet(),
-                        //       StepperBullet(),
-                        //        StepperBullet(),
-                        //         StepperBullet(),
-                        //    ],
-                        //  ),
+                     
                         SizedBox(
                           height: 15,
                         ),
@@ -440,11 +429,16 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
         ),
         subtitle: Container(
           padding: const EdgeInsets.only(top: 5, right: 8, left: 28, bottom: 5),
-          child: Text(profile,
-              style: TextStyle(
-                fontSize: 14,
-                color: AppColors.primarycolor,
-              )),
+          child: GestureDetector(
+            onTap: (){
+              AppRoutes.push(context, ProfileTab());
+            },
+                      child: Text(profile,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: AppColors.primarycolor,
+                )),
+          ),
         ),
       ),
     );

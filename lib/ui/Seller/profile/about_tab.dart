@@ -1,22 +1,27 @@
 
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/about_info_field.dart';
+import 'package:iqsaat/models/getModels/shop_model.dart';
+import '../../../main.dart';
 
 class AboutTab extends StatelessWidget {
+   final ShopModel shopmodel;
+
+  const AboutTab({Key key, this.shopmodel}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
         AboutInfoField(
-          bottom: "Afzal Electronics",
+          bottom: res.firstName+ " "+res.lastName,
           upper: "Shop Name",
         ),
         AboutInfoField(
-          bottom: "Lahore",
+          bottom: shopmodel.details.address.toString(),
           upper: "City",
         ),
         AboutInfoField(
-          bottom: "Lahore",
+          bottom: shopmodel.details.address.toString(),
           upper: "District",
         ),
         Row(
@@ -29,7 +34,7 @@ class AboutTab extends StatelessWidget {
             ),
             Expanded(
               child: AboutInfoField(
-                bottom: "24 Nov 2019",
+                bottom: shopmodel.details.updatedAt.toString(),
                 upper: "Established On",
               ),
             ),
@@ -39,13 +44,13 @@ class AboutTab extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: AboutInfoField(
-                bottom: "Lahore, Pakistan",
+                bottom: shopmodel.details.address.toString(),
                 upper: "Stabel",
               ),
             ),
             Expanded(
               child: AboutInfoField(
-                bottom: "Pakistan",
+                bottom: shopmodel.details.address.toString(),
                 upper: "Origin Country",
               ),
             ),
@@ -55,14 +60,14 @@ class AboutTab extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: AboutInfoField(
-                bottom: "afzalelectronics@gmail..com",
+                bottom: res.email,
                 upper: "Email",
               ),
             ),
             Expanded(
               child: AboutInfoField(
-                bottom: "Texas, PK",
-                upper: "+92303-6183-103",
+                bottom: res.role,
+                upper: res.phone,
               ),
             ),
           ],

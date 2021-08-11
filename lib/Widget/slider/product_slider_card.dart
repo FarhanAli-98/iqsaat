@@ -23,7 +23,7 @@ class ProductSliderCard extends StatelessWidget {
                             name: "product",
                             des: "Des",
                             price: "21321",
-                            image: "sds",
+                            image: "assets/images/LCD2.jpg",
                             package: [23, 34, 56]));
         },
         borderRadius: BorderRadius.circular(10),

@@ -38,13 +38,18 @@ class _HomePageState extends State<HomePage> {
   bool isSearching = false;
   AdsProvider adsProvider;
   double width, height;
-
+ bool yes=false;
 //Functions
   getAllRendomAds() {
     Provider.of<AdsProvider>(context, listen: false)
         .fetchedAds()
         .then((value) => ({
-     
+     if(value.success==true)
+     {
+       setState((){
+         yes=true;
+       })
+     }
             }));
   }
 
@@ -153,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                SizedBox(
                 height: 15,
               ),
-            adsProvider ==null ? Center(child: CircularProgressIndicator()):
+            yes ==false ? Center(child: CircularProgressIndicator()):
               SliderForProduct(
                 heading: "Home Aplicense",
                 products: adsProvider.getAllAds.data//newArrivals,

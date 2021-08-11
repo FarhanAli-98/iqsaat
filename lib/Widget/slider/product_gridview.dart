@@ -33,7 +33,7 @@ class ProductGridView extends StatelessWidget {
                             name: "product",
                             des: "Des",
                             price: "21321",
-                            image: "sds",
+                            image: products[i].prodImage.toString(),
                             package: [23, 34, 56])));
               },
               borderRadius: BorderRadius.circular(10),
