@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/chip_container.dart';
-import 'package:iqsaat/provider/shopProvider.dart';
+import 'package:iqsaat/provider/shop_provider.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:provider/provider.dart';
 import '../../../main.dart';
@@ -41,47 +41,47 @@ class _ProfileTabState extends State<ProfileTab> {
     shopProvider = Provider.of<ShopProvider>(context);
     return Scaffold(
       appBar: appBarwithbackIcon(context, "Shop Profile"),
-      body:Container(
-              color: Colors.white,
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                children: <Widget>[
-                  const ProfileInfoColumn(),
-                  SizedBox(height: 12),
-                  Expanded(
-                    child: DefaultTabController(
-                      length: 2,
-                      child: Column(
-                        children: <Widget>[
-                          Material(
-                            elevation: 2,
-                            child: TabBar(
-                              indicatorColor: AppColors.primarycolor,
-                              labelColor: Colors.black,
-                              tabs: <Widget>[
-                                Tab(child: Text("About Shop")),
-                                Tab(child: Text("Vault Ads"))
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: TabBarView(
-                              children: <Widget>[
-                                yes == false
-          ? Center(child: CircularProgressIndicator())
-          :  AboutTab(shopmodel: shopProvider.shopModel),
-                                PerviousAds(),
-                              ],
-                            ),
-                          )
+      body: Container(
+        color: Colors.white,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: <Widget>[
+            const ProfileInfoColumn(),
+            SizedBox(height: 12),
+            Expanded(
+              child: DefaultTabController(
+                length: 2,
+                child: Column(
+                  children: <Widget>[
+                    Material(
+                      elevation: 2,
+                      child: TabBar(
+                        indicatorColor: AppColors.primarycolor,
+                        labelColor: Colors.black,
+                        tabs: <Widget>[
+                          Tab(child: Text("About Shop")),
+                          Tab(child: Text("Vault Ads"))
                         ],
                       ),
                     ),
-                  )
-                ],
+                    Expanded(
+                      child: TabBarView(
+                        children: <Widget>[
+                          yes == false
+                              ? Center(child: CircularProgressIndicator())
+                              : AboutTab(shopmodel: shopProvider.shopModel),
+                          PerviousAds(),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

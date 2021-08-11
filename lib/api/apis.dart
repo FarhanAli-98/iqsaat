@@ -32,6 +32,7 @@ class API_URLS {
   static const GETACOMPANY_API = "$API_URL/company";
   static const GETMYREVIEWS_API = "$API_URL/rating/my";
   static const SENDREVIEWS_API = "$API_URL/rating";
+  static const ORDER_API = "$API_URL/sendrequest/request";
 
   //Images
   static const PROFILE_IMAGE_API = "$API_URL/images/profile";

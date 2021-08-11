@@ -1,14 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
- import 'package:iqsaat/Widget/button/custom_button.dart';
+import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
-
 import 'checkout.dart';
-
-
-class MyVault extends StatelessWidget {
   final List<Map> myBagData = [
     {
       "itemImage": "assets/images/vehicle1.jpg",
@@ -22,6 +18,9 @@ class MyVault extends StatelessWidget {
       "itemPrice": "12.50",
     },
   ];
+
+class MyVault extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -241,7 +240,7 @@ class MyVault extends StatelessWidget {
                                 style: TextStyle(),
                               ),
                               Text(
-                                '3',
+                                myBagData.length.toString(),
                                 style: TextStyle(
                                     fontSize: 17, fontWeight: FontWeight.bold),
                               )

@@ -4,10 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/hive/utils.dart';
 import 'package:iqsaat/models/usermessages.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
-
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
-import 'package:socket_io_client/socket_io_client.dart';
 
 class ChatPage extends StatefulWidget {
    final String receiverID, senderID, name,photo;
