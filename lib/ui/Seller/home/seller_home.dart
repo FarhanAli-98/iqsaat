@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iqsaat/drawer.dart';
 import '../../../main.dart';
-import 'dashboard/dashboard.dart';
+import 'dashboard.dart';
 
 class SellerHomePage extends StatefulWidget {
   @override
@@ -95,7 +95,7 @@ class _SellerHomePageState extends State<SellerHomePage> {
           ],
         ),
       ),
-      body:  Dashboard()
+      body:  SellerDashboard()
     );
   }
   

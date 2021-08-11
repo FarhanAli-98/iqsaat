@@ -1,16 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iqsaat/models/getModels/getAllAds.dart';
 import 'package:iqsaat/ui/buyer/products/product_description.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 
 class ProductCardDesign extends StatelessWidget {
-  final Datum product;
+  var product;
   final bool isGridView;
   final int count;
 
-  ProductCardDesign({@required this.product, this.isGridView = false, this.count,});
+  ProductCardDesign({
+    @required this.product,
+    this.isGridView = false,
+    this.count,
+  });
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -21,11 +24,11 @@ class ProductCardDesign extends StatelessWidget {
           AppRoutes.push(
               context,
               ProdDescScreen(
-                            name: product.name,
-                            des: product.products[0].description,
-                            price:  product.products[0].price,
-                            image:  product.images[0],
-                            package: product.packages));
+                  name: product.name,
+                  des: product.products[0].description,
+                  price: product.products[0].price,
+                  image: "assets/images/vehicle2.png", //product.images[0],
+                  package: [23, 34, 56]));
         },
         borderRadius: BorderRadius.circular(10),
         child: Container(
@@ -38,11 +41,18 @@ class ProductCardDesign extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  CircleAvatar(
-                                      backgroundImage: NetworkImage(
-                                          "https://img.flaticon.com/icons/png/512/906/906343.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF"),
-                                    ),
-                  count%2 == 0
+                  ClipRRect(
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(10)),
+                    child: Image.asset(
+                      "assets/images/vehicle2.png",
+                      height: 170,
+                      width: 155,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+              
+                  count % 2 == 0
                       ? Positioned(
                           top: 5,
                           left: 5,
@@ -64,7 +74,7 @@ class ProductCardDesign extends StatelessWidget {
                           ),
                         )
                       : Container(),
-                  count%2 !=0
+                  count % 2 != 0
                       ? Align(
                           alignment: Alignment.center,
                           child: Container(
@@ -75,10 +85,13 @@ class ProductCardDesign extends StatelessWidget {
                                     topLeft: Radius.circular(10),
                                     bottomRight: Radius.circular(10))),
                             alignment: Alignment.center,
-                            child: CircleAvatar(
-                                      backgroundImage: NetworkImage(
-                                          "https://img.flaticon.com/icons/png/512/906/906343.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF"),
-                                    ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10)),
+                              child:
+                                  Image.asset("assets/images/outOfStock.png"),
+                            ),
                           ),
                         )
                       : Container()
@@ -115,9 +128,9 @@ class ProductCardDesign extends StatelessWidget {
                               letterSpacing: -0.5,
                             ),
                           ),
-                          Expanded(child: SizedBox()),
+                          // Expanded(child: SizedBox()),
                           Text(
-                          product.products[0].price+ " RS",
+                            product.products[0].price + " RS",
                             maxLines: 1,
                             textAlign: TextAlign.left,
                             overflow: TextOverflow.ellipsis,

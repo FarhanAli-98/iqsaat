@@ -5,7 +5,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 import './salesreport.dart';
 import './shopreport.dart';
 import './Statistics/analysisshop.dart';
-import './Statistics/analysisSale.dart';
+import 'Statistics/analysisSale.dart';
 
 
 class Dashboard extends StatefulWidget {
@@ -300,7 +300,7 @@ class _DashboardState extends State<Dashboard>
                       Column(
                         children: [
                           salesReport(),
-                          salesanalysis(),
+                          Salesanalysis(),
                         ],
                       ),
                       Column(

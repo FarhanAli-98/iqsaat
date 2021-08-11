@@ -5,7 +5,6 @@ import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
-import 'package:iqsaat/models/getModels/getAllAds.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
@@ -19,8 +18,8 @@ class ProdDescScreen extends StatefulWidget {
   final String name;
   final String des;
   final String price;
-  final Image image;
-  final List<Package> package;
+  final String image;
+  final List<int> package;
 
   const ProdDescScreen(
       {Key key,

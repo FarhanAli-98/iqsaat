@@ -1,5 +1,6 @@
 import 'package:iqsaat/provider/shopProvider.dart';
-import 'package:iqsaat/utils/splashScreen.dart';
+
+import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:iqsaat/provider/login_provider.dart';
@@ -64,8 +65,8 @@ class _MyAppState extends State<MyApp> {
                   return Text(snapshot.error.toString());
                 else
 
-                //  return ShopProfile();
-                  return SplashScreen(role: widget.role);
+                  return SellerHomePage();
+                  //return SplashScreen(role: widget.role);
               } else
                 return Scaffold();
             },
