@@ -59,7 +59,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       children: <Widget>[
                         Container(
                           width: double.infinity,
-                          height: size.width * 0.4 ,
+                          height: size.width * 0.4,
                           child: Container(
                             margin: EdgeInsets.symmetric(
                                 horizontal: 32, vertical: 28),
@@ -79,7 +79,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                 Container(
                                     margin: EdgeInsets.only(left: 21),
                                     child: Text(
-                                     res.firstName +" "+ res.lastName,
+                                      res.firstName + " " + res.lastName,
                                       style: TextStyle(
                                           color: AppColors.blackTextColor,
                                           fontWeight: FontWeight.w600),
@@ -92,16 +92,14 @@ class _AppDrawerState extends State<AppDrawer> {
                           iconData: AppIcons.termCondation,
                           text: 'Home',
                           onTap: () {
-                             AppRoutes.push(context, 
-                                        SellerHomePage());
+                            AppRoutes.push(context, SellerHomePage());
                           },
                         ),
                         CustomField(
                           iconData: AppIcons.termCondation,
                           text: 'Profile',
                           onTap: () {
-                             AppRoutes.push(context, 
-                                        ProfileTab());
+                            AppRoutes.push(context, ProfileTab());
                           },
                         ),
                         InkWell(
@@ -204,13 +202,14 @@ class _AppDrawerState extends State<AppDrawer> {
                                             MaterialPageRoute(
                                                 builder:
                                                     (BuildContext context) =>
-                                                        ordersTab()));
+                                                        OrdersTab()));
                                       },
                                       child: Container(
-                                          margin: EdgeInsets.only(bottom: 18,top:18),
+                                          margin: EdgeInsets.only(
+                                              bottom: 18, top: 18),
                                           child: Text("Orders")),
                                     ),
-                                    
+
                                     // InkWell(
                                     //   // onTap: () {
                                     //   //   Navigator.push(
@@ -241,7 +240,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                 ))
                             : Container(),
                         Padding(
-                          padding: const EdgeInsets.only(top:0.0),
+                          padding: const EdgeInsets.only(top: 0.0),
                           child: CustomField(
                             iconData: AppIcons.help,
                             text: 'Contact Us',
@@ -254,25 +253,24 @@ class _AppDrawerState extends State<AppDrawer> {
                           iconData: "assets/appIcons/chatboxes.png",
                           text: 'Chat',
                           onTap: () {
-                             AppRoutes.push(context,
-                                        ChatTab());
+                            AppRoutes.push(context, ChatTab());
                           },
                         ),
                         CustomField(
                           iconData: AppIcons.termCondation,
                           text: 'Terms of use',
                           onTap: () {
-                           Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                                TermsAndConditionScreen()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        TermsAndConditionScreen()));
                           },
                         ),
                         SizedBox(
                           height: isCompanyTaped ? 10 : size.width * 0.45,
                         ),
-                       // Spacer(),
+                        // Spacer(),
                         InkWell(
                           onTap: () {
                             print("Logout");
@@ -402,7 +400,9 @@ class DrawerFull extends PreferredSize {
                                         child: Container(
                                             margin: EdgeInsets.only(left: 21),
                                             child: Text(
-                                             res.firstName +" "+ res.lastName,
+                                              res.firstName +
+                                                  " " +
+                                                  res.lastName,
                                               style: TextStyle(
                                                   color:
                                                       AppColors.blackTextColor,
@@ -489,7 +489,7 @@ class DrawerFull extends PreferredSize {
                                     AppRoutes.push(context, ChatTab());
                                   },
                                 ),
-                               // Spacer(),
+                                // Spacer(),
                                 CustomField(
                                   iconData: AppIcons.logout,
                                   text: 'Logout User',

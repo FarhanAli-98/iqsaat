@@ -146,6 +146,7 @@ class ProductCardDesign extends StatelessWidget {
                           AppRoutes.push(
                               context,
                               ProdDescScreen(
+                                id:"60aa520776e65000199beaa8",
                                   name: product.name,
                                   des: product.products[0].description,
                                   price: product.products[0].price,

@@ -3,13 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-
-class MyOrders extends StatelessWidget {
-  const MyOrders({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final List<Map> myOrdersList = [
+  final List<Map> myOrdersList = [
       {
         "itemImage": "assets/images/cartImages/cartImage1.png",
         "date": "14 May 2021",
@@ -32,6 +26,12 @@ class MyOrders extends StatelessWidget {
         "itemPrice": "12.50",
       },
     ];
+class MyOrders extends StatelessWidget {
+  const MyOrders({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+
     return Scaffold(
     appBar: appBarwithCenterTitle(context,"My Order"),
       body: SingleChildScrollView(

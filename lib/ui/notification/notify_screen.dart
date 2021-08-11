@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-  FlutterLocalNotificationsPlugin fltrNotification;
+
+FlutterLocalNotificationsPlugin fltrNotification;
+
 class NotificationControllor extends StatelessWidget {
   final context;
 
-final notification;
+  final notification;
 
-  const NotificationControllor({Key key, this.context, this.notification}) : super(key: key);
-
-
-
+  const NotificationControllor({Key key, this.context, this.notification})
+      : super(key: key);
 
   void initState() {
     fltrNotification = FlutterLocalNotificationsPlugin();
@@ -24,7 +24,7 @@ final notification;
         android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
     fltrNotification.initialize(initializationSettings,
         onSelectNotification: notificationSelected);
-        _showNotification();
+    _showNotification();
     //onSelectNotification: notificationSelected);
     // getlikecount();
     // cronjobforlike();
@@ -62,6 +62,7 @@ final notification;
         0, 'Liked Your Post', notification, platformChannelSpecifics,
         payload: notification);
   }
+
   Future notificationSelected(String payload) async {
     showDialog(
       context: context,
@@ -70,9 +71,8 @@ final notification;
       ),
     );
   }
+
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+    return Container();
   }
 }

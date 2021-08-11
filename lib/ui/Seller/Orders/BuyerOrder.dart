@@ -1,13 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/orderscard.dart';
-import 'package:iqsaat/ui/Seller/Orders/ordersDetail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:iqsaat/utils/styles.dart';
-
+import 'package:provider/provider.dart';
 import 'customer_order.dart';
 
-class buyer_orders extends StatelessWidget {
+class Buyer_orders extends StatefulWidget {
+  @override
+  _Buyer_ordersState createState() => _Buyer_ordersState();
+}
+
+class _Buyer_ordersState extends State<Buyer_orders> {
+
+
+
+//Functions
+  // getMyOrderList() {
+  //   Provider.of<AdsProvider>(context, listen: false)
+  //       .fetchedAds()
+  //       .then((value) => ({
+  //             if (value.success == true)
+  //               {
+  //                 setState(() {
+  //                   yes = true;
+  //                 })
+  //               }
+  //           }));
+  // }
+
+  // void initState() {
+  //   super.initState();
+  //   getMyOrderList();
+  // }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

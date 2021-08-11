@@ -5,17 +5,24 @@ import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
-import 'package:iqsaat/ui/Seller/chat_tab/chat.dart';
+import 'package:iqsaat/provider/order_provider.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
 import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
+import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
+import 'package:iqsaat/ui/buyer/system/my_orders.dart';
 import 'package:iqsaat/ui/buyer/system/vault.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/routes.dart';
+import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
+DateTime now = DateTime.now();
+String orderdate = DateFormat('yyyy-MM-dd').format(DateTime.now());
 
 class ProdDescScreen extends StatefulWidget {
+  final String id;
   final String name;
   final String des;
   final String price;
@@ -28,7 +35,8 @@ class ProdDescScreen extends StatefulWidget {
       @required this.des,
       @required this.price,
       @required this.image,
-      this.package})
+      this.package,
+      this.id})
       : super(key: key);
 
   @override
@@ -36,8 +44,36 @@ class ProdDescScreen extends StatefulWidget {
 }
 
 class _ProdDescScreenState extends State<ProdDescScreen> {
+  OrderProvider orderProvider;
+  bool yes = false;
+
+  submitOrder(context) {
+    Provider.of<OrderProvider>(context, listen: false)
+        .orderCreate(
+      widget.id,
+    )
+        .then((value) {
+      if (value.success == true) {
+        bounceShowDialog(context);
+        setState(() {
+          var body = {
+            "itemImage": "${widget.image}",
+            "date": "$orderdate",
+            "orderId": "${widget.id}",
+            "itemName": "${widget.name}",
+            "itemPrice": "${widget.price}",
+          };
+          myOrdersList.add(body);
+        });
+      } else {
+        showMessage("Order Placed Failed");
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    orderProvider = Provider.of<OrderProvider>(context);
     return Scaffold(
       appBar: appBarwithCenterTitle(context, "Product Datile"),
       body: Stack(
@@ -107,7 +143,6 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         SizedBox(
                           height: 10,
                         ),
-
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -135,7 +170,6 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         SizedBox(
                           height: 15,
                         ),
-
                         SizedBox(
                           height: 15,
                         ),
@@ -156,7 +190,6 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                           height: 10,
                         ),
                         Text(widget.des),
-
                         SizedBox(
                           height: 15,
                         ),
@@ -173,23 +206,16 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-
                         SizedBox(
                           height: 10,
                         ),
-
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                                                  child: Container(
-                                                     height: MediaQuery.of(context)
-                                                  .size
-                                                  .height /
-                                              3,
-                                          width: sizeWidth(context)*1.2,
-     
+                          child: Container(
+                              height: MediaQuery.of(context).size.height / 3,
+                              width: sizeWidth(context) * 1.2,
                               child: Packagetable(price: widget.package)),
                         ),
-
                         SizedBox(
                           height: 25,
                         ),
@@ -210,7 +236,6 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         Divider(
                           color: Colors.grey,
                         ),
-
                         SizedBox(
                           height: 15,
                         ),
@@ -219,9 +244,12 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                             buttonWidth: sizeWidth(context),
                             buttonHeight: 50.0,
                             onPress: () {
-                              bounceShowDialog(context);
+                              submitOrder(
+                                context,
+                              );
+
                               setState(() {
-                               // message=true;
+                                // message=true;
                               });
                             },
                             buttonColor: AppColors.primarycolor,
@@ -234,7 +262,6 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         Divider(
                           color: Colors.grey,
                         ),
-                     
                         SizedBox(
                           height: 15,
                         ),
@@ -255,10 +282,10 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: GestureDetector(
-              onTap: (){
+              onTap: () {
                 AppRoutes.push(context, ChatTab());
               },
-                          child: Container(
+              child: Container(
                 child: Row(
                   children: [
                     Container(
@@ -273,7 +300,10 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                           Image.asset("assets/appIcons/chatboxes.png",scale: 1,),
+                            Image.asset(
+                              "assets/appIcons/chatboxes.png",
+                              scale: 1,
+                            ),
                             SizedBox(
                               width: 10,
                             ),
@@ -285,8 +315,6 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-
-                     
                           ],
                         ),
                       ),
@@ -294,8 +322,16 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                     Expanded(
                       child: InkWell(
                         onTap: () {
+                          setState(() {
+                            var order = {
+                              "itemImage": "${widget.image}",
+                              "itemName": "${widget.name}",
+                              "itemPrice": "${widget.price}",
+                            };
+                            myBagData.add(order);
+                          });
 
-                          AppRoutes.push(context,  MyVault());
+                          AppRoutes.push(context, MyVault());
                         },
                         child: Container(
                           height: 60,
@@ -341,9 +377,7 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
         context: context,
         builder: (BuildContext context) {
           return new AlertDialog(
-
               backgroundColor: Colors.white,
-
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
               content: new Container(
@@ -371,6 +405,21 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
                             Container(
                               child: Text(
                                 'Order Successfully send',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Container(
+                              child: Text(
+                                "Order iD" +
+                                    orderProvider.orderModel.details.adId
+                                        .toString(),
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.black,
@@ -430,10 +479,10 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
         subtitle: Container(
           padding: const EdgeInsets.only(top: 5, right: 8, left: 28, bottom: 5),
           child: GestureDetector(
-            onTap: (){
+            onTap: () {
               AppRoutes.push(context, ProfileTab());
             },
-                      child: Text(profile,
+            child: Text(profile,
                 style: TextStyle(
                   fontSize: 14,
                   color: AppColors.primarycolor,

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/Widget/orderscard.dart';
 import 'package:iqsaat/ui/Seller/Orders/customer_order.dart';
-import 'package:iqsaat/ui/Seller/Orders/ordersDetail.dart';
 import 'package:iqsaat/utils/app_colors.dart';
-import 'package:iqsaat/utils/styles.dart';
 
-class accepted_orders extends StatelessWidget {
+class Accepted_orders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

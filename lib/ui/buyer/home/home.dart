@@ -7,7 +7,7 @@ import 'package:iqsaat/Widget/slider/category_slider.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
 import 'package:iqsaat/drawer.dart';
-import 'package:iqsaat/provider/adsProvider.dart';
+import 'package:iqsaat/provider/ads_provider.dart';
 import 'package:iqsaat/ui/buyer/brands/brands_screen.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
@@ -38,18 +38,18 @@ class _HomePageState extends State<HomePage> {
   bool isSearching = false;
   AdsProvider adsProvider;
   double width, height;
- bool yes=false;
+  bool yes = false;
 //Functions
   getAllRendomAds() {
     Provider.of<AdsProvider>(context, listen: false)
         .fetchedAds()
         .then((value) => ({
-     if(value.success==true)
-     {
-       setState((){
-         yes=true;
-       })
-     }
+              if (value.success == true)
+                {
+                  setState(() {
+                    yes = true;
+                  })
+                }
             }));
   }
 
@@ -155,15 +155,15 @@ class _HomePageState extends State<HomePage> {
                 heading: "Home Aplicense",
                 products: newArrivals,
               ),
-               SizedBox(
+              SizedBox(
                 height: 15,
               ),
-            yes ==false ? Center(child: CircularProgressIndicator()):
-              SliderForProduct(
-                heading: "Home Aplicense",
-                products: adsProvider.getAllAds.data//newArrivals,
-              ),
-             
+              yes == false
+                  ? Center(child: CircularProgressIndicator())
+                  : SliderForProduct(
+                      heading: "Home Aplicense",
+                      products: adsProvider.getAllAds.data //newArrivals,
+                      ),
             ],
           ),
         ),
@@ -172,7 +172,7 @@ class _HomePageState extends State<HomePage> {
 
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-      adsProvider = Provider.of<AdsProvider>(context);
+    adsProvider = Provider.of<AdsProvider>(context);
     return SafeArea(
       child: Scaffold(
         key: scaffoldKey,
@@ -193,7 +193,9 @@ class _HomePageState extends State<HomePage> {
           ),
           actions: appbarActions(context),
         ),
-        body: adsProvider == null ? Center(child: CircularProgressIndicator()): _body(context),
+        body: adsProvider == null
+            ? Center(child: CircularProgressIndicator())
+            : _body(context),
       ),
     );
   }

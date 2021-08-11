@@ -9,7 +9,7 @@ import 'package:iqsaat/Widget/headerText.dart';
 import 'package:iqsaat/Widget/textField.dart';
 import 'package:iqsaat/api/apis.dart';
 import 'package:iqsaat/models/user_info.dart';
-import 'package:iqsaat/provider/adsProvider.dart';
+import 'package:iqsaat/provider/ads_provider.dart';
 import 'package:iqsaat/ui/auth/image_upload.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
