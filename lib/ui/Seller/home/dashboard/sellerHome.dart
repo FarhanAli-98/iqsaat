@@ -6,25 +6,15 @@ import 'package:iqsaat/drawer.dart';
 import 'package:iqsaat/hive/utils.dart';
 import 'dashboard.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
-IO.Socket notifySocket = IO.io(
-     JOB_notify,
-    // 'http://192.168.1.180/chat',
-    IO.OptionBuilder()
-        .setPath('/lilac')
-        .setTransports(['websocket'])
-        .setExtraHeaders({"Authorization": "${Utils.getAuthentication()}"})
-        .enableAutoConnect()
-        .build());
-
-        IO.Socket chatSocket = IO.io(
-   CHAT_SOCKET_URL ,
-    // 'http://192.168.1.180/chat',
-    IO.OptionBuilder()
-        .setPath('/lilac')
-        .setTransports(['websocket'])
-        .setExtraHeaders({"Authorization": "${Utils.getAuthentication()}"})
-        .enableAutoConnect()
-        .build());
+  //       IO.Socket chatSocket = IO.io(
+  //  CHAT_SOCKET_URL ,
+  //   // 'http://192.168.1.180/chat',
+  //   IO.OptionBuilder()
+  //       .setPath('/lilac')
+  //       .setTransports(['websocket'])
+  //       .setExtraHeaders({"Authorization": "${Utils.getAuthentication()}"})
+  //       .enableAutoConnect()
+  //       .build());
 class SellerHomePage extends StatefulWidget {
   @override
   _SellerHomePageState createState() => _SellerHomePageState();
@@ -45,10 +35,10 @@ class _SellerHomePageState extends State<SellerHomePage> {
   @override
   void initState(){
     super.initState();
-     notifySocket.on('connect',
-        (data) => print("connect notfications"));
-    chatSocket.on('connect',
-        (data) => print("connect chat"));
+    //  notifySocket.on('connect',
+    //     (data) => print("connect notfications"));
+    // chatSocket.on('connect',
+    //     (data) => print("connect chat"));
   }
 
   Widget build(BuildContext context) {

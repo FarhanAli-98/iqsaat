@@ -5,23 +5,33 @@ import 'package:iqsaat/Widget/button/custom_button.dart';
 import 'package:iqsaat/Widget/custom_rating_bar.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
+import 'package:iqsaat/hive/utils.dart';
 import 'package:iqsaat/provider/order_provider.dart';
+import 'package:iqsaat/ui/Seller/chat_tab/chat.dart';
 import 'package:iqsaat/ui/Seller/chat_tab/chat_dash.dart';
+import 'package:iqsaat/ui/Seller/chat_tab/tempchat.dart';
+import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
 import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/ui/buyer/brands/packagetable.dart';
+import 'package:iqsaat/ui/buyer/home/home.dart';
 import 'package:iqsaat/ui/buyer/system/my_orders.dart';
 import 'package:iqsaat/ui/buyer/system/vault.dart';
+import 'package:iqsaat/ui/notification/notify_screen.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/routes.dart';
+import 'package:iqsaat/utils/splashScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+
+import '../../../main.dart';
 
 DateTime now = DateTime.now();
 String orderdate = DateFormat('yyyy-MM-dd').format(DateTime.now());
 
 class ProdDescScreen extends StatefulWidget {
+  final String ownerid;
   final String id;
   final String name;
   final String des;
@@ -36,7 +46,7 @@ class ProdDescScreen extends StatefulWidget {
       @required this.price,
       @required this.image,
       this.package,
-      this.id})
+      this.id, this.ownerid})
       : super(key: key);
 
   @override
@@ -54,24 +64,50 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
     )
         .then((value) {
       if (value.success == true) {
+  //ownerid
         bounceShowDialog(context);
         setState(() {
           var body = {
+           
             "itemImage": "${widget.image}",
             "date": "$orderdate",
             "orderId": "${widget.id}",
             "itemName": "${widget.name}",
             "itemPrice": "${widget.price}",
+           
+          };
+          var data={
+             "receiverID":"${widget.ownerid}",
+             "myname":"${res.firstName+" "+res.lastName}"
           };
           myOrdersList.add(body);
+            notifySocket.emit("notify",data);
         });
+      
       } else {
         showMessage("Order Placed Failed");
       }
     });
   }
-
+ sownotification(name) {
+    NotificationControllor noti = NotificationControllor(
+        context: context, notification: name + '\n' + 'send you order');
+    noti.initState();
+  }
+listennotification() {
+    notifySocket.on("notify", (data) {
+      //print(data['senderID']);
+      if (data['receiverID'].toString() == Utils.getUserid()) {
+         sownotification(data['myname']);
+      }
+    });
+  }
   @override
+  void initState()
+  {
+    super.initState();
+    listennotification();
+  }
   Widget build(BuildContext context) {
     orderProvider = Provider.of<OrderProvider>(context);
     return Scaffold(
@@ -283,7 +319,13 @@ class _ProdDescScreenState extends State<ProdDescScreen> {
             alignment: Alignment.bottomCenter,
             child: GestureDetector(
               onTap: () {
-                AppRoutes.push(context, ChatTab());
+                print(Utils.getUserid()+" "+owerid);
+                AppRoutes.push(context, ChatPage(
+              name: "farhan",
+              receiverID: owerid,
+              senderID: Utils.getUserid(),
+              photo:"assets/images/profile.png" ,
+                ));
               },
               child: Container(
                 child: Row(

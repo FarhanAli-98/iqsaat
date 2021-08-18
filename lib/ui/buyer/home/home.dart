@@ -6,7 +6,9 @@ import 'package:iqsaat/Widget/data_patterns/product_slider.dart';
 import 'package:iqsaat/Widget/slider/category_slider.dart';
 import 'package:iqsaat/Widget/slider/home_slider.dart';
 import 'package:iqsaat/Widget/slider/product_slider.dart';
+import 'package:iqsaat/api/config.dart';
 import 'package:iqsaat/drawer.dart';
+import 'package:iqsaat/hive/utils.dart';
 import 'package:iqsaat/provider/ads_provider.dart';
 import 'package:iqsaat/ui/buyer/brands/brands_screen.dart';
 import 'package:iqsaat/utils/app_colors.dart';
@@ -14,7 +16,9 @@ import 'package:iqsaat/utils/images.dart';
 import 'package:iqsaat/utils/routes.dart';
 import 'package:provider/provider.dart';
 
+
 import '../../../main.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -48,14 +52,17 @@ class _HomePageState extends State<HomePage> {
                 {
                   setState(() {
                     yes = true;
+                    owerid=adsProvider.getAllAds.data[0].ownerId.id;
                   })
                 }
             }));
   }
+  
 
   void initState() {
     super.initState();
     getAllRendomAds();
+ 
   }
 
   @override

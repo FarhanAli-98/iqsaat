@@ -1,6 +1,4 @@
 import 'package:iqsaat/provider/shop_provider.dart';
-
-import 'package:iqsaat/ui/Seller/home/seller_home.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:iqsaat/provider/login_provider.dart';
@@ -14,9 +12,10 @@ import 'provider/category_provider.dart';
 import 'provider/order_provider.dart';
 import 'provider/userProvider.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
+import 'dart:async';
 String role;
 UserBox res;
+String owerid;
 Box<dynamic> boxUser;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

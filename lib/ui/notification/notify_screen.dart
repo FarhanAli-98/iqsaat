@@ -38,6 +38,7 @@ class NotificationControllor extends StatelessWidget {
         title: Text(title),
         content: Text(body),
         actions: [
+          // ignore: deprecated_member_use
           FlatButton(
             child: Text('Ok'),
             onPressed: () {
@@ -59,7 +60,7 @@ class NotificationControllor extends StatelessWidget {
     const NotificationDetails platformChannelSpecifics =
         NotificationDetails(android: androidPlatformChannelSpecifics);
     await fltrNotification.show(
-        0, 'Liked Your Post', notification, platformChannelSpecifics,
+        0, 'send you order request', notification, platformChannelSpecifics,
         payload: notification);
   }
 

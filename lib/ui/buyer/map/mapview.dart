@@ -1,15 +1,10 @@
-import 'dart:async';
 import 'dart:math';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
-import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:iqsaat/models/place.dart';
 import 'package:iqsaat/ui/Seller/profile/profile_tab.dart';
-import 'package:iqsaat/ui/Seller/profile/shop_profile.dart';
 import 'package:iqsaat/ui/auth/loginPage.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -22,6 +17,7 @@ class Mapview extends StatefulWidget {
 }
 
 class _MapviewState extends State<Mapview> {
+  // ignore: unused_field
   CameraPosition _initialLocation = CameraPosition(target: LatLng(0.0, 0.0));
   TextEditingController _searchController = TextEditingController();
   final Geolocator _geolocator = Geolocator();
@@ -37,10 +33,10 @@ class _MapviewState extends State<Mapview> {
   List<LatLng> polylineCoordinates = [];
   List<Place> places = [];
   PolylinePoints polylinePoints = PolylinePoints();
+  // ignore: avoid_init_to_null
   String placeDistance = null;
   final List<LatLng> pointList = <LatLng>[];
 
-  List<Place> _displayResults = [];
   double totalDistance = 0.0;
   GoogleMapController _controller;
   String _mapStyle;
@@ -85,8 +81,10 @@ class _MapviewState extends State<Mapview> {
   //   }
   // }
   _createPolylines(LatLng start, LatLng destination) async {
-   print(start.latitude);print(start.longitude);
+    print(start.latitude);
+    print(start.longitude);
     polylinePoints = PolylinePoints();
+    // ignore: unused_local_variable
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
       googleAPiKey, // Google Maps API Key
       PointLatLng(start.latitude, start.longitude),
@@ -102,15 +100,15 @@ class _MapviewState extends State<Mapview> {
       width: 5,
     );
     setState(() {
-  polylines[id] = polyline;
-
+      polylines[id] = polyline;
     });
-  
+
     if (pointList.isNotEmpty) {
       showMessage("Distance dectacted");
       pointList.forEach((point) {
         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
-        print(point.latitude);print(point.longitude);
+        print(point.latitude);
+        print(point.longitude);
       });
     } else {
       showMessage("Distance rejacted");
@@ -143,6 +141,7 @@ class _MapviewState extends State<Mapview> {
       placeDistance = totalDistance.toStringAsFixed(2);
 
       print('DISTANCE: $placeDistance km');
+      // ignore: unused_local_variable
       int speed = 30;
       //  estimatetime = int.parse(_placeDistance) / speed;
     });
@@ -234,6 +233,7 @@ class _MapviewState extends State<Mapview> {
                             Image.asset(
                               'assets/appIcons/likeVector.png',
                             ),
+                            // ignore: deprecated_member_use
                             RaisedButton(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
@@ -247,7 +247,8 @@ class _MapviewState extends State<Mapview> {
                                     color: Colors.white),
                               ),
                             ),
-                               RaisedButton(
+                            // ignore: deprecated_member_use
+                            RaisedButton(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
                               onPressed: () {
@@ -284,7 +285,8 @@ class _MapviewState extends State<Mapview> {
     _markers.add(Marker(
         onTap: () {
           setState(() {
-            _createPolylines(LatLng(31.44258366444366, 74.27680389899342),
+            _createPolylines(
+                LatLng(currentPosition.latitude, currentPosition.longitude),
                 LatLng(31.44258366444366, 74.27680389899342));
 
             shopView = !shopView;
@@ -296,11 +298,12 @@ class _MapviewState extends State<Mapview> {
         infoWindow: InfoWindow(title: "Afzal Electronics")));
     _markers.add(Marker(
         onTap: () {
-          // setState(() {
-          //   shopView = !shopView;
-          //   _createPolylines(
-          //       currentPosition, LatLng(31.463296261528672, 74.30509337015778));
-          // });
+          setState(() {
+            shopView = !shopView;
+            _createPolylines(
+                LatLng(currentPosition.latitude, currentPosition.longitude),
+                LatLng(31.463296261528672, 74.30509337015778));
+          });
         },
         markerId: MarkerId("Electronic Mart"),
         position: LatLng(31.463296261528672, 74.30509337015778),
@@ -308,12 +311,13 @@ class _MapviewState extends State<Mapview> {
         infoWindow: InfoWindow(title: "Electronic Mart")));
     _markers.add(Marker(
         onTap: () {
-          // setState(() {
-          //   _createPolylines(
-          //       currentPosition, LatLng(31.467654444463268, 74.30709509528805));
+          setState(() {
+            _createPolylines(
+                LatLng(currentPosition.latitude, currentPosition.longitude),
+                LatLng(31.467654444463268, 74.30709509528805));
 
-          //   shopView = !shopView;
-          // });
+            shopView = !shopView;
+          });
         },
         markerId: MarkerId("Akbar Electronics"),
         position: LatLng(31.467654444463268, 74.30709509528805),

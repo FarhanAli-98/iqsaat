@@ -123,6 +123,7 @@ void getUserProfileInfo()
               padding: EdgeInsets.fromLTRB(14.0, 0.0, 0.0, 5.0),
               child: Container(
                 width: 160,
+                // ignore: deprecated_member_use
                 child: FlatButton(
                   onPressed: () {},
                   color: Colors.white,

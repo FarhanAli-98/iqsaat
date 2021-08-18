@@ -6,6 +6,7 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+// ignore: unused_element
 LoginModel _$LoginModelFromJson(Map<String, dynamic> json) {
   return LoginModel(
     success: json['success'] as bool,
@@ -16,6 +17,7 @@ LoginModel _$LoginModelFromJson(Map<String, dynamic> json) {
   );
 }
 
+// ignore: unused_element
 Map<String, dynamic> _$LoginModelToJson(LoginModel instance) =>
     <String, dynamic>{
       'success': instance.success,
@@ -23,6 +25,7 @@ Map<String, dynamic> _$LoginModelToJson(LoginModel instance) =>
       'data': instance.data?.toJson(),
     };
 
+// ignore: unused_element
 Data _$DataFromJson(Map<String, dynamic> json) {
   return Data(
     user: json['user'] == null
