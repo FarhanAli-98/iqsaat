@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
 import 'package:iqsaat/ui/Seller/home/dashboard/sellerHome.dart';
+import 'package:iqsaat/ui/buyer/home/home.dart';
 import 'package:iqsaat/ui/notification/notify_screen.dart';
 import 'package:iqsaat/utils/images.dart';
+import 'package:iqsaat/utils/splashScreen.dart';
 
 
 class Notifications extends StatefulWidget {

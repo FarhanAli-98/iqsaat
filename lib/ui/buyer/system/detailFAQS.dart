@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iqsaat/Widget/appBar.dart';
-import 'package:iqsaat/utils/app_colors.dart';
 
 class FAQS1 extends StatefulWidget {
   const FAQS1({Key key}) : super(key: key);

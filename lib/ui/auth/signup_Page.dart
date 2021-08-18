@@ -123,12 +123,12 @@ class _SignUpPageState extends State<SignUpPage> {
     }
   }
 
-  @override
-  void initState() {
-    super.initState();
-    selectedRadio = 0;
-    isSeller = false;
-  }
+    @override
+    void initState() {
+      super.initState();
+      selectedRadio = 0;
+      isSeller = false;
+    }
 
   Widget _body(BuildContext context) {
     return ListView(

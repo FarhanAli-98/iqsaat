@@ -4,7 +4,7 @@ import 'package:iqsaat/ui/buyer/products/product_description.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/routes.dart';
 
-class ProductCardDesign extends StatelessWidget {
+class ProductCardDesign extends StatefulWidget {
   var product;
   final bool isGridView;
   final int count;
@@ -14,7 +14,17 @@ class ProductCardDesign extends StatelessWidget {
     this.isGridView = false,
     this.count,
   });
+
   @override
+  _ProductCardDesignState createState() => _ProductCardDesignState();
+}
+
+class _ProductCardDesignState extends State<ProductCardDesign> {
+  @override
+  void initState(){
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -38,7 +48,7 @@ class ProductCardDesign extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                 ),
-                count % 2 == 0
+                widget.count % 2 == 0
                     ? Positioned(
                         top: 5,
                         left: 5,
@@ -60,7 +70,7 @@ class ProductCardDesign extends StatelessWidget {
                         ),
                       )
                     : Container(),
-                count % 2 != 0
+                widget.count % 2 != 0
                     ? Align(
                         alignment: Alignment.center,
                         child: Container(
@@ -92,7 +102,7 @@ class ProductCardDesign extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          product.name,
+                          widget.product.name,
                           maxLines: 1,
                           textAlign: TextAlign.left,
                           overflow: TextOverflow.ellipsis,
@@ -103,7 +113,7 @@ class ProductCardDesign extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          product.products[0].description,
+                          widget.product.products[0].description,
                           maxLines: 1,
                           textAlign: TextAlign.left,
                           overflow: TextOverflow.ellipsis,
@@ -115,7 +125,7 @@ class ProductCardDesign extends StatelessWidget {
                         ),
                         // Expanded(child: SizedBox()),
                         Text(
-                          product.products[0].price + " RS",
+                          widget.product.products[0].price + " RS",
                           maxLines: 1,
                           textAlign: TextAlign.left,
                           overflow: TextOverflow.ellipsis,
@@ -146,10 +156,11 @@ class ProductCardDesign extends StatelessWidget {
                           AppRoutes.push(
                               context,
                               ProdDescScreen(
+                                ownerid:widget.product.ownerId.toString(),
                                 id:"60aa520776e65000199beaa8",
-                                  name: product.name,
-                                  des: product.products[0].description,
-                                  price: product.products[0].price,
+                                  name: widget.product.name,
+                                  des: widget.product.products[0].description,
+                                  price: widget.product.products[0].price,
                                   image:
                                       "assets/images/vehicle2.png", //product.images[0],
                                   package: [23, 34, 56]));

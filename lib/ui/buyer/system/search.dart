@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iqsaat/Widget/slider/product_slider.dart';
 import 'package:iqsaat/Widget/slider/search_slider_card.dart';
 import 'package:iqsaat/utils/app_colors.dart';
 import 'package:iqsaat/utils/images.dart';

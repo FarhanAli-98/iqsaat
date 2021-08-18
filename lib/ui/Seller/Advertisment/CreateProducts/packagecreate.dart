@@ -10,6 +10,7 @@ class CreatePackages extends StatefulWidget {
 
 class _CreatePackagesState extends State<CreatePackages> {
   @override
+  // ignore: override_on_non_overriding_member
   Widget pricefield(count) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
